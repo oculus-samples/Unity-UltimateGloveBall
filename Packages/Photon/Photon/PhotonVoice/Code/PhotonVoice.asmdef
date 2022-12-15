@@ -1,0 +1,17 @@
+{
+    "name": "PhotonVoice",
+    "rootNamespace": "",
+    "references": [
+        "Photon Realtime Transport for Netcode for GameObjects",
+        "PhotonVoice.API"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

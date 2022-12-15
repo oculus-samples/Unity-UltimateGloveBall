@@ -1,0 +1,20 @@
+{
+    "name": "PhotonVoice.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Photon Realtime Transport for Netcode for GameObjects",
+        "PhotonVoice",
+        "PhotonVoice.API"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

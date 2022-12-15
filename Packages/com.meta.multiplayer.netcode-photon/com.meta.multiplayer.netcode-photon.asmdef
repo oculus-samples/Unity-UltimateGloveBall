@@ -1,0 +1,24 @@
+{
+    "name": "Meta Multiplayer For Netcode and Photon",
+    "rootNamespace": "Meta.Multiplayer",
+    "references": [
+        "GUID:f64c9ebcd7899c3448a08dc9f9ddbe30",
+        "GUID:b5f047a9aec2c984ebaebc758e5cb77b",
+        "GUID:64a5e78bc3a487e4785840abcc411b13",
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:3b8ed52f1b5c64994af4c4e0aa4b6c4b",
+        "GUID:1f4d40f5e4a05e64e9b596637963c0bc",
+        "GUID:b59fae9c7ebc1574e8690f2570b29d6f",
+        "GUID:8e3c55029ca641543bf030857af4d525",
+        "GUID:51c2c203806c51b44a2e1b60d78e3429"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
