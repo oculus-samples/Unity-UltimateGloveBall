@@ -22,5 +22,6 @@ struct VertexToFragment
     float2 v_UVCoord2 : TEXCOORD1;
     float4 v_Vertex : SV_POSITION;
     float3 v_WorldPos : TEXCOORD4;
+    float3 v_SH : TEXCOORD6;
     //    float3 v_LightDir : TEXCOORD6;
 };

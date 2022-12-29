@@ -55,7 +55,7 @@ namespace Oculus.Avatar2
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public unsafe readonly ref struct ovrAvatar2PrimitiveRenderState
+        public unsafe readonly struct ovrAvatar2PrimitiveRenderState
         {
             public readonly ovrAvatar2PrimitiveRenderInstanceID id; // unique id of the instance of the primitive to be rendered
             public readonly ovrAvatar2Id primitiveId; // primitive to be rendered
@@ -77,6 +77,13 @@ namespace Oculus.Avatar2
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Render_GetPrimitiveRenderStateByIndex(
             ovrAvatar2EntityId entityId, UInt32 primitiveRenderStateIndex,
             out ovrAvatar2PrimitiveRenderState outState);
+
+        // Query the render states for a primitive in an entity by index
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
+        public static extern unsafe CAPI.ovrAvatar2Result ovrAvatar2Render_GetPrimitiveRenderStatesByIndex(
+            ovrAvatar2EntityId entityId, UInt32* primitiveRenderStateIndices,
+            ovrAvatar2PrimitiveRenderState* outState,
+            UInt32 numRenderStates);
 
         // Retrieve the skin transforms for a primitive render state
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]

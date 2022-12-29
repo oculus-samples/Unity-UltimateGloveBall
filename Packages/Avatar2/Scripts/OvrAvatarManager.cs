@@ -1,22 +1,20 @@
-#define DISABLE_OVR_FILE_SYSTEM
-
+#if USING_XR_MANAGEMENT && USING_XR_SDK_OCULUS && !OVRPLUGIN_UNSUPPORTED_PLATFORM
+#define USING_XR_SDK
+#endif
 
 using AOT;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Oculus.Skinning.GpuSkinning;
 using UnityEngine;
 using Application = UnityEngine.Application;
-using Oculus.Skinning;
 using Unity.Jobs;
-using UnityEngine.Events;
 using UnityEngine.Profiling;
-using UnityEngine.XR;
 using Debug = UnityEngine.Debug;
+using Unity.Collections;
+using static Oculus.Avatar2.CAPI;
+using Unity.Collections.LowLevel.Unsafe;
 
 
 
@@ -24,6 +22,7 @@ using Debug = UnityEngine.Debug;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Oculus.AvatarSDK2.Editor")]
+[assembly: InternalsVisibleTo("AvatarSDK.PlayModeTests")]
 #endif
 
 /// @file OvrAvatarManager.cs
@@ -68,6 +67,12 @@ namespace Oculus.Avatar2
             false;
 #endif
 
+        // Default setting for UseExperimentalSystems
+        private const bool ExperimentalSystemsDefaultValue = false;
+
+        public CAPI.ovrAvatar2Platform Platform { get; private set; } = CAPI.ovrAvatar2Platform.Invalid;
+        public CAPI.ovrAvatar2ControllerType ControllerType { get; private set; } = CAPI.ovrAvatar2ControllerType.Invalid;
+
         /**
          * Return codes for @ref UserHasAvatarAsync query.
          */
@@ -109,7 +114,7 @@ namespace Oculus.Avatar2
                 int[] indices,
                 Vector3[] positions,
                 Vector3[] normals,
-                Color[] colors,
+                Color32[] colors,
                 Vector2[] texcoords,
                 Vector4[] tangents,
                 BoneWeight[] boneweights,
@@ -129,7 +134,7 @@ namespace Oculus.Avatar2
             public readonly int[] Indices;
             public readonly Vector3[] Positions;
             public readonly Vector3[] Normals;
-            public readonly Color[] Colors;
+            public readonly Color32[] Colors;
             public readonly Vector2[] TexCoords;
             public readonly Vector4[] Tangents;
             public readonly BoneWeight[] BoneWeights;
@@ -317,6 +322,10 @@ Roughly equal to number of cores used")]
         [SerializeField]
         public bool UseFastLoadAvatar = false;
 
+        [Tooltip(@"Enable experimental systems.")]
+        [SerializeField]
+        private DefaultableBool _useExperimentalSystems = DefaultableBool.Default;
+        
         [Header("Debug")]
         [SerializeField]
         private CAPI.ovrAvatar2LogLevel _ovrLogLevel = CAPI.ovrAvatar2LogLevel.Verbose;
@@ -331,6 +340,9 @@ Roughly equal to number of cores used")]
         /// Desired level for console logging.
         public CAPI.ovrAvatar2LogLevel ovrLogLevel => _ovrLogLevel;
 
+        /// Effective setting for activating experimental systems, accounting for runtime config and compile time defaults
+        public bool UseExperimentalSystems => _useExperimentalSystems.GetValue(ExperimentalSystemsDefaultValue);
+        
         public void SetLogLevel(CAPI.ovrAvatar2LogLevel logLevel)
         {
             if (_ovrLogLevel != logLevel)
@@ -372,6 +384,11 @@ Roughly equal to number of cores used")]
         public OvrAvatarGazeTargetManager GazeTargetManager { get; private set; }
 
 
+        /// Selects the face tracker to use for all avatars.
+        internal OvrAvatarFacePoseProviderBase OvrPluginFacePoseProvider { get; private set; }
+
+        /// Selects the eye tracker to use for all avatars.
+        internal OvrAvatarEyePoseProviderBase OvrPluginEyePoseProvider { get; private set; }
 
         private delegate void RequestDelegate(CAPI.ovrAvatar2Result result, IntPtr userContext);
 
@@ -409,10 +426,11 @@ Roughly equal to number of cores used")]
             var clientName = $"{Application.companyName}.{Application.productName}";
             var clientAppVersionString = $"{Application.version}+{Application.unityVersion}";
 
-            OvrAvatarLog.LogInfo($"OvrAvatarManager initializing for app {clientName}::{clientAppVersionString}"
+            var platform = GetPlatform();
+            OvrAvatarLog.LogInfo($"OvrAvatarManager initializing for app {clientName}::{clientAppVersionString} on platform '{CAPI.ovrAvatar2PlatformToString(platform)}'"
                 , logScope, this);
 
-            var initInfo = CAPI.OvrAvatar_DefaultInitInfo(clientAppVersionString, GetPlatform());
+            var initInfo = CAPI.OvrAvatar_DefaultInitInfo(clientAppVersionString, platform);
             {
                 initInfo.flags |= CAPI.ovrAvatar2InitializeFlags.EnableSkinningOrigin;
                 initInfo.loggingLevel = _ovrLogLevel;
@@ -421,7 +439,7 @@ Roughly equal to number of cores used")]
                 initInfo.requestCallback = RequestCallback;
                 initInfo.resourceLoadCallback = ResourceCallback;
                 initInfo.resourceLoadContext = IntPtr.Zero;
-                initInfo.fallbackPathToOvrAvatar2AssetsZip = GetAssetPathForFile(ovrAvatar2AssetFolder);
+                initInfo.fallbackPathToOvrAvatar2AssetsZip = GetAssetPathForFile(ovrAvatar2AssetFolder, true);
                 initInfo.numWorkerThreads = 1;
                 initInfo.fileOpenCallback = null;
                 initInfo.fileReadCallback = null;
@@ -446,11 +464,44 @@ Roughly equal to number of cores used")]
 #endif
             }
 
-#if !OVRPLUGIN_UNSUPPORTED_PLATFORM
+            if (UseExperimentalSystems
+            )
+            {
+                // All bits used by application during initialization (0-3)
+                const ovrAvatar2InitializeFlags appFlags
+                    = (ovrAvatar2InitializeFlags)(((int)ovrAvatar2InitializeFlags.Last << 1) - 1);
+                // Set of non-debug bits (0-29)
+                const ovrAvatar2InitializeFlags allSystemFlags = (ovrAvatar2InitializeFlags)((1 << 29) - 1);
+
+                // Specifics bits to set for experimental features (4-28)
+                const ovrAvatar2InitializeFlags experimentalMask = allSystemFlags & ~appFlags;
+                initInfo.flags |= experimentalMask;
+            }
+
+#if USING_XR_SDK
             OvrAvatarLog.LogInfo($"Attempting to initialize ovrplugintracking lib", logScope, this);
             if (OvrPluginTracking.Initialize(initInfo.loggingCallback, initInfo.loggingContext))
             {
 
+                OvrPluginFacePoseProvider = OvrPluginTracking.CreateFaceTrackingContext();
+                if (OvrPluginFacePoseProvider != null)
+                {
+                    OvrAvatarLog.LogInfo("Created ovrplugintracking face tracking context", logScope, this);
+                }
+                else
+                {
+                    OvrAvatarLog.LogInfo("Failed to created ovrplugintracking face tracking context", logScope, this);
+                }
+
+                OvrPluginEyePoseProvider = OvrPluginTracking.CreateEyeTrackingContext();
+                if (OvrPluginEyePoseProvider != null)
+                {
+                    OvrAvatarLog.LogInfo("Created ovrplugintracking eye tracking context", logScope, this);
+                }
+                else
+                {
+                    OvrAvatarLog.LogInfo("Failed to created ovrplugintracking eye tracking context", logScope, this);
+                }
 
                 DefaultHandTrackingDelegate = OvrPluginTracking.CreateHandTrackingDelegate();
                 OvrAvatarLog.LogInfo(DefaultHandTrackingDelegate != null
@@ -511,6 +562,8 @@ Roughly equal to number of cores used")]
                 OvrAvatarLog.LogError("ovrAvatar2_Initialize Failed", logScope, this);
                 return;
             }
+            Platform = platform;
+            ControllerType = GetControllerType();
 
             // Enable the tools link so we send data to the Avatar Resource Monitor window
             if (EnableDevTools)
@@ -526,7 +579,7 @@ Roughly equal to number of cores used")]
             AvatarLODManager.Instantiate();
 
             // TODO: This was done in SampleManager after initialization. What is the effect?
-            CAPI.OvrAvatar_Update();
+            CAPI.OvrAvatar2_Update();
 
             //Preload zip files
             foreach (var filePath in _preloadZipFiles)
@@ -546,8 +599,8 @@ Roughly equal to number of cores used")]
                 ShaderManager = gameObject.AddComponent<OvrAvatarShaderManagerSingle>();
             }
 
-            UpdateNetworkSetting(ref CAPI.SpecificationNetworkSettings.timeoutSpecMS, _specificationTimeoutMs);
-            UpdateNetworkSetting(ref CAPI.AssetNetworkSettings.timeoutAssetMS, _assetTimeoutMs);
+            UpdateNetworkSetting(ref CAPI.SpecificationNetworkSettings.timeoutMS, _specificationTimeoutMs);
+            UpdateNetworkSetting(ref CAPI.AssetNetworkSettings.timeoutMS, _assetTimeoutMs);
             UpdateNetworkSetting(ref CAPI.AssetNetworkSettings.lowSpeedTimeSeconds, _assetLowBandwidthTimeoutSeconds);
             UpdateNetworkSetting(ref CAPI.AssetNetworkSettings.lowSpeedLimitBytesPerSecond, _assetLowBandwidthBytesPerSecond);
 
@@ -570,6 +623,16 @@ Roughly equal to number of cores used")]
         public void Step(float deltaSeconds)
         {
             UpdateInternal(deltaSeconds);
+        }
+
+        private bool GetActives(in NativeArray<ovrAvatar2EntityId> entityIds, ref NativeArray<bool> actives)
+        {
+            Debug.Assert(entityIds.Length == actives.Length);
+            unsafe
+            {
+                return CAPI.ovrAvatar2Entity_GetActives((ovrAvatar2EntityId*)entityIds.GetUnsafePtr(), (bool*)actives.GetUnsafePtr(), (uint)entityIds.Length)
+                        .EnsureSuccess("ovrAvatar2Entity_GetActives", logScope, this);
+            }
         }
 
         private void UpdateInternal(float deltaSeconds)
@@ -610,21 +673,46 @@ Roughly equal to number of cores used")]
                 Profiler.EndSample();
             }
 
-            Profiler.BeginSample("OvrAvatarManager.PreSDKUpdates");
-            foreach (var trackedEntity in _entityUpdateArray)
+            var entityIds = new NativeArray<ovrAvatar2EntityId>(_entityUpdateArray.Length, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+            var actives = new NativeArray<bool>(_entityUpdateArray.Length, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+            unsafe
             {
-                trackedEntity.PreSDKUpdateInternal();
+                var ids = (ovrAvatar2EntityId*)entityIds.GetUnsafePtr();
+                for (int i = 0; i < _entityUpdateArray.Length; i++)
+                {
+                    ids[i] = _entityUpdateArray[i].internalEntityId;
+                }
+            }
+
+            Profiler.BeginSample("OvrAvatarManager.PreSDKUpdates");
+            var transforms = new NativeArray<CAPI.ovrAvatar2Transform>(_entityUpdateArray.Length, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+            uint nextTransformIndex = 0;
+            if (GetActives(entityIds, ref actives))
+            {
+                for (int i = 0; i < _entityUpdateArray.Length; i++)
+                {
+                    _entityUpdateArray[i].PreSDKUpdateInternal(actives[i], ref transforms, nextTransformIndex++);
+                }
+                unsafe
+                {
+                    CAPI.ovrAvatar2Entity_SetRoots(entityIds.GetPtr<ovrAvatar2EntityId>(), transforms.GetPtr<CAPI.ovrAvatar2Transform>(), nextTransformIndex);
+                }
             }
             Profiler.EndSample();
 
-            Profiler.BeginSample("CAPI.OvrAvatar_Update");
-            CAPI.OvrAvatar_Update(deltaSeconds);
-            Profiler.EndSample(); // "CAPI.OvrAvatar_Update"
+            Profiler.BeginSample("CAPI.OvrAvatar2_Update");
+            CAPI.OvrAvatar2_Update(deltaSeconds);
+            Profiler.EndSample(); // "CAPI.OvrAvatar2_Update"
 
             Profiler.BeginSample("OvrAvatarManager.PostSDKUpdates");
-            foreach (var trackedEntity in _entityUpdateArray)
+            // DOD to OOP mismatch makes for pain, going to have to read and then write 64 bytes
+            // for every single avatar, just to set one bit's worth of info :(
+            if (GetActives(entityIds, ref actives))
             {
-                trackedEntity.PostSDKUpdateInternal();
+                for (int i = 0; i < _entityUpdateArray.Length; i++)
+                {
+                    _entityUpdateArray[i].PostSDKUpdateInternal(actives[i]);
+                }
             }
             Profiler.EndSample();
 
@@ -647,10 +735,12 @@ Roughly equal to number of cores used")]
             Profiler.EndSample();
 
             Profiler.BeginSample("OvrAvatarManager.UpdateInternals");
+            GpuSkinningController?.StartFrame();
             foreach (var trackedEntity in _entityUpdateArray)
             {
                 trackedEntity.UpdateInternal(deltaSeconds);
             }
+            GpuSkinningController?.EndFrame();
             Profiler.EndSample();
 
             if (UseCriticalJointJobs)
@@ -660,6 +750,7 @@ Roughly equal to number of cores used")]
             }
 
             GpuSkinningController?.UpdateInternal();
+            Permission_Update();
         }
 
         protected override void Shutdown()
@@ -678,6 +769,11 @@ Roughly equal to number of cores used")]
             foreach (var asset in assets)
             {
                 asset.Dispose();
+            }
+
+            if (GpuSkinningController != null)
+            {
+                GpuSkinningController.Dispose();
             }
 
             foreach (var resource in _resourcesByID)
@@ -759,26 +855,27 @@ Roughly equal to number of cores used")]
          */
         public void AddZipSource(string file)
         {
-            string filePath = GetAssetPathForFile(file);
-            string postfix = GetPlatformPostfix(true);
-            string fastPath = GetAssetPathForFile(file);
+            string platformPostfix = GetPlatformPostfix(true);
             string fastPostfix = GetFastLoadPostfix(true);
 
-            if (postfix.Length > 0)
+            string filePath;
+            if (platformPostfix.Length > 0)
             {
                 // Remove extension so we can insert postfix
-                filePath = Path.ChangeExtension(filePath, null);
-                filePath += $"_{postfix}.zip";
+                filePath = Path.ChangeExtension(file, null);
+                filePath += $"_{platformPostfix}.zip";
             }
             else
             {
                 // Otherwise, simply ensure the filename ends with ".zip"
-                filePath = Path.ChangeExtension(filePath, "zip");
+                filePath = Path.ChangeExtension(file, "zip");
             }
+            filePath = GetAssetPathForFile(filePath);
             AddRawZipSource(filePath);
 
-            fastPath = Path.ChangeExtension(fastPath, null);
+            string fastPath = Path.ChangeExtension(file, null);
             fastPath += $"_{fastPostfix}.zip";
+            fastPath = GetAssetPathForFile(fastPath);
             AddRawZipSource(fastPath);
         }
 
@@ -791,9 +888,9 @@ Roughly equal to number of cores used")]
          */
         public void AddUniversalZipSource(string file)
         {
-            string filePath = GetAssetPathForFile(file);
-            filePath = Path.ChangeExtension(filePath, "zip");
-            AddRawZipSource(filePath);
+            file = Path.ChangeExtension(file, "zip");
+            file = GetAssetPathForFile(file);
+            AddRawZipSource(file);
         }
 
         private void AddRawZipSource(string filePath)
@@ -825,7 +922,7 @@ Roughly equal to number of cores used")]
                 return HasAvatarRequestResultCode.BadParameter;
             }
 
-            if (!OvrAvatarEntitlement.AccessTokenIsValid)
+            if (!OvrAvatarEntitlement.AccessTokenIsValid())
             {
                 OvrAvatarLog.LogError("UserHasAvatarAsync failed: no valid access token", logScope, this);
                 return HasAvatarRequestResultCode.BadParameter;
@@ -961,10 +1058,10 @@ Roughly equal to number of cores used")]
          */
         public (UInt64 downloadTotalBytes, UInt64 downloadSpeed, UInt64 totalRequests, UInt64 activeRequests) QueryNetworkStats()
         {
-            UInt32 statsSize =
-                CAPI.ovrAvatar2_QueryNetworkStats(out var stats, (UInt32)Marshal.SizeOf<CAPI.ovrAvatar2NetworkStats>());
+            bool statsSuccess =
+                CAPI.OvrAvatar2_QueryNetworkStats(out var stats);
 
-            if (statsSize != 0)
+            if (statsSuccess)
             {
                 return (stats.downloadTotalBytes, stats.downloadSpeed, stats.totalRequests, stats.activeRequests);
             }
@@ -992,7 +1089,7 @@ Roughly equal to number of cores used")]
                 return String.Empty;
             }
             int assetVersion = 0;
-            switch (GetPlatform())
+            switch (Platform)
             {
                 case CAPI.ovrAvatar2Platform.PC:
                     assetVersion = assetVersionDefault;
@@ -1003,8 +1100,11 @@ Roughly equal to number of cores used")]
                 case CAPI.ovrAvatar2Platform.Quest2:
                     assetVersion = assetVersionQuest2;
                     break;
+                case CAPI.ovrAvatar2Platform.QuestPro:
+                    assetVersion = assetVersionQuest2;
+                    break;
                 default:
-                    OvrAvatarLog.LogError($"Error unknown platform for version number, using default. Platform was {GetPlatform()}.", logScope, this);
+                    OvrAvatarLog.LogError($"Error unknown platform for version number, using default. Platform was {Platform}.", logScope, this);
                     assetVersion = assetVersionDefault;
                     break;
             }
@@ -1017,10 +1117,36 @@ Roughly equal to number of cores used")]
             return isFromZip ? zipFileExtension : streamingAssetFileExtension;
         }
 
-        public static CAPI.ovrAvatar2Platform GetPlatform()
+        private static CAPI.ovrAvatar2Platform GetPlatform()
         {
-            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             return IsAndroidStandalone ? GetAndroidStandalonePlatform() : CAPI.ovrAvatar2Platform.PC;
+        }
+
+        private CAPI.ovrAvatar2ControllerType GetControllerType()
+        {
+            OvrAvatarLog.Assert(
+                CAPI.ovrAvatar2Platform.First <= Platform && Platform <= CAPI.ovrAvatar2Platform.Last
+                , logScope, this);
+
+            switch (Platform)
+            {
+                case CAPI.ovrAvatar2Platform.PC:
+                    return CAPI.ovrAvatar2ControllerType.Rift;
+                case CAPI.ovrAvatar2Platform.Quest:
+                    return CAPI.ovrAvatar2ControllerType.Touch;
+                case CAPI.ovrAvatar2Platform.Quest2:
+                    return CAPI.ovrAvatar2ControllerType.Quest2;
+                case CAPI.ovrAvatar2Platform.QuestPro:
+                    return CAPI.ovrAvatar2ControllerType.QuestPro;
+
+
+                case CAPI.ovrAvatar2Platform.Num:
+                case CAPI.ovrAvatar2Platform.Invalid:
+                default:
+                    OvrAvatarLog.LogError($"Unable to find controller type for current platform {Platform}", logScope, this);
+                    break;
+            }
+            return CAPI.ovrAvatar2ControllerType.Invalid;
         }
 
         #endregion
@@ -1029,7 +1155,7 @@ Roughly equal to number of cores used")]
 
         private string GetPlatformPostfix(bool isFromZip)
         {
-            switch (GetPlatform())
+            switch (Platform)
             {
                 case CAPI.ovrAvatar2Platform.PC:
                     return isFromZip ? zipPostfixDefault : streamingAssetPostfixDefault;
@@ -1037,8 +1163,10 @@ Roughly equal to number of cores used")]
                     return isFromZip ? zipPostfixAndroid : streamingAssetPostfixAndroid;
                 case CAPI.ovrAvatar2Platform.Quest2:
                     return isFromZip ? zipPostfixQuest2 : streamingAssetPostfixQuest2;
+                case CAPI.ovrAvatar2Platform.QuestPro:
+                    return isFromZip ? zipPostfixQuest2 : streamingAssetPostfixQuest2;
                 default:
-                    OvrAvatarLog.LogError($"Error unknown platform for prefix, using default. Platform was {GetPlatform()}.", logScope, this);
+                    OvrAvatarLog.LogError($"Error unknown platform for prefix, using default. Platform was {Platform}.", logScope, this);
                     return IsAndroidStandalone ? (isFromZip ? zipPostfixAndroid : streamingAssetPostfixAndroid) : (isFromZip ? zipPostfixDefault : streamingAssetPostfixDefault);
             }
         }
@@ -1048,27 +1176,81 @@ Roughly equal to number of cores used")]
             return isFromZip ? zipPostfixFastLoad : streamingAssetPostfixFastLoad;
         }
 
-        private string GetAssetPathForFile(string file)
+
+        private string GetAssetPathForFile(string file, bool suppressNonExistentWarning = false)
         {
+            if (Application.isEditor)
+            {
+                var path = Path.Combine(Application.dataPath, "..", "Packages", "Avatar2", "StreamingAssets", file);
+                if (!File.Exists(path))
+                {
+                    if (!suppressNonExistentWarning)
+                    {
+                        OvrAvatarLog.LogWarning("Asset doesn't exist: " + path, logScope);
+                    }
+                }
+                return path;
+            }
+
             // ReSharper disable once ConditionIsAlwaysTrueOrFalse
             return IsAndroidStandalone ? file : Path.Combine(Application.streamingAssetsPath, file);
         }
 
         private static CAPI.ovrAvatar2Platform GetAndroidStandalonePlatform()
+            => GetAndroidStandalonePlatform(SystemInfo.deviceName);
+
+
+        internal const string NonQuestDeviceLogText = "Identified non-Quest platform";
+        internal const string RecognizedQuestDeviceLogText =
+            "Identified Quest platform!";
+        internal const string UnrecognizedQuestDeviceWarningText =
+            "Unrecognized Quest platform, treating as QuestPro. AvatarSDK is likely out of date!";
+        internal static CAPI.ovrAvatar2Platform GetAndroidStandalonePlatform(string deviceName)
         {
-            var deviceName = SystemInfo.deviceName;
+            deviceName = deviceName.Trim();
+
             var isQuestDevice = deviceName.IndexOf("Quest", StringComparison.OrdinalIgnoreCase) >= 0;
-            if (isQuestDevice)
+            if (!isQuestDevice)
             {
-                // Check explicitly for Quest1
-                var isQuest1 = deviceName.Equals("Oculus Quest", StringComparison.OrdinalIgnoreCase);
-                // Default to Quest2 settings for any Quest device which isn't Quest1
-                return isQuest1 ? CAPI.ovrAvatar2Platform.Quest : CAPI.ovrAvatar2Platform.Quest2;
+                OvrAvatarLog.LogInfo(NonQuestDeviceLogText);
+                // Default to Quest1 settings for unrecognized Android headsets
+                OvrAvatarLog.LogVerbose("Reporting as Quest device", logScope);
+                return CAPI.ovrAvatar2Platform.Quest;
             }
 
-            // Default to Quest1 settings for unrecognized Android headsets
-            // TODO: Need to detect non-Quest Android devices, requires new enum values
-            return CAPI.ovrAvatar2Platform.Quest;
+            var foundType = CAPI.ovrAvatar2Platform.Invalid;
+
+            // Check explicitly for Quest1
+            bool isQuest1 = deviceName.EndsWith("Quest", StringComparison.OrdinalIgnoreCase);
+            if (isQuest1) { foundType = CAPI.ovrAvatar2Platform.Quest; }
+
+
+            if (foundType == CAPI.ovrAvatar2Platform.Invalid)
+            {
+                bool isQuest2 = deviceName.EndsWith("2")
+                                && (deviceName.EndsWith("Quest 2", StringComparison.OrdinalIgnoreCase)
+                                    || deviceName.EndsWith("Quest2", StringComparison.OrdinalIgnoreCase));
+                if (isQuest2) { foundType =  CAPI.ovrAvatar2Platform.Quest2; }
+            }
+
+            if (foundType == CAPI.ovrAvatar2Platform.Invalid)
+            {
+                bool isQuestPro = deviceName.EndsWith("Pro")
+                                  && (deviceName.EndsWith("Quest Pro", StringComparison.OrdinalIgnoreCase)
+                                      || deviceName.EndsWith("QuestPro", StringComparison.OrdinalIgnoreCase));
+                if (isQuestPro) { foundType =  CAPI.ovrAvatar2Platform.QuestPro; }
+            }
+
+            if (foundType == CAPI.ovrAvatar2Platform.Invalid)
+            {
+                // Default to QuestPro settings for any Quest device which isn't Quest1 or Quest2
+                OvrAvatarLog.LogWarning(UnrecognizedQuestDeviceWarningText, logScope);
+                return CAPI.ovrAvatar2Platform.QuestPro;
+            }
+
+            OvrAvatarLog.LogInfo(RecognizedQuestDeviceLogText, logScope);
+            OvrAvatarLog.LogVerbose($"Identified Quest platform {foundType}", logScope);
+            return foundType;
         }
 
         #endregion

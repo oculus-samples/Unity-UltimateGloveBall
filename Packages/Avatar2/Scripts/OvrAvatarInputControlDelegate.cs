@@ -14,9 +14,7 @@ namespace Oculus.Avatar2
          */
         protected virtual CAPI.ovrAvatar2ControllerType GetControllerType()
         {
-            return OvrAvatarManager.IsAndroidStandalone
-                ? CAPI.ovrAvatar2ControllerType.Touch
-                : CAPI.ovrAvatar2ControllerType.Rift;
+            return OvrAvatarManager.Instance.ControllerType;
         }
     }
 }

@@ -5,16 +5,13 @@
 #if USING_XR_SDK
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Oculus.Avatar2;
 using Oculus.Platform;
 using Oculus.Platform.Models;
-using UnityEngine;
 
 public enum OvrPlatformInitStatus
 {
-    NotStarted,
+    NotStarted = 0,
     Initializing,
     Succeeded,
     Failed
@@ -30,7 +27,7 @@ public static class OvrPlatformInit
     {
         if (status == OvrPlatformInitStatus.Succeeded)
         {
-            OvrAvatarLog.LogWarning("OvrPlatform is already initialized.");
+            OvrAvatarLog.LogWarning("OvrPlatform is already initialized.", logScope);
             return;
         }
 

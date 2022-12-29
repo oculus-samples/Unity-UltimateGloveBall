@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Oculus.Skinning.GpuSkinning
 {
@@ -34,24 +35,24 @@ namespace Oculus.Skinning.GpuSkinning
             _indirectionTex.ArrayResized -= IndirectionTexArrayResized;
         }
 
-        private void CombinerArrayResized(object sender, Texture newArray)
+        private void CombinerArrayResized(OvrGpuMorphTargetsCombiner sender, RenderTexture newArray)
         {
             SetCombinedMorphTargetsTextureInMaterial(newArray);
         }
 
-        private void IndirectionTexArrayResized(object sender, Texture2DArray newArray)
+        private void IndirectionTexArrayResized(OvrExpandableTextureArray sender, Texture2DArray newArray)
         {
             SetIndirectionTextureInMaterial(newArray);
         }
 
-        private void SetIndirectionTextureInMaterial(Texture indirectionTex)
+        private void SetIndirectionTextureInMaterial(Texture2DArray indirectionTex)
         {
             _skinningMaterial.SetTexture(INDIRECTION_TEX_PROP, indirectionTex);
         }
 
-        private void SetCombinedMorphTargetsTextureInMaterial(Texture combinedMorphTargetsTex)
+        private void SetCombinedMorphTargetsTextureInMaterial(RenderTexture combinedMorphTargetsTex)
         {
-            _skinningMaterial.SetTexture(COMBINED_MORPH_TARGETS_TEX_PROP, combinedMorphTargetsTex);
+            _skinningMaterial.SetTexture(COMBINED_MORPH_TARGETS_TEX_PROP, combinedMorphTargetsTex, RenderTextureSubElement.Color);
         }
 
         private const string OVR_MORPH_TARGET_KEYWORD = "OVR_HAS_MORPH_TARGETS";

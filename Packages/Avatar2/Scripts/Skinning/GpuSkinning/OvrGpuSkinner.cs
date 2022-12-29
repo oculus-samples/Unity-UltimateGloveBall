@@ -1,3 +1,5 @@
+using System;
+
 using Oculus.Avatar2;
 
 using Unity.Collections;
@@ -98,16 +100,14 @@ namespace Oculus.Skinning.GpuSkinning
             return packerHandle;
         }
 
-        public override NativeSlice<OvrJointsData.JointData>? GetJointTransformMatricesArray(OvrSkinningTypes.Handle handle)
+        public override IntPtr GetJointTransformMatricesArray(OvrSkinningTypes.Handle handle)
         {
             BlockData dataForBlock = GetBlockDataForHandle(handle);
-            return dataForBlock?.skinnerDrawCall.GetJointTransformMatricesArray(dataForBlock.handleInDrawCall);
-        }
-
-        public override void UpdateJointTransformMatrices(OvrSkinningTypes.Handle handle)
-        {
-            BlockData dataForBlock = GetBlockDataForHandle(handle);
-            dataForBlock?.skinnerDrawCall.UpdateJointTransformMatrices(dataForBlock.handleInDrawCall);
+            if (dataForBlock != null)
+            {
+                return dataForBlock.skinnerDrawCall.GetJointTransformMatricesArray(dataForBlock.handleInDrawCall);
+            }
+            else { return IntPtr.Zero; }
         }
 
         public override bool HasJoints => true;

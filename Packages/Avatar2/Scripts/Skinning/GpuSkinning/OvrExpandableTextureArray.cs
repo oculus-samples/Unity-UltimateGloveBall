@@ -15,7 +15,7 @@ namespace Oculus.Skinning.GpuSkinning
 
         // TODO: Sender -> OvrExpandableTextureArray
         // Declare the delegate (if using non-generic pattern).
-        public delegate void ArrayGrowthEventHandler(object sender, Texture2DArray newArray);
+        public delegate void ArrayGrowthEventHandler(OvrExpandableTextureArray sender, Texture2DArray newArray);
 
         private event ArrayGrowthEventHandler _ArrayResized;
         // Declare the event.

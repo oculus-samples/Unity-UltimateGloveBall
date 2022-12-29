@@ -63,6 +63,16 @@ inline OvrGlobalIllumination OvrGetUnityFragmentGI (
   return OvrGetUnityFragmentGI(posWorld, occlusion, i_ambientOrLightmapUV, smoothness, normalWorld, eyeVec, light, true);
 }
 
+inline void OvrGetUnityDiffuseGlobalIllumination(half3 lightColor, half3 lightDirection, float3 worldPos, float3 worldViewDir,
+    half attenuation, half3 ambient, half smoothness, half metallic, half occlusion,
+    half3 albedo, half3 normal, half3 specular_contribution, out float3 diffuse)
+{
+    OvrLight light;
+    light.color = lightColor;
+    light.direction = lightDirection;
+    OvrGlobalIllumination ovr_gi = OvrGetUnityFragmentGI(worldPos, occlusion, half4(ambient, 1.0), smoothness, normal, -worldViewDir, light, false);
+    diffuse = ovr_gi.indirectDiffuse;
+}
 inline void OvrGetUnityGlobalIllumination(half3 lightColor, half3 lightDirection, float3 worldPos, float3 worldViewDir,
     half attenuation, half3 ambient, half smoothness, half metallic, half occlusion,
     half3 albedo, half3 normal, half3 specular_contribution, out float3 diffuse, out float3 specular)
@@ -70,8 +80,9 @@ inline void OvrGetUnityGlobalIllumination(half3 lightColor, half3 lightDirection
     OvrLight light;
     light.color = lightColor;
     light.direction = lightDirection;
-    OvrGlobalIllumination ovr_gi = OvrGetUnityFragmentGI(worldPos, occlusion, half4(ambient, 1.0), smoothness, normal, -worldViewDir, light);
+    OvrGlobalIllumination ovr_gi = OvrGetUnityFragmentGI(worldPos, occlusion, half4(ambient, 1.0), smoothness, normal, -worldViewDir, light, true);
     diffuse = ovr_gi.indirectDiffuse;
+
     specular = ovr_gi.indirectSpecular;
 }
 

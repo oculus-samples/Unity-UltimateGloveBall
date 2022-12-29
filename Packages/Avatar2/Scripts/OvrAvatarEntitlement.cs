@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Oculus.Avatar2
 {
@@ -10,7 +7,7 @@ namespace Oculus.Avatar2
         private static string logScope = "entitlement";
         private static string _accessToken = "";
 
-        public static bool AccessTokenIsValid => !String.IsNullOrEmpty(_accessToken);
+        public static bool AccessTokenIsValid() => !String.IsNullOrEmpty(_accessToken);
 
         public static void SetAccessToken(string token)
         {
@@ -27,7 +24,7 @@ namespace Oculus.Avatar2
 
         public static void ResendAccessToken()
         {
-            if (AccessTokenIsValid)
+            if (AccessTokenIsValid())
             {
                 SetAccessToken(_accessToken);
             }

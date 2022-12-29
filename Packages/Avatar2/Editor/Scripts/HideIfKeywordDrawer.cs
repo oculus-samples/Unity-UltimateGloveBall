@@ -99,23 +99,23 @@ using UnityEditor;
   See this [tweet thread](https://twitter.com/shanecelis/status/1098714764962877440) to see it in action.
 */
 public class HideIfKeywordDrawer : MaterialPropertyDrawer {
-  protected string[] argValue;
-  private bool[] enabledQueries;
+  protected string[] _argValue;
+  private bool[] _enabledQueries;
 
   //constructor permutations -- params doesn't seem to work for property drawer inputs :( -----------
   public HideIfKeywordDrawer(string name1) {
-    argValue = new[] {name1};
-    enabledQueries = new[] {true};
+    _argValue = new[] {name1};
+    _enabledQueries = new[] {true};
   }
 
   // Constructor for (name1 || name2) or (name1 is (name2 as bool))
   public HideIfKeywordDrawer(string name1, string name2) {
     if (bool.TryParse(name2, out bool e)) {
-      argValue = new[] {name1};
-      enabledQueries = new[] {e};
+      _argValue = new[] {name1};
+      _enabledQueries = new[] {e};
     } else {
-      argValue = new[] {name1, name2};
-      enabledQueries = new[] {true, true};
+      _argValue = new[] {name1, name2};
+      _enabledQueries = new[] {true, true};
     }
   }
 
@@ -124,14 +124,14 @@ public class HideIfKeywordDrawer : MaterialPropertyDrawer {
   // single boolean at name2
   public HideIfKeywordDrawer(string name1, string name2, string name3) {
     if (bool.TryParse(name3, out bool e)) {
-      argValue = new[] {name1, name2};
-      enabledQueries = new[] {e, e};
+      _argValue = new[] {name1, name2};
+      _enabledQueries = new[] {e, e};
     } else if (bool.TryParse(name2, out e)) {
-      argValue = new[] {name1, name3};
-      enabledQueries = new[] {e, true};
+      _argValue = new[] {name1, name3};
+      _enabledQueries = new[] {e, true};
     } else {
-      argValue = new[] {name1, name2, name3};
-      enabledQueries = new[] {true, true, true};
+      _argValue = new[] {name1, name2, name3};
+      _enabledQueries = new[] {true, true, true};
     }
   }
 
@@ -144,21 +144,21 @@ public class HideIfKeywordDrawer : MaterialPropertyDrawer {
     if (bool.TryParse(name4, out bool e)) {
       // Can be either 2 or 3 component depending on if name2 is also a bool
       if (bool.TryParse(name2, out bool e2)) {
-        argValue = new[] {name1, name3};
-        enabledQueries = new[] {e2, e};
+        _argValue = new[] {name1, name3};
+        _enabledQueries = new[] {e2, e};
       } else {
-        argValue = new[] {name1, name2, name3};
-        enabledQueries = new[] {e, e, e};
+        _argValue = new[] {name1, name2, name3};
+        _enabledQueries = new[] {e, e, e};
       }
     } else if (bool.TryParse(name3, out e)) {
-      argValue = new[] {name1, name2, name4};
-      enabledQueries = new[] {e, e, true};
+      _argValue = new[] {name1, name2, name4};
+      _enabledQueries = new[] {e, e, true};
     } else if (bool.TryParse(name2, out e)) {
-      argValue = new[] {name1, name3, name4};
-      enabledQueries = new[] {e, true, true};
+      _argValue = new[] {name1, name3, name4};
+      _enabledQueries = new[] {e, true, true};
     } else {
-      argValue = new[] {name1, name2, name3, name4};
-      enabledQueries = new[] {true, true, true, true};
+      _argValue = new[] {name1, name2, name3, name4};
+      _enabledQueries = new[] {true, true, true, true};
     }
   }
 
@@ -178,8 +178,8 @@ public class HideIfKeywordDrawer : MaterialPropertyDrawer {
       Material mat = targets[i] as Material;
       if (mat != null) {
         //check for the dependencies:
-        for (int j = 0; j < argValue.Length; j++) {
-          elementMatches |= mat.IsKeywordEnabled(argValue[j]) == enabledQueries[j];
+        for (int j = 0; j < _argValue.Length; j++) {
+          elementMatches |= mat.IsKeywordEnabled(_argValue[j]) == _enabledQueries[j];
         }
       }
     }

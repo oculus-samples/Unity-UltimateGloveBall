@@ -1,3 +1,7 @@
+#if USING_XR_MANAGEMENT && USING_XR_SDK_OCULUS && !OVRPLUGIN_UNSUPPORTED_PLATFORM
+#define USING_XR_SDK
+#endif
+
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -16,13 +20,13 @@ public static class AvatarEditorDeeplink
         OvrAvatarLog.LogInfo("Launching Avatar Editor", logscope);
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR
-        if (!OvrAvatarEntitlement.AccessTokenIsValid)
+        if (!OvrAvatarEntitlement.AccessTokenIsValid())
         {
             OvrAvatarLog.LogError(
-                "Launching the Avatar Edtior requires app entitlement. Set a valid access token in OvrAvatarEntitlement");
+                "Launching the Avatar Editor requires app entitlement. Set a valid access token in OvrAvatarEntitlement");
             return;
         }
-        
+
         if (LoadLibrary() == LoadLibraryResult.Success)
         {
             // Unity 2020 seems to have issues with multiple requests using the same connector,
@@ -31,7 +35,7 @@ public static class AvatarEditorDeeplink
             {
                 OvrAvatarLog.LogError("LaunchAvatarEditor failed: Couldn't connect IpcOafConnector", logscope);
             }
-            
+
             IpcOafConnector.RequestWork(
                 "/social/avatar/start",
                 new Dictionary<string, object>()

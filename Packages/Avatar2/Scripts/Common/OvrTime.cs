@@ -3,12 +3,14 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 using Stopwatch = System.Diagnostics.Stopwatch;
 
-[assembly: InternalsVisibleTo("AvatarSDK2 Play Tests")]
+#if UNITY_EDITOR
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("AvatarSDK.PlayModeTests")]
+#endif
 
 namespace Oculus.Avatar2
 {

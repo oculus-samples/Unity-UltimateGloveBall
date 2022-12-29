@@ -62,7 +62,7 @@ namespace Oculus.Avatar2
         public bool hasBounds { get; private set; }
 
         /// Triangle and vertex counts for this primitive.
-        public ref readonly OvrAvatarEntity.LodCostData CostData => ref _costData;
+        public ref readonly AvatarLODCostData CostData => ref _costData;
 
         /// Gets the GPU skinning version of this primitive.
         public OvrAvatarGpuSkinnedPrimitive gpuPrimitive { get; private set; } = null;
@@ -99,7 +99,7 @@ namespace Oculus.Avatar2
 
         // NOTE: Once this is initialized, it should not be "reset" even if the Primitive is disposed
         // Other systems may need to reference this data during shutdown, and it's a PITA if they each have to make copies
-        private OvrAvatarEntity.LodCostData _costData = default;
+        private AvatarLODCostData _costData = default;
 
         // TODO: A primitive can technically belong to any number of LODs with gaps in between.
         private int lod = LOD_INVALID;
@@ -126,6 +126,12 @@ namespace Oculus.Avatar2
         /// but the indices referencing them are excluded.
         ///
         public CAPI.ovrAvatar2EntitySubMeshInclusionFlags subMeshInclusionFlags { get; private set; }
+
+        ///
+        /// If the user wants to load and render advanced features, they can specify them in the
+        /// high quality flags.
+        ///
+        public CAPI.ovrAvatar2EntityHighQualityFlags highQualityFlags { get; private set; }
 
         /// True if this primitive has joints (is skinned).
         public bool HasJoints => JointCount > 0;
@@ -729,6 +735,7 @@ namespace Oculus.Avatar2
             GetManifestationInfo();
             GetViewInfo();
             GetSubMeshInclusionInfo();
+            GetHighQualityInfo();
 
             // load triangles
             // load mesh & morph targets
@@ -997,7 +1004,7 @@ namespace Oculus.Avatar2
                     gpuPrimitiveBuilder = null;
                 }
 
-                _costData = new OvrAvatarEntity.LodCostData(this);
+                _costData = new AvatarLODCostData(this);
                 meshLoaded = true;
             }
             else if (isCancelled)
@@ -1147,6 +1154,30 @@ namespace Oculus.Avatar2
                 // Finalize dynamically created material
                 _shaderConfig.ApplyKeywords(material);
                 _shaderConfig.ApplyFloatConstants(material);
+
+                bool enableNormalMap = (highQualityFlags & CAPI.ovrAvatar2EntityHighQualityFlags.NormalMaps) != 0;
+                bool enablePropertyHairMap = (highQualityFlags & CAPI.ovrAvatar2EntityHighQualityFlags.PropertyHairMap) != 0;
+                if (enableNormalMap)
+                {
+                    material.EnableKeyword("HAS_NORMAL_MAP_ON");
+                    material.SetFloat("HAS_NORMAL_MAP", 1.0f);
+                }
+                else
+                {
+                    material.DisableKeyword("HAS_NORMAL_MAP_ON");
+                    material.SetFloat("HAS_NORMAL_MAP", 0.0f);
+                }
+
+                if (enablePropertyHairMap)
+                {
+                    material.EnableKeyword("ENABLE_HAIR_ON");
+                    material.SetFloat("ENABLE_HAIR", 1.0f);
+                }
+                else
+                {
+                    material.DisableKeyword("ENABLE_HAIR_ON");
+                    material.SetFloat("ENABLE_HAIR", 0.0f);
+                }
             }
 
             LoadAndApplyExtensions();
@@ -1393,7 +1424,20 @@ namespace Oculus.Avatar2
             }
             else
             {
-                OvrAvatarLog.LogWarning($"GetManifestationFlags Failed: {result}", primitiveLogScope);
+                OvrAvatarLog.LogWarning($"GetSubMeshInclusionInfo Failed: {result}", primitiveLogScope);
+            }
+        }
+
+        private void GetHighQualityInfo()
+        {
+            var result = CAPI.ovrAvatar2Asset_GetHighQualityFlags(assetId, out var flags);
+            if (result.IsSuccess())
+            {
+                highQualityFlags = flags;
+            }
+            else
+            {
+                OvrAvatarLog.LogWarning($"GetHighQualityFlags Failed: {result}", primitiveLogScope);
             }
         }
 
@@ -1415,7 +1459,7 @@ namespace Oculus.Avatar2
             {
                 vertexFormat = vertexFormat,
                 vertexLayout = CreateVertexLayout(vertexFormat),
-                vertexCount  = vertexCount,
+                vertexCount = vertexCount,
                 vertexStride = vertexStride,
                 vertices = new NativeArray<byte>(vertexSizeInBytes, _nativeAllocator, _nativeArrayInit),
             };
@@ -1650,7 +1694,7 @@ namespace Oculus.Avatar2
                         // So instead of reading from the mesh directly, we read from the internal mesh info.
                         (meshInfo.verts.IsCreated) ? meshInfo.verts.ToArray() : Array.Empty<Vector3>(),
                         (meshInfo.normals.IsCreated) ? meshInfo.normals.ToArray() : Array.Empty<Vector3>(),
-                        (meshInfo.colors.IsCreated) ? meshInfo.colors.ToArray() : Array.Empty<Color>(),
+                        (meshInfo.meshColors.IsCreated) ? meshInfo.meshColors.ToArray() : Array.Empty<Color32>(),
                         (meshInfo.texCoords.IsCreated) ? meshInfo.texCoords.ToArray() : Array.Empty<Vector2>(),
                         (meshInfo.tangents.IsCreated) ? meshInfo.tangents.ToArray() : Array.Empty<Vector4>(),
                         meshInfo.boneWeights,

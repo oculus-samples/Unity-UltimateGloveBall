@@ -102,14 +102,6 @@ public class LipSyncMicInput : MonoBehaviour
         _audioSource.volume = _micInputVolume;
     }
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-    IEnumerator RequestRecordAudioPermission()
-    {
-        yield return new WaitForSeconds(0.25f); // permissions popup can cause problems on first frame
-        Permission.RequestUserPermission("android.permission.RECORD_AUDIO");
-    }
-#endif
-
     private void Update()
     {
         // Lazy Microphone initialization (needed on Android)
@@ -123,7 +115,8 @@ public class LipSyncMicInput : MonoBehaviour
             else if(!_askingPermission)
             {
                 _askingPermission = true;
-                StartCoroutine(RequestRecordAudioPermission());
+
+                OvrAvatarManager.Instance.RequestMicPermission();
                 return;
             }
             else
@@ -156,13 +149,17 @@ public class LipSyncMicInput : MonoBehaviour
 
     private void InitializeMicrophone()
     {
+#if !OVR_DISABLE_MICROPHONE
         if (_initialized) return;
         if (Microphone.devices.Length == 0) return;
 
         _selectedDevice = Microphone.devices[0];
-        if (_preferOculusMic) {
-            foreach (var device in Microphone.devices) {
-                if (device.Contains("Oculus") || device.Contains("Rift")) {
+        if (_preferOculusMic)
+        {
+            foreach (var device in Microphone.devices)
+            {
+                if (device.Contains("Oculus") || device.Contains("Rift"))
+                {
                     _selectedDevice = device;
                     break;
                 }
@@ -173,10 +170,12 @@ public class LipSyncMicInput : MonoBehaviour
         GetMicCaps();
 
         _initialized = true;
+#endif
     }
 
     private void ProcessMicActivity()
     {
+#if !OVR_DISABLE_MICROPHONE
         //Hold To Speak
         if (_micInputMode == LipSyncMicInputMode.HoldToSpeak)
         {
@@ -208,10 +207,12 @@ public class LipSyncMicInput : MonoBehaviour
         {
             StopMicrophone_Internal();
         }
+#endif
     }
 
     private void GetMicCaps()
     {
+#if !OVR_DISABLE_MICROPHONE
         if (micSelected == false) return;
 
         //Gets the frequency of the device
@@ -228,6 +229,7 @@ public class LipSyncMicInput : MonoBehaviour
         {
             _micFrequency = _maxFreq;
         }
+#endif
     }
 
     private bool CanStartMic()
@@ -240,6 +242,7 @@ public class LipSyncMicInput : MonoBehaviour
 
     private void StartMicrophone_Internal()
     {
+#if !OVR_DISABLE_MICROPHONE
         Debug.Log($"Starting microphone recording with frequency {_micFrequency}");
 
         //Starts recording
@@ -249,7 +252,8 @@ public class LipSyncMicInput : MonoBehaviour
         Stopwatch timer = Stopwatch.StartNew();
 
         // Wait until the recording has started
-        while (!(Microphone.GetPosition(_selectedDevice) > 0) && timer.Elapsed.TotalMilliseconds < _micCaptureTimeout) {
+        while (!(Microphone.GetPosition(_selectedDevice) > 0) && timer.Elapsed.TotalMilliseconds < _micCaptureTimeout)
+        {
             Thread.Sleep(5);
         }
 
@@ -260,13 +264,15 @@ public class LipSyncMicInput : MonoBehaviour
         }
 
         // Play the audio source
-        var latency = (float) samplesRecorded / _micFrequency;
-        Debug.Log($"Microphone recording started with latency {latency*1000.0} ms");
+        var latency = (float)samplesRecorded / _micFrequency;
+        Debug.Log($"Microphone recording started with latency {latency * 1000.0} ms");
         _audioSource.Play();
+#endif
     }
 
     private void StopMicrophone_Internal()
     {
+#if !OVR_DISABLE_MICROPHONE
         if (micSelected == false) return;
 
         Debug.Log($"Stopping microphone recording");
@@ -280,6 +286,7 @@ public class LipSyncMicInput : MonoBehaviour
         }
 
         Microphone.End(_selectedDevice);
+#endif
     }
 
     //:: Public Functions
@@ -294,6 +301,7 @@ public class LipSyncMicInput : MonoBehaviour
 
     public void StartMicrophone()
     {
+#if !OVR_DISABLE_MICROPHONE
         if (_micInputMode != LipSyncMicInputMode.Manual)
         {
             Debug.LogWarning("Starting Microphone while not in Manual Input Mode.");
@@ -305,10 +313,12 @@ public class LipSyncMicInput : MonoBehaviour
         {
             StartMicrophone_Internal();
         }
+#endif
     }
 
     public void StopMicrophone()
     {
+#if !OVR_DISABLE_MICROPHONE
         if (_micInputMode != LipSyncMicInputMode.Manual)
         {
             Debug.LogWarning("Starting Microphone while not in Manual Input Mode.");
@@ -320,5 +330,6 @@ public class LipSyncMicInput : MonoBehaviour
         {
             StopMicrophone_Internal();
         }
+#endif
     }
 }

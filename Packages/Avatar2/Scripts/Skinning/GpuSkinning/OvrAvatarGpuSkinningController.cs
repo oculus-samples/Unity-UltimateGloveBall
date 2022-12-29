@@ -1,11 +1,12 @@
-using System.Collections.Generic;
 using Oculus.Skinning.GpuSkinning;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
 
 namespace Oculus.Avatar2
 {
-    public sealed class OvrAvatarGpuSkinningController
+    public sealed class OvrAvatarGpuSkinningController : System.IDisposable
     {
         // Avoid skinning more avatars than technically feasible
         public const uint MaxGpuSkinnedAvatars = MaxSkinnedAvatarsPerFrame * 8;
@@ -19,6 +20,20 @@ namespace Oculus.Avatar2
         private readonly List<IOvrGpuSkinner> _activeSkinnerList = new List<IOvrGpuSkinner>(NumExpectedAvatars);
         private readonly List<OvrComputeMeshAnimator> _activeAnimators = new List<OvrComputeMeshAnimator>(NumExpectedAvatars);
 
+        private OvrComputeBufferPool bufferPool = new OvrComputeBufferPool();
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool isMainThread) { bufferPool.Dispose(); }
+
+        ~OvrAvatarGpuSkinningController()
+        {
+            Dispose(false);
+        }
 
         internal void AddActiveCombiner(OvrGpuMorphTargetsCombiner combiner)
         {
@@ -82,6 +97,36 @@ namespace Oculus.Avatar2
             Debug.Assert(element != null);
             Debug.Assert(!list.Contains(element));
             list.Add(element);
+        }
+
+        internal void StartFrame()
+        {
+            bufferPool.StartFrame();
+        }
+
+        internal void EndFrame()
+        {
+            bufferPool.EndFrame();
+        }
+
+        internal OvrComputeBufferPool.EntryJoints GetNextEntryJoints()
+        {
+            return bufferPool.GetNextEntryJoints();
+        }
+
+        internal ComputeBuffer GetJointBuffer()
+        {
+            return bufferPool.GetJointBuffer();
+        }
+
+        internal ComputeBuffer GetWeightsBuffer()
+        {
+            return bufferPool.GetWeightsBuffer();
+        }
+
+        internal OvrComputeBufferPool.EntryWeights GetNextEntryWeights(int numMorphTargets)
+        {
+            return bufferPool.GetNextEntryWeights(numMorphTargets);
         }
     }
 }

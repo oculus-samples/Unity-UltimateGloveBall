@@ -38,7 +38,15 @@ namespace Oculus.Avatar2
             Unknown = 1 << 16,
         };
 
+#if UNITY_EDITOR || !UNITY_IOS
+#if UNITY_EDITOR_OSX
+        private const string GpuSkinningLibFile = OvrAvatarPlugin.FullPluginFolderPath + "libovrgpuskinning.framework/libovrgpuskinning";
+#else
         private const string GpuSkinningLibFile = OvrAvatarManager.IsAndroidStandalone ? "ovrgpuskinning" : "libovrgpuskinning";
+#endif  // UNITY_EDITOR_OSX
+#else   // !UNITY_EDITOR && UNITY_IOS
+        private const string GpuSkinningLibFile = "__Internal";
+#endif  // !UNITY_EDITOR && UNITY_IOS
 
         [StructLayout(LayoutKind.Sequential)]
         public struct ovrGpuSkinningTextureDesc

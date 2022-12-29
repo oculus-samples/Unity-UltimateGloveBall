@@ -149,7 +149,7 @@ void AvatarShaderVertLighting(appdata v, inout v2f o) {
   o.lmap.zw = v.texcoord2.xy * unity_DynamicLightmapST.xy + unity_DynamicLightmapST.zw;
 #endif
 #ifdef LIGHTMAP_ON
-  o.lmap.xy = v.texcoord1.xy * unity_LightmapST.xy + unity_LightmapST.zw;
+  o.lmap.xy = v.uv.xy * unity_LightmapST.xy + unity_LightmapST.zw;
 #endif
 
   // SH/ambient and vertex lights

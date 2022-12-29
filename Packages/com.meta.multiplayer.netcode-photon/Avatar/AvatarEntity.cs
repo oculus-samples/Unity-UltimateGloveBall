@@ -22,6 +22,7 @@ namespace Meta.Multiplayer.Avatar
     /// Paired with the AvatarNetworking it initializes it to support networking in a multiplayer project.
     /// In a not networked setup, it will track the camera rig to keep the position in sync.
     /// </summary>
+    [DefaultExecutionOrder(50)] // after GpuSkinningConfiguration initializes
     public class AvatarEntity : OvrAvatarEntity
     {
         [Serializable]
@@ -44,46 +45,93 @@ namespace Meta.Multiplayer.Avatar
 
         public Transform GetJointTransform(ovrAvatar2JointType jointType) => GetSkeletonTransformByType(jointType);
 
+        [Header("Face Pose Input")]
+        [SerializeField, AutoSet]
+        private OvrAvatarFacePoseBehavior m_facePoseProvider;
+        [SerializeField, AutoSet]
+        private OvrAvatarEyePoseBehavior m_eyePoseProvider;
+
+        private Task m_initializationTask;
+        public Task m_setUpAccessTokenTask;
+
         protected override void Awake()
         {
-            // Don't call base.Awake() until after the network object is initialized
+            m_setUpAccessTokenTask = SetUpAccessTokenAsync();
+            base.Awake();
+            OVRPlugin.StartFaceTracking();
+            OVRPlugin.StartEyeTracking();
         }
 
-        private async Task Start()
+        private void Start()
         {
-            var isOwner = m_networkObject == null ? m_isLocalIfNotNetworked : m_networkObject.IsOwner;
+            if ((m_networkObject == null || m_networkObject.NetworkManager == null || !m_networkObject.NetworkManager.IsListening) && m_isLocalIfNotNetworked)
+            {
+                Initialize();
+            }
+        }
+
+        private async Task SetUpAccessTokenAsync()
+        {
+            var accessToken = await Users.GetAccessToken().Gen();
+            OvrAvatarEntitlement.SetAccessToken(accessToken.Data);
+        }
+
+        public void Initialize()
+        {
+            var prevInit = m_initializationTask;
+            m_initializationTask = Impl();
+
+            async Task Impl()
+            {
+                if (prevInit != null)
+                    await prevInit;
+                await InitializeImpl();
+            }
+        }
+
+        private async Task InitializeImpl()
+        {
+            Teardown();
+
+            var isOwner = m_networkObject == null || (m_networkObject != null && !m_networkObject.NetworkManager.IsClient) ? m_isLocalIfNotNetworked : m_networkObject.IsOwner;
+
             SetIsLocal(isOwner);
             if (isOwner)
             {
+                _creationInfo.features |= Oculus.Avatar2.CAPI.ovrAvatar2EntityFeatures.Animation;
+
                 var body = CameraRigRef.Instance.AvatarInputManager;
                 SetBodyTracking(body);
 
                 m_lipSync.gameObject.SetActive(true);
                 SetLipSync(m_lipSync);
+
+                SetFacePoseProvider(m_facePoseProvider);
+                SetEyePoseProvider(m_eyePoseProvider);
+
+                AvatarLODManager.Instance.firstPersonAvatarLod = AvatarLOD;
             }
             else
             {
                 _creationInfo.features &= ~ovrAvatar2EntityFeatures.Animation;
+
                 SetBodyTracking(null);
+                SetFacePoseProvider(null);
+                SetEyePoseProvider(null);
                 SetLipSync(null);
             }
 
-            base.Awake();
-            if (!isOwner)
-            {
-                SetActiveView(ovrAvatar2EntityViewFlags.ThirdPerson);
-            }
-            else
-            {
-                SetActiveView(ovrAvatar2EntityViewFlags.FirstPerson);
-            }
+            _creationInfo.renderFilters.viewFlags = isOwner ? Oculus.Avatar2.CAPI.ovrAvatar2EntityViewFlags.FirstPerson : Oculus.Avatar2.CAPI.ovrAvatar2EntityViewFlags.ThirdPerson;
 
-            var accessToken = await Users.GetAccessToken().Gen();
-            OvrAvatarEntitlement.SetAccessToken(accessToken.Data);
+            CreateEntity();
 
-            if (m_networking)
+            SetActiveView(_creationInfo.renderFilters.viewFlags);
+
+            await m_setUpAccessTokenTask;
+
+            if (m_networking != null)
             {
-                m_networking.Init(this);
+                m_networking.Init();
             }
 
             if (IsLocal)
@@ -100,8 +148,12 @@ namespace Meta.Multiplayer.Avatar
                 if (!m_networking)
                 {
                     UpdatePositionToCamera();
-                    _ = StartCoroutine(TrackCamera());
+                    StartCoroutine(TrackCamera());
                 }
+            }
+            else if (_userId != 0)
+            {
+                LoadUser();
             }
         }
 

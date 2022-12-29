@@ -182,12 +182,13 @@ namespace Oculus.Skinning.GpuSkinning
 
         public override bool UpdateJointMatrices(CAPI.ovrAvatar2EntityId entityId, OvrAvatarPrimitive primitive, CAPI.ovrAvatar2PrimitiveRenderInstanceID primitiveInstanceId)
         {
-            if (_meshAnimator == null || !_jointMatricesArray.IsCreated) {
+            if (_meshAnimator == null || !_jointMatricesArray.IsCreated)
+            {
                 return false;
             }
 
             int jointsCount = primitive.joints.Length;
-            UInt32 bufferSize = (UInt32)(OvrJointsData.JointDataSize * jointsCount);
+            UInt32 bufferSize = (UInt32)(OvrComputeBufferPool.JointDataSize * jointsCount);
 
             IntPtr transformsPtr;
             unsafe { transformsPtr = (IntPtr)_jointMatricesArray.GetUnsafePtr(); }

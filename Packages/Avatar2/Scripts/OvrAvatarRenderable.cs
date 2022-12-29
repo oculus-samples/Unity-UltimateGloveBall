@@ -2,6 +2,8 @@ using System;
 
 using UnityEngine;
 
+using ShaderType = Oculus.Avatar2.OvrAvatarShaderManagerBase.ShaderType;
+
 /**
  * @file OvrAvatarRenderable.cs
  */
@@ -24,6 +26,9 @@ namespace Oculus.Avatar2
      */
     public class OvrAvatarRenderable : MonoBehaviour, IDisposable
     {
+        private string _logScopeCache = null;
+        protected string logScope => _logScopeCache ??= GetType().Name;
+
         private const string OVR_VERTEX_HAS_TANGENTS_KEYWORD = "OVR_VERTEX_HAS_TANGENTS";
         private const string OVR_VERTEX_NO_TANGENTS_KEYWORD = "OVR_VERTEX_NO_TANGENTS";
 
@@ -83,7 +88,7 @@ namespace Oculus.Avatar2
         public bool IsRendered => _isVisible && !_isHidden;
 
         /// Triangle and vertex counts for all levels of detail.
-        public ref readonly OvrAvatarEntity.LodCostData CostData => ref AppliedPrimitive.CostData;
+        public ref readonly AvatarLODCostData CostData => ref AppliedPrimitive.CostData;
 
         /// Get which view(s) (first person, third person) this renderable applies to.
         /// These are established when the renderable is loaded.
@@ -103,6 +108,9 @@ namespace Oculus.Avatar2
         /// Get the submeshes that are to be rendered.
         /// As excluded by the index buffer.
         public CAPI.ovrAvatar2EntitySubMeshInclusionFlags subMeshInclusionFlags => AppliedPrimitive.subMeshInclusionFlags;
+
+        /// Get the quality flag preferences. This let's you render the asset differently, based on what's in the asset.
+        public CAPI.ovrAvatar2EntityHighQualityFlags highQualityFlags => AppliedPrimitive.highQualityFlags;
 
         /// Get the vertex count of this renderable's mesh
         public int MeshVertexCount => MyMesh.vertexCount;
@@ -227,7 +235,11 @@ namespace Oculus.Avatar2
         {
             if (_materialCopy == null)
             {
-                _materialCopy = new Material(rendererComponent.sharedMaterial);
+                var sharedMaterial = rendererComponent.sharedMaterial;
+                OvrAvatarLog.AssertConstMessage(
+                    sharedMaterial != null, "RendererComponent has no material!", logScope, this);
+                _materialCopy = sharedMaterial is null ? new Material(EmergencyFallbackShader) : new Material(sharedMaterial);
+
                 rendererComponent.sharedMaterial = _materialCopy;
             }
         }
@@ -391,6 +403,29 @@ namespace Oculus.Avatar2
             }
             material = renderer.material;
             renderer.GetPropertyBlock(matrialProps);
+        }
+
+        private const ShaderType FallbackShaderType = ShaderType.Default;
+        private static Shader _fallbackShader = null;
+        private static Shader EmergencyFallbackShader
+        {
+            get
+            {
+                if (_fallbackShader == null)
+                {
+                    var manager = OvrAvatarManager.Instance;
+                    if (manager == null) { return null; }
+
+                    var shaderManager = manager.ShaderManager;
+                    if (shaderManager == null) { return null; }
+
+                    var configuration = shaderManager.GetConfiguration(FallbackShaderType);
+                    if (configuration == null) { return null;}
+
+                    _fallbackShader = configuration.Shader;
+                }
+                return _fallbackShader;
+            }
         }
     } // end class
 }

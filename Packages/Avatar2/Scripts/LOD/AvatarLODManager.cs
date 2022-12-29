@@ -236,6 +236,8 @@ namespace Oculus.Avatar2
         public CAPI.ovrAvatar2JointType JointTypeToCenterOn => _jointTypeToCenterOn;
         public IReadOnlyList<CAPI.ovrAvatar2JointType> JointTypesToCullOn => _jointTypesToCullOn;
 
+        internal CAPI.ovrAvatar2JointType[] jointTypesToCullOnArray => _jointTypesToCullOn;
+
         [Header("Dynamic Performance")]
 
         /// Modify some of the avatar LODs to keep the total avatar triangle count within budget.
@@ -458,6 +460,16 @@ namespace Oculus.Avatar2
                 {
                     RefreshScreenPercentsAndImportance();
                 }
+                else if(firstPersonAvatarLod != null)
+                {
+                    UpdateFirstPersonLOD();
+                    // TODO: Consolidate this into a reused method
+                    var firstPersonEntity = firstPersonAvatarLod.Entity;
+                    firstPersonEntity.UpdateAvatarLODOverride();
+                    firstPersonEntity.SendImportanceAndCost();
+                    firstPersonEntity.TrackUpdateAge();
+                }
+
                 if (!cycleProcessingOverFrames || cyclingFunction_ == LodManagerFunction.REFRESH_DYNAMIC_GEOMETRIC_LODS)
                 {
                     RefreshDynamicGeometricLods();
@@ -565,6 +577,15 @@ namespace Oculus.Avatar2
             return areAnyPointsInCameraFrustum;
         }
 
+        private void UpdateFirstPersonLOD()
+        {
+            System.Diagnostics.Debug.Assert(firstPersonAvatarLod != null);
+            firstPersonAvatarLod.wantedLevel = firstPersonAvatarLodLevel;
+            firstPersonAvatarLod.distance = 0.0f;
+            firstPersonAvatarLod.screenPercent = 1.0f;
+            firstPersonAvatarLod.updateImportance = firstPersonUpdateImportance;
+        }
+
         private void RefreshScreenPercentsAndImportance()
         {
             Profiler.BeginSample("AvatarLODManager::RefreshScreenPercentsAndImportance");
@@ -580,9 +601,7 @@ namespace Oculus.Avatar2
                     bool isFirstPersonAvatarLod = ReferenceEquals(avatarLod, firstPersonAvatarLod);
                     if (isFirstPersonAvatarLod)
                     {
-                        avatarLod.distance = 0.0f;
-                        avatarLod.screenPercent = 1.0f;
-                        avatarLod.updateImportance = firstPersonUpdateImportance;
+                        UpdateFirstPersonLOD();
                     }
                     else
                     {
@@ -714,7 +733,7 @@ namespace Oculus.Avatar2
                     var avatarLod = lodsCulled[i];
 
                     // Skip inactive entities
-                    if (!avatarLod.EntityActive) { continue; }
+                    if (!avatarLod.AreLodsActive()) { continue; }
 
                     bool lodCulled = CullAvatar(avatarLod);
                     if (!lodCulled) // if it became visible
@@ -1027,7 +1046,7 @@ namespace Oculus.Avatar2
                 }
             }
             // Scene view camera is always considered inactive, so we'll make an editor-only exception here.
-            if (!currentCamera_.camera || (!currentCamera_.camera.isActiveAndEnabled && currentCamera_.camera != UnityEditor.SceneView.lastActiveSceneView.camera))
+            if (!currentCamera_.camera || (!currentCamera_.camera.isActiveAndEnabled && currentCamera_.camera != UnityEditor.SceneView.lastActiveSceneView?.camera))
             {
 #endif
                 currentCamera_.camera = ActiveLODCamera;

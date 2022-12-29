@@ -145,7 +145,7 @@ namespace Oculus.Avatar2
                 foreach (var lodGroup in _lodGroups) { levelsWithCost |= lodGroup.LevelsWithAnimationUpdateCost; }
 
                 UInt32 cost = 0;
-                for (int i = minLodLevel; i < maxLodLevel; i++)
+                for (int i = minLodLevel; i <= maxLodLevel; i++)
                 {
                     cost += ((levelsWithCost & (i << i)) != 0) ? (UInt32)vertexCounts[i] : 0;
                 }
@@ -437,6 +437,12 @@ namespace Oculus.Avatar2
                 }
             }
             return -1;
+        }
+
+        // Returns true when the entity is active and the LODs have been setup.
+        public bool AreLodsActive()
+        {
+            return EntityActive && minLodLevel >= 0 && maxLodLevel >= 0;
         }
 
         public void Reset()

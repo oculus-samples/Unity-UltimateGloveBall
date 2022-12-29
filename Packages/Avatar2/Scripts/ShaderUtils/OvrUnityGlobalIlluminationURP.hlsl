@@ -15,7 +15,8 @@ inline OvrGlobalIllumination OvrGetUnityGlobalIllumination(
   half3 bakedGI,
   half occlusion,
   half3 normalWS,
-  half3 viewDirectionWS)
+  half3 viewDirectionWS,
+  bool reflections = true)
 {
   // Pulled this straight from URP 10.1 Lighting.hlsl (with minor modifications to keep
   // specular and diffuse separate)
@@ -24,11 +25,13 @@ inline OvrGlobalIllumination OvrGetUnityGlobalIllumination(
   half fresnelTerm = Pow4(1.0 - NoV);
 
   half3 indirectDiffuse = bakedGI * occlusion;
-  half3 indirectSpecular = GlossyEnvironmentReflection(reflectVector, brdfData.perceptualRoughness, occlusion);
-
+  half3 indirectSpecular = half3(0.0,0.0,0.0);
+  if(reflections) {
+    indirectSpecular = GlossyEnvironmentReflection(reflectVector, brdfData.perceptualRoughness, occlusion);
+    indirectSpecular += indirectSpecular * EnvironmentBRDFSpecular(brdfData, fresnelTerm);
+  }
   // Avatar SDK modifications
   indirectDiffuse = indirectDiffuse * brdfData.diffuse;
-  indirectSpecular += indirectSpecular * EnvironmentBRDFSpecular(brdfData, fresnelTerm);
   // half3 color = EnvironmentBRDF(brdfData, indirectDiffuse, indirectSpecular, fresnelTerm);
   // END Avatar SDK modifications
 
@@ -48,7 +51,9 @@ inline OvrGlobalIllumination OvrGetUnityGlobalIllumination(
     // get multiplied. Then the specular will add the coatColor (somewhat arbitrary decision)
     half coatFactor = (1.0 - coatFresnel * clearCoatMask);
     indirectDiffuse *= coatFactor;
-    indirectSpecular = coatFactor * indirectSpecular + coatColor;
+    if(reflections) {
+      indirectSpecular = coatFactor * indirectSpecular + coatColor;
+    }
     // END Avatar SDK modifications
   #endif
 
@@ -66,7 +71,8 @@ inline OvrGlobalIllumination OvrGetUnityGlobalIllumination(
   half3 bakedGI,
   half occlusion,
   half3 normalWS,
-  half3 viewDirectionWS)
+  half3 viewDirectionWS,
+  bool reflections = true)
 {
   const BRDFData noClearCoat = (BRDFData)0;
   return OvrGetUnityGlobalIllumination(
@@ -77,7 +83,28 @@ inline OvrGlobalIllumination OvrGetUnityGlobalIllumination(
     bakedGI,
     occlusion,
     normalWS,
-    viewDirectionWS);
+    viewDirectionWS,
+    reflections);
+}
+
+inline void OvrGetUnityDiffuseGlobalIllumination(half3 lightColor, half3 lightDirection, float3 worldPos, float3 worldViewDir,
+    half attenuation, half3 ambient, half smoothness, half metallic, half occlusion,
+    half3 albedo, half3 normal, half3 specular_contribution, out float3 diffuse)
+{
+      OvrLight light;
+      light.color = lightColor;
+      light.direction = lightDirection;
+      BRDFData brdfData;
+      half3 spec = specular_contribution;
+      half alpha = 1.0;
+      InitializeBRDFData(albedo, metallic, spec, smoothness, alpha, brdfData);
+      half3 ambient_contrib = 0.0;
+      ambient_contrib += SHEvalLinearL0L1(normal,  unity_SHAr, unity_SHAg, unity_SHAb);
+      ambient_contrib += SHEvalLinearL2(normal, unity_SHBr, unity_SHBg, unity_SHBb, unity_SHC);
+      half3 bakedGI = ambient_contrib;
+
+      OvrGlobalIllumination gi = OvrGetUnityGlobalIllumination(light, brdfData, bakedGI, occlusion, normal, worldViewDir, false);
+      diffuse = gi.indirectDiffuse.rgb;
 }
 
 inline void OvrGetUnityGlobalIllumination(half3 lightColor, half3 lightDirection, float3 worldPos, float3 worldViewDir,
@@ -96,7 +123,7 @@ half3 albedo, half3 normal, half3 specular_contribution, out float3 diffuse, out
       ambient_contrib += SHEvalLinearL2(normal, unity_SHBr, unity_SHBg, unity_SHBb, unity_SHC);
       half3 bakedGI = ambient_contrib;
 
-      OvrGlobalIllumination gi = OvrGetUnityGlobalIllumination(light, brdfData, bakedGI, occlusion, normal, worldViewDir);
+      OvrGlobalIllumination gi = OvrGetUnityGlobalIllumination(light, brdfData, bakedGI, occlusion, normal, worldViewDir, true);
       diffuse = gi.indirectDiffuse.rgb;
       specular = gi.indirectSpecular.rgb;
 

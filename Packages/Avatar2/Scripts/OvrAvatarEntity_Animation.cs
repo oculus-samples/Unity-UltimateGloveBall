@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+
+using Unity.Collections;
+
 using UnityEngine;
 
 namespace Oculus.Avatar2
@@ -283,9 +285,35 @@ namespace Oculus.Avatar2
 
         private void SamplePrimitivesSkinningOrigin(in CAPI.ovrAvatar2EntityRenderState renderState)
         {
+            if (!HasAnyFeatures(CAPI.ovrAvatar2EntityFeatures.Rendering_Prims))
+            {
+                return;
+            }
+
+            var renderStateIndices = new NativeArray<UInt32>((int)renderState.primitiveCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+            var renderStates = new NativeArray<CAPI.ovrAvatar2PrimitiveRenderState>((int)renderState.primitiveCount, Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+            unchecked
+            {
+                for (uint i = 0; i < renderState.primitiveCount; ++i)
+                {
+                    renderStateIndices[(int)i] = i;
+                }
+            }
+
+            unsafe
+            {
+                var result = CAPI.ovrAvatar2Render_GetPrimitiveRenderStatesByIndex(entityId, renderStateIndices.GetPtr<UInt32>(), renderStates.GetPtr<CAPI.ovrAvatar2PrimitiveRenderState>(),
+                    renderState.primitiveCount);
+                if (result != CAPI.ovrAvatar2Result.Success)
+                {
+                    OvrAvatarLog.LogError($"GetPrimitiveRenderStatesByIndex Error: {result}", logScope, this);
+                    return;
+                }
+            }
+
             for (uint i = 0; i < renderState.primitiveCount; ++i)
             {
-                if (!QueryPrimitiveRenderState_Direct(i, out var primState)) continue;
+                var primState = renderStates[(int)i];
                 SampleSkinningOrigin(in primState, out var skinningOrigin);
 
                 var primRenderables = _primitiveRenderables[primState.id];

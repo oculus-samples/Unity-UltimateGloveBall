@@ -39,6 +39,7 @@ struct v2f {
   float4 lmap : TEXCOORD8;
 #endif
   float4 ormt : TEXCOORD9;
+  float4 screenPos : TEXCOORD10; // For Ghost effect
   UNITY_VERTEX_INPUT_INSTANCE_ID
   UNITY_VERTEX_OUTPUT_STEREO
 };
@@ -107,6 +108,7 @@ struct v2f {
   float3 tSpace2 : TEXCOORD10;
 #endif
   float4 ormt : TEXCOORD11;
+  float4 screenPos : TEXCOORD12; // For Ghost effect
   UNITY_VERTEX_INPUT_INSTANCE_ID
   UNITY_VERTEX_OUTPUT_STEREO
 };

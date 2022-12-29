@@ -25,13 +25,31 @@ Shader "Avatar/CombineMorphTargets" {
 
 #include "UnityCG.cginc"
 
-              uniform StructuredBuffer<float>
-                  u_Weights;
-      uniform StructuredBuffer<float> u_BlockEnabled;
+      // TODO: Really this should be a constant buffer. But thats not working in Unity 2020
+      uniform StructuredBuffer<float> u_Weights;
+      uniform int u_WeightOffset;
+
+      uniform float u_BlockEnabled;
 
       uniform float4 u_MorphTargetRanges[3];
 
-      UNITY_DECLARE_TEX2DARRAY(u_MorphTargetSourceTex);
+      #define OVR_TEXTURE_PRECISION_FLOAT // hard coding this for now to test perf
+
+      // NOTE: According to Unity documentation here https://docs.unity3d.com/Manual/SL-DataTypesAndPrecision.html
+      // The standard declaration of Texture2DArray yields the following
+      // "For mobile platforms, these translate into “low precision samplers”, i.e. the textures are expected to
+      // have low precision data in them."
+      // Upon shader inspection, the declarations become "uniform mediump sampler2DArray" which
+      // is 16-bit precision. This is not desired as some of the data in the textures is
+      // expected to have 32-bit precision. So, for mobile platforms, make an option for explicitly
+      // setting 32-bit precision
+      #if defined(SHADER_API_MOBILE) && defined(OVR_TEXTURE_PRECISION_FLOAT)
+          #define OVR_DECLARE_TEX2DARRAY(tex) Texture2DArray_float tex; SamplerState sampler##tex
+      #else
+          #define OVR_DECLARE_TEX2DARRAY(tex) UNITY_DECLARE_TEX2DARRAY(tex)
+      #endif
+
+      OVR_DECLARE_TEX2DARRAY(u_MorphTargetSourceTex);
 
       struct appdata {
         float4 a_Position : POSITION;
@@ -97,17 +115,15 @@ Shader "Avatar/CombineMorphTargets" {
         output.v_UVCoord1.z = input.a_Color.w;
 
         // Grab blend weight array index and enabled array index
-        int blockIndex = int(input.a_Color.x);
-        int weightIndex = int(input.a_Color.y);
+        uint weightIndex = uint(round(input.a_Color.y));
 
-        float blockEnabled = u_BlockEnabled[blockIndex];
-        float weight = u_Weights[weightIndex];
+        float weight = u_Weights[u_WeightOffset + weightIndex];
         output.v_Weight = weight;
 
-        float isWeightNonZero = float(weight != 0.0);
+        float isWeightNonZero = float(weight > 0.0001);
 
         // Generate degnerate triangle if weight or enabled are 0
-        output.pos = pos * (blockEnabled * isWeightNonZero);
+        output.pos = pos * (u_BlockEnabled * isWeightNonZero);
 
         return output;
       }

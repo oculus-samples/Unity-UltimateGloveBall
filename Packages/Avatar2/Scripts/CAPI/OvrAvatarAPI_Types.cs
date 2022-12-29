@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+
 using UnityEngine;
 
 /**
@@ -213,6 +214,28 @@ namespace Oculus.Avatar2
 
             ///  Works both as a test and also might be useful in some real applications.
             BothEyes = L_Eye | R_Eye,
+        }
+
+
+        /**
+         * Configures how the avatar is loaded and displayed
+         *
+         * @see ovrAvatar2EntityCreateInfo
+         */
+        [Flags]
+        [System.Serializable]
+        public enum ovrAvatar2EntityHighQualityFlags : Int32
+        {
+            None = 0,
+
+            /// Normal maps
+            NormalMaps = 1 << 0,
+
+            /// Property map will be encoded as a hair map
+            PropertyHairMap = 1 << 1,
+
+            /// All views
+            All = NormalMaps | PropertyHairMap
         }
 
         //-----------------------------------------------------------------
@@ -549,7 +572,7 @@ namespace Oculus.Avatar2
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public readonly unsafe ref struct ovrAvatar2Pose
+        public readonly unsafe struct ovrAvatar2Pose
         {
             public readonly UInt32 jointCount;
             public readonly ovrAvatar2Transform* localTransforms; // Array of ovrAvatar2Transforms
@@ -646,6 +669,7 @@ namespace Oculus.Avatar2
             LegacyJointTypeFallback = 23,
             UnableToConnectToDevTools = 24,
             RequestCancelled = 25,
+            BufferLargerThanExpected = 26,
 
             Count,
         }

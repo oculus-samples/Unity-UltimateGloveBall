@@ -1,11 +1,13 @@
 using System;
 using System.Runtime.InteropServices;
 
+using UnityEngine;
+
 namespace Oculus.Avatar2
 {
     public partial class CAPI
     {
-
+        private const string StreamingCapiLogScope = "OvrAvatarAPI_Streaming";
         //-----------------------------------------------------------------
         //
         // State
@@ -48,9 +50,16 @@ namespace Oculus.Avatar2
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_RecordSnapshot(ovrAvatar2EntityId entityId);
 
+        public static unsafe bool OvrAvatar2Streaming_SerializeRecording(
+            ovrAvatar2EntityId entityId, ovrAvatar2StreamLOD lod, byte* destinationPtr, ref UInt64 bytes)
+        {
+            return ovrAvatar2Streaming_SerializeRecording(entityId, lod, destinationPtr, ref bytes)
+                .EnsureSuccess("ovrAvatar2Streaming_SerializeRecording", StreamingCapiLogScope);
+        }
+
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
-        public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_SerializeRecording(
-            ovrAvatar2EntityId entityId, ovrAvatar2StreamLOD lod, IntPtr destinationPtr, out UInt64 bytes);
+        private static unsafe extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_SerializeRecording(
+            ovrAvatar2EntityId entityId, ovrAvatar2StreamLOD lod, byte* destinationPtr, ref UInt64 bytes);
 
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_GetRecordingSize(
@@ -68,9 +77,18 @@ namespace Oculus.Avatar2
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_PlaybackStop(ovrAvatar2EntityId entityId);
 
-        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
-        public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_DeserializeRecording(
-            ovrAvatar2EntityId entityId, IntPtr source, UInt64 bytes);
+        public static unsafe bool OvrAvatar2Streaming_DeserializeRecording(
+            ovrAvatar2EntityId entityId, byte* sourceBuffer, UInt64 bytes, UnityEngine.Object context)
+        {
+            Debug.Assert(entityId != ovrAvatar2EntityId.Invalid);
+            Debug.Assert(sourceBuffer != null);
+            Debug.Assert(bytes > 0);
+
+            var result = ovrAvatar2Streaming_DeserializeRecording(entityId, sourceBuffer, bytes);
+            return result.EnsureSuccessOrLogVerbose(
+                CAPI.ovrAvatar2Result.DeserializationPending, "skeleton is not loaded",
+                "ovrAvatar2Streaming_DeserializeRecording", StreamingCapiLogScope, context);
+        }
 
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_SetPlaybackTimeDelay(
@@ -79,5 +97,15 @@ namespace Oculus.Avatar2
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Streaming_GetPlaybackState(
             ovrAvatar2EntityId entityId, out ovrAvatar2StreamingPlaybackState playbackState);
+
+        //-----------------------------------------------------------------
+        //
+        // Dll Bindings
+        //
+        //
+
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
+        private static extern unsafe CAPI.ovrAvatar2Result ovrAvatar2Streaming_DeserializeRecording(
+            ovrAvatar2EntityId entityId, byte* sourceBuffer, UInt64 bytes);
     }
 }

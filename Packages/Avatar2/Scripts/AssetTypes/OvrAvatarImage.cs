@@ -25,6 +25,9 @@ namespace Oculus.Avatar2
     {
         private const string avatarImageLogScope = "ovrAvatarImage";
 
+        internal const FilterMode defaultFilterMode = FilterMode.Trilinear;
+        internal const int defaultAnisoLevel = 1;
+
         public readonly TextureFormat format;
         public Texture2D texture { get; private set; } = null;
 
@@ -68,37 +71,21 @@ namespace Oculus.Avatar2
                     format = TextureFormat.BC7;
                     break;
                 case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_4x4:
-                    format = ASTC4x4Source;
-#if !UNITY_2019_4_OR_NEWER
-                    CheckASTCFallback(ref _useAstc4x4Fallback, ref format, ASTC4x4Fallback);
-#endif
+                    format = TextureFormat.ASTC_4x4;
                     break;
                 case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_6x6:
-                    format = ASTC6x6Source;
-#if !UNITY_2019_4_OR_NEWER
-                    CheckASTCFallback(ref _useAstc6x6Fallback, ref format, ASTC6x6Fallback);
-#endif
+                    format = TextureFormat.ASTC_6x6;
                     break;
                 case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_8x8:
-                    format = ASTC8x8Source;
-#if !UNITY_2019_4_OR_NEWER
-                    CheckASTCFallback(ref _useAstc8x8Fallback, ref format, ASTC8x8Fallback);
-#endif
+                    format = TextureFormat.ASTC_8x8;
                     break;
 
 //                 case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_10x10:
-//                     format = ASTC10x10Source;
-// #if !UNITY_2019_4_OR_NEWER
-//                     CheckASTCFallback(ref _useAstc10x10Fallback, ref format, ASTC10x10Fallback);
-// #endif
+//                     format = TextureFormat.ASTC_10x10;
 //                     break;
 
-                case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_12x12
-                    :
-                    format = ASTC12x12Source;
-#if !UNITY_2019_4_OR_NEWER
-                    CheckASTCFallback(ref _useAstc12x12Fallback, ref format, ASTC12x12Fallback);
-#endif
+                case CAPI.ovrAvatar2ImageFormat.ASTC_RGBA_12x12:
+                    format = TextureFormat.ASTC_12x12;
                     break;
 
                 case CAPI.ovrAvatar2ImageFormat.Invalid:
@@ -128,6 +115,17 @@ namespace Oculus.Avatar2
 
             bool hasMipMaps = data.mipCount > 1;
             var buildTexture = new Texture2D((int)data.sizeX, (int)data.sizeY, format, hasMipMaps, !srgb);
+
+            var manager = OvrAvatarManager.Instance;
+            var filterMode = defaultFilterMode;
+            int anisoLevel = defaultAnisoLevel;
+            if (manager != null)
+            {
+                filterMode = manager.TextureFilterMode;
+                anisoLevel = manager.TextureAnisoLevel;
+            }
+            buildTexture.filterMode = filterMode;
+            buildTexture.anisoLevel = anisoLevel;
 
             // Oh Unity...
             if (!buildTexture)
@@ -240,54 +238,5 @@ namespace Oculus.Avatar2
         }
 
         private const bool AllowMipGeneration = false;
-
-        // NOTE: ASTC enum values were renamed in 2019.4
-#if !UNITY_2019_4_OR_NEWER
-        // This should be falling back to something like a PNG, but this actually fixes problems for now :X
-        // TODO: A more elaborate solution may be needed unless we can reduce the number of supported Unity versions
-
-        private const TextureFormat ASTC4x4Source = TextureFormat.ASTC_RGBA_4x4;
-        private const TextureFormat ASTC6x6Source = TextureFormat.ASTC_RGBA_6x6;
-        private const TextureFormat ASTC8x8Source = TextureFormat.ASTC_RGBA_8x8;
-        //private const TextureFormat ASTC10x10Source = TextureFormat.ASTC_RGBA_10x10;
-        private const TextureFormat ASTC12x12Source = TextureFormat.ASTC_RGBA_12x12;
-
-        private const TextureFormat ASTC4x4Fallback = TextureFormat.ASTC_RGB_4x4;
-        private const TextureFormat ASTC6x6Fallback = TextureFormat.ASTC_RGB_6x6;
-        private const TextureFormat ASTC8x8Fallback = TextureFormat.ASTC_RGB_8x8;
-        //private const TextureFormat ASTC10x10Fallback = TextureFormat.ASTC_RGB_10x10;
-        private const TextureFormat ASTC12x12Fallback = TextureFormat.ASTC_RGB_12x12;
-
-        private static bool? _useAstc4x4Fallback = null;
-        private static bool? _useAstc6x6Fallback = null;
-        private static bool? _useAstc8x8Fallback = null;
-        //private static bool? _useAstc10x10Fallback = null;
-        private static bool? _useAstc12x12Fallback = null;
-
-        private static void CheckASTCFallback(ref bool? fallbackFlag, ref TextureFormat format, TextureFormat fallback)
-        {
-            if (!fallbackFlag.HasValue)
-            {
-                fallbackFlag = !SystemInfo.SupportsTextureFormat(format);
-                if (fallbackFlag.Value)
-                {
-                    OvrAvatarLog.LogVerbose(
-                        $"Unity does not support {format} on this platform - attempting to use {fallback} instead"
-                        , avatarImageLogScope);
-                }
-            }
-
-            if (fallbackFlag.Value)
-            {
-                format = fallback;
-            }
-        }
-#else
-        private const TextureFormat ASTC4x4Source = TextureFormat.ASTC_4x4;
-        private const TextureFormat ASTC6x6Source = TextureFormat.ASTC_6x6;
-        private const TextureFormat ASTC8x8Source = TextureFormat.ASTC_8x8;
-        //private const TextureFormat ASTC10x10Source = TextureFormat.ASTC_10x10;
-        private const TextureFormat ASTC12x12Source = TextureFormat.ASTC_12x12;
-#endif
     }
 }

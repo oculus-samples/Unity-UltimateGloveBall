@@ -15,7 +15,7 @@ namespace Oculus.Skinning.GpuSkinning
     {
         private const string logScope = "OvrGpuMorphTargetsCombiner";
         // Declare the delegate (if using non-generic pattern).
-        public delegate void ArrayGrowthEventHandler(object sender, Texture newArray);
+        public delegate void ArrayGrowthEventHandler(OvrGpuMorphTargetsCombiner sender, RenderTexture newArray);
 
         public string name => _outputTex.name;
         public int Width => _outputTex.width;
@@ -88,7 +88,7 @@ namespace Oculus.Skinning.GpuSkinning
             CAPI.OvrGpuSkinning_AtlasPackerDestroy(_atlasPackerId);
         }
 
-        internal NativeSlice<float> GetMorphBuffer(OvrSkinningTypes.Handle handle)
+        internal IntPtr GetMorphBuffer(OvrSkinningTypes.Handle handle)
         {
             return _handleToBlockData.TryGetValue(handle, out var blockData)
                 ? blockData.combinerDrawCall.GetMorphWeightsBuffer(blockData.handleInDrawCall)
@@ -101,7 +101,8 @@ namespace Oculus.Skinning.GpuSkinning
             if (hasBlock)
             {
                 bool morphWeightsUpdated = blockData.combinerDrawCall.MorphWeightsBufferUpdateComplete(blockData.handleInDrawCall);
-                if(morphWeightsUpdated && parentController != null) {
+                if (morphWeightsUpdated && parentController != null)
+                {
                     parentController.AddActiveCombiner(this);
                 }
             }
@@ -238,7 +239,7 @@ namespace Oculus.Skinning.GpuSkinning
             Profiler.EndSample(); // "OvrGpuMorphTargetsCombiner::CombineMorphTargetWithCurrentWeights"
         }
 
-        public Texture GetCombinedShapesTexArray()
+        public RenderTexture GetCombinedShapesTexArray()
         {
             return _outputTex;
         }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Oculus.Avatar2;
 #if USING_XR_SDK
+using System.Reflection;
 using Oculus.Platform;
 #endif
 using UnityEngine;
@@ -36,10 +37,6 @@ public class SampleAvatarEntity : OvrAvatarEntity
     }
 
     [Header("Sample Avatar Entity")]
-    [Tooltip("A version of the avatar with additional textures will be loaded to portray more accurate human materials (requiring shader support).")]
-    [SerializeField]
-    private bool _highQuality = false;
-
     [Tooltip("Attempt to load the Avatar model file from the Content Delivery Network (CDN) based on a userID, as opposed to loading from disc.")]
     [SerializeField]
     private bool _loadUserFromCdn = true;
@@ -64,11 +61,11 @@ public class SampleAvatarEntity : OvrAvatarEntity
     [Header("CDN")]
     [Tooltip("Automatically retry LoadUser download request on failure")]
     [SerializeField]
-    private bool _autoCdnRetry = true;
+    protected bool _autoCdnRetry = true;
 
     [Tooltip("Automatically check for avatar changes")]
     [SerializeField]
-    private bool _autoCheckChanges = false;
+    protected bool _autoCheckChanges = false;
 
     [Tooltip("How frequently to check for avatar changes")]
     [SerializeField]
@@ -103,12 +100,30 @@ public class SampleAvatarEntity : OvrAvatarEntity
     private static readonly int DESAT_TINT_ID = Shader.PropertyToID("_DesatTint");
     private static readonly int DESAT_LERP_ID = Shader.PropertyToID("_DesatLerp");
 
-    private bool HasLocalAvatarConfigured => _assets.Count > 0;
+
+    protected bool HasLocalAvatarConfigured => _assets.Count > 0;
 
     private Stopwatch _loadTime = new Stopwatch();
 
+    protected override void Awake()
+    {
+        base.Awake();
+#if USING_XR_SDK
+        // OvrAvatarEntity.Awake calls OvrAvatarEntity.CreateEntity sets eye and face tracking contexts (which asks user permission).
+        // On Oculus SDK version >= v46 Eye tracking and Face tracking need to be explicitely started by the application after permission has been requested.
+        // Note: This API doesn't exist pre v46. If you require to support both v46 and earlier versions, one option is leveraging reflection:
+        // OVRPlugin.StartEyeTracking();
+        // OVRPlugin.StartFaceTracking();
+        // We use reflection here so that there are not compiler errors when using Oculus SDK v45 or below.
+        typeof(OVRPlugin).GetMethod("StartFaceTracking", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, null);
+        typeof(OVRPlugin).GetMethod("StartEyeTracking", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, null);
+        typeof(OVRPlugin).GetMethod("StartBodyTracking", BindingFlags.Public | BindingFlags.Static)?.Invoke(null, null);
+#endif
+    }
+
     protected virtual IEnumerator Start()
     {
+
         if (!_deferLoading)
         {
             if (_loadUserFromCdn)
@@ -245,7 +260,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
 
             string assetPostfix = (_underscorePostfix ? "_" : "")
                 + OvrAvatarManager.Instance.GetPlatformGLBPostfix(isFromZip)
-                + OvrAvatarManager.Instance.GetPlatformGLBVersion(_highQuality, isFromZip)
+                + OvrAvatarManager.Instance.GetPlatformGLBVersion(_creationInfo.renderFilters.highQualityFlags != CAPI.ovrAvatar2EntityHighQualityFlags.None, isFromZip)
                 + OvrAvatarManager.Instance.GetPlatformGLBExtension(isFromZip);
             if (!String.IsNullOrEmpty(_overridePostfix))
             {
@@ -253,7 +268,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
             }
 
             path[0] = asset.path + assetPostfix;
-            if(isFromZip)
+            if (isFromZip)
             {
                 LoadAssetsFromZipSource(path);
             }
@@ -280,7 +295,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
         bool isFromZip = (newAssetSource == AssetSource.Zip);
         string assetPostfix = (_underscorePostfix ? "_" : "")
             + OvrAvatarManager.Instance.GetPlatformGLBPostfix(isFromZip)
-            + OvrAvatarManager.Instance.GetPlatformGLBVersion(_highQuality, isFromZip)
+            + OvrAvatarManager.Instance.GetPlatformGLBVersion(_creationInfo.renderFilters.highQualityFlags != CAPI.ovrAvatar2EntityHighQualityFlags.None, isFromZip)
             + OvrAvatarManager.Instance.GetPlatformGLBExtension(isFromZip);
 
         string[] combinedPaths = new string[newAssetPaths.Length];
@@ -292,7 +307,9 @@ public class SampleAvatarEntity : OvrAvatarEntity
         if (isFromZip)
         {
             LoadAssetsFromZipSource(combinedPaths);
-        } else {
+        }
+        else
+        {
             LoadAssetsFromStreamingAssets(combinedPaths);
         }
     }
@@ -303,7 +320,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
         bool isFromZip = true;
         string assetPostfix = (_underscorePostfix ? "_" : "")
             + OvrAvatarManager.Instance.GetPlatformGLBPostfix(isFromZip)
-            + OvrAvatarManager.Instance.GetPlatformGLBVersion(_highQuality, isFromZip)
+            + OvrAvatarManager.Instance.GetPlatformGLBVersion(_creationInfo.renderFilters.highQualityFlags != CAPI.ovrAvatar2EntityHighQualityFlags.None, isFromZip)
             + OvrAvatarManager.Instance.GetPlatformGLBExtension(isFromZip);
 
         var assetPath = $"{namePrefix}{preset}{assetPostfix}";
@@ -418,7 +435,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
     #endregion
 
     #region Retry
-    private void UserHasNoAvatarFallback()
+    protected void UserHasNoAvatarFallback()
     {
         OvrAvatarLog.LogError(
             $"Unable to find user avatar with userId {_userId}. Falling back to local avatar.", logScope, this);
@@ -426,7 +443,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
         LoadLocalAvatar();
     }
 
-    private IEnumerator Retry_HasAvatarRequest()
+    protected virtual IEnumerator Retry_HasAvatarRequest()
     {
         const float HAS_AVATAR_RETRY_WAIT_TIME = 4.0f;
         const int HAS_AVATAR_RETRY_ATTEMPTS = 12;
@@ -526,7 +543,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
         }
     }
 
-    private IEnumerator AutoRetry_LoadUser(bool loadFallbackOnFailure)
+    protected virtual IEnumerator AutoRetry_LoadUser(bool loadFallbackOnFailure)
     {
         const float LOAD_USER_POLLING_INTERVAL = 4.0f;
         const float LOAD_USER_BACKOFF_FACTOR = 1.618033988f;
@@ -538,6 +555,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
         var currentPollingInterval = LOAD_USER_POLLING_INTERVAL;
         do
         {
+            // Initiate user spec load (ie: CDN Avatar)
             LoadUser();
 
             CAPI.ovrAvatar2Result status;
@@ -546,7 +564,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
                 // Wait for retry interval before taking any action
                 yield return new WaitForSecondsRealtime(currentPollingInterval);
 
-                //TODO: Cache status
+                // Check current `entity` status
                 status = this.entityStatus;
                 if (status.IsSuccess() || HasNonDefaultAvatar)
                 {
@@ -560,8 +578,13 @@ public class SampleAvatarEntity : OvrAvatarEntity
                     break;
                 }
 
+                // Increase backoff interval
                 currentPollingInterval *= LOAD_USER_BACKOFF_FACTOR;
+
+                // `while` status is still pending, keep polling the current attempt
+                // Do not start a new request - do not decrement retry attempts
             } while (status == CAPI.ovrAvatar2Result.Pending);
+            // Decrement retry attempts now that load failure has been confirmed (status != Pending)
         } while (--remainingAttempts > 0);
 
         if (loadFallbackOnFailure && !didLoadAvatar)
@@ -570,7 +593,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
                 $"Unable to download user after {totalAttempts} retry attempts",
                 logScope, this);
 
-            // We cannot download an avatar, use local fallback
+            // We cannot download an avatar, use local fallback (ie: Preset Avatar)
             UserHasNoAvatarFallback();
         }
     }
@@ -594,7 +617,7 @@ public class SampleAvatarEntity : OvrAvatarEntity
 
     #region Change Check
 
-    private IEnumerator PollForAvatarChange()
+    protected IEnumerator PollForAvatarChange()
     {
         var waitForPollInterval = new WaitForSecondsRealtime(_changeCheckInterval);
 

@@ -46,6 +46,22 @@ Shader "Avatar/SkinToTexture"
 
             #define OVR_HAS_JOINTS (defined(OVR_SKINNING_QUALITY_1_BONE) || defined(OVR_SKINNING_QUALITY_2_BONES) || defined(OVR_SKINNING_QUALITY_4_BONES))
 
+            #define OVR_TEXTURE_PRECISION_FLOAT // hard coding this for now to test perf
+
+            // NOTE: According to Unity documentation here https://docs.unity3d.com/Manual/SL-DataTypesAndPrecision.html
+            // The standard declaration of Texture2DArray yields the following
+            // "For mobile platforms, these translate into “low precision samplers”, i.e. the textures are expected to
+            // have low precision data in them."
+            // Upon shader inspection, the declarations become "uniform mediump sampler2DArray" which
+            // is 16-bit precision. This is not desired as some of the data in the textures is
+            // expected to have 32-bit precision. So, for mobile platforms, make an option for explicitly
+            // setting 32-bit precision
+            #if defined(SHADER_API_MOBILE) && defined(OVR_TEXTURE_PRECISION_FLOAT)
+                #define OVR_DECLARE_TEX2DARRAY(tex) Texture2DArray_float tex; SamplerState sampler##tex
+            #else
+                #define OVR_DECLARE_TEX2DARRAY(tex) UNITY_DECLARE_TEX2DARRAY(tex)
+            #endif
+
             struct appdata {
                 float4 a_Position : POSITION;
                 float2 a_UV1 : TEXCOORD0;
@@ -90,26 +106,29 @@ Shader "Avatar/SkinToTexture"
             };
 
             // Textures
-            UNITY_DECLARE_TEX2DARRAY( u_NeutralPoseTex );
+            OVR_DECLARE_TEX2DARRAY( u_NeutralPoseTex );
 
 #if defined(OVR_HAS_JOINTS)
-            UNITY_DECLARE_TEX2DARRAY( u_JointsTex );
+            OVR_DECLARE_TEX2DARRAY( u_JointsTex );
 #endif
 
 #if defined(OVR_HAS_MORPH_TARGETS) || defined(OVR_HAS_MORPH_TARGETS_INDIRECTION_TEXTURE)
-            UNITY_DECLARE_TEX2DARRAY( u_CombinedMorphTargetsTex );
+            OVR_DECLARE_TEX2DARRAY( u_CombinedMorphTargetsTex );
 #if defined(OVR_HAS_MORPH_TARGETS_INDIRECTION_TEXTURE)
-            UNITY_DECLARE_TEX2DARRAY( u_IndirectionTex );
+            OVR_DECLARE_TEX2DARRAY( u_IndirectionTex );
 #endif
 #endif
 
             uniform StructuredBuffer<PerBlockData> u_BlockData;
-            uniform StructuredBuffer<float> u_BlockEnabled;
             uniform StructuredBuffer<JointData> u_JointMatrices;
+
+            uniform float u_BlockEnabled;
 
 #if OVR_OUTPUT_SCALE_BIAS
             uniform float2 u_OutputScaleBias;
 #endif
+
+            uniform int u_JointOffset;
 
             float3 getUvForTexture(float4 uvRect, float texSlice, float2 a_UV1)
             {
@@ -142,12 +161,8 @@ Shader "Avatar/SkinToTexture"
 #endif
 
               int blockIndex = int(vIn.a_Color.r);
-
-              // Grab enabled from array by index
-              float blockEnabled = u_BlockEnabled[blockIndex];
-
               // Generate degnerate triangle if not enabled
-              output.pos = pos * step(0.0, blockEnabled);
+              output.pos = pos * step(0.0, u_BlockEnabled);
 
               // Grab blockdata from array by index
               PerBlockData blockData = u_BlockData[blockIndex];
@@ -175,7 +190,9 @@ Shader "Avatar/SkinToTexture"
             }
 
             float4x4 GetJointMatrixForAttribute(uint jointIndex, bool isAttributeNormal) {
-                return isAttributeNormal ? u_JointMatrices[jointIndex].normalTransform : u_JointMatrices[jointIndex].transform;
+              uint jIndex = jointIndex + u_JointOffset;
+              return isAttributeNormal ? u_JointMatrices[jIndex].normalTransform
+                                       : u_JointMatrices[jIndex].transform;
             }
 
             float4 FragShader(v2f input) : SV_Target

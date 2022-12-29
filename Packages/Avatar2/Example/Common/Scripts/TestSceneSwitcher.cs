@@ -1,7 +1,8 @@
-#if USING_XR_MANAGEMENT && USING_XR_SDK_OCULUS
+#if USING_XR_MANAGEMENT && USING_XR_SDK_OCULUS && !OVRPLUGIN_UNSUPPORTED_PLATFORM
 #define USING_XR_SDK
 #endif
 
+using System.Collections;
 using Oculus.Avatar2;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,7 +38,7 @@ public class TestSceneSwitcher : MonoBehaviour
     {
         // Because we destroy the old Avatar Manager for a clean scene change,
         // we need to give the new one the access token again
-        if (OvrAvatarEntitlement.AccessTokenIsValid)
+        if (OvrAvatarEntitlement.AccessTokenIsValid())
         {
             OvrAvatarEntitlement.ResendAccessToken();
         }
@@ -50,11 +51,11 @@ public class TestSceneSwitcher : MonoBehaviour
 #if USING_XR_SDK
         if (OVRInput.GetActiveController() != OVRInput.Controller.Hands)
         {
-            if (OVRInput.GetDown(_nextSceneInput.buttonMask, _nextSceneInput.controllerMask))
+            if (OVRInput.GetUp(_nextSceneInput.buttonMask, _nextSceneInput.controllerMask))
             {
                 sceneChange = 1;
             }
-            else if (OVRInput.GetDown(_prevSceneInput.buttonMask, _prevSceneInput.controllerMask))
+            else if (OVRInput.GetUp(_prevSceneInput.buttonMask, _prevSceneInput.controllerMask))
             {
                 sceneChange = -1;
             }
@@ -62,18 +63,42 @@ public class TestSceneSwitcher : MonoBehaviour
 #endif
         if (sceneChange != 0)
         {
-            // Clean up current scene
-            if (OvrAvatarManager.hasInstance)
-            {
-                // Basically a DoDestroyOnLoad()
-                SceneManager.MoveGameObjectToScene(OvrAvatarManager.Instance.gameObject, SceneManager.GetActiveScene());
-            }
-
-            //Change scenes
-            int activeSceneIdx = SceneManager.GetActiveScene().buildIndex;
-            int nextSceneIdx = Wrap(activeSceneIdx + sceneChange, 0, SceneManager.sceneCountInBuildSettings - 1);
-            SceneManager.LoadScene(nextSceneIdx, LoadSceneMode.Single);
+            StartCoroutine(SwitchScene(sceneChange));
         }
+    }
+
+#if !USING_XR_SDK
+    private void OnGUI()
+    {
+        float buttonSize = Screen.height * 0.15f;
+
+        var style = new GUIStyle();
+        style.alignment = TextAnchor.MiddleCenter;
+        GUI.Label(new Rect(0, Screen.height - buttonSize, Screen.width, buttonSize), SceneManager.GetActiveScene().name, style);
+
+        if (GUI.Button(new Rect(0, Screen.height - buttonSize, buttonSize, buttonSize), "Prev"))
+        {
+            StartCoroutine(SwitchScene(-1));
+        }
+        if (GUI.Button(new Rect(Screen.width - buttonSize, Screen.height - buttonSize, buttonSize, buttonSize), "Next"))
+        {
+            StartCoroutine(SwitchScene(1));
+        }
+    }
+#endif
+
+    private IEnumerator SwitchScene(int direction)
+    {
+        // Wait a frame so OVRInput registers the button up event - otherwise it misses it during the scene switch
+        yield return null;
+
+        // Reset OvrAvatarManager so the next scene can create it again with a new configuration
+        OvrAvatarManager.ResetInstance();
+
+        // Change scenes
+        int activeSceneIdx = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIdx = Wrap(activeSceneIdx + direction, 0, SceneManager.sceneCountInBuildSettings - 1);
+        SceneManager.LoadScene(nextSceneIdx, LoadSceneMode.Single);
     }
 
     // Assumes value is only outside min/max by 1

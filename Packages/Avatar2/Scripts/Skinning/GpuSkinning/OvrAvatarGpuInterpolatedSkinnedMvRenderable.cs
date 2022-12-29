@@ -106,20 +106,21 @@ namespace Oculus.Skinning.GpuSkinning
 
             // Copy "previous 2 animation frame's" worth of data to slices 3 and 4
             // and manipulate some "render frame" internal fields to reflect that
-            Debug.Assert(GetOutputTexture());
+            var outputTexture = GetOutputTexture();
+            Debug.Assert(outputTexture);
             const int mipLevel = 0;
 
             int srcSlice = (int)SkinnerLayoutSlice + 0;
             int dstSlice = (int)SkinnerLayoutSlice + 2;
             Graphics.CopyTexture(
-                GetOutputTexture(),
+                outputTexture,
                 srcSlice,
                 mipLevel,
                 SkinnerLayout.x,
                 SkinnerLayout.y,
                 SkinnerLayout.width,
                 SkinnerLayout.height,
-                GetOutputTexture(),
+                outputTexture,
                 dstSlice,
                 mipLevel,
                 SkinnerLayout.x,
@@ -128,14 +129,14 @@ namespace Oculus.Skinning.GpuSkinning
             srcSlice = (int)SkinnerLayoutSlice + 1;
             dstSlice = (int)SkinnerLayoutSlice + 3;
             Graphics.CopyTexture(
-                GetOutputTexture(),
+                outputTexture,
                 srcSlice,
                 mipLevel,
                 SkinnerLayout.x,
                 SkinnerLayout.y,
                 SkinnerLayout.width,
                 SkinnerLayout.height,
-                GetOutputTexture(),
+                outputTexture,
                 dstSlice,
                 mipLevel,
                 SkinnerLayout.x,

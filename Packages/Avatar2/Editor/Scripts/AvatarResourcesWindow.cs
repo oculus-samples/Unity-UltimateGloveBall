@@ -19,18 +19,18 @@ namespace Oculus.Avatar2
             Default = Loaders,
         }
 
-        private static GUIStyle titleStyle;
-        Vector2 scrollPosition;
-        private OvrAvatarPrimitive primitive;
+        private static GUIStyle _titleStyle;
+        Vector2 _scrollPosition;
+        private OvrAvatarPrimitive _primitive;
 
-        private string[] tabs = new string[] { "Resource Loaders", "GPU Skinning" };
-        private ResourceTabId selectedTab = ResourceTabId.Default;
+        private string[] _tabs = new string[] { "Resource Loaders", "GPU Skinning" };
+        private ResourceTabId _selectedTab = ResourceTabId.Default;
 
-        private static readonly string[] inputPrefixes = new string[] { "neutral", "morphSrc", "morphCombined", "indirection", "joints" };
-        private static readonly string[] outputPrefixes = new string[] { "morphJointSkinnerOutput", "jointSkinnerOutput", "morphSkinnerOutput" };
+        private static readonly string[] _inputPrefixes = new string[] { "neutral", "morphSrc", "morphCombined", "indirection", "joints" };
+        private static readonly string[] _outputPrefixes = new string[] { "morphJointSkinnerOutput", "jointSkinnerOutput", "morphSkinnerOutput" };
 
-        private long totalTextureMemoryUsed = 0;
-        private long totalMeshMemoryUsed = 0;
+        private long _totalTextureMemoryUsed = 0;
+        private long _totalMeshMemoryUsed = 0;
 
         // Add menu named "My Window" to the Window menu
         [MenuItem("AvatarSDK2/Resources Window")]
@@ -45,14 +45,14 @@ namespace Oculus.Avatar2
         {
             if (EditorApplication.isPlaying)
             {
-                selectedTab = (ResourceTabId)GUILayout.Toolbar((int)selectedTab, tabs);
-                scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+                _selectedTab = (ResourceTabId)GUILayout.Toolbar((int)_selectedTab, _tabs);
+                _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
 
-                switch (selectedTab)
+                switch (_selectedTab)
                 {
                     case ResourceTabId.Loaders:
                         {
-                            if (primitive != null)
+                            if (_primitive != null)
                             {
                                 RenderPrimitiveData();
                             }
@@ -76,21 +76,21 @@ namespace Oculus.Avatar2
 
         void RenderPrimitiveData()
         {
-            titleStyle = new GUIStyle(EditorStyles.helpBox);
-            titleStyle.fontSize = 24;
+            _titleStyle = new GUIStyle(EditorStyles.helpBox);
+            _titleStyle.fontSize = 24;
             if (GUILayout.Button("Back"))
             {
-                primitive = null;
+                _primitive = null;
             }
 
-            if (primitive == null)
+            if (_primitive == null)
             {
                 EditorGUILayout.LabelField("Data has no value");
                 return;
             }
 
-            var fields = primitive.data.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            EditorGUILayout.LabelField(primitive.name, titleStyle);
+            var fields = _primitive.data.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            EditorGUILayout.LabelField(_primitive.name, _titleStyle);
             int i = 0;
             foreach (var field in fields)
             {
@@ -98,12 +98,12 @@ namespace Oculus.Avatar2
 
                 EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
                 EditorGUILayout.LabelField(field.Name);
-                EditorGUILayout.LabelField(field.GetValue(primitive.data).ToString());
+                EditorGUILayout.LabelField(field.GetValue(_primitive.data).ToString());
                 EditorGUILayout.EndHorizontal();
                 i++;
             }
 
-            long memoryUsed = Profiler.GetRuntimeMemorySizeLong(primitive.mesh);
+            long memoryUsed = Profiler.GetRuntimeMemorySizeLong(_primitive.mesh);
             GUI.backgroundColor = i % 2 == 0 ? Color.white : Color.gray;
             EditorGUILayout.BeginHorizontal(EditorStyles.helpBox);
             EditorGUILayout.LabelField("Mesh Memory");
@@ -118,11 +118,11 @@ namespace Oculus.Avatar2
                 var _resourcesByID = OvrAvatarManager.Instance.GetResourceID();
                 EditorGUILayout.LabelField("Resource Loaders");
                 EditorGUILayout.BeginHorizontal();
-                EditorGUILayout.LabelField("Texture Memory: " + (totalTextureMemoryUsed / 1000000f) + "mb");
-                EditorGUILayout.LabelField("Mesh Memory: " + (totalMeshMemoryUsed / 1000000f) + "mb");
+                EditorGUILayout.LabelField("Texture Memory: " + (_totalTextureMemoryUsed / 1000000f) + "mb");
+                EditorGUILayout.LabelField("Mesh Memory: " + (_totalMeshMemoryUsed / 1000000f) + "mb");
                 EditorGUILayout.EndHorizontal();
-                totalTextureMemoryUsed = 0;
-                totalMeshMemoryUsed = 0;
+                _totalTextureMemoryUsed = 0;
+                _totalMeshMemoryUsed = 0;
 
                 int i = 0;
                 foreach (var kvp in _resourcesByID)
@@ -141,9 +141,9 @@ namespace Oculus.Avatar2
                         totalMemoryPerLoader += memoryUsed;
                         if (GUILayout.Button(p.name))
                         {
-                            primitive = p;
+                            _primitive = p;
                         }
-                        totalMeshMemoryUsed += memoryUsed;
+                        _totalMeshMemoryUsed += memoryUsed;
                     }
                     EditorGUILayout.EndVertical();
 
@@ -151,7 +151,7 @@ namespace Oculus.Avatar2
                     foreach (var im in images)
                     {
                         long memoryUsed = Profiler.GetRuntimeMemorySizeLong(im.texture);
-                        totalTextureMemoryUsed += memoryUsed;
+                        _totalTextureMemoryUsed += memoryUsed;
                         totalMemoryPerLoader += memoryUsed;
                         EditorGUILayout.BeginVertical();
                         var rect = GUILayoutUtility.GetRect(128, 128);
@@ -177,7 +177,7 @@ namespace Oculus.Avatar2
 
             var inputs = textures.Where(t =>
             {
-                foreach (var p in inputPrefixes)
+                foreach (var p in _inputPrefixes)
                 {
                     if (t.name.StartsWith(p))
                     {
@@ -189,7 +189,7 @@ namespace Oculus.Avatar2
 
             var outputs = textures.Where(t =>
             {
-                foreach (var p in outputPrefixes)
+                foreach (var p in _outputPrefixes)
                 {
                     if (t.name.StartsWith(p))
                     {
@@ -246,10 +246,10 @@ namespace Oculus.Avatar2
             if (t is RenderTexture rT) { return rT.volumeDepth; }
             if (t is Texture2DArray aT) { return aT.depth; }
 
-            OvrAvatarLog.LogError("Unrecognized texture type", logScope, t);
+            OvrAvatarLog.LogError("Unrecognized texture type", LOG_SCOPE, t);
             return 1;
         }
 
-        private const string logScope = "AvatarResourcesWindow";
+        private const string LOG_SCOPE = "AvatarResourcesWindow";
     }
 }

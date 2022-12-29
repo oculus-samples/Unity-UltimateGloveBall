@@ -330,6 +330,10 @@ namespace Oculus.Avatar2
         public static extern CAPI.ovrAvatar2Result ovrAvatar2Asset_GetSubMeshInclusionFlags(
             ovrAvatar2Id primitiveId, out ovrAvatar2EntitySubMeshInclusionFlags subMeshInclusionFlags);
 
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
+        public static extern CAPI.ovrAvatar2Result ovrAvatar2Asset_GetHighQualityFlags(
+            ovrAvatar2Id primitiveId, out ovrAvatar2EntityHighQualityFlags highQualityFlags);
+
         //-----------------------------------------------------------------
         //
         // Index Buffer

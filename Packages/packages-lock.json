@@ -39,7 +39,7 @@
       "dependencies": {}
     },
     "com.meta.xr.sdk.utilities": {
-      "version": "46.0.0-preview",
+      "version": "47.0.0-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -52,7 +52,7 @@
       "dependencies": {}
     },
     "com.unity.burst": {
-      "version": "1.7.3",
+      "version": "1.8.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -183,7 +183,7 @@
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
-        "com.unity.burst": "1.7.3",
+        "com.unity.burst": "1.8.2",
         "com.unity.render-pipelines.core": "12.1.8",
         "com.unity.shadergraph": "12.1.8"
       }

@@ -37,7 +37,7 @@ namespace Oculus.Skinning.GpuSkinning
         private const int INITIAL_SLICE_COUNT = 1;
 
         // number of "output depth texels" per "atlas packer" slice
-        private int _numDepthTexelsPerSlice = 1;
+        private readonly int _numDepthTexelsPerSlice = 1;
 
         protected OvrGpuSkinnerBase(
             string name,
@@ -101,14 +101,20 @@ namespace Oculus.Skinning.GpuSkinning
             if (_outputTex != null)
             {
                 _outputTex.Release();
+                _outputTex = null;
             }
 
-            foreach (List<TDrawCallType> drawCallsList in _drawCallsForSlice)
+            if (_drawCallsForSlice.Count > 0)
             {
-                foreach (TDrawCallType drawCall in drawCallsList)
+                foreach (List<TDrawCallType> drawCallsList in _drawCallsForSlice)
                 {
-                    drawCall.Destroy();
+                    foreach (TDrawCallType drawCall in drawCallsList)
+                    {
+                        drawCall.Destroy();
+                    }
+                    drawCallsList.Clear();
                 }
+                _drawCallsForSlice.Clear();
             }
         }
 
@@ -276,7 +282,7 @@ namespace Oculus.Skinning.GpuSkinning
             return false;
         }
 
-        public override Texture GetOutputTex()
+        public override RenderTexture GetOutputTex()
         {
             return _outputTex;
         }

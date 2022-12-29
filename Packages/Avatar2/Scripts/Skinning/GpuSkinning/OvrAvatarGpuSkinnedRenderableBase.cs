@@ -243,7 +243,7 @@ namespace Oculus.Skinning.GpuSkinning
 
         public override IDisposableBuffer CheckoutMorphTargetBuffer(uint morphCount)
         {
-            _bufferHandle.nativeSliceBuffer = _gpuCombiner.GetMorphBuffer(_handleInCombiner);
+            _bufferHandle.nativeBuffer = _gpuCombiner.GetMorphBuffer(_handleInCombiner);
             return _bufferHandle;
         }
 
@@ -261,27 +261,22 @@ namespace Oculus.Skinning.GpuSkinning
             }
 
             int jointsCount = primitive.joints.Length;
-            UInt32 bufferSize = (UInt32)(OvrJointsData.JointDataSize * jointsCount);
+            UInt32 bufferSize = (UInt32)(OvrComputeBufferPool.JointDataSize * jointsCount);
 
-            var transformsSlice = _skinner.GetJointTransformMatricesArray(_handleInSkinner);
+            IntPtr transformsSlice = _skinner.GetJointTransformMatricesArray(_handleInSkinner);
 
-            if (!transformsSlice.HasValue)
+            if (transformsSlice == null)
             {
                 return false;
             }
 
-            Debug.Assert(transformsSlice.Value.Length == jointsCount);
-            IntPtr transformsPtr;
-            unsafe { transformsPtr = (IntPtr)transformsSlice.Value.GetUnsafePtr(); }
-
             Profiler.BeginSample("GetSkinTransforms");
             var result =
-                CAPI.ovrAvatar2Render_GetSkinTransforms(entityId, primitiveInstanceId, transformsPtr, bufferSize, true);
+                CAPI.ovrAvatar2Render_GetSkinTransforms(entityId, primitiveInstanceId, transformsSlice, bufferSize, true);
             Profiler.EndSample();
 
             if (result == CAPI.ovrAvatar2Result.Success)
             {
-                _skinner.UpdateJointTransformMatrices(_handleInSkinner);
                 _skinner.EnableBlockToRender(_handleInSkinner, SkinnerWriteDestination);
             }
             else
@@ -727,18 +722,13 @@ namespace Oculus.Skinning.GpuSkinning
         {
             public BufferHandle() { }
 
-            public NativeSlice<float> nativeSliceBuffer;
+            public IntPtr nativeBuffer = IntPtr.Zero;
 
             public IntPtr BufferPtr
             {
                 get
                 {
-                    IntPtr bufferPtr = IntPtr.Zero;
-                    if (nativeSliceBuffer.Length > 0)
-                    {
-                        unsafe { bufferPtr = (IntPtr)nativeSliceBuffer.GetUnsafePtr(); }
-                    }
-                    return bufferPtr;
+                    return nativeBuffer;
                 }
             }
 

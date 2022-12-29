@@ -42,20 +42,17 @@ namespace Oculus.Avatar2
         {
             return array.GetBufferSize(UnsafeUtility.SizeOf<T>());
         }
-
         public static UInt32 GetBufferSize<T>(in this NativeArray<T> array, UInt32 elementSize) where T : struct
         {
             Debug.Assert(elementSize != 0);
             Debug.Assert(elementSize == UnsafeUtility.SizeOf<T>());
             return (UInt32)(array.Length * elementSize);
         }
-
         public static UInt32 GetBufferSize<T>(in this NativeArray<T> array, int elementSize) where T : struct
         {
             Debug.Assert(elementSize > 0);
             return array.GetBufferSize((UInt32)elementSize);
         }
-
         public static UInt32 GetBufferSize(in this NativeArray<byte> array)
         {
             return (UInt32)array.Length;
@@ -137,6 +134,8 @@ namespace Oculus.Avatar2
             public NativeArray<T> array;
             public bool IsCreated => array.IsCreated;
 
+            public int Length => array.Length;
+
             public void Dispose()
             {
                 if (array.IsCreated)
@@ -160,6 +159,22 @@ namespace Oculus.Avatar2
         public static NativeArrayDisposeWrapper<T> GetDisposeSafe<T>(this in NativeArray<T> array) where T : struct
         {
             return new NativeArrayDisposeWrapper<T>(in array);
+        }
+
+        // NativeSlice<T> Extensions
+
+        public static unsafe T* GetPtr<T>(in this NativeSlice<T> slice) where T : unmanaged
+        {
+            return (T*)slice.GetUnsafePtr();
+        }
+
+        public static UInt32 GetBufferSize<T>(in this NativeSlice<T> slice) where T : struct
+        {
+            unchecked { return (UInt32)slice.Length * (UInt32)UnsafeUtility.SizeOf<T>(); }
+        }
+        public static UInt32 GetBufferSize(in this NativeSlice<byte> array)
+        {
+            return (UInt32)array.Length;
         }
 
         // Dictionary<K, V> Extensions
@@ -388,6 +403,32 @@ namespace Oculus.Avatar2
             return wasSuccessOrWarn;
         }
 
+        internal static bool EnsureSuccessOrWarning(this CAPI.ovrAvatar2Result result
+            , CAPI.ovrAvatar2Result succeedWithWarningResult0
+            , CAPI.ovrAvatar2Result succeedWithWarningResult1
+            , string warningSuggestion = DefaultWarningSuggestion
+            , string msgContext = DefaultContext
+            , string logScope = DefaultScope
+            , UnityEngine.Object unityContext = null)
+        {
+            bool wasSuccessOrWarn = result.IsSuccess();
+            if (!wasSuccessOrWarn)
+            {
+                wasSuccessOrWarn = result == succeedWithWarningResult0 || result == succeedWithWarningResult1;
+                if (wasSuccessOrWarn)
+                {
+                    OvrAvatarLog.LogWarning(
+                        $"Operation ({msgContext}) succeeded with warning ({result})\n - {warningSuggestion} to resolve this warning"
+                        , logScope, unityContext);
+                }
+                else
+                {
+                    result.LogError(msgContext, logScope, unityContext);
+                }
+            }
+            return wasSuccessOrWarn;
+        }
+
         private const string DefaultLogVerboseContext = "no action required";
         // TODO: System.Diagnostic.Conditional
         internal static bool EnsureSuccessOrLogVerbose(this CAPI.ovrAvatar2Result result
@@ -398,6 +439,19 @@ namespace Oculus.Avatar2
             , UnityEngine.Object unityContext = null)
         {
             return EnsureSuccessOrLog(result, succeedWithLogVerboseResult,
+                logDebugContext, msgContext, logScope, unityContext,
+                OvrAvatarLog.ELogLevel.Verbose);
+        }
+        internal static bool EnsureSuccessOrLogVerbose(this CAPI.ovrAvatar2Result result
+            , CAPI.ovrAvatar2Result succeedWithLogVerboseResult0
+            , CAPI.ovrAvatar2Result succeedWithLogVerboseResult1
+            , string logDebugContext = DefaultLogVerboseContext
+            , string msgContext = DefaultContext
+            , string logScope = DefaultScope
+            , UnityEngine.Object unityContext = null)
+        {
+            return EnsureSuccessOrLog(
+                result, succeedWithLogVerboseResult0, succeedWithLogVerboseResult1,
                 logDebugContext, msgContext, logScope, unityContext,
                 OvrAvatarLog.ELogLevel.Verbose);
         }
@@ -471,6 +525,33 @@ namespace Oculus.Avatar2
             if (!wasSuccessOrLog)
             {
                 wasSuccessOrLog = result == succeedWithLogResult;
+                if (wasSuccessOrLog)
+                {
+                    OvrAvatarLog.Log(logLevel
+                        , $"Operation ({msgContext}) succeeded with log ({result})\n - {logDebugContext}"
+                        , logScope, unityContext);
+                }
+                else
+                {
+                    result.LogError(msgContext, logScope, unityContext);
+                }
+            }
+            return wasSuccessOrLog;
+        }
+
+        private static bool EnsureSuccessOrLog(this CAPI.ovrAvatar2Result result
+            , CAPI.ovrAvatar2Result succeedWithLogResult0
+            , CAPI.ovrAvatar2Result succeedWithLogResult1
+            , string logDebugContext
+            , string msgContext
+            , string logScope
+            , UnityEngine.Object unityContext
+            , OvrAvatarLog.ELogLevel logLevel)
+        {
+            bool wasSuccessOrLog = result.IsSuccess();
+            if (!wasSuccessOrLog)
+            {
+                wasSuccessOrLog = result == succeedWithLogResult0 || result == succeedWithLogResult1;
                 if (wasSuccessOrLog)
                 {
                     OvrAvatarLog.Log(logLevel

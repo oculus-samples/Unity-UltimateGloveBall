@@ -498,7 +498,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3657343166645766307}
-  - component: {fileID: 3657343166645766305}
   - component: {fileID: 3657343166645766304}
   m_Layer: 3
   m_Name: LeftHandWrist_jnt
@@ -528,21 +527,6 @@ Transform:
   m_Father: {fileID: 3657343168365717859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3657343166645766305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3657343166645766306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23dd79c8b6109246bfc3b35e6ac44cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.9167204, b: 1, a: 1}
-  drawAxes: 1
-  axisSize: 0.01
 --- !u!114 &3657343166645766304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,7 +1500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8016873618588251951}
   - component: {fileID: 4735383944344430092}
-  - component: {fileID: 4735383944344430093}
   m_Layer: 3
   m_Name: RightHandWrist_jnt
   m_TagString: Untagged
@@ -1558,21 +1541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jointType: 0
---- !u!114 &4735383944344430093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4952009117969986684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23dd79c8b6109246bfc3b35e6ac44cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.9167204, b: 1, a: 1}
-  drawAxes: 1
-  axisSize: 0.01
 --- !u!1 &5348537201784707905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1746,8 @@ GameObject:
   - component: {fileID: 7347214010407757093}
   - component: {fileID: 2639589616134429533}
   - component: {fileID: 4905773132181324928}
+  - component: {fileID: 7522475491851819156}
+  - component: {fileID: 831674340842041351}
   m_Layer: 3
   m_Name: PlayerAvatarEntity
   m_TagString: Untagged
@@ -1841,13 +1811,18 @@ MonoBehaviour:
       manifestationFlags: 2
       viewFlags: 3
       subMeshInclusionFlags: 2047
+      highQualityFlags: 0
   _activeView: 2
   _activeManifestation: 2
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
+  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
+  _facePoseBehavior: {fileID: 831674340842041351}
+  _eyePoseBehavior: {fileID: 7522475491851819156}
   _lipSync: {fileID: 0}
   _criticalJointTypes: 1200000016000000
+  _useExperimentalFeatures: -1
   _debugDrawing:
     drawTrackingPose: 0
     drawBoneNames: 0
@@ -1903,6 +1878,8 @@ MonoBehaviour:
     OnLoaded:
       m_PersistentCalls:
         m_Calls: []
+  m_facePoseProvider: {fileID: 831674340842041351}
+  m_eyePoseProvider: {fileID: 7522475491851819156}
   m_rightHandPose: {fileID: 7347214010407757093}
   m_leftHandPose: {fileID: 3974380557604543501}
   m_respawnVfx: {fileID: 2905971973445319630}
@@ -1950,6 +1927,7 @@ MonoBehaviour:
   - LOD: 3
     UpdateFrequency: 0.1
   m_streamDelayMultiplier: 1
+  m_entity: {fileID: 4607294478261916853}
 --- !u!114 &479540112916808385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,6 +2087,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbd58825f7e4d919946409e28d65f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7522475491851819156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775241635953393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d9ca4252a965544a4613f39f18d361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &831674340842041351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775241635953393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852db897867e8a0418e5c20c10cb0cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7474497600499483782

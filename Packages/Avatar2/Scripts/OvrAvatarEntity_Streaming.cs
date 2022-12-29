@@ -19,6 +19,8 @@ namespace Oculus.Avatar2
             Low = CAPI.ovrAvatar2StreamLOD.Low
         }
 
+        public const StreamLOD StreamLODFirst = StreamLOD.Full;
+        public const StreamLOD StreamLODLast = StreamLOD.Low;
         public const int StreamLODCount = (StreamLOD.Low - StreamLOD.Full) + 1;
 
         // Public Properties
@@ -65,27 +67,6 @@ namespace Oculus.Avatar2
                 .EnsureSuccess("ovrAvatar2Streaming_GetRecordingSize", logScope, this);
         }
 
-        // TODO: Should probably be internal?
-        public bool SerializeRecording(
-            CAPI.ovrAvatar2StreamLOD lod, IntPtr buffer, out UInt64 bufferBytes)
-        {
-            return CAPI.ovrAvatar2Streaming_SerializeRecording(
-                entityId, lod, buffer, out bufferBytes)
-                .EnsureSuccess("ovrAvatar2Streaming_SerializeRecording", logScope, this);
-        }
-
-        // TODO: Should probably be internal?
-        public CAPI.ovrAvatar2Result DeserializeRecording(IntPtr buffer, UInt64 bufferBytes)
-        {
-            var result = CAPI.ovrAvatar2Streaming_DeserializeRecording(
-                entityId, buffer, bufferBytes);
-            result.EnsureSuccessOrWarning(
-                CAPI.ovrAvatar2Result.BufferTooSmall, "increase buffer size"
-                , "ovrAvatar2Streaming_DeserializeRecording", logScope, this);
-            return result;
-        }
-
-
         public void SetIsLocal(bool newValue)
         {
             if (IsLocal == newValue) return;
@@ -130,22 +111,18 @@ namespace Oculus.Avatar2
             var lodToUse = (CAPI.ovrAvatar2StreamLOD)lod;
             using (var data = new NativeArray<byte>((int)bytes, Allocator.Temp, NativeArrayOptions.UninitializedMemory))
             {
-                IntPtr dataPtr;
-                unsafe { dataPtr = (IntPtr)data.GetUnsafePtr(); }
-                var result = CAPI.ovrAvatar2Streaming_SerializeRecording(
-                    entityId, lodToUse, dataPtr, out bytes);
-
-                if (!result
-                    .EnsureSuccess("ovrAvatar2Streaming_SerializeRecording", logScope, this))
+                bool success;
+                unsafe
                 {
-                    return null;
+                    UInt64 bufferSize = bytes;
+                    success = CAPI.OvrAvatar2Streaming_SerializeRecording(entityId, lodToUse, data.GetPtr(), ref bufferSize);
                 }
-
-                return data.ToArray();
+                return success ? data.ToArray() : null;
             }
         }
 
         // Caller owns lifetime of dataBuffer
+        [Obsolete("Using fixed size buffers leads to unexpected networking failures. Will be removed in near future. Use RecordStreamData_AutoBuffer to pass buffer by reference, so SDK can resize if needed.")]
         public UInt32 RecordStreamData(StreamLOD lod, in NativeArray<byte> dataBuffer)
         {
             IntPtr dataBufferPtr;
@@ -157,6 +134,7 @@ namespace Oculus.Avatar2
         // - otherwise buffer is disposed and a new one created to fit requested LOD
         public UInt32 RecordStreamData_AutoBuffer(StreamLOD lod, ref NativeArray<byte> dataBuffer)
         {
+            // TODO: When `RecordStreamData` removed, rename `RecordStreamData_AutoBuffer` to `RecordStreamData`
             if (!TryRecordSnapshot(lod, out var bytes))
             {
                 return 0;
@@ -166,15 +144,19 @@ namespace Oculus.Avatar2
             if ((UInt32)bytes > bufferSize)
             {
                 if (dataBuffer.IsCreated) { dataBuffer.Dispose(); }
+
+                // TODO: Use allocator type of provided `dataBuffer`?
                 dataBuffer = new NativeArray<byte>((int)bytes, Allocator.Persistent, NativeArrayOptions.UninitializedMemory);
             }
 
-            IntPtr dataBufferPtr;
-            unsafe { dataBufferPtr = (IntPtr)dataBuffer.GetUnsafePtr(); }
-
             var lodToUse = (CAPI.ovrAvatar2StreamLOD)lod;
-            var result = CAPI.ovrAvatar2Streaming_SerializeRecording(entityId, lodToUse, dataBufferPtr, out bytes);
-            if (!result.EnsureSuccess("ovrAvatar2Streaming_SerializeRecording", logScope, this))
+            bool success;
+            unsafe
+            {
+                UInt64 dataBufferSize = dataBuffer.GetBufferSize();
+                success = CAPI.OvrAvatar2Streaming_SerializeRecording(entityId, lodToUse, dataBuffer.GetPtr(), ref dataBufferSize);
+            }
+            if (!success)
             {
                 dataBuffer.Dispose();
                 dataBuffer = default;
@@ -184,6 +166,38 @@ namespace Oculus.Avatar2
             return (UInt32)bytes;
         }
 
+        // If data fits w/in the provided buffer, it is used
+        // - otherwise buffer is resized
+        public UInt32 RecordStreamData_AutoBuffer(StreamLOD lod, ref byte[] dataBuffer)
+        {
+            // TODO: When `RecordStreamData` removed, rename `RecordStreamData_AutoBuffer` to `RecordStreamData`
+            if (!TryRecordSnapshot(lod, out var bytes))
+            {
+                return 0;
+            }
+
+            int bufferSize = dataBuffer.Length;
+            if ((UInt32)bytes > bufferSize)
+            {
+                Array.Resize(ref dataBuffer, (int)bytes);
+            }
+
+
+            bool success;
+            unsafe
+            {
+                fixed (byte* dataBufferPtr = dataBuffer)
+                {
+                    var lodToUse = (CAPI.ovrAvatar2StreamLOD)lod;
+                    var bufferSizeAndBytesWritten = (UInt64)dataBuffer.LongLength;
+                    success = CAPI.OvrAvatar2Streaming_SerializeRecording(entityId, lodToUse, dataBufferPtr, ref bufferSizeAndBytesWritten);
+                }
+            }
+
+            return success ? (UInt32)bytes : 0;
+        }
+
+        [Obsolete("Prefer RecordStreamData_AutoBuffer variants")]
         public UInt32 RecordStreamData(StreamLOD lod, IntPtr buffer, UInt32 bufferSize)
         {
             if (!TryRecordSnapshot(lod, out var bytes))
@@ -197,12 +211,16 @@ namespace Oculus.Avatar2
                 return 0;
             }
 
-
             var lodToUse = (CAPI.ovrAvatar2StreamLOD)lod;
-            var result = CAPI.ovrAvatar2Streaming_SerializeRecording(entityId, lodToUse, buffer, out bytes);
-            result.LogAssert("ovrAvatar2Streaming_SerializeRecording", logScope, this);
-
-            return (UInt32)bytes;
+            bool success;
+            unsafe
+            {
+                byte* bufferPtr = (byte*)buffer.ToPointer();
+                UInt64 bufferSizeAndBytesWritten = bufferSize;
+                success = CAPI.OvrAvatar2Streaming_SerializeRecording(
+                    entityId, lodToUse, bufferPtr, ref bufferSizeAndBytesWritten);
+            }
+            return success ? (UInt32)bytes : 0;
         }
 
         // Remote Avatar
@@ -212,57 +230,58 @@ namespace Oculus.Avatar2
             _activeStreamLod = (CAPI.ovrAvatar2StreamLOD)newLod;
         }
 
-        public void ApplyStreamData(byte[] data)
+        public bool ApplyStreamData(byte[] data)
         {
-            if (!_VerifyCanApplyStreaming()) { return; }
-
-            var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
-            try
-            {
-                _ExecuteApplyStreamData(handle.AddrOfPinnedObject(), (UInt32)data.Length);
-            }
-            finally
-            {
-                handle.Free();
-            }
-        }
-        public void ApplyStreamData(in NativeArray<byte> array, UInt32 size)
-        {
-            OvrAvatarLog.AssertConstMessage(array.IsCreated, "NativeArray is not created");
-            if (size > array.GetBufferSize())
-            {
-                OvrAvatarLog.LogError("Invalid buffer size parameter", logScope, this);
-                return;
-            }
-
-            if (!_VerifyCanApplyStreaming()) { return; }
+            if (!_VerifyCanApplyStreaming()) { return false; }
 
             unsafe
             {
-                _ExecuteApplyStreamData((IntPtr)array.GetUnsafePtr(), size);
+                fixed (byte* dataPtr = data)
+                {
+                    return _ExecuteApplyStreamData(dataPtr, (UInt32)data.Length);
+                }
             }
         }
-        public void ApplyStreamData(in NativeSlice<byte> slice)
+        public bool ApplyStreamData(in NativeArray<byte> array)
+        {
+            OvrAvatarLog.AssertConstMessage(array.IsCreated, "NativeArray is not created");
+            if (array.GetBufferSize() <= 0)
+            {
+                OvrAvatarLog.LogError("Invalid buffer size parameter", logScope, this);
+                return false;
+            }
+
+            if (!_VerifyCanApplyStreaming()) { return false; }
+
+            unsafe
+            {
+                return _ExecuteApplyStreamData(array.GetPtr(), array.GetBufferSize());
+            }
+        }
+        public bool ApplyStreamData(in NativeSlice<byte> slice)
         {
             if (slice.Length <= 0)
             {
                 OvrAvatarLog.LogError("NativeSlice has size 0", logScope, this);
-                return;
+                return false;
             }
 
-            if (!_VerifyCanApplyStreaming()) { return; }
+            if (!_VerifyCanApplyStreaming()) { return false; }
 
             unsafe
             {
-                _ExecuteApplyStreamData((IntPtr)slice.GetUnsafePtr(), (UInt32)(slice.Length * sizeof(byte)));
+                return _ExecuteApplyStreamData(slice.GetPtr(), (UInt32)(slice.Length * sizeof(byte)));
             }
         }
 
-        public void ApplyStreamData(IntPtr data, UInt32 size)
+        [Obsolete("Prefer ApplyStreamData overrides with explicit container types")]
+        public bool ApplyStreamData(IntPtr data, UInt32 size)
         {
-            if (_VerifyCanApplyStreaming())
+            if (!_VerifyCanApplyStreaming()) { return false; }
+
+            unsafe
             {
-                _ExecuteApplyStreamData(data, size);
+                return _ExecuteApplyStreamData((byte*)data, size);
             }
         }
 
@@ -280,18 +299,17 @@ namespace Oculus.Avatar2
             return true;
         }
 
-        private void _ExecuteApplyStreamData(IntPtr data, UInt32 size)
+        private unsafe bool _ExecuteApplyStreamData(byte* dataPtr, UInt32 size)
         {
-            OvrAvatarLog.Assert(data != IntPtr.Zero);
+            OvrAvatarLog.Assert(dataPtr != null);
             OvrAvatarLog.Assert(size > 0);
 
-            var result = CAPI.ovrAvatar2Streaming_DeserializeRecording(entityId, data, size);
-            if (!result.EnsureSuccessOrLogVerbose(
-                CAPI.ovrAvatar2Result.DeserializationPending, "skeleton is not loaded",
-                "ovrAvatar2Streaming_DeserializeRecording", logScope, this))
+            var result = CAPI.OvrAvatar2Streaming_DeserializeRecording(entityId, dataPtr, size, this);
+            if (!result)
             {
                 OvrAvatarLog.LogWarning("Failed to apply stream data", logScope, this);
             }
+            return result;
         }
 
         public CAPI.ovrAvatar2StreamingPlaybackState? GetStreamingPlaybackState()
@@ -312,18 +330,21 @@ namespace Oculus.Avatar2
 
         #endregion Public Streaming Functions
 
-        private void SetStreamingPlayback(bool shouldStart)
+        protected bool SetStreamingPlayback(bool shouldStart)
         {
+            CAPI.ovrAvatar2Result result;
             if (shouldStart)
             {
-                var result = CAPI.ovrAvatar2Streaming_PlaybackStart(entityId);
+                result = CAPI.ovrAvatar2Streaming_PlaybackStart(entityId);
                 result.LogAssert("ovrAvatar2Streaming_PlaybackStart", logScope, this);
             }
             else
             {
-                var result = CAPI.ovrAvatar2Streaming_PlaybackStop(entityId);
+                result = CAPI.ovrAvatar2Streaming_PlaybackStop(entityId);
                 result.LogAssert("ovrAvatar2Streaming_PlaybackStop", logScope, this);
             }
+
+            return result.IsSuccess();
         }
 
         protected void ComputeNetworkLod()

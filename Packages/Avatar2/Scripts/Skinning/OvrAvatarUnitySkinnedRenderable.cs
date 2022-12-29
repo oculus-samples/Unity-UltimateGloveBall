@@ -86,7 +86,6 @@ namespace Oculus.Skinning
             base.ApplyMeshPrimitive(primitive);
 
             _skinnedRenderer.sharedMesh = MyMesh;
-            _skinnedRenderer.localBounds = primitive.hasBounds ? primitive.mesh.bounds : FixedBounds;
 
             if (_skinQuality == SkinQuality.Auto)
             {
@@ -107,6 +106,9 @@ namespace Oculus.Skinning
             {
                 _skinnedRenderer.rootBone = transform;
                 _skinnedRenderer.bones = bones;
+
+                // This must be set after SkinnedMeshRenderer.bones to prevent a "Bones do not match bindpose" error
+                _skinnedRenderer.localBounds = AppliedPrimitive.hasBounds ? AppliedPrimitive.mesh.bounds : FixedBounds;
             }
             else
             {

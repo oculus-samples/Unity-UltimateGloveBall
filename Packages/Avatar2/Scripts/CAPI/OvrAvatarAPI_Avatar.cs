@@ -1,10 +1,16 @@
 using System;
 using System.Runtime.InteropServices;
 
+using Unity.Collections.LowLevel.Unsafe;
+
 namespace Oculus.Avatar2
 {
     public partial class CAPI
     {
+        private const string AvatarCapiLogScope = "OvrAvatarAPI_Avatar";
+
+        private const string ScriptBinaryMismatchResolution = "update c-sharp scripts to match libovravatar2 version";
+
         // Native libovravatar2 version this integration was built against
         private static FBVersionNumber TargetLibVersion;
 
@@ -19,7 +25,15 @@ namespace Oculus.Avatar2
         private static int TargetLibPatchVersion = -1;
 
         internal const string LibFile =
+#if UNITY_EDITOR || !UNITY_IOS
+#if UNITY_EDITOR_OSX
+        OvrAvatarPlugin.FullPluginFolderPath + "libovravatar2.framework/libovravatar2";
+#else
         OvrAvatarManager.IsAndroidStandalone ? "ovravatar2" : "libovravatar2";
+#endif  // UNITY_EDITOR_OSX
+#else   // !UNITY_EDITOR && UNITY_IOS
+        "__Internal";
+#endif  // !UNITY_EDITOR && UNITY_IOS
 
         // TODO: Add "INITIALIZED" frame count and assert in update when update called w/out init
         private const uint AVATAR_UPDATE_UNINITIALIZED_FRAME_COUNT = 0;
@@ -95,9 +109,38 @@ namespace Oculus.Avatar2
 
         public enum ovrAvatar2Platform : Int32
         {
-            PC = 0,
-            Quest = 1,
-            Quest2 = 2
+            Invalid = 0,
+            PC = 1,
+            Quest = 2,
+            Quest2 = 3,
+            QuestPro = 4,
+
+
+            First = PC,
+
+            Last = QuestPro,
+
+            Count = (Last - First) + 1,
+            Num = Last + 1,
+        }
+
+        public static string ovrAvatar2PlatformToString(ovrAvatar2Platform platform)
+        {
+            switch (platform)
+            {
+                case ovrAvatar2Platform.Invalid:
+                    return "Invalid";
+                case ovrAvatar2Platform.PC:
+                    return "PC";
+                case ovrAvatar2Platform.Quest:
+                    return "Quest";
+                case ovrAvatar2Platform.Quest2:
+                    return "Quest2";
+                case ovrAvatar2Platform.QuestPro:
+                    return "QuestPro";
+            }
+
+            return "Unknown";
         }
 
         [Flags]
@@ -110,6 +153,9 @@ namespace Oculus.Avatar2
             // When set, skinningOrigin in ovrAvatar2PrimitiveRenderState is set with the skinning origin
             // and the skinning matrices root will be the skinning Origin
             EnableSkinningOrigin = 1 << 3,
+
+            First = CheckMemoryLeaks,
+            Last = EnableSkinningOrigin,
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
@@ -127,7 +173,7 @@ namespace Oculus.Avatar2
                                                     ///< function may be called from multiple threads
             public IntPtr loggingContext;
             public MemAllocDelegate memAllocCallback; // override memory management
-            public MemFreeDelegate memFreeCallback; // overrride memory management
+            public MemFreeDelegate memFreeCallback; // override memory management
             public IntPtr memoryContext; // user context for memory callbacks
 
             public RequestDelegate requestCallback;
@@ -265,7 +311,7 @@ namespace Oculus.Avatar2
         // TODO: Could this just be 0.0f?
         private const float AVATAR_UPDATE_SMALL_STEP = 0.1f;
         internal static uint avatarUpdateCount { get; private set; } = AVATAR_UPDATE_UNINITIALIZED_FRAME_COUNT;
-        internal static bool OvrAvatar_Update(float deltaSeconds = AVATAR_UPDATE_SMALL_STEP)
+        internal static bool OvrAvatar2_Update(float deltaSeconds = AVATAR_UPDATE_SMALL_STEP)
         {
             var result = ovrAvatar2_Update(deltaSeconds);
             if (result.EnsureSuccess("ovrAvatar2_Update"))
@@ -341,7 +387,6 @@ namespace Oculus.Avatar2
             return false;
         }
 
-
         /// Get the result of a reqeust
         /// Should be called in ovrAvatar2_RequestCallback
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
@@ -360,7 +405,6 @@ namespace Oculus.Avatar2
             result = false;
             return false;
         }
-
 
         //-----------------------------------------------------------------
         //
@@ -394,9 +438,20 @@ namespace Oculus.Avatar2
             public UInt64 totalAllocationCount;
         }
 
-        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
-        public static extern UInt32 ovrAvatar2_QueryMemoryStats(out ovrAvatar2MemoryStats stats,
-            UInt32 statsStructSize);
+        /// Updates the given memory stats struct with the current statistics
+        /// \param pointer to a stats structure to update
+        /// \param logging context, used if an error is encountered
+        /// \return true for success, false if an error was encountered (most likely ovrAvatar2 is not initialized)
+        public static bool OvrAvatar2_QueryMemoryStats(out ovrAvatar2MemoryStats stats
+            , UnityEngine.Object logContext = null)
+        {
+            var statsStructSize = (UInt32)UnsafeUtility.SizeOf<ovrAvatar2MemoryStats>();
+            var result = ovrAvatar2_QueryMemoryStats(out stats, statsStructSize, out var bytesUpdated);
+            return result.EnsureSuccessOrWarning(
+                ovrAvatar2Result.BufferTooSmall, ovrAvatar2Result.BufferLargerThanExpected
+                , ScriptBinaryMismatchResolution, "ovrAvatar2_QueryMemoryStats", AvatarCapiLogScope
+                , logContext);
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         internal struct ovrAvatar2NetworkStats
@@ -407,8 +462,20 @@ namespace Oculus.Avatar2
             public UInt64 activeRequests;
         }
 
-        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        internal static extern UInt32 ovrAvatar2_QueryNetworkStats(out ovrAvatar2NetworkStats stats, UInt32 statsStructSize);
+        /// Updates the given network stats struct with the current statistics
+        /// \param pointer to a stats structure to update
+        /// \param logging context, used if an error is encountered
+        /// \return true for success, false if an error was encountered (most likely ovrAvatar2 is not initialized)
+        internal static bool OvrAvatar2_QueryNetworkStats(out ovrAvatar2NetworkStats stats
+            , UnityEngine.Object logContext = null)
+        {
+            var statsStructSize = (UInt32)UnsafeUtility.SizeOf<ovrAvatar2NetworkStats>();
+            var result = ovrAvatar2_QueryNetworkStats(out stats, statsStructSize, out var bytesUpdated);
+            return result.EnsureSuccessOrWarning(
+                ovrAvatar2Result.BufferTooSmall, ovrAvatar2Result.BufferLargerThanExpected
+                , ScriptBinaryMismatchResolution, "ovrAvatar2_QueryNetworkStats"
+                , AvatarCapiLogScope, logContext);
+        }
 
         /// Avatar task statistics
         ///
@@ -423,13 +490,19 @@ namespace Oculus.Avatar2
             public UInt32 pending;
         }
 
-        /// Update the given stats struct with the current task statistics
+        /// Updates the given task stats struct with the current statistics
         /// \param pointer to a stats structure to update
-        /// \param size of the stats structure to update
-        /// \returns number of bytes in the stats structure which were updated
-        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
-        public static extern UInt32 ovrAvatar2_QueryTaskStats(out ovrAvatar2TaskStats stats, UInt32 statsStructSize);
-
+        /// \param logging context, used if an error is encountered
+        /// \return true for success, false if an error was encountered (most likely ovrAvatar2 is not initialized)
+        internal static bool OvrAvatar2_QueryTaskStats(out ovrAvatar2TaskStats stats
+            , UnityEngine.Object logContext = null)
+        {
+            var statsStructSize = (UInt32)UnsafeUtility.SizeOf<ovrAvatar2TaskStats>();
+            var result = ovrAvatar2_QueryTaskStats(out stats, statsStructSize, out var bytesUpdated);
+            return result.EnsureSuccessOrWarning(
+                ovrAvatar2Result.BufferTooSmall, ovrAvatar2Result.BufferLargerThanExpected
+                , ScriptBinaryMismatchResolution, "ovrAvatar2_QueryTaskStats", AvatarCapiLogScope, logContext);
+        }
 
         //-----------------------------------------------------------------
         //
@@ -443,8 +516,8 @@ namespace Oculus.Avatar2
         /// <param name="result">The return code you want the string for</param>
         /// <param name="buffer">The buffer to return the string in</param>
         /// <param name="size">The size of the buffer</param>
-        /// <returns>Success unless the result povided is out of range (BadParameter), or the buffer is null
-        /// or too small (BufferTooSmall)</returns>
+        /// <returns>Success unless the result provided is out of range (BadParameter), or the buffer is
+        /// null or too small (BufferTooSmall)</returns>
         ///
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         private static extern unsafe ovrAvatar2Result ovrAvatar2_GetResultString(ovrAvatar2Result result, char* buffer, UInt32* size);
@@ -485,5 +558,64 @@ namespace Oculus.Avatar2
         /// <returns>Returns success</returns>
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         public static extern ovrAvatar2Result ovrAvatar2_DisableDevToolsLink();
+
+
+
+        //-----------------------------------------------------------------
+        //
+        // CAPI Bindings
+        //
+        //
+
+        /// Updates the given stats struct with the current statistics
+        /// \param pointer to a stats structure to update
+        /// \param size of the stats structure to update
+        /// \param number of bytes updated in `stats`
+        /// Returns result codes:
+        ///   ovrAvatar2Result_Success - stats updated successfully
+        ///   ovrAvatar2Result_DataNotAvailable - stats tracking unavailable
+        ///   ovrAvatar2Result_BadParameter - stats is null or statsStructSize is 0
+        ///   ovrAvatar2Result_BufferTooSmall - statsStructSize is smaller than expected
+        ///   ovrAvatar2Result_BufferLargerThanExpected - statsStructSize is larger than expected
+        ///     (note: Invoking `ovrAvatar2_Initialize` establishes primary thread)
+        ///   ovrAvatar2Result_NotInitialized - ovrAvatar2 is currently not initialized
+        ///
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
+        private static extern ovrAvatar2Result ovrAvatar2_QueryMemoryStats(out ovrAvatar2MemoryStats stats,
+            UInt32 statsStructSize, out UInt32 bytesUpdated);
+
+        /// Updates the given stats struct with the current statistics
+        /// \param pointer to a stats structure to update
+        /// \param size of the stats structure to update
+        /// \param number of bytes updated in `stats`
+        /// Returns result codes:
+        ///   ovrAvatar2Result_Success - stats updated successfully
+        ///   ovrAvatar2Result_DataNotAvailable - stats tracking unavailable
+        ///   ovrAvatar2Result_BadParameter - stats is null or statsStructSize is 0
+        ///   ovrAvatar2Result_BufferTooSmall - statsStructSize is smaller than expected
+        ///   ovrAvatar2Result_BufferLargerThanExpected - statsStructSize is larger than expected
+        ///     (note: Invoking `ovrAvatar2_Initialize` establishes primary thread)
+        ///   ovrAvatar2Result_NotInitialized - ovrAvatar2 is currently not initialized
+        ///
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
+        private static extern ovrAvatar2Result ovrAvatar2_QueryNetworkStats(out ovrAvatar2NetworkStats stats
+            , UInt32 statsStructSize, out UInt32 bytesUpdated);
+
+        /// Update the given stats struct with the current task statistics
+        /// \param pointer to a stats structure to update
+        /// \param size of the stats structure to update
+        /// \param number of bytes updated in `stats`
+        /// Returns result codes:
+        ///   ovrAvatar2Result_Success - stats updated successfully
+        ///   ovrAvatar2Result_DataNotAvailable - stats tracking unavailable
+        ///   ovrAvatar2Result_BadParameter - stats is null or statsStructSize is 0
+        ///   ovrAvatar2Result_BufferTooSmall - statsStructSize is smaller than expected
+        ///   ovrAvatar2Result_BufferLargerThanExpected - statsStructSize is larger than expected
+        ///     (note: Invoking `ovrAvatar2_Initialize` establishes primary thread)
+        ///   ovrAvatar2Result_NotInitialized - ovrAvatar2 is currently not initialized
+        ///
+        [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
+        private static extern ovrAvatar2Result ovrAvatar2_QueryTaskStats(out ovrAvatar2TaskStats stats
+            , UInt32 statsStructSize, out UInt32 bytesUpdated);
     }
 }

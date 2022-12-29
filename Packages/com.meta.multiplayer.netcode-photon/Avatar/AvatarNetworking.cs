@@ -40,7 +40,7 @@ namespace Meta.Multiplayer.Avatar
 
         private Dictionary<StreamLOD, float> m_updateFrequencySecondsByLod;
         private Dictionary<StreamLOD, double> m_lastUpdateTime = new();
-        private AvatarEntity m_entity;
+        [SerializeField, AutoSet] private AvatarEntity m_entity;
 
         public ulong UserId
         {
@@ -48,7 +48,7 @@ namespace Meta.Multiplayer.Avatar
             set => m_userId.Value = value;
         }
 
-        public void Init(AvatarEntity targetEntity)
+        public void Init()
         {
             m_updateFrequencySecondsByLod = new Dictionary<StreamLOD, float>();
             foreach (var val in m_updateFrequenySecondsByLodList)
@@ -56,7 +56,6 @@ namespace Meta.Multiplayer.Avatar
                 m_updateFrequencySecondsByLod[val.LOD] = val.UpdateFrequency;
                 m_lastUpdateTime[val.LOD] = 0;
             }
-            m_entity = targetEntity;
             if (!m_entity.IsLocal)
             {
                 m_userId.OnValueChanged += OnUserIdChanged;
@@ -76,6 +75,7 @@ namespace Meta.Multiplayer.Avatar
             base.OnNetworkSpawn();
 
             m_userId.OnValueChanged?.Invoke(ulong.MaxValue, m_userId.Value);
+            m_entity.Initialize();
         }
 
         private void Update()

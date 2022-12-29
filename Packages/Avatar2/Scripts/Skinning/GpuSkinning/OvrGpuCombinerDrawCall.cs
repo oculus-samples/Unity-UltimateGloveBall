@@ -6,8 +6,6 @@ using Oculus.Avatar2;
 using System;
 using System.Collections.Generic;
 
-using Unity.Collections;
-
 using UnityEngine;
 using UnityEngine.Profiling;
 
@@ -35,7 +33,7 @@ namespace Oculus.Skinning.GpuSkinning
             }
             _combineMaterial.SetVectorArray(MORPH_TARGET_RANGES_PROP, ranges);
 
-            _blockEnabled = Array.Empty<float>();
+            _combineMaterial.SetBuffer(MORPH_TARGET_WEIGHTS_PROP, OvrAvatarManager.Instance.GpuSkinningController.GetWeightsBuffer());
 
             _mesh = new Mesh
             {
@@ -64,11 +62,6 @@ namespace Oculus.Skinning.GpuSkinning
             {
                 Material.Destroy(_combineMaterial);
             }
-
-            if (_weightsList.IsCreated) { _weightsList.Dispose(); }
-
-            _weightsBuffer?.Release();
-            _blockEnabledBuffer?.Release();
         }
 
         // The shapesRect is specified in texels
@@ -117,49 +110,14 @@ namespace Oculus.Skinning.GpuSkinning
 
             // Expand compute buffers and lists if needed
             int newNumBlocks = blockIndex + 1;
-            int currentWeightsLength = _weightsBuffer?.count ?? 0;
-            int newNumWeights = currentWeightsLength + numMorphTargets;
 
-            var oldWeightsBuffer = _weightsBuffer;
-            var oldWeightsList = _weightsList;
-
-            _weightsBuffer = new ComputeBuffer(newNumWeights, sizeof(float));
-            _weightsList = new NativeArray<float>(newNumWeights, Allocator.Persistent, NativeArrayOptions.ClearMemory);
-
-
-            // Copy old weights to new weightsList
-            if (oldWeightsList.IsCreated)
-            {
-                NativeArray<float>.Copy(oldWeightsList, _weightsList);
-                //oldWeightsList.CopyTo(_weightsList.GetSubArray(0, oldWeightsList.Length));
-                oldWeightsList.Dispose();
-            }
-            // Copy weights list into new buffer
-            _weightsBuffer.SetData(_weightsList, 0, 0, newNumWeights);
-
-            var oldEnabledBuffer = _blockEnabledBuffer;
-            int currentNumBlocks = _blockEnabled?.Length ?? 0;
-            _blockEnabledBuffer = new ComputeBuffer(newNumBlocks, 4);
-
-            Array.Resize(ref _blockEnabled, newNumBlocks);
-            EnableBlockRange(currentNumBlocks, newNumBlocks);
-
-            SetBuffersInMaterial();
-
-            if (oldWeightsBuffer != null)
-            {
-                oldWeightsBuffer.Release();
-            }
-            if (oldEnabledBuffer != null)
-            {
-                oldEnabledBuffer.Release();
-            }
+            _combineMaterial.SetFloat(BLOCK_ENABLED_PROP, 1.0f);
 
             // Add new mapping of handle to block data
             _handleToBlockData[layoutHandle] = new BlockData
             {
                 blockIndex = blockIndex,
-                indexInWeightsBuffer = currentWeightsLength,
+                indexInWeightsBuffer = 0,
                 numMorphTargets = numMorphTargets
             };
 
@@ -171,12 +129,15 @@ namespace Oculus.Skinning.GpuSkinning
             _meshLayout.FreeBlock(handle);
         }
 
-        internal NativeSlice<float> GetMorphWeightsBuffer(OvrSkinningTypes.Handle handle)
+        internal IntPtr GetMorphWeightsBuffer(OvrSkinningTypes.Handle handle)
         {
-            Debug.Assert(_weightsBuffer != null && _weightsList.IsCreated);
             if (_handleToBlockData.TryGetValue(handle, out BlockData blockData))
             {
-                return _weightsList.Slice(blockData.indexInWeightsBuffer, blockData.numMorphTargets);
+                Debug.Assert(blockData.indexInWeightsBuffer == 0 && blockData.numMorphTargets < OvrComputeBufferPool.MAX_WEIGHTS);
+                var entry = OvrAvatarManager.Instance.GpuSkinningController.GetNextEntryWeights(blockData.numMorphTargets);
+                _combineMaterial.SetInt(MORPH_TARGET_WEIGHTS_OFFSET_PROP, entry.Offset);
+
+                return entry.Data;
             }
             return default;
         }
@@ -184,8 +145,7 @@ namespace Oculus.Skinning.GpuSkinning
         internal bool MorphWeightsBufferUpdateComplete(OvrSkinningTypes.Handle handle)
         {
             bool drawUpdateNeeded = false;
-            Debug.Assert(_weightsBuffer != null && _weightsList.IsCreated);
-            if (_weightsBuffer != null && _handleToBlockData.TryGetValue(handle, out BlockData dataForThisBlock))
+            if (_handleToBlockData.TryGetValue(handle, out BlockData dataForThisBlock))
             {
                 MarkBlockUpdated(in dataForThisBlock);
                 drawUpdateNeeded = true;
@@ -205,22 +165,16 @@ namespace Oculus.Skinning.GpuSkinning
         {
             Profiler.BeginSample("OvrGpuCombinerDrawCall::ForceDraw");
 
-            Debug.Assert(_blockEnabledBuffer != null);
-
-            // Copy from block enabled array to compute buffer
-            Debug.Assert(_blockEnabledBuffer.count == _blockEnabled.Length);
-            _blockEnabledBuffer.SetData(_blockEnabled, 0, 0, _blockEnabled.Length);
-
             // Don't care about matrices as the shader used should handle clip space
             // conversions without matrices (due to how quads set up)
             bool didSetPass = _combineMaterial.SetPass(0);
             Debug.Assert(didSetPass);
             Graphics.DrawMeshNow(_mesh, Matrix4x4.identity);
 
+            _combineMaterial.SetFloat(BLOCK_ENABLED_PROP, 0.0f);
+
             // Reset booleans and mark all blocks as disabled for next frame
             _areAnyBlocksEnabled = false;
-
-            ClearBlockEnabled();
 
             Profiler.EndSample();
         }
@@ -235,61 +189,13 @@ namespace Oculus.Skinning.GpuSkinning
             _combineMaterial.SetTexture(MORPH_TARGETS_SOURCE_TEX_PROP, morphTargetsSourceTex);
         }
 
-        private void SetBuffersInMaterial()
-        {
-            _combineMaterial.SetBuffer(MORPH_TARGET_WEIGHTS_PROP, _weightsBuffer);
-            _combineMaterial.SetBuffer(BLOCKS_ENABLED_PROP, _blockEnabledBuffer);
-        }
-
         private void MarkBlockUpdated(in BlockData block)
         {
-            OvrAvatarLog.AssertLessThan(block.blockIndex, _blockEnabled.Length
-                , _CacheBlockRangeMessageBuilder
-                , logScope);
-            Debug.Assert(_weightsList.Length == block.numMorphTargets);
+            Debug.Assert(block.blockIndex == 0);
 
-            int blockOffset = block.indexInWeightsBuffer;
-            _weightsBuffer.SetData(_weightsList, 0, blockOffset, block.numMorphTargets);
-            _blockEnabled[block.blockIndex] = 1.0f;
+            _combineMaterial.SetFloat(BLOCK_ENABLED_PROP, 1.0f);
             _areAnyBlocksEnabled = true;
         }
-
-        // Using `_BlockRangeMessageBuilder` causes a GC.Alloc in Mono - go figure?
-        private static readonly OvrAvatarLog.AssertLessThanMessageBuilder<int> _CacheBlockRangeMessageBuilder
-            = _BlockRangeMessageBuilder;
-        private static string _BlockRangeMessageBuilder(in int blkIdx, in int len)
-            => $"BlockIndex {blkIdx} out of range of _blockEnabled[{len}] list";
-
-        private void ClearBlockEnabled()
-        {
-            Array.Clear(_blockEnabled, 0, _blockEnabled.Length);
-        }
-
-        private void EnableBlockRange(int startIdx, int endIdx)
-        {
-            for (int i = startIdx; i < endIdx; i++)
-            {
-                _blockEnabled[i] = 1.0f;
-            }
-        }
-
-        private void FlushBlockEnabled()
-        {
-            EnableBlockRange(0, _blockEnabled.Length);
-        }
-
-        // Unity is supposed to provide a resizable NativeList type, which would be clutch
-        // though I followed the instructions to install the package and it wasn't visible from here?
-        private NativeArray<float> _weightsList;
-
-        private ComputeBuffer _weightsBuffer = null;
-        private ComputeBuffer _blockEnabledBuffer = null;
-
-        // The Unity API for ComputeBuffer only allows setting via
-        // an array. The block enabled buffer will be changed completely every time
-        // Draw() is called, so in order to not have to make a new temporary array
-        // every Draw(), make a private field here
-        private float[] _blockEnabled;
 
         private readonly Mesh _mesh;
         private readonly OvrFreeListBufferTracker _meshLayout;
@@ -317,7 +223,8 @@ namespace Oculus.Skinning.GpuSkinning
 
         private static readonly int MORPH_TARGETS_SOURCE_TEX_PROP = Shader.PropertyToID("u_MorphTargetSourceTex");
         private static readonly int MORPH_TARGET_WEIGHTS_PROP = Shader.PropertyToID("u_Weights");
-        private static readonly int BLOCKS_ENABLED_PROP = Shader.PropertyToID("u_BlockEnabled");
+        private static readonly int MORPH_TARGET_WEIGHTS_OFFSET_PROP = Shader.PropertyToID("u_WeightOffset");
+        private static readonly int BLOCK_ENABLED_PROP = Shader.PropertyToID("u_BlockEnabled");
         private static readonly int MORPH_TARGET_RANGES_PROP = Shader.PropertyToID("u_MorphTargetRanges");
 
     }
