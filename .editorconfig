@@ -541,7 +541,10 @@ generated_code = true
 generated_code = true
 dotnet_diagnostic.IDE0005.severity = none
 
-[Packages/Utilities/**]
+[Packages/com.meta.utilities/**]
+generated_code = false
+
+[Packages/com.meta.utilities.input/**]
 generated_code = false
 
 [Assets/SharedSpaces/**.cs]

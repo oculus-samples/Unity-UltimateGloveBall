@@ -15,7 +15,7 @@ You can test the game out on [AppLab - Ultimate Glove Ball](https://www.oculus.c
 ## Project Description
 This project is an application for the Meta Quest devices that demonstrate a fast pace sport game that can be played with friends or strangers. It shows how to integrate connection between users joining random games or specific rooms, invite friends and group launch a party in the same arena, or join as a spectator to a game already in progress. We also integrated Meta Avatars for players to represent their VR persona and voice chat for easy communication.
 
-The project also includes the [Meta Utilities package](./Packages/com.meta.utilities/), which contains many useful tools and methods.
+The project also includes the [Meta Utilities](./Packages/com.meta.utilities/README.md) and [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md) packages, which contain many useful tools and methods.
 
 ## Dependencies
 
@@ -56,7 +56,8 @@ More information can be found in the [Documentation](./Documentation) section of
 
 Custom Packages:
 - [Meta Multiplayer for Netcode and Photon](./Packages/com.meta.multiplayer.netcode-photon)
-- [Meta Utilities](./Packages/com.meta.utilities/)
+- [Meta Utilities](./Packages/com.meta.utilities/README.md)
+- [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md)
 
 
 # Where are the Meta Avatar SDK and Photon packages?

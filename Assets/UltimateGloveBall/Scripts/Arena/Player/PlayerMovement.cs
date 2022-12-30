@@ -172,33 +172,14 @@ namespace UltimateGloveBall.Arena.Player
                     FadeOutScreen();
                 }
             }
-
-            if (IsRotationEnabled) SnapTurn();
         }
 
-        private void SnapTurn()
+        public void DoSnapTurn(bool toRight)
         {
-            if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickLeft) ||
-                (RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft)))
+            if (IsRotationEnabled)
+
             {
-                if (m_readyToSnapTurn)
-                {
-                    m_readyToSnapTurn = false;
-                    transform.RotateAround(m_cameraRig.centerEyeAnchor.position, Vector3.up, -RotationAngle);
-                }
-            }
-            else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
-                     (RotationEitherThumbstick && OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight)))
-            {
-                if (m_readyToSnapTurn)
-                {
-                    m_readyToSnapTurn = false;
-                    transform.RotateAround(m_cameraRig.centerEyeAnchor.position, Vector3.up, RotationAngle);
-                }
-            }
-            else
-            {
-                m_readyToSnapTurn = true;
+                transform.RotateAround(m_cameraRig.centerEyeAnchor.position, Vector3.up, toRight ? RotationAngle : -RotationAngle);
             }
         }
     }

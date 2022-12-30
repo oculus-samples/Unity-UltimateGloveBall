@@ -10,6 +10,7 @@ using UltimateGloveBall.Arena.Spectator;
 using UltimateGloveBall.Arena.VFX;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace UltimateGloveBall.Arena.Player
 {
@@ -19,6 +20,7 @@ namespace UltimateGloveBall.Arena.Player
     /// </summary>
     public class PlayerInputController : Singleton<PlayerInputController>
     {
+        [SerializeField, AutoSet] private PlayerInput m_input;
         [SerializeField] private PlayerInGameMenu m_playerMenu;
 
         private SpectatorNetwork m_spectatorNet = null;
@@ -28,10 +30,12 @@ namespace UltimateGloveBall.Arena.Player
         public bool MovementEnabled { get; set; } = true;
 
         private bool m_wasMoving = false;
+        private InputAction m_moveAction;
 
         public void SetSpectatorMode(SpectatorNetwork spectator)
         {
             m_spectatorNet = spectator;
+            m_input.SwitchCurrentActionMap(m_spectatorNet != null ? "Spectator" : "Player");
         }
 
         public void OnSettingsUpdated()
@@ -53,32 +57,91 @@ namespace UltimateGloveBall.Arena.Player
 
         private void Update()
         {
-            // Player menu can be triggered at all times
-            if (OVRInput.GetUp(OVRInput.Button.Start) || Keyboard.current.escapeKey.wasReleasedThisFrame)
-            {
-                m_playerMenu.Toggle();
-            }
-
-            if (m_spectatorNet != null)
-            {
-                ProcessSpectatorInput();
-            }
-            else
+            if (m_spectatorNet == null)
             {
                 ProcessPlayerInput();
             }
         }
 
-        private void ProcessSpectatorInput()
+        public void OnSnapTurnLeft(CallbackContext context) => OnSnapTurn(context, false);
+        public void OnSnapTurnRight(CallbackContext context) => OnSnapTurn(context, true);
+
+        public void OnSnapTurnLeftNoFree(CallbackContext context)
         {
-            if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) || Mouse.current.leftButton.wasReleasedThisFrame)
-            {
-                m_spectatorNet.TriggerLeftAction();
-            }
-            if (OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger) || Mouse.current.rightButton.wasReleasedThisFrame)
-            {
-                m_spectatorNet.TriggerRightAction();
-            }
+            if (PlayerMovement.Instance.RotationEitherThumbstick)
+                OnSnapTurnLeft(context);
+        }
+        public void OnSnapTurnRightNoFree(CallbackContext context)
+        {
+            if (PlayerMovement.Instance.RotationEitherThumbstick)
+                OnSnapTurnRight(context);
+        }
+
+        private void OnSnapTurn(CallbackContext context, bool toRight)
+        {
+            if (context.performed)
+                PlayerMovement.Instance.DoSnapTurn(toRight);
+        }
+
+        public void OnMenuButton(CallbackContext context)
+        {
+            if (context.performed)
+                m_playerMenu.Toggle();
+        }
+
+        public void OnSpectatorTriggerLeft(CallbackContext context)
+        {
+            if (context.phase is InputActionPhase.Performed)
+                m_spectatorNet?.TriggerLeftAction();
+        }
+
+        public void OnSpectatorTriggerRight(CallbackContext context)
+        {
+            if (context.phase is InputActionPhase.Performed)
+                m_spectatorNet?.TriggerRightAction();
+        }
+
+        public void OnMove(CallbackContext context)
+        {
+            m_moveAction = context.phase is InputActionPhase.Disabled ? null : context.action;
+        }
+
+        public void OnThrowLeft(CallbackContext context)
+        {
+            if (!InputEnabled) return;
+
+            var glove = LocalPlayerEntities.Instance.LeftGloveHand;
+            var gloveArmature = LocalPlayerEntities.Instance.LeftGloveArmature;
+            if (context.phase is InputActionPhase.Performed)
+                OnThrow(glove, gloveArmature);
+            else if (context.phase is InputActionPhase.Canceled)
+                OnRelease(glove, gloveArmature);
+        }
+
+        public void OnThrowRight(CallbackContext context)
+        {
+            if (!InputEnabled) return;
+
+            var glove = LocalPlayerEntities.Instance.RightGloveHand;
+            var gloveArmature = LocalPlayerEntities.Instance.RightGloveArmature;
+            if (context.phase is InputActionPhase.Performed)
+                OnThrow(glove, gloveArmature);
+            else if (context.phase is InputActionPhase.Canceled)
+                OnRelease(glove, gloveArmature);
+        }
+
+        public void OnShieldLeft(CallbackContext context)
+        {
+            if (!InputEnabled) return;
+
+            OnShield(Glove.GloveSide.Left, context.phase is InputActionPhase.Performed);
+        }
+
+        public void OnShieldRight(CallbackContext context)
+        {
+            if (!InputEnabled) return;
+
+            OnShield(Glove.GloveSide.Right, context.phase is InputActionPhase.Performed);
         }
 
         private void ProcessPlayerInput()
@@ -93,92 +156,9 @@ namespace UltimateGloveBall.Arena.Player
                 return;
             }
 
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                var glove = LocalPlayerEntities.Instance.LeftGloveHand;
-                if (glove)
-                {
-                    glove.TriggerAction(false);
-                }
-
-                var gloveArmature = LocalPlayerEntities.Instance.LeftGloveArmature;
-                if (gloveArmature)
-                {
-                    gloveArmature.Activated = true;
-                }
-            }
-            if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger) || Mouse.current.leftButton.wasReleasedThisFrame)
-            {
-                var glove = LocalPlayerEntities.Instance.LeftGloveHand;
-                if (glove)
-                {
-                    glove.TriggerAction(true, LocalPlayerEntities.Instance.LeftGloveArmature.SpringCompression);
-                }
-                var gloveArmature = LocalPlayerEntities.Instance.LeftGloveArmature;
-                if (gloveArmature)
-                {
-                    gloveArmature.Activated = false;
-                }
-            }
-
-            if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) || Mouse.current.rightButton.wasPressedThisFrame)
-            {
-                var glove = LocalPlayerEntities.Instance.RightGloveHand;
-                if (glove)
-                {
-                    glove.TriggerAction(false);
-                }
-                var gloveArmature = LocalPlayerEntities.Instance.RightGloveArmature;
-                if (gloveArmature)
-                {
-                    gloveArmature.Activated = true;
-                }
-            }
-            if (OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger) || Mouse.current.rightButton.wasReleasedThisFrame)
-            {
-                var glove = LocalPlayerEntities.Instance.RightGloveHand;
-                if (glove)
-                {
-                    glove.TriggerAction(true, LocalPlayerEntities.Instance.RightGloveArmature.SpringCompression);
-                }
-                var gloveArmature = LocalPlayerEntities.Instance.RightGloveArmature;
-                if (gloveArmature)
-                {
-                    gloveArmature.Activated = false;
-                }
-            }
-
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) || Keyboard.current.oKey.wasPressedThisFrame)
-            {
-                var playerController = LocalPlayerEntities.Instance.LocalPlayerController;
-                playerController.TriggerShield(Glove.GloveSide.Left);
-            }
-            if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger) || Keyboard.current.oKey.wasReleasedThisFrame)
-            {
-                var playerController = LocalPlayerEntities.Instance.LocalPlayerController;
-                playerController.StopShieldServerRPC(Glove.GloveSide.Left);
-            }
-            if (OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger) || Keyboard.current.pKey.wasPressedThisFrame)
-            {
-                var playerController = LocalPlayerEntities.Instance.LocalPlayerController;
-                playerController.TriggerShield(Glove.GloveSide.Right);
-            }
-            if (OVRInput.GetUp(OVRInput.Button.SecondaryHandTrigger) || Keyboard.current.pKey.wasReleasedThisFrame)
-            {
-                var playerController = LocalPlayerEntities.Instance.LocalPlayerController;
-                playerController.StopShieldServerRPC(Glove.GloveSide.Right);
-            }
-
             if (MovementEnabled && m_freeLocomotionEnabled)
             {
-                var direction = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
-                if (direction == Vector2.zero)
-                {
-                    direction.x += Keyboard.current.aKey.isPressed ? -1 : 0;
-                    direction.x += Keyboard.current.dKey.isPressed ? 1 : 0;
-                    direction.y += Keyboard.current.sKey.isPressed ? -1 : 0;
-                    direction.y += Keyboard.current.wKey.isPressed ? 1 : 0;
-                }
+                var direction = m_moveAction?.ReadValue<Vector2>() ?? default;
                 if (direction != Vector2.zero)
                 {
                     var dir = new Vector3(direction.x, 0, direction.y);
@@ -195,6 +175,37 @@ namespace UltimateGloveBall.Arena.Player
                     ScreenFXManager.Instance.ShowLocomotionFX(false);
                     m_wasMoving = false;
                 }
+            }
+        }
+
+        private static void OnShield(Glove.GloveSide side, bool state)
+        {
+            var playerController = LocalPlayerEntities.Instance.LocalPlayerController;
+            if (state)
+                playerController.TriggerShield(side);
+            else
+                playerController.StopShieldServerRPC(side);
+        }
+
+        private static void OnRelease(Glove glove, GloveArmatureNetworking gloveArmature)
+        {
+            if (glove && gloveArmature)
+            {
+                glove.TriggerAction(true, gloveArmature.SpringCompression);
+                gloveArmature.Activated = false;
+            }
+        }
+
+        private static void OnThrow(Glove glove, GloveArmatureNetworking gloveArmature)
+        {
+            if (glove)
+            {
+                glove.TriggerAction(false);
+            }
+
+            if (gloveArmature)
+            {
+                gloveArmature.Activated = true;
             }
         }
     }
