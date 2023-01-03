@@ -2,6 +2,8 @@
 
 This package contains core implementation to start a multiplayer project while using Netcode for gameobject and Photon as the transport layer.
 
+You can install this package by adding the following git url to [Package Manager](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/oculus-samples/Unity-UltimateGloveBall.git?path=/Packages/com.meta.multiplayer.netcode-photon`
+
 ## Avatar
 |Script|Description|
 |-|-|

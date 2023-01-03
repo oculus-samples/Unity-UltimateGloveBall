@@ -79,7 +79,7 @@ More information can be found in the [Documentation](./Documentation) section of
 - [Multiplayer](./Documentation/Multiplayer.md)
 
 Custom Packages:
-- [Meta Multiplayer for Netcode and Photon](./Packages/com.meta.multiplayer.netcode-photon)
+- [Meta Multiplayer for Netcode and Photon](./Packages/com.meta.multiplayer.netcode-photon/README.md)
 - [Meta Utilities](./Packages/com.meta.utilities/README.md)
 - [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md)
 

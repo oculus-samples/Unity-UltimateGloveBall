@@ -2,6 +2,8 @@
 
 This package contains general utilities for Unity development.
 
+You can install this package by adding the following git url to [Package Manager](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/oculus-samples/Unity-UltimateGloveBall.git?path=/Packages/com.meta.utilities`
+
 |Utility|Description|
 |-|-|
 |[AutoSet](./AutoSet.cs) attributes|<p>This attribute is useful for eliminating calls to `GetComponent`. By annotating a serialized field with `[AutoSet]`, every instance of that field in a Prefab or Scene will automatically be assigned in editor (by calling `GetComponent`). This assignment is done both in the inspector (using a [property drawer](./Editor/AutoSetDrawer.cs)) as well as every time the object is saved (using an [asset postprocessor](./Editor/AutoSetPostprocessor.cs)).</p>Note, you can also use `[AutoSetFromParent]` or `[AutoSetFromChildren]`.|

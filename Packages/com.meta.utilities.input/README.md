@@ -2,6 +2,8 @@
 
 This package contains utilities relating to Unity's Input System.
 
+You can install this package by adding the following git url to [Package Manager](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/oculus-samples/Unity-UltimateGloveBall.git?path=/Packages/com.meta.utilities.input`
+
 ## XR Toolkit for Meta Avatars
 
 In order to use XR Toolkit with the Meta Avatars SDK, you can use the [XRInputManager](./XRInputManager.cs) in this package. Simply attach it to your camera rig prefab, and assign it to your Avatar Entity using the [`SetBodyTracking` API](https://developer.oculus.com/documentation/unity/meta-avatars-ovravatarentity/#tracking-input).
