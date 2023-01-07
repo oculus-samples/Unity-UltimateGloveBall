@@ -85,23 +85,22 @@ namespace Oculus.Avatar2
             }
         }
 
-        // Subclasses may implement custom startup logic in `Initialize`
         protected virtual void Initialize() { }
-        // Subclasses may implement custom shutdown logic in `Shutdown`
         protected virtual void Shutdown() { }
 
         // Derived singleton classes can not reliably implement Awake
-        protected void Awake() => CheckStartup();
+        // TODO: This should not be virtual - T118570727
+        protected virtual void Awake() => CheckStartup();
 
         // Derived classes can not reliably implement Awake or Start,
         // but we don't have anything to do in Start and implementing it will add overhead at runtime
         // TODO: Better way to accomplish this goal
 #if UNITY_EDITOR
-        protected void Start() { }
+        protected virtual void Start() { }
 #endif
 
-        protected void OnApplicationQuit() => CheckShutdown(false);
-        protected void OnDestroy() => CheckShutdown(true);
+        protected virtual void OnApplicationQuit() => CheckShutdown(false);
+        protected virtual void OnDestroy() => CheckShutdown(true);
 
         // For error detection
 
@@ -124,7 +123,7 @@ namespace Oculus.Avatar2
             }
             else
             {
-                OvrAvatarLog.LogWarning($"Duplicate `{typeof(T).Name}` instance created on {gameObject.name}, destroying", logScope);
+                OvrAvatarLog.LogError($"Duplicate `{typeof(T).Name}` instance created on {gameObject.name}, destroying", logScope);
                 Destroy(this);
             }
         }
@@ -243,11 +242,8 @@ namespace Oculus.Avatar2
             }
         }
 
-        ///
-        /// Shuts down the instance and asserts that it's null.
-        /// This should be called by unit tests during teardown to reset this singleton's state.
-        ///
-        public static void ResetInstance()
+        // Used by unit tests
+        internal static void UnitTest_Reset()
         {
             if (!(Instance is null))
             {

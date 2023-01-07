@@ -48,6 +48,7 @@ git clone https://github.com/oculus-samples/Unity-UltimateGloveBall.git
 
 # Documentation
 More information can be found in the [Documentation](./Documentation) section of this project.
+- [Avatars](./Documentation/Avatars.md)
 - [Ball Physics And Networking](./Documentation/BallPhysicsAndNetworking.md)
 - [Code Structure](./Documentation/CodeStructure.md)
 - [Configuration](./Documentation/Configuration.md)

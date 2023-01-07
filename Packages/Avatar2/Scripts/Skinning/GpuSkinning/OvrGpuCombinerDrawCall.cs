@@ -6,6 +6,8 @@ using Oculus.Avatar2;
 using System;
 using System.Collections.Generic;
 
+using Unity.Collections;
+
 using UnityEngine;
 using UnityEngine.Profiling;
 

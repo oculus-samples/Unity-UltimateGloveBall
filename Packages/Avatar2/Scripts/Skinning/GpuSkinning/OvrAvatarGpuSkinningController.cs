@@ -1,6 +1,8 @@
-using Oculus.Skinning.GpuSkinning;
 using System;
 using System.Collections.Generic;
+
+using Oculus.Skinning.GpuSkinning;
+
 using UnityEngine;
 using UnityEngine.Profiling;
 

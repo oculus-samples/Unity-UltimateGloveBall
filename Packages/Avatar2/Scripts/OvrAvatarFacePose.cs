@@ -11,26 +11,22 @@ namespace Oculus.Avatar2
         public readonly float[] expressionConfidence = new float[(int)CAPI.ovrAvatar2FaceExpression.Count];
         public Int64 sampleTimeNS;
 
-        internal static CAPI.ovrAvatar2FacePose GenerateEmptyNativePose()
-        {
-            var native = new CAPI.ovrAvatar2FacePose();
-            native.expressionWeights = new float[(int)CAPI.ovrAvatar2FaceExpression.Count];
-            native.expressionConfidence = new float[(int)CAPI.ovrAvatar2FaceExpression.Count];
-            return native;
-        }
-
         #region Native Conversions
         internal CAPI.ovrAvatar2FacePose ToNative()
         {
-            CAPI.ovrAvatar2FacePose native = GenerateEmptyNativePose();
-            for (var i = 0; i < expressionWeights.Length; i++)
-            {
-                native.expressionWeights[i] = expressionWeights[i];
-            }
+            var native = new CAPI.ovrAvatar2FacePose();
 
-            for (var i = 0; i < expressionConfidence.Length; i++)
+            unsafe
             {
-                native.expressionConfidence[i] = expressionConfidence[i];
+                for (var i = 0; i < expressionWeights.Length; i++)
+                {
+                    native.expressionWeights[i] = expressionWeights[i];
+                }
+
+                for (var i = 0; i < expressionConfidence.Length; i++)
+                {
+                    native.expressionConfidence[i] = expressionConfidence[i];
+                }
             }
 
             return native;
@@ -38,14 +34,17 @@ namespace Oculus.Avatar2
 
         internal void FromNative(in CAPI.ovrAvatar2FacePose native)
         {
-            for (var i = 0; i < expressionWeights.Length; i++)
+            unsafe
             {
-                expressionWeights[i] = native.expressionWeights[i];
-            }
+                for (var i = 0; i < expressionWeights.Length; i++)
+                {
+                    expressionWeights[i] = native.expressionWeights[i];
+                }
 
-            for (var i = 0; i < expressionConfidence.Length; i++)
-            {
-                expressionConfidence[i] = native.expressionConfidence[i];
+                for (var i = 0; i < expressionConfidence.Length; i++)
+                {
+                    expressionConfidence[i] = native.expressionConfidence[i];
+                }
             }
         }
         #endregion

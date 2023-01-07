@@ -1,23 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-
-/// @file OvrAvatarManager_Textures.cs
 
 namespace Oculus.Avatar2
 {
     public partial class OvrAvatarManager
     {
-        public const string PERMISSION_EYE_TRACKING = "com.oculus.permission.EYE_TRACKING";
-        public const string PERMISSION_FACE_TRACKING = "com.oculus.permission.FACE_TRACKING";
-        public const string PERMISSION_BODY_TRACKING = "com.oculus.permission.BODY_TRACKING";
+        public static string PERMISSION_EYE_TRACKING = "com.oculus.permission.EYE_TRACKING";
+        public static string PERMISSION_FACE_TRACKING = "com.oculus.permission.FACE_TRACKING";
 
         enum PermissionState { None, Requesting, Granted, Denied, DeniedNoAsk };
-        private readonly Queue<string> permissionQueue = new Queue<string>();
-        private readonly Dictionary<string, PermissionState> permissionCache = new Dictionary<string, PermissionState>();
-#pragma warning disable CS0414
+        private Queue<string> permissionQueue = new Queue<string>();
+        private Dictionary<string, PermissionState> permissionCache = new Dictionary<string, PermissionState>();
         private bool permissionManagerWaiting = false;
-#pragma warning restore CS0414
 
         [Header("Permissions")]
         [SerializeField]
@@ -25,19 +22,19 @@ namespace Oculus.Avatar2
 
         private void PermissionGranted(string permission)
         {
-            OvrAvatarLog.LogInfo($"[GRANTED] {permission}");
+            OvrAvatarLog.LogInfo("[GRANTED] " + permission);
             permissionCache[permission] = PermissionState.Granted;
             permissionManagerWaiting = false;
         }
         private void PermissionDenied(string permission)
         {
-            OvrAvatarLog.LogInfo($"[DENIED] {permission}");
+            OvrAvatarLog.LogInfo("[DENIED] " + permission);
             permissionCache[permission] = PermissionState.Denied;
             permissionManagerWaiting = false;
         }
         private void PermissionDeniedAndDontAskAgain(string permission)
         {
-            OvrAvatarLog.LogInfo($"[DENIED_NO_ASK] {permission}");
+            OvrAvatarLog.LogInfo("[DENIED_NO_ASK] " + permission);
             permissionCache[permission] = PermissionState.DeniedNoAsk;
             permissionManagerWaiting = false;
         }
@@ -48,10 +45,6 @@ namespace Oculus.Avatar2
         public void RequestFaceTrackingPermission()
         {
             QueuePermissionRequest(PERMISSION_FACE_TRACKING);
-        }
-        public void RequestBodyTrackingPermission()
-        {
-            QueuePermissionRequest(PERMISSION_BODY_TRACKING);
         }
         public void RequestMicPermission()
         {

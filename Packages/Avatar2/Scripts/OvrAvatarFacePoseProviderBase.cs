@@ -36,8 +36,7 @@ namespace Oculus.Avatar2
                         facePose = provider._facePose.ToNative();
                         return true;
                     }
-
-                    facePose = OvrAvatarFacePose.GenerateEmptyNativePose();
+                    facePose = new CAPI.ovrAvatar2FacePose();
                     return false;
                 }
             }

@@ -439,12 +439,6 @@ namespace Oculus.Avatar2
             return -1;
         }
 
-        // Returns true when the entity is active and the LODs have been setup.
-        public bool AreLodsActive()
-        {
-            return EntityActive && minLodLevel >= 0 && maxLodLevel >= 0;
-        }
-
         public void Reset()
         {
             ResetXforms();

@@ -67,6 +67,21 @@ namespace Oculus.Avatar2
                 .EnsureSuccess("ovrAvatar2Streaming_GetRecordingSize", logScope, this);
         }
 
+        // TODO: Should probably be internal?
+        public bool SerializeRecording(
+            CAPI.ovrAvatar2StreamLOD lod, IntPtr buffer, UInt32 bufferSize, out UInt64 bufferBytes)
+        {
+            bool success;
+            UInt64 bufferSizeAndBytesWritten = bufferSize;
+            unsafe
+            {
+                byte* bufferPtr = (byte*)buffer.ToPointer();
+                success = CAPI.OvrAvatar2Streaming_SerializeRecording(entityId, lod, bufferPtr, ref bufferSizeAndBytesWritten);
+            }
+            bufferBytes = bufferSizeAndBytesWritten;
+            return success;
+        }
+
         public void SetIsLocal(bool newValue)
         {
             if (IsLocal == newValue) return;

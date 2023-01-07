@@ -25,14 +25,14 @@ namespace Oculus.Avatar2
         public int HighestQualityLODIndex { get; private set; } = -1;
 
         /// Provides vertex and triangle counts for each level of detail.
-        public IReadOnlyList<AvatarLODCostData> CopyVisibleLODCostData()
+        public IReadOnlyList<LodCostData> CopyVisibleLODCostData()
         {
-            var lodCosts = new AvatarLODCostData[CAPI.ovrAvatar2EntityLODFlagsCount];
+            var lodCosts = new LodCostData[CAPI.ovrAvatar2EntityLODFlagsCount];
             var allLodCost = _visibleAllLodData.IsValid ? _visibleAllLodData.totalCost : default;
             for (int idx = 0; idx < _visibleLodData.Length; idx++)
             {
                 ref readonly var lodObj = ref _visibleLodData[idx];
-                lodCosts[idx] = AvatarLODCostData.Sum(in allLodCost, in lodObj.totalCost);
+                lodCosts[idx] = LodCostData.Sum(in allLodCost, in lodObj.totalCost);
             }
             return lodCosts;
         }
@@ -110,13 +110,13 @@ namespace Oculus.Avatar2
             // Discrete renderables, may be parented to various gameObjects
             private readonly HashSet<OvrAvatarRenderable> instances;
 
-            public AvatarLODCostData totalCost;
+            public LodCostData totalCost;
 
             internal void AddInstance(OvrAvatarRenderable newInstance)
             {
                 if (instances.Add(newInstance))
                 {
-                    totalCost = AvatarLODCostData.Sum(in totalCost, in newInstance.CostData);
+                    totalCost = LodCostData.Sum(in totalCost, in newInstance.CostData);
                 }
             }
             internal bool RemoveInstance(OvrAvatarRenderable oldInstance)
@@ -124,7 +124,7 @@ namespace Oculus.Avatar2
                 bool didRemove = instances.Remove(oldInstance);
                 if (didRemove)
                 {
-                    totalCost = AvatarLODCostData.Subtract(in totalCost, in oldInstance.CostData);
+                    totalCost = LodCostData.Subtract(in totalCost, in oldInstance.CostData);
                 }
                 OvrAvatarLog.Assert(didRemove, logScope);
                 return didRemove;
@@ -133,6 +133,67 @@ namespace Oculus.Avatar2
             {
                 instances.Clear();
                 totalCost = default;
+            }
+        }
+
+        // TODO: Move LodCostData out of OvrAvatarEntity, it is used by other classes too
+        /**
+         * Contains vertex and triangle counts for a single level of detail.
+         * This is used by the avatar LOD system to select the proper
+         * LOD based on application specified vertex limits.
+         * @see OvrAvatarLODManager
+         */
+        public readonly struct LodCostData
+        {
+            /// Number of vertices in avatar mesh.
+            public readonly uint meshVertexCount;
+            // TODO: Deprecate, use triCount instead
+            /// Number of vertices in the morph targets.
+            public readonly uint morphVertexCount;
+            /// Number of triangles in the avatar mesh.
+            public readonly uint renderTriangleCount;
+            // TODO: Include number of skinned bones + num morph targets
+
+            private LodCostData(uint meshVertCount, uint morphVertCount, uint triCount)
+            {
+                meshVertexCount = meshVertCount;
+                morphVertexCount = morphVertCount;
+                renderTriangleCount = triCount;
+            }
+            internal LodCostData(OvrAvatarPrimitive prim)
+                : this(prim.meshVertexCount, prim.morphVertexCount, prim.triCount) { }
+            ///
+            /// Add the second LOD cost to the first and return
+            /// the combined cost of both LODs.
+            ///
+            /// @param total    first LodCostData to add.
+            /// @param add      second LodCostData to add.
+            /// @returns LodCostData with total cost of both LODs.
+            // TODO: inplace Increment/Decrement would be useful
+            public static LodCostData Sum(in LodCostData total, in LodCostData add)
+            {
+                return new LodCostData(
+                    total.meshVertexCount + add.meshVertexCount,
+                    total.morphVertexCount + add.morphVertexCount,
+                    total.renderTriangleCount + add.renderTriangleCount
+                );
+            }
+
+            ///
+            /// Subtract the second LOD cost from the first and return
+            /// the difference between the LODs.
+            ///
+            /// @param total    LodCostData to subtract from.
+            /// @param sub      LodCostData to subtract.
+            /// @returns LodCostData with different between LODs.
+            public static LodCostData Subtract(in LodCostData total, in LodCostData sub)
+            {
+                Debug.Assert(total.meshVertexCount >= sub.meshVertexCount);
+                return new LodCostData(
+                    total.meshVertexCount - sub.meshVertexCount,
+                    total.morphVertexCount - sub.morphVertexCount,
+                    total.renderTriangleCount - sub.renderTriangleCount
+                );
             }
         }
 
@@ -257,25 +318,20 @@ namespace Oculus.Avatar2
                 var lodManager = AvatarLODManager.Instance;
 
                 var skelJoint = GetSkeletonTransformByType(lodManager.JointTypeToCenterOn);
-                bool hasSkelJoint = skelJoint != null;
-                if(!hasSkelJoint) {
-                    OvrAvatarLog.LogError($"SkeletonJoint not found for center joint {lodManager.JointTypeToCenterOn}", logScope, this);
-                }
 
-                avatarLod.centerXform = hasSkelJoint ? skelJoint : _baseTransform;
+                OvrAvatarLog.Assert(skelJoint);
+
+                avatarLod.centerXform = skelJoint ? skelJoint : _baseTransform;
 
                 avatarLod.extraXforms.Clear();
 
-                foreach (var jointType in lodManager.jointTypesToCullOnArray)
+                foreach (var jointType in lodManager.JointTypesToCullOn)
                 {
                     var cullJoint = GetSkeletonTransformByType(jointType);
+                    OvrAvatarLog.Assert(cullJoint);
                     if (cullJoint)
                     {
                         avatarLod.extraXforms.Add(cullJoint);
-                    }
-                    else
-                    {
-                        OvrAvatarLog.LogError($"Unable to find cullJoint for jointType {jointType}", logScope, this);
                     }
                 }
             }
@@ -319,34 +375,6 @@ namespace Oculus.Avatar2
                     ExpandLODRange(lodIdx);
                 }
             }
-        }
-
-        // Perform runtime configuration when `IsLocal==true`
-        private void ConfigureLocalAvatarSettings()
-        {
-            OvrAvatarLog.Assert(IsLocal, logScope, this);
-
-            // If we are local, update AvatarLODManager to assign `firstPersonAvatarLod`
-            // NOTE: `CAPI.ovrAvatar2EntityViewFlags.FirstPerson` is not actually required to use this property
-            // "firstPerson" refers to whether there is a camera being used to render from this avatar's perspective
-            // TODO: This needs to be improved to support "possessing" multiple avatars :/
-            var lodManager = AvatarLODManager.Instance;
-            if (lodManager == null) { return; }
-
-            var childCamera = GetComponentInChildren<Camera>();
-            // Check if we have a camera
-            if (childCamera == null) { return; }
-
-            // Confirm that it is the same camera LODManager is using
-            var lodCamera = lodManager.CurrentCamera;
-            if (!(lodCamera is null) && lodCamera != childCamera) { return; }
-
-            lodManager.firstPersonAvatarLod = AvatarLOD;
-            // No need to motion smooth, as we will skin every frame
-            MotionSmoothingSettings = MotionSmoothingOptions.FORCE_OFF;
-
-            OvrAvatarLog.LogDebug(
-                "Disabled motion smoothing per AvatarLODManager config", logScope, this);
         }
     }
 }

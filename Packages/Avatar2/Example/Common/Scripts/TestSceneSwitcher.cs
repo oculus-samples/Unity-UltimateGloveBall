@@ -34,16 +34,6 @@ public class TestSceneSwitcher : MonoBehaviour
     { controllerMask = OVRInput.Controller.LTouch, buttonMask = OVRInput.Button.One };
 #endif
 
-    private void Awake()
-    {
-        // Because we destroy the old Avatar Manager for a clean scene change,
-        // we need to give the new one the access token again
-        if (OvrAvatarEntitlement.AccessTokenIsValid())
-        {
-            OvrAvatarEntitlement.ResendAccessToken();
-        }
-    }
-
     private void Update()
     {
         int sceneChange = 0;
@@ -78,11 +68,11 @@ public class TestSceneSwitcher : MonoBehaviour
 
         if (GUI.Button(new Rect(0, Screen.height - buttonSize, buttonSize, buttonSize), "Prev"))
         {
-            StartCoroutine(SwitchScene(-1));
+            SwitchScene(-1);
         }
         if (GUI.Button(new Rect(Screen.width - buttonSize, Screen.height - buttonSize, buttonSize, buttonSize), "Next"))
         {
-            StartCoroutine(SwitchScene(1));
+            SwitchScene(1);
         }
     }
 #endif
@@ -91,9 +81,6 @@ public class TestSceneSwitcher : MonoBehaviour
     {
         // Wait a frame so OVRInput registers the button up event - otherwise it misses it during the scene switch
         yield return null;
-
-        // Reset OvrAvatarManager so the next scene can create it again with a new configuration
-        OvrAvatarManager.ResetInstance();
 
         // Change scenes
         int activeSceneIdx = SceneManager.GetActiveScene().buildIndex;

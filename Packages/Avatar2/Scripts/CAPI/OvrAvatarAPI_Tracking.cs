@@ -696,16 +696,11 @@ namespace Oculus.Avatar2
             Count = 72
         }
 
-        // TODO: Investigate why fixed float array marshalling is only failing on Mac M1. Implementation is swithed over to dynamic float[] to work around the issue, but using fixed array has
-        // the benefit of fixing array size to ensure tight coupling btn managed and unmanaged code. Fixed array in a struct is also pre-initialized without the need for explicit array initialization.
         [StructLayout(LayoutKind.Sequential)]
-        internal struct ovrAvatar2FacePose
+        internal unsafe struct ovrAvatar2FacePose
         {
-            // expressionWeights and expressionConfidence are expected to have size equal to ovrAvatar2FaceExpression.Count
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)ovrAvatar2FaceExpression.Count)]
-            public float[] expressionWeights;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = (int)ovrAvatar2FaceExpression.Count)]
-            public float[] expressionConfidence;
+            public fixed float expressionWeights[(int)ovrAvatar2FaceExpression.Count];
+            public fixed float expressionConfidence[(int)ovrAvatar2FaceExpression.Count];
         }
 
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

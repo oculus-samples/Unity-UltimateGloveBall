@@ -243,9 +243,9 @@ namespace Oculus.Avatar2
 
         protected void LoadUserWithFilters(in CAPI.ovrAvatar2EntityFilters filters)
         {
-            if (!OvrAvatarEntitlement.AccessTokenIsValid())
+            if (!OvrAvatarEntitlement.AccessTokenIsValid)
             {
-                OvrAvatarLog.LogError($"Cannot LoadUser until a valid Access Token is set.", logScope, this);
+                OvrAvatarLog.LogError("Cannot LoadUser until a valid Access Token is set.", logScope, this);
                 return;
             }
 
@@ -541,34 +541,18 @@ namespace Oculus.Avatar2
             if (jointCount != 0)
             {
                 // Map each Joint Type to a Node ID. If there is no corresponding node, the dictionary holds a value of Invalid
-                const int allJointCount = (int)CAPI.ovrAvatar2JointType.Count;
-                using var allJointTypes
-                    = new NativeArray<CAPI.ovrAvatar2JointType>(allJointCount
-                        , Allocator.Temp, NativeArrayOptions.UninitializedMemory);
-                unsafe
+                var allJointTypes = new CAPI.ovrAvatar2JointType[(int)CAPI.ovrAvatar2JointType.Count];
+                for (int i = 0; i < allJointTypes.Length; ++i)
                 {
-                    CAPI.ovrAvatar2JointType* typesData = allJointTypes.GetPtr();
-                    for (int i = 0; i < allJointCount; ++i)
-                    {
-                        typesData[i] = (CAPI.ovrAvatar2JointType)i;
-                    }
+                    allJointTypes[i] = (CAPI.ovrAvatar2JointType)i;
+                }
 
-                    using var allJointNodes
-                        = CAPI.OvrAvatar2Entity_QueryJointTypeNodes_NativeArray(entityId, in allJointTypes, this);
-                    if (allJointTypes.Length != allJointNodes.Length)
-                    {
-                        OvrAvatarLog.LogError(
-                            $"allJointTypes.Length ({allJointTypes.Length}) != allJointNodes.Length ({allJointTypes.Length})"
-                            , logScope, this);
-                    }
-                    else
-                    {
-                        CAPI.ovrAvatar2NodeId* nodeData = allJointNodes.array.GetPtr();
-                        for (int i = 0; i < allJointNodes.Length; ++i)
-                        {
-                            _jointTypeToNodeId.Add(typesData[i], nodeData[i]);
-                        }
-                    }
+                var alljointNodes = CAPI.OvrAvatar2Entity_QueryJointTypeNodes(entityId, allJointTypes, this);
+                OvrAvatarLog.AssertConstMessage(allJointTypes.Length == alljointNodes.Length,
+                    "allJointTypes.Length == alljointNodes.Length", logScope, this);
+                for (int i = 0; i < alljointNodes.Length; ++i)
+                {
+                    _jointTypeToNodeId.Add(allJointTypes[i], alljointNodes[i]);
                 }
             }
 

@@ -103,8 +103,10 @@ namespace Oculus.Avatar2
 
         private void ValidateSupportedSkinners()
         {
-            if (!gpuSkinningShaderLevelSupported && (_skinnersSupported & SkinnerSupport.OVR_GPU) == SkinnerSupport.OVR_GPU)
+            var gpuSkinningSupported = gpuSkinningShaderLevelSupported;
+            if (!gpuSkinningSupported && (_skinnersSupported & SkinnerSupport.OVR_GPU) == SkinnerSupport.OVR_GPU)
             {
+                OvrAvatarLog.LogWarning("OVR_GPU skinning not yet available on this platform. Falling back.");
                 // gpu skinning not actually supported so remove from supported list.
                 _skinnersSupported &= ~SkinnerSupport.OVR_GPU;
                 if (_skinnersSupported == SkinnerSupport.NONE)

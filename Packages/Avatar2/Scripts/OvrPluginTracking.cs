@@ -5,15 +5,7 @@ namespace Oculus.Avatar2
 {
     internal static class OvrPluginTracking
     {
-#if UNITY_EDITOR || !UNITY_IOS
-#if UNITY_EDITOR_OSX
-        private const string LibFile = OvrAvatarPlugin.FullPluginFolderPath + "libovrplugintracking.framework/libovrplugintracking";
-#else
         private const string LibFile = OvrAvatarManager.IsAndroidStandalone ? "ovrplugintracking" : "libovrplugintracking";
-#endif  // UNITY_EDITOR_OSX
-#else   // !UNITY_EDITOR && UNITY_IOS
-        private const string LibFile = "__Internal";
-#endif  // !UNITY_EDITOR && UNITY_IOS
 
         [DllImport(LibFile, CallingConvention = CallingConvention.Cdecl)]
         [return: MarshalAs(UnmanagedType.U1)]

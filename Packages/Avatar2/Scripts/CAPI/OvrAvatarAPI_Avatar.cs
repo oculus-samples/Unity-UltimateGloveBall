@@ -25,15 +25,7 @@ namespace Oculus.Avatar2
         private static int TargetLibPatchVersion = -1;
 
         internal const string LibFile =
-#if UNITY_EDITOR || !UNITY_IOS
-#if UNITY_EDITOR_OSX
-        OvrAvatarPlugin.FullPluginFolderPath + "libovravatar2.framework/libovravatar2";
-#else
         OvrAvatarManager.IsAndroidStandalone ? "ovravatar2" : "libovravatar2";
-#endif  // UNITY_EDITOR_OSX
-#else   // !UNITY_EDITOR && UNITY_IOS
-        "__Internal";
-#endif  // !UNITY_EDITOR && UNITY_IOS
 
         // TODO: Add "INITIALIZED" frame count and assert in update when update called w/out init
         private const uint AVATAR_UPDATE_UNINITIALIZED_FRAME_COUNT = 0;
@@ -124,25 +116,6 @@ namespace Oculus.Avatar2
             Num = Last + 1,
         }
 
-        public static string ovrAvatar2PlatformToString(ovrAvatar2Platform platform)
-        {
-            switch (platform)
-            {
-                case ovrAvatar2Platform.Invalid:
-                    return "Invalid";
-                case ovrAvatar2Platform.PC:
-                    return "PC";
-                case ovrAvatar2Platform.Quest:
-                    return "Quest";
-                case ovrAvatar2Platform.Quest2:
-                    return "Quest2";
-                case ovrAvatar2Platform.QuestPro:
-                    return "QuestPro";
-            }
-
-            return "Unknown";
-        }
-
         [Flags]
         public enum ovrAvatar2InitializeFlags : Int32
         {
@@ -153,9 +126,6 @@ namespace Oculus.Avatar2
             // When set, skinningOrigin in ovrAvatar2PrimitiveRenderState is set with the skinning origin
             // and the skinning matrices root will be the skinning Origin
             EnableSkinningOrigin = 1 << 3,
-
-            First = CheckMemoryLeaks,
-            Last = EnableSkinningOrigin,
         }
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
@@ -311,7 +281,7 @@ namespace Oculus.Avatar2
         // TODO: Could this just be 0.0f?
         private const float AVATAR_UPDATE_SMALL_STEP = 0.1f;
         internal static uint avatarUpdateCount { get; private set; } = AVATAR_UPDATE_UNINITIALIZED_FRAME_COUNT;
-        internal static bool OvrAvatar2_Update(float deltaSeconds = AVATAR_UPDATE_SMALL_STEP)
+        internal static bool OvrAvatar_Update(float deltaSeconds = AVATAR_UPDATE_SMALL_STEP)
         {
             var result = ovrAvatar2_Update(deltaSeconds);
             if (result.EnsureSuccess("ovrAvatar2_Update"))
