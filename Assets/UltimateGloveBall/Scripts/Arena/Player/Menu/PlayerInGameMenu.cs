@@ -79,6 +79,9 @@ namespace UltimateGloveBall.Arena.Player.Menu
             if (!gameObject.activeSelf)
             {
                 gameObject.SetActive(true);
+                // in case the root was hidden during focus lost and the menu is closed, we want to make sure it's
+                // visible when we open it.
+                m_menuRoot.SetActive(true);
                 var thisTrans = transform;
                 // we place it in front of the player at the height of their head
                 var forward = m_cameraTransform.forward;

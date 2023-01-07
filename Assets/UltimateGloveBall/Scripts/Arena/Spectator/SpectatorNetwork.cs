@@ -101,6 +101,10 @@ namespace UltimateGloveBall.Arena.Spectator
             {
                 m_prefabIndex.Value = Random.Range(0, m_spectatorPrefabs.Length);
             }
+            else
+            {
+                OnPrefabIndexChanged(m_prefabIndex.Value, m_prefabIndex.Value);
+            }
         }
 
         public override void OnNetworkDespawn()

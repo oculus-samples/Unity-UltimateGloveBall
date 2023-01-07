@@ -99,40 +99,47 @@ namespace UltimateGloveBall.App
 
         private async Task InitializeOculusModules()
         {
-            var coreInit = await Core.AsyncInitialize().Gen();
-            if (coreInit.IsError)
+            try
             {
-                LogError("Failed to initialize Oculus Platform SDK", coreInit.GetError());
-                return;
+                var coreInit = await Core.AsyncInitialize().Gen();
+                if (coreInit.IsError)
+                {
+                    LogError("Failed to initialize Oculus Platform SDK", coreInit.GetError());
+                    return;
+                }
+
+                Debug.Log("Oculus Platform SDK initialized successfully");
+
+                var isUserEntitled = await Entitlements.IsUserEntitledToApplication().Gen();
+                if (isUserEntitled.IsError)
+                {
+                    LogError("You are not entitled to use this app", isUserEntitled.GetError());
+                    return;
+                }
+
+                m_launchType = ApplicationLifecycle.GetLaunchDetails().LaunchType;
+
+                GroupPresence.SetJoinIntentReceivedNotificationCallback(OnJoinIntentReceived);
+                GroupPresence.SetInvitationsSentNotificationCallback(OnInvitationsSent);
+
+                var getLoggedInuser = await Users.GetLoggedInUser().Gen();
+                if (getLoggedInuser.IsError)
+                {
+                    LogError("Cannot get user info", getLoggedInuser.GetError());
+                    return;
+                }
+
+                // Workaround.
+                // At the moment, Platform.Users.GetLoggedInUser() seems to only be returning the user ID.
+                // Display name is blank.
+                // Platform.Users.Get(ulong userID) returns the display name.
+                var getUser = await Users.Get(getLoggedInuser.Data.ID).Gen();
+                LocalPlayerState.Init(getUser.Data.DisplayName, getUser.Data.ID);
             }
-
-            Debug.Log("Oculus Platform SDK initialized successfully");
-
-            var isUserEntitled = await Entitlements.IsUserEntitledToApplication().Gen();
-            if (isUserEntitled.IsError)
+            catch (System.Exception exception)
             {
-                LogError("You are not entitled to use this app", isUserEntitled.GetError());
-                return;
+                Debug.LogException(exception);
             }
-
-            m_launchType = ApplicationLifecycle.GetLaunchDetails().LaunchType;
-
-            GroupPresence.SetJoinIntentReceivedNotificationCallback(OnJoinIntentReceived);
-            GroupPresence.SetInvitationsSentNotificationCallback(OnInvitationsSent);
-
-            var getLoggedInuser = await Users.GetLoggedInUser().Gen();
-            if (getLoggedInuser.IsError)
-            {
-                LogError("Cannot get user info", getLoggedInuser.GetError());
-                return;
-            }
-
-            // Workaround.
-            // At the moment, Platform.Users.GetLoggedInUser() seems to only be returning the user ID.
-            // Display name is blank.
-            // Platform.Users.Get(ulong userID) returns the display name.
-            var getUser = await Users.Get(getLoggedInuser.Data.ID).Gen();
-            LocalPlayerState.Init(getUser.Data.DisplayName, getUser.Data.ID);
         }
 
         private void OnJoinIntentReceived(Message<Oculus.Platform.Models.GroupPresenceJoinIntent> message)
