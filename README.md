@@ -17,6 +17,29 @@ This project is an application for the Meta Quest devices that demonstrate a fas
 
 The project also includes the [Meta Utilities](./Packages/com.meta.utilities/README.md) and [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md) packages, which contain many useful tools and methods.
 
+## How to run the project in Unity
+1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon
+2. Make sure you're using  *Unity 2021.3.14f1* or newer. 
+3. Load the [Assets/UltimateGloveBall/Scenes/Startup](./Assets/UltimateGloveBall/Scenes/Startup.unity) scene. 
+4. There are two ways of testing in the editor:
+    <details>
+      <summary><b>Quest Link</b></summary>
+      
+      + Enable Quest Link:
+        + Put on your headset and navigate to "Quick Settings"; select "Quest Link" (or "Quest Air Link" if using Air Link).
+        + Select your desktop from the list and then select, "Launch". This will launch the Quest Link app, allowing you to control your desktop from your headset.
+      + With the headset on, select "Desktop" from the control panel in front of you. You should be able to see your desktop in VR!
+      + Navigate to Unity and press "Play" - the application should launch on your headset automatically.
+    </details>
+    <details>
+      <summary><b>XR FPS Simulator</b></summary>
+      
+      + In Unity, press "Play" and enjoy the simulated XR controls!
+      + Review the [XR FPS Simulator documentation](./Packages/com.meta.utilities.input/README.md#xr-device-fps-simulator) for more information.
+        + Note: The mouse is [captured by the simulator](./Packages/com.meta.utilities.input/README.md#mouse-capture) when in play mode. In order to otherwise use the mouse in-game (such as to interact with menus), hold Left Alt.
+    </details>
+
+
 ## Dependencies
 
 This project makes use of the following plugins and software:
@@ -68,13 +91,3 @@ In order to keep the project organized, the [Meta Avatars SDK](https://developer
 The *Photon Voice 2* package is released under the *[License Agreement for Exit Games Photon](./Packages/Photon/Photon/license.txt)*.
 
 Also, the [Photon Realtime for Netcode](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) package is copied in the [Packages](./Packages) folder as `com.community.netcode.transport.photon-realtime@b28923aa5d` since we modified it to fit our needs.
-
-# Run the project in Unity
-+ [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon
-+ Make sure you're using  *Unity 2021.3.14f1* or newer. 
-+ Load the [Assets/UltimateGloveBall/Scenes/Startup](Assets/UltimateGloveBall/Scenes/Startup.unity) scene. 
-+ Enable Oculus Link:
-  + Put on your headset and navigate to "Quick Settings"; select "Oculus Link" (or "Oculus Air Link" if using Air Link).
-  + Select your desktop from the list and then select, "Launch". This will launch the Oculus Link app, allowing you to control your desktop from your headset.
-+ With the headset on, select "Desktop" from the control panel in front of you. You should be able to see your desktop in VR!
-+ Navigate to Unity and press "Play" - the application should launch on your headset automatically.

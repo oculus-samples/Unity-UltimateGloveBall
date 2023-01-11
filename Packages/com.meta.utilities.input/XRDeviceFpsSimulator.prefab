@@ -434,7 +434,9 @@ MonoBehaviour:
     m_Reference: {fileID: 0}
   m_centerEyeStartPosition: {x: 0, y: 1.5, z: 0}
   m_leftControllerOffset: {x: -0.1, y: -0.1, z: 0.5}
+  m_leftControllerRotation: {x: -30, y: 0, z: -60}
   m_rightControllerOffset: {x: 0.1, y: -0.1, z: 0.5}
+  m_rightControllerRotation: {x: -30, y: 0, z: 60}
 --- !u!114 &71601535237985672
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,27 +1,31 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using System;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.XR;
 
-public class XRTrackedPoseDriver : TrackedPoseDriver
+namespace Meta.Utilities.Input
 {
-    public int CurrentDataVersion { get; private set; }
-
-    public event Action InputDataAvailable;
-
-    public UnityEvent m_onPerformUpdate = new();
-
-    protected override void PerformUpdate()
+    public class XRTrackedPoseDriver : TrackedPoseDriver
     {
-        base.PerformUpdate();
-        CurrentDataVersion += 1;
-        InputDataAvailable?.Invoke();
-        m_onPerformUpdate.Invoke();
-    }
+        [SerializeField] private UnityEvent m_onPerformUpdate = new();
 
-    protected override void OnUpdate()
-    {
-        PerformUpdate();
+        public event Action InputDataAvailable;
+
+        public int CurrentDataVersion { get; private set; }
+
+        protected override void PerformUpdate()
+        {
+            base.PerformUpdate();
+            CurrentDataVersion += 1;
+            InputDataAvailable?.Invoke();
+            m_onPerformUpdate.Invoke();
+        }
+
+        protected override void OnUpdate()
+        {
+            PerformUpdate();
+        }
     }
 }

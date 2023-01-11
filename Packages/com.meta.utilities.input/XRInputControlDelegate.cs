@@ -2,60 +2,63 @@
 
 using Oculus.Avatar2;
 
-public class XRInputControlDelegate : SampleInputControlDelegate
+namespace Meta.Utilities.Input
 {
-    private XRInputControlActions m_controlActions;
-
-    public XRInputControlDelegate(XRInputControlActions controlActions) => m_controlActions = controlActions;
-
-    public override bool GetInputControlState(out OvrAvatarInputControlState inputControlState)
+    public class XRInputControlDelegate : SampleInputControlDelegate
     {
-        if (OVRInput.GetConnectedControllers() != OVRInput.Controller.None)
-            return base.GetInputControlState(out inputControlState);
+        private XRInputControlActions m_controlActions;
 
-        inputControlState = default;
-        UpdateControllerInput(ref inputControlState.leftControllerState, ref m_controlActions.m_left);
-        UpdateControllerInput(ref inputControlState.rightControllerState, ref m_controlActions.m_right);
-        return true;
-    }
+        public XRInputControlDelegate(XRInputControlActions controlActions) => m_controlActions = controlActions;
 
-    private void UpdateControllerInput(ref OvrAvatarControllerState controllerState, ref XRInputControlActions.Controller controller)
-    {
-        controllerState.buttonMask = 0;
-        controllerState.touchMask = 0;
+        public override bool GetInputControlState(out OvrAvatarInputControlState inputControlState)
+        {
+            if (OVRInput.GetConnectedControllers() != OVRInput.Controller.None)
+                return base.GetInputControlState(out inputControlState);
 
-        // Button Press
-        if (controller.m_buttonOne.action.ReadValue<float>() > 0.5f)
-        {
-            controllerState.buttonMask |= CAPI.ovrAvatar2Button.One;
-        }
-        if (controller.m_buttonTwo.action.ReadValue<float>() > 0.5f)
-        {
-            controllerState.buttonMask |= CAPI.ovrAvatar2Button.Two;
-        }
-        if (controller.m_buttonThree.action.ReadValue<float>() > 0.5f)
-        {
-            controllerState.buttonMask |= CAPI.ovrAvatar2Button.Three;
+            inputControlState = default;
+            UpdateControllerInput(ref inputControlState.leftControllerState, ref m_controlActions.LeftController);
+            UpdateControllerInput(ref inputControlState.rightControllerState, ref m_controlActions.RightController);
+            return true;
         }
 
-        // Button Touch
-        if (controller.m_touchOne.action.ReadValue<float>() > 0.5f)
+        private void UpdateControllerInput(ref OvrAvatarControllerState controllerState, ref XRInputControlActions.Controller controller)
         {
-            controllerState.touchMask |= CAPI.ovrAvatar2Touch.One;
-        }
-        if (controller.m_touchTwo.action.ReadValue<float>() > 0.5f)
-        {
-            controllerState.touchMask |= CAPI.ovrAvatar2Touch.Two;
-        }
-        if (controller.m_touchPrimaryThumbstick.action.ReadValue<float>() > 0.5f)
-        {
-            controllerState.touchMask |= CAPI.ovrAvatar2Touch.Joystick;
-        }
+            controllerState.buttonMask = 0;
+            controllerState.touchMask = 0;
 
-        // Trigger
-        controllerState.indexTrigger = controller.m_axisIndexTrigger.action.ReadValue<float>();
+            // Button Press
+            if (controller.ButtonOne.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.buttonMask |= CAPI.ovrAvatar2Button.One;
+            }
+            if (controller.ButtonTwo.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.buttonMask |= CAPI.ovrAvatar2Button.Two;
+            }
+            if (controller.ButtonThree.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.buttonMask |= CAPI.ovrAvatar2Button.Three;
+            }
 
-        // Grip
-        controllerState.handTrigger = controller.m_axisHandTrigger.action.ReadValue<float>();
+            // Button Touch
+            if (controller.TouchOne.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.touchMask |= CAPI.ovrAvatar2Touch.One;
+            }
+            if (controller.TouchTwo.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.touchMask |= CAPI.ovrAvatar2Touch.Two;
+            }
+            if (controller.TouchPrimaryThumbstick.action.ReadValue<float>() > 0.5f)
+            {
+                controllerState.touchMask |= CAPI.ovrAvatar2Touch.Joystick;
+            }
+
+            // Trigger
+            controllerState.indexTrigger = controller.AxisIndexTrigger.action.ReadValue<float>();
+
+            // Grip
+            controllerState.handTrigger = controller.AxisHandTrigger.action.ReadValue<float>();
+        }
     }
 }

@@ -560,3 +560,7 @@ generated_code = true
 # and no formatting changes
 [**/CustomControllerRayVisual.cs]
 generated_code = true
+
+# File is based on com.unity.inputsystem/InputSystem/Actions/Composites/OneModifierComposite.cs
+[**/InverseModifierComposite.cs]
+generated_code = true

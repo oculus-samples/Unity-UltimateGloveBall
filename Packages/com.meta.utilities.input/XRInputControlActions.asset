@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1e130e850cd9e428420225fc02a719, type: 3}
   m_Name: XRInputControlActions
   m_EditorClassIdentifier: 
-  m_left:
-    m_buttonOne:
+  LeftController:
+    ButtonOne:
       m_UseReference: 0
       m_Action:
         m_Name: Button One
@@ -33,7 +33,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonTwo:
+    ButtonTwo:
       m_UseReference: 0
       m_Action:
         m_Name: Button Two
@@ -53,7 +53,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonThree:
+    ButtonThree:
       m_UseReference: 0
       m_Action:
         m_Name: Button Three
@@ -73,7 +73,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonPrimaryThumbstick:
+    ButtonPrimaryThumbstick:
       m_UseReference: 0
       m_Action:
         m_Name: Button Primary Thumbstick
@@ -93,7 +93,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchOne:
+    TouchOne:
       m_UseReference: 0
       m_Action:
         m_Name: Touch One
@@ -113,7 +113,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchTwo:
+    TouchTwo:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Two
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchPrimaryThumbstick:
+    TouchPrimaryThumbstick:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Primary Thumbstick
@@ -153,7 +153,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchPrimaryThumbRest:
+    TouchPrimaryThumbRest:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Primary Thumb Rest
@@ -165,7 +165,7 @@ MonoBehaviour:
         m_SingletonActionBindings: []
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_axisIndexTrigger:
+    AxisIndexTrigger:
       m_UseReference: 0
       m_Action:
         m_Name: Axis Index Trigger
@@ -185,7 +185,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_axisHandTrigger:
+    AxisHandTrigger:
       m_UseReference: 0
       m_Action:
         m_Name: Axis Hand Trigger
@@ -205,8 +205,8 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-  m_right:
-    m_buttonOne:
+  RightController:
+    ButtonOne:
       m_UseReference: 0
       m_Action:
         m_Name: Button One
@@ -226,7 +226,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonTwo:
+    ButtonTwo:
       m_UseReference: 0
       m_Action:
         m_Name: Button Two
@@ -246,7 +246,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonThree:
+    ButtonThree:
       m_UseReference: 0
       m_Action:
         m_Name: Button Three
@@ -266,7 +266,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_buttonPrimaryThumbstick:
+    ButtonPrimaryThumbstick:
       m_UseReference: 0
       m_Action:
         m_Name: Button Primary Thumbstick
@@ -286,7 +286,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchOne:
+    TouchOne:
       m_UseReference: 0
       m_Action:
         m_Name: Touch One
@@ -306,7 +306,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchTwo:
+    TouchTwo:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Two
@@ -326,7 +326,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchPrimaryThumbstick:
+    TouchPrimaryThumbstick:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Primary Thumbstick
@@ -346,7 +346,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_touchPrimaryThumbRest:
+    TouchPrimaryThumbRest:
       m_UseReference: 0
       m_Action:
         m_Name: Touch Primary Thumb Rest
@@ -358,7 +358,7 @@ MonoBehaviour:
         m_SingletonActionBindings: []
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_axisIndexTrigger:
+    AxisIndexTrigger:
       m_UseReference: 0
       m_Action:
         m_Name: Axis Index Trigger
@@ -378,7 +378,7 @@ MonoBehaviour:
           m_Flags: 0
         m_Flags: 0
       m_Reference: {fileID: 0}
-    m_axisHandTrigger:
+    AxisHandTrigger:
       m_UseReference: 0
       m_Action:
         m_Name: Axis Hand Trigger
