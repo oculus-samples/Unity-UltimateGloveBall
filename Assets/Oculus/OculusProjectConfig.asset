@@ -21,7 +21,7 @@ MonoBehaviour:
   sharedAnchorSupport: 0
   renderModelSupport: 0
   trackedKeyboardSupport: 0
-  bodyTrackingSupport: 0
+  bodyTrackingSupport: 1
   faceTrackingSupport: 1
   eyeTrackingSupport: 1
   disableBackups: 1

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6069269096435626870}
   - component: {fileID: 3962839659983380730}
   - component: {fileID: 8397722996190053070}
+  - component: {fileID: 6685134477446876702}
+  - component: {fileID: 258953393761354200}
   m_Layer: 3
   m_Name: MainMenuAvatarEntity
   m_TagString: Untagged
@@ -59,6 +61,8 @@ MonoBehaviour:
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
   _bodyTracking: {fileID: 0}
+  _facePoseBehavior: {fileID: 0}
+  _eyePoseBehavior: {fileID: 0}
   _lipSync: {fileID: 0}
   _criticalJointTypes: 
   _debugDrawing:
@@ -84,6 +88,9 @@ MonoBehaviour:
   OnDefaultAvatarLoadedEvent:
     m_PersistentCalls:
       m_Calls: []
+  OnFastLoadAvatarLoadedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnUserAvatarLoadedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -103,6 +110,8 @@ MonoBehaviour:
   m_lipSync: {fileID: 6942520302109648295}
   m_isLocalIfNotNetworked: 1
   OnJointLoadedEvents: []
+  m_facePoseProvider: {fileID: 258953393761354200}
+  m_eyePoseProvider: {fileID: 6685134477446876702}
 --- !u!114 &3962839659983380730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,13 +132,9 @@ MonoBehaviour:
   dynamicLevel: 0
   lodImportance: 0
   updateImportance: 0
-  lastUpdateAgeTicks: 0
-  previousUpdateAgeWindowTicks: 0
+  dynamicStreamLod: 0
   lastUpdateAgeSeconds: 0
   previousUpdateAgeWindowSeconds: 0
-  lastUpdateCost: -1
-  dynamicStreamLod: 0
-  _avatarId: 1
 --- !u!54 &8397722996190053070
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -146,6 +151,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6685134477446876702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830134145829001418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d9ca4252a965544a4613f39f18d361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &258953393761354200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830134145829001418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852db897867e8a0418e5c20c10cb0cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4747424129754566952
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,4 +14,9 @@
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
   <uses-permission android:name="android.permission.MICROPHONE" />
+  <uses-feature android:name="oculus.software.face_tracking" android:required="false" />
+  <uses-permission android:name="com.oculus.permission.FACE_TRACKING" />
+  <uses-feature android:name="oculus.software.eye_tracking" android:required="false" />
+  <uses-permission android:name="com.oculus.permission.EYE_TRACKING" />
+  <uses-permission android:name="com.oculus.permission.BODY_TRACKING" />
 </manifest>

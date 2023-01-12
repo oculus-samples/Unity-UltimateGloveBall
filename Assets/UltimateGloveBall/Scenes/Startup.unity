@@ -518,7 +518,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3021972491552779421, guid: 8bbd86fa22174d54daf133e4a304a3d6, type: 3}
       propertyPath: m_Name
-      value: SDDAvatarSdkManager
+      value: AvatarSdkManager
       objectReference: {fileID: 0}
     - target: {fileID: 3021972491552779423, guid: 8bbd86fa22174d54daf133e4a304a3d6, type: 3}
       propertyPath: m_RootOrder
@@ -575,7 +575,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 361053804400328480, guid: 9fcdfaf0fd8ef284baf4a70f3b60335a, type: 3}
       propertyPath: m_Name
-      value: SDDNetworkLayer
+      value: NetworkLayer
       objectReference: {fileID: 0}
     - target: {fileID: 361053804400328495, guid: 9fcdfaf0fd8ef284baf4a70f3b60335a, type: 3}
       propertyPath: m_RootOrder
@@ -698,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 423056969483083899, guid: d49c7cf0f39bd7a4a92b804122f50f6a, type: 3}
       propertyPath: m_Name
-      value: SDDLocalPlayerState
+      value: LocalPlayerState
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d49c7cf0f39bd7a4a92b804122f50f6a, type: 3}
@@ -825,7 +825,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6719118673884602452, guid: a7fcd3cdec34ccf458a26c9b790ed2ac, type: 3}
       propertyPath: m_Name
-      value: SDDVoip
+      value: Voip
       objectReference: {fileID: 0}
     - target: {fileID: 6719118673884602459, guid: a7fcd3cdec34ccf458a26c9b790ed2ac, type: 3}
       propertyPath: m_RootOrder
@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3988992931919131278, guid: 2e9ef258a16a2b24684d95d68d7117f8, type: 3}
       propertyPath: m_Name
-      value: SDDCameraRig
+      value: CameraRig
       objectReference: {fileID: 0}
     - target: {fileID: 5760720272728806021, guid: 2e9ef258a16a2b24684d95d68d7117f8, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917622354605840276, guid: 894eb2dfbc8ff5e48b3755e74152a4ae, type: 3}
       propertyPath: m_Name
-      value: SDDApplication
+      value: Application
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 894eb2dfbc8ff5e48b3755e74152a4ae, type: 3}
