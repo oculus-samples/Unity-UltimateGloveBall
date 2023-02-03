@@ -25,6 +25,7 @@ namespace UltimateGloveBall.App
             }
         }
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         public static void DestroyInstance()
         {
             s_instance = null;
@@ -37,6 +38,8 @@ namespace UltimateGloveBall.App
         private const string KEY_SNAP_BLACKOUT = "BalckoutOnSnap";
         private const string KEY_DISABLE_FREE_LOCOMOTION = "DisableFreeLocomotion";
         private const string KEY_LOCOMOTION_VIGNETTE = "LocomotionVignette";
+        private const string KEY_SELECTED_USER_ICON_SKU = "SelectedUserIcon";
+        private const string KEY_OWNED_CAT_COUNT = "OwnedCatCount";
 
         private const float DEFAULT_MUSIC_VOLUME = 0.5f;
         private const float DEFAULT_SFX_VOLUME = 1.0f;
@@ -44,6 +47,8 @@ namespace UltimateGloveBall.App
         private const bool DEFAULT_BLACKOUT_ON_SNAP_MOVE = false;
         private const bool DEFAULT_DISABLE_FREE_LOCOMOTION = false;
         private const bool DEFAULT_LOCOMOTION_VIGNETTE = true;
+        private const string DEFAULT_USER_ICON_SKU = null;
+        private const int DEFAULT_OWNED_CAT_COUNT = 0;
 
         private float m_musicVolume;
         public float MusicVolume
@@ -110,6 +115,30 @@ namespace UltimateGloveBall.App
             }
         }
 
+        private string m_selectedUserIconSku;
+
+        public string SelectedUserIconSku
+        {
+            get => m_selectedUserIconSku;
+            set
+            {
+                m_selectedUserIconSku = value;
+                SetString(KEY_SELECTED_USER_ICON_SKU, m_selectedUserIconSku);
+            }
+        }
+
+        private int m_ownedCatsCount;
+
+        public int OwnedCatsCount
+        {
+            get => m_ownedCatsCount;
+            set
+            {
+                m_ownedCatsCount = Mathf.Max(0, value);
+                SetInt(KEY_OWNED_CAT_COUNT, m_ownedCatsCount);
+            }
+        }
+
         private GameSettings()
         {
             m_musicVolume = PlayerPrefs.GetFloat(KEY_MUSIC_VOLUME, DEFAULT_MUSIC_VOLUME);
@@ -118,6 +147,8 @@ namespace UltimateGloveBall.App
             m_useBlackoutOnSnap = GetBool(KEY_SNAP_BLACKOUT, DEFAULT_BLACKOUT_ON_SNAP_MOVE);
             m_isFreeLocomotionDisabled = GetBool(KEY_DISABLE_FREE_LOCOMOTION, DEFAULT_DISABLE_FREE_LOCOMOTION);
             m_useLocomotionVignette = GetBool(KEY_LOCOMOTION_VIGNETTE, DEFAULT_LOCOMOTION_VIGNETTE);
+            m_selectedUserIconSku = PlayerPrefs.GetString(KEY_SELECTED_USER_ICON_SKU, DEFAULT_USER_ICON_SKU);
+            m_ownedCatsCount = PlayerPrefs.GetInt(KEY_OWNED_CAT_COUNT, DEFAULT_OWNED_CAT_COUNT);
         }
 
         private void SetFloat(string key, float value)
@@ -132,7 +163,17 @@ namespace UltimateGloveBall.App
 
         private void SetBool(string key, bool value)
         {
-            PlayerPrefs.SetInt(key, value ? 1 : 0);
+            SetInt(key, value ? 1 : 0);
+        }
+
+        private void SetString(string key, string value)
+        {
+            PlayerPrefs.SetString(key, value);
+        }
+
+        private void SetInt(string key, int value)
+        {
+            PlayerPrefs.SetInt(key, value);
         }
     }
 }

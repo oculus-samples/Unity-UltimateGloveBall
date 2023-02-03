@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meta.Utilities;
@@ -50,6 +51,8 @@ namespace UltimateGloveBall.Arena.Player
 
         public NetworkedTeam NetworkedTeamComp => m_networkedTeam;
         public RespawnController RespawnController => m_respawnController;
+
+        public Action<bool> OnInvulnerabilityStateUpdatedEvent;
 
         public override void OnNetworkSpawn()
         {
@@ -104,6 +107,7 @@ namespace UltimateGloveBall.Arena.Player
         {
             m_collider.enabled = !newValue;
             _ = StartCoroutine(SetAvatarState());
+            OnInvulnerabilityStateUpdatedEvent?.Invoke(newValue);
         }
 
         private IEnumerator SetAvatarState()

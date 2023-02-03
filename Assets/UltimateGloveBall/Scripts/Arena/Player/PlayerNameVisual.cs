@@ -17,6 +17,7 @@ namespace UltimateGloveBall.Arena.Player
         [SerializeField] private Transform m_canvas;
         [SerializeField] private TMP_Text m_usernameText;
         [SerializeField] private Image m_masterIcon;
+        [SerializeField] private Image m_userIcon;
 
         private bool m_isEnabled = true;
         private bool m_visible = true;
@@ -44,6 +45,16 @@ namespace UltimateGloveBall.Arena.Player
             }
         }
 
+        public void SetUserIcon(Sprite userIcon)
+        {
+            if (m_userIcon != null)
+            {
+                m_userIcon.sprite = userIcon;
+            }
+
+            m_userIcon.enabled = userIcon != null;
+        }
+
         public void ShowUsername(bool show)
         {
             if (m_usernameText != null)
@@ -57,6 +68,14 @@ namespace UltimateGloveBall.Arena.Player
             if (m_masterIcon != null)
             {
                 m_masterIcon.gameObject.SetActive(show);
+            }
+        }
+
+        public void ShowUserIcon(bool show)
+        {
+            if (m_userIcon != null)
+            {
+                m_userIcon.gameObject.SetActive(show);
             }
         }
     }

@@ -72,6 +72,12 @@ namespace UltimateGloveBall.App
                 new NavigationController(this, NetworkLayer, LocalPlayerState, PlayerPresenceHandler);
             NetworkStateHandler = new NetworkStateHandler(this, NetworkLayer, NavigationController, Voip,
                 LocalPlayerState, PlayerPresenceHandler, InstantiateSession);
+            // Get the products and the purchases of the current logged in user
+            // get all icons products
+            IAPManager.Instance.FetchProducts(UserIconManager.Instance.AllSkus, ProductCategories.ICONS);
+            // get cat consumable
+            IAPManager.Instance.FetchProducts(new[] { ProductCategories.CAT }, ProductCategories.CONSUMABLES);
+            IAPManager.Instance.FetchPurchases();
 
             if (m_launchType == LaunchType.Normal)
             {

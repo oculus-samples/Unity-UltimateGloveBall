@@ -1748,6 +1748,7 @@ GameObject:
   - component: {fileID: 4905773132181324928}
   - component: {fileID: 7522475491851819156}
   - component: {fileID: 831674340842041351}
+  - component: {fileID: 7724953340620923437}
   m_Layer: 3
   m_Name: PlayerAvatarEntity
   m_TagString: Untagged
@@ -1963,6 +1964,7 @@ MonoBehaviour:
   m_playerNameVisual: {fileID: 1170192223358197809}
   m_enableLocalPlayerName: 0
   m_voipHandler: {fileID: 4905773132181324928}
+  m_catOwner: {fileID: 7724953340620923437}
 --- !u!114 &240283869617272425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,6 +2112,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852db897867e8a0418e5c20c10cb0cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7724953340620923437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775241635953393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9e82230198448b8e0e0c8c49801c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_catPrefab: {fileID: -5161295777053526158, guid: a0e628906996a0445a48398f141bf723, type: 3}
+  m_spawnCatDistance: 2
+  m_respawnController: {fileID: 6606995026302884376}
+  m_playerControllerNetwork: {fileID: 2639589616134429533}
 --- !u!1 &7474497600499483782
 GameObject:
   m_ObjectHideFlags: 0

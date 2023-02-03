@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Multiplayer.Core;
+using Meta.Utilities;
 using UltimateGloveBall.App;
 using Unity.Collections;
 using Unity.Netcode;
@@ -19,6 +20,7 @@ namespace UltimateGloveBall.Arena.Player
         [SerializeField] private PlayerNameVisual m_playerNameVisual;
         [SerializeField] private bool m_enableLocalPlayerName;
         [SerializeField] private VoipHandler m_voipHandler;
+        [SerializeField, AutoSet] private CatOwner m_catOwner;
 
         private NetworkVariable<FixedString128Bytes> m_username = new(
             writePerm: NetworkVariableWritePermission.Owner);
@@ -26,6 +28,10 @@ namespace UltimateGloveBall.Arena.Player
             writePerm: NetworkVariableWritePermission.Owner);
         private NetworkVariable<bool> m_isMasterClient = new(
             true,
+            writePerm: NetworkVariableWritePermission.Owner);
+        private NetworkVariable<FixedString128Bytes> m_userIconSku = new(
+            writePerm: NetworkVariableWritePermission.Owner);
+        private NetworkVariable<bool> m_hasACat = new(
             writePerm: NetworkVariableWritePermission.Owner);
 
         public string Username => m_username.Value.ToString();
@@ -40,6 +46,8 @@ namespace UltimateGloveBall.Arena.Player
             OnUsernameChanged(m_username.Value, m_username.Value);
             OnUserIdChanged(m_userId.Value, m_userId.Value);
             OnMasterClientChanged(m_isMasterClient.Value, m_isMasterClient.Value);
+            OnUserIconChanged(m_userIconSku.Value, m_userIconSku.Value);
+            OnUserCatOwnershipChanged(m_hasACat.Value, m_hasACat.Value);
 
             UserMutingManager.Instance.RegisterCallback(OnUserMuteStateChanged);
 
@@ -48,6 +56,7 @@ namespace UltimateGloveBall.Arena.Player
             // We snap local player rig to the spawned position of this player.
             PlayerMovement.Instance.SnapPositionToTransform(transform);
             LocalPlayerState.OnChange += UpdateData;
+            LocalPlayerState.OnSpawnCatChange += OnSpawnCatChanged;
 
             UpdateData();
         }
@@ -58,6 +67,11 @@ namespace UltimateGloveBall.Arena.Player
 
             UserMutingManager.Instance.UnregisterCallback(OnUserMuteStateChanged);
 
+            if (m_catOwner)
+            {
+                m_catOwner.DeSpawnCat();
+            }
+
             if (!LocalPlayerState) return;
 
             var thisTransform = transform;
@@ -66,6 +80,7 @@ namespace UltimateGloveBall.Arena.Player
             playerTransform.rotation = thisTransform.rotation;
 
             LocalPlayerState.OnChange -= UpdateData;
+            LocalPlayerState.OnSpawnCatChange -= OnSpawnCatChanged;
         }
 
         private void OnEnable()
@@ -73,6 +88,8 @@ namespace UltimateGloveBall.Arena.Player
             m_username.OnValueChanged += OnUsernameChanged;
             m_userId.OnValueChanged += OnUserIdChanged;
             m_isMasterClient.OnValueChanged += OnMasterClientChanged;
+            m_userIconSku.OnValueChanged += OnUserIconChanged;
+            m_hasACat.OnValueChanged += OnUserCatOwnershipChanged;
 
             if (m_playerNameVisual != null)
                 m_playerNameVisual.SetEnableState(m_enableLocalPlayerName);
@@ -83,6 +100,8 @@ namespace UltimateGloveBall.Arena.Player
             m_username.OnValueChanged -= OnUsernameChanged;
             m_userId.OnValueChanged -= OnUserIdChanged;
             m_isMasterClient.OnValueChanged -= OnMasterClientChanged;
+            m_userIconSku.OnValueChanged -= OnUserIconChanged;
+            m_hasACat.OnValueChanged += OnUserCatOwnershipChanged;
         }
 
         public override void OnNetworkSpawn()
@@ -97,20 +116,29 @@ namespace UltimateGloveBall.Arena.Player
                 // When object is spawned we snap local player rig to the spawned position of this player.
                 PlayerMovement.Instance.SnapPositionToTransform(transform);
 
-                SetState(LocalPlayerState.Username, LocalPlayerState.UserId);
+                SetState(LocalPlayerState.Username, LocalPlayerState.UserId, LocalPlayerState.UserIconSku,
+                    LocalPlayerState.SpawnCatInNextGame);
                 SetIsMaster(IsHost);
             }
         }
 
         private void UpdateData()
         {
-            SetState(LocalPlayerState.Username, LocalPlayerState.UserId);
+            SetState(LocalPlayerState.Username, LocalPlayerState.UserId, LocalPlayerState.UserIconSku,
+                LocalPlayerState.SpawnCatInNextGame);
         }
 
-        private void SetState(string username, ulong userId)
+        private void OnSpawnCatChanged()
+        {
+            m_hasACat.Value = LocalPlayerState.SpawnCatInNextGame;
+        }
+
+        private void SetState(string username, ulong userId, string userIcon, bool ownsCat)
         {
             m_username.Value = username;
             m_userId.Value = userId;
+            m_userIconSku.Value = userIcon;
+            m_hasACat.Value = ownsCat;
         }
 
         private void SetIsMaster(bool isMasterClient)
@@ -132,6 +160,31 @@ namespace UltimateGloveBall.Arena.Player
             if (m_playerNameVisual != null)
             {
                 m_playerNameVisual.SetUsername(newName.ConvertToString());
+            }
+        }
+
+        private void OnUserIconChanged(FixedString128Bytes oldIcon, FixedString128Bytes newIcon)
+        {
+            if (m_playerNameVisual != null)
+            {
+                var iconSku = newIcon.ConvertToString();
+                var icon = UserIconManager.Instance.GetIconForSku(iconSku);
+                m_playerNameVisual.SetUserIcon(icon);
+            }
+        }
+
+        private void OnUserCatOwnershipChanged(bool oldValue, bool newValue)
+        {
+            if (m_catOwner != null)
+            {
+                if (newValue)
+                {
+                    m_catOwner.SpawnCat();
+                }
+                else
+                {
+                    m_catOwner.DeSpawnCat();
+                }
             }
         }
 

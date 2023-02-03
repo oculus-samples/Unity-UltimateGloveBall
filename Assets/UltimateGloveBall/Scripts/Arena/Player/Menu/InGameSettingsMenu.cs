@@ -29,6 +29,9 @@ namespace UltimateGloveBall.Arena.Player.Menu
         [SerializeField] private Toggle m_freeLocomotionToggle;
         [SerializeField] private Toggle m_locomotionVignetteToggle;
 
+        [Header("Spawn Cat")]
+        [SerializeField] private Button m_spawnCatButton;
+
         [Header("Spectator")]
         [SerializeField] private Button m_switchSideButton;
 
@@ -45,6 +48,9 @@ namespace UltimateGloveBall.Arena.Player.Menu
         private void OnEnable()
         {
             m_switchSideButton.gameObject.SetActive(LocalPlayerState.Instance.IsSpectator);
+
+            m_spawnCatButton.gameObject.SetActive(
+                !LocalPlayerState.Instance.SpawnCatInNextGame && GameSettings.Instance.OwnedCatsCount > 0);
 
             var audioController = AudioController.Instance;
             m_musicVolumeSlider.value = audioController.MusicVolume;
@@ -66,6 +72,16 @@ namespace UltimateGloveBall.Arena.Player.Menu
                 NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject().GetComponent<SpectatorNetwork>();
 
             spectatorNet.RequestSwitchSide();
+        }
+
+        public void OnSpawnCatButtonClicked()
+        {
+            if (GameSettings.Instance.OwnedCatsCount > 0)
+            {
+                GameSettings.Instance.OwnedCatsCount--;
+                LocalPlayerState.Instance.SpawnCatInNextGame = true;
+            }
+            m_spawnCatButton.gameObject.SetActive(false);
         }
 
         private void OnMusicSliderChanged(float val)

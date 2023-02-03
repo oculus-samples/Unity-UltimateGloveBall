@@ -21,6 +21,7 @@ namespace UltimateGloveBall.App
         [SerializeField] private string m_applicationID;
 
         public event Action OnChange;
+        public event Action OnSpawnCatChange;
 
         public string Username { get; private set; }
         public ulong UserId { get; private set; }
@@ -28,6 +29,19 @@ namespace UltimateGloveBall.App
         public string PlayerUid { get; private set; }
         public bool HasCustomAppId { get; private set; }
         public bool IsSpectator { get; set; }
+
+        public string UserIconSku => GameSettings.Instance.SelectedUserIconSku;
+
+        private bool m_spawnCatInGame;
+        public bool SpawnCatInNextGame
+        {
+            get => m_spawnCatInGame;
+            set
+            {
+                m_spawnCatInGame = value;
+                OnSpawnCatChange?.Invoke();
+            }
+        }
 
         private new void OnEnable()
         {

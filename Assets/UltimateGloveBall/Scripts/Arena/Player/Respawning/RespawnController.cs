@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using System;
 using System.Collections;
 using Meta.Utilities;
 using UltimateGloveBall.Arena.Gameplay;
@@ -46,6 +47,7 @@ namespace UltimateGloveBall.Arena.Player.Respawning
 
         #region LifeCycle
 
+        public bool IsKnockedOut => KnockedOut.Value;
         public override void OnNetworkSpawn()
         {
             if (IsOwner)
@@ -78,6 +80,9 @@ namespace UltimateGloveBall.Arena.Player.Respawning
         }
 
         #endregion
+
+        public Action OnKnockedOutEvent;
+        public Action OnRespawnCompleteEvent;
 
         [ContextMenu("Knockout Player")]
         public void KnockOutPlayer()
@@ -144,6 +149,11 @@ namespace UltimateGloveBall.Arena.Player.Respawning
                     m_collider.enabled = false;
                     _ = StartCoroutine(DespawnPlayer());
                 }
+            }
+
+            if (!wasKnockedOut && isKnockedOut)
+            {
+                OnKnockedOutEvent?.Invoke();
             }
         }
 
@@ -262,6 +272,7 @@ namespace UltimateGloveBall.Arena.Player.Respawning
             m_respawnEffect.SetActive(false);
             material.SetKeyword("ENABLE_GHOST_EFFECT", false);
             avatar.ApplyMaterial();
+            OnRespawnCompleteEvent?.Invoke();
         }
     }
 }

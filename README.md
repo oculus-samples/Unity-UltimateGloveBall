@@ -75,6 +75,7 @@ More information can be found in the [Documentation](./Documentation) section of
 - [Ball Physics And Networking](./Documentation/BallPhysicsAndNetworking.md)
 - [Code Structure](./Documentation/CodeStructure.md)
 - [Configuration](./Documentation/Configuration.md)
+- [In-app Purchases(IAP)](./Documentation/IAP.md)
 - [Light Baking](./Documentation/LightBaking.md)
 - [Multiplayer](./Documentation/Multiplayer.md)
 

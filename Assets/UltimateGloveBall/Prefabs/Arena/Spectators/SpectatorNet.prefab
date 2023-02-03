@@ -91,6 +91,7 @@ MonoBehaviour:
   m_playerNameVisual: {fileID: 9021216839708131964}
   m_enableLocalPlayerName: 0
   m_voipHandler: {fileID: -7705047390817386250}
+  m_catOwner: {fileID: 0}
 --- !u!114 &-7705047390817386250
 MonoBehaviour:
   m_ObjectHideFlags: 0

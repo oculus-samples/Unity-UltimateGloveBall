@@ -24,6 +24,7 @@ namespace UltimateGloveBall.MainMenu
             Friends,
             Settings,
             BallTypes,
+            Store,
         }
 
         [Header("Main Canvas")]
@@ -36,6 +37,7 @@ namespace UltimateGloveBall.MainMenu
         [SerializeField] private BaseMenuController m_friendsMenuController;
         [SerializeField] private BaseMenuController m_settingsMenuController;
         [SerializeField] private BaseMenuController m_ballTypesMenuController;
+        [SerializeField] private BaseMenuController m_storeMenuController;
 
         [Header("Error Panel")]
         [SerializeField] private MenuErrorPanel m_errorPanel;
@@ -61,6 +63,8 @@ namespace UltimateGloveBall.MainMenu
         private void Start()
         {
             OVRScreenFade.instance.FadeIn();
+            // once we are back in main menu we have used the cat
+            LocalPlayerState.Instance.SpawnCatInNextGame = false;
         }
 
         public void OnQuickMatchClicked()
@@ -107,6 +111,16 @@ namespace UltimateGloveBall.MainMenu
         public void OnSettingsBackClicked()
         {
             ChangeMenuState(MenuState.Options);
+        }
+
+        public void OnStoreClicked()
+        {
+            ChangeMenuState(MenuState.Store);
+        }
+
+        public void OnStoreBackClicked()
+        {
+            ChangeMenuState(MenuState.Main);
         }
 
         public void OnBallTypesClicked()
@@ -179,6 +193,11 @@ namespace UltimateGloveBall.MainMenu
             }
         }
 
+        public void OnShowErrorMsgEvent(string errorMsg)
+        {
+            ShowErrorMessage(errorMsg);
+        }
+
         private void ShowErrorMessage(string errorMsg)
         {
             m_currentMenu.Hide();
@@ -198,6 +217,7 @@ namespace UltimateGloveBall.MainMenu
                 MenuState.Friends => m_friendsMenuController,
                 MenuState.Settings => m_settingsMenuController,
                 MenuState.BallTypes => m_ballTypesMenuController,
+                MenuState.Store => m_storeMenuController,
                 _ => throw new ArgumentOutOfRangeException(nameof(newState), newState, null)
             };
             m_currentMenu.Show();

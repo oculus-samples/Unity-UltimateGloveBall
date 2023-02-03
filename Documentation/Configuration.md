@@ -13,12 +13,27 @@ To use the features from the Platform we need to request which kind of data is r
 
 And configure the required Data Usage:
 * **User Id**: Avatars, Destinations, Multiplayer, Oculus Username, Friends Invites, User Invite Others
+* **In-App Purchases**: IAP
 * **User Profile**: Avatars
 * **Avatars**: Avatars
 * **Deep Linking**: Destinations
 * **Friends**: Multiplayer
 * **Blocked Users**: Other - we use the Blocking API
 * **Invites**: Multiplayer, Friends Invite, User Invite Others
+
+### Add-ons
+This application integrates in-app purchases (IAP) to demonstrate how to integrate durable and consumable purchases. Here are the configurations expected for this application.
+
+First we need to open the Add-ons from the Platform Services:
+
+![Platform Services Add-ons](./Media/dashboard/dashboard_addons_platformservices.png "Platform Services Add-ons")
+
+Then we need to setup the different Add-ons.
+
+![Add-ons](./Media/dashboard/dashboard_addons.png "Add-ons")
+
+We created 3 durable SKUs, meaning we can only purchase them once, for the icons.
+And 1 consumable SKU, meaning we can purchase it multiple time, for the pet cat.
 
 ### Destinations
 This application uses Destination configuration to enable users to invite friends in the same arenas and launch the application together.
