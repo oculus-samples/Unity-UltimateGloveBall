@@ -76,32 +76,32 @@ Here is a table for destinations settings:
 <tr>
 	<td><b>North America</b></td>
 	<td>Arena</td>
-	<td>{“Region”:”usw”}</td>
+	<td>{"Region":"usw"}</td>
 </tr>
 <tr>
     <td><b>South America</b></td>
 	<td>ArenaSA</td>
-	<td>{“Region”:”sa”}</td>
+	<td>{"Region":"sa"}</td>
 </tr>
 <tr>
 	<td><b>Japan</b></td>
 	<td>ArenaJP</td>
-	<td>{“Region”:”jp”}</td>
+	<td>{"Region":"jp"}</td>
 </tr>
 <tr>
     <td><b>Europe</b></td>
 	<td>ArenaEU</td>
-	<td>{“Region”:”eu”}</td>
+	<td>{"Region":"eu"}</td>
 </tr>
 <tr>
 	<td><b>Australia</b></td>
 	<td>ArenaAU</td>
-	<td>{“Region”:”au”}</td>
+	<td>{"Region":"au"}</td>
 </tr>
 <tr>
     <td><b>Asia</b></td>
 	<td>ArenaAsia</td>
-	<td>{“Region”:”asia”}</td>
+	<td>{"Region":"asia"}</td>
 </tr>
 </table>
 </div>
@@ -123,10 +123,10 @@ Then it needs to be placed in the [Assets/Resources/OculusPlatformSettings.asset
 
 To get the sample working, you will need to configure Photon with your own account and applications. The Photon base plan is free.
 - Visit [photonengine.com](https://www.photonengine.com) and [create an account](https://doc.photonengine.com/en-us/realtime/current/getting-started/obtain-your-app-id)
-- From your Photon dashboard, click “Create A New App”
+- From your Photon dashboard, click "Create A New App"
   - We will create 2 apps, "Realtime" and "Voice"
-- First fill out the form making sure to set type to “Photon Realtime”. Then click Create.
-- Second fill out the form making sure to set type to “Photon Voice”. Then click Create.
+- First fill out the form making sure to set type to "Photon Realtime". Then click Create.
+- Second fill out the form making sure to set type to "Photon Voice". Then click Create.
 
 Your new app will now show on your Photon dashboard. Click the App ID to reveal the full string and copy the value for each app.
 
