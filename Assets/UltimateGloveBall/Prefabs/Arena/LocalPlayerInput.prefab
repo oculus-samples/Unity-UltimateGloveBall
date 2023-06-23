@@ -293,7 +293,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b02c2b4c-2f9d-46e9-9d4b-89fc8b4fdd21
     m_ActionName: Player/SnapTurnRightNoFree
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: XR
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
