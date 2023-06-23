@@ -10,7 +10,7 @@ NOTE: This has been modified from it's original to support additional photon fea
 ## Setup Photon
 
 
-Follow the [transport installation guide](../README.md) to add the Photon Realtime Transport to your project.
+Follow the [transport installation guide](https://github.com/Unity-Technologies/multiplayer-community-contributions/blob/main/Transports/README.md) to add the Photon Realtime Transport to your project.
 
 ---
 
