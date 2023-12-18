@@ -5,12 +5,17 @@
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
+        <category android:name="com.oculus.intent.category.VR" />
       </intent-filter>
+      <meta-data android:name="com.oculus.vr.focusaware" android:value="true" />
     </activity>
     <meta-data android:name="unityplayer.SkipPermissionsDialog" android:value="false" />
     <meta-data android:name="com.samsung.android.vr.application.mode" android:value="vr_only" />
     <meta-data android:name="com.oculus.ossplash" android:value="true" />
     <meta-data android:name="com.oculus.ossplash.colorspace" android:value="!RiftS" />
+    <meta-data android:name="com.oculus.ossplash.type" android:value="mono" />
+    <meta-data android:name="com.oculus.ossplash.background" android:value="black" />
+    <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|questpro|eureka" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
   <uses-permission android:name="android.permission.MICROPHONE" />
@@ -19,4 +24,6 @@
   <uses-feature android:name="oculus.software.eye_tracking" android:required="false" />
   <uses-permission android:name="com.oculus.permission.EYE_TRACKING" />
   <uses-permission android:name="com.oculus.permission.BODY_TRACKING" />
+  <uses-feature android:name="com.oculus.software.body_tracking" android:required="false" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>

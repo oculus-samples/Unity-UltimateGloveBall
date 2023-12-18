@@ -49,7 +49,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
         {
             m_switchSideButton.gameObject.SetActive(LocalPlayerState.Instance.IsSpectator);
 
-            m_spawnCatButton.gameObject.SetActive(
+            m_spawnCatButton.gameObject.SetActive(!LocalPlayerState.Instance.IsSpectator &&
                 !LocalPlayerState.Instance.SpawnCatInNextGame && GameSettings.Instance.OwnedCatsCount > 0);
 
             var audioController = AudioController.Instance;

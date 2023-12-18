@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3384136876995542145}
   - component: {fileID: 1208331682}
-  - component: {fileID: 1208331683}
   m_Layer: 0
   m_Name: RightHandWrist_jnt
   m_TagString: Untagged
@@ -52,21 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jointType: 0
---- !u!114 &1208331683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364339213872791506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23dd79c8b6109246bfc3b35e6ac44cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.9167204, b: 1, a: 1}
-  drawAxes: 1
-  axisSize: 0.01
 --- !u!1 &832784008376979695
 GameObject:
   m_ObjectHideFlags: 0

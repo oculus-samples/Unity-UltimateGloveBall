@@ -45,7 +45,7 @@ TextureImporter:
       213: 2845985377046910444
     second: UI_Iconsheet_13
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,6 +105,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -120,6 +121,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -427,6 +452,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Iconsheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19693ff567aa58a408904dd0c9917d98
+      internalID: -924837121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Iconsheet_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35ae4a24e51ff9a479990978dcd252c7
+      internalID: 70351895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -438,20 +505,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Iconsheet_3: 7432816740439997606
       UI_Iconsheet_0: -2510551961401084034
-      UI_Iconsheet_13: 2845985377046910444
-      UI_Iconsheet_8: 1814286256918531395
-      UI_Iconsheet_10: 2148177785618206363
-      UI_Iconsheet_12: 5581574629455904108
-      UI_Iconsheet_4: -8049958904497473170
-      UI_Iconsheet_6: 1703984858311477115
-      UI_Iconsheet_5: -6793694209390978046
-      UI_Iconsheet_11: 7296533509279967096
-      UI_Iconsheet_7: -8309312446321168491
       UI_Iconsheet_1: 4856487214033000783
-      UI_Iconsheet_9: -5046202872702377826
+      UI_Iconsheet_10: 2148177785618206363
+      UI_Iconsheet_11: 7296533509279967096
+      UI_Iconsheet_12: 5581574629455904108
+      UI_Iconsheet_13: 2845985377046910444
+      UI_Iconsheet_14: -924837121
+      UI_Iconsheet_15: 70351895
       UI_Iconsheet_2: 7640475934144368512
+      UI_Iconsheet_3: 7432816740439997606
+      UI_Iconsheet_4: -8049958904497473170
+      UI_Iconsheet_5: -6793694209390978046
+      UI_Iconsheet_6: 1703984858311477115
+      UI_Iconsheet_7: -8309312446321168491
+      UI_Iconsheet_8: 1814286256918531395
+      UI_Iconsheet_9: -5046202872702377826
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

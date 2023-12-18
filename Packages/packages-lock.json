@@ -25,7 +25,7 @@
       "source": "embedded",
       "dependencies": {
         "com.unity.netcode.gameobjects": "1.1.0",
-        "com.meta.xr.sdk.utilities": "1.1.0",
+        "com.meta.xr.sdk.core": "",
         "com.community.netcode.transport.photon-realtime": "2.0.0",
         "com.photon.voice2": "2.28.2",
         "com.meta.utilities": "0.0.1",
@@ -44,21 +44,57 @@
       "source": "embedded",
       "dependencies": {
         "com.meta.utilities": "1.0.0",
-        "com.meta.xr.sdk.utilities": "",
+        "com.meta.xr.sdk.core": "",
         "com.unity.xr.interaction.toolkit": "2.0.4"
       }
     },
-    "com.meta.xr.sdk.utilities": {
-      "version": "47.0.0-preview",
+    "com.meta.xr.sdk.core": {
+      "version": "60.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://npm.developer.oculus.com"
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.interaction": {
+      "version": "60.0.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6",
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.interaction.ovr": {
+      "version": "60.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.meta.xr.sdk.core": "60.0.0",
+        "com.meta.xr.sdk.interaction": "60.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.meta.xr.sdk.platform": {
+      "version": "60.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.meta.xr.sdk.core": "60.0.0",
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.photon.voice2": {
       "version": "file:Photon",
       "depth": 0,
       "source": "embedded",
+      "dependencies": {}
+    },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
       "dependencies": {}
     },
     "com.unity.burst": {

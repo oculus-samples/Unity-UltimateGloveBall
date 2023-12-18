@@ -828,7 +828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -662914578003537950, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 7296533509279967096, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -892,6 +892,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &644496217791192519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -662914578003537950, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 7296533509279967096, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1515,14 +1516,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68235296, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4225235479564634476, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2145,7 +2146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6394879810596021674, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 2148177785618206363, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3552,6 +3553,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2817509747070713144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5536,7 +5538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6394879810596021674, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 2148177785618206363, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5615,7 +5617,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -769047659211232093, guid: 4f3b4a4ae58ad484e9fc92ab68a8ffef, type: 3}
+    m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -5815,6 +5817,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4446856514501637495
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,6 +7066,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5612115266414228692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7740,7 +7744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6b2a81b1a3de243d8864e357e6d85ac2, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9183,7 +9187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -662914578003537950, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 7296533509279967096, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9246,6 +9250,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7473986751583382932
 GameObject:
   m_ObjectHideFlags: 0
@@ -10062,7 +10067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6394879810596021674, guid: 64f884351318b694f942625580e64a8b, type: 3}
+  m_Sprite: {fileID: 2148177785618206363, guid: c930a24e75c244e33869f139053e4419, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16573,6 +16578,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1771726659134863599}
     m_Modifications:
+    - target: {fileID: 3596369800458658081, guid: c76ddda95c4956647991b83de1bb35d3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3596369800458658082, guid: c76ddda95c4956647991b83de1bb35d3, type: 3}
       propertyPath: m_RootOrder
       value: 1
