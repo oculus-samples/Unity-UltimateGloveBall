@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5691079911549942416}
   - component: {fileID: 517837763468383873}
-  - component: {fileID: 6847033877834752605}
+  - component: {fileID: 1641385354436830909}
   m_Layer: 0
   m_Name: FireworkAudio_03
   m_TagString: Untagged
@@ -53,8 +53,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 15
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -89,7 +89,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -129,7 +129,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6847033877834752605
+--- !u!114 &1641385354436830909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,17 +138,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377559639661116037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 15
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &3740452142482643616
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3858128850563147803}
   - component: {fileID: 7356244016357684557}
-  - component: {fileID: 6847033877834752607}
+  - component: {fileID: 7518602479725211893}
   m_Layer: 0
   m_Name: FireworkAudio_01
   m_TagString: Untagged
@@ -202,8 +198,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 15
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -238,7 +234,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -278,7 +274,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6847033877834752607
+--- !u!114 &7518602479725211893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,17 +283,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3740452142482643616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 15
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &6333063123120235980
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1366618219212920521}
   - component: {fileID: 5805575041624203046}
-  - component: {fileID: 6847033877834752606}
+  - component: {fileID: 8574580312712612222}
   m_Layer: 0
   m_Name: FireworkAudio_02
   m_TagString: Untagged
@@ -351,8 +343,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 15
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -387,7 +379,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -427,7 +419,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6847033877834752606
+--- !u!114 &8574580312712612222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,17 +428,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6333063123120235980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 15
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &6812534097801139665
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102215336358590543}
   - component: {fileID: 6077290966145899113}
-  - component: {fileID: 6847033877834752604}
+  - component: {fileID: 69627502043767873}
   m_Layer: 0
   m_Name: FireworkAudio_04
   m_TagString: Untagged
@@ -500,8 +488,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 15
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -536,7 +524,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -576,7 +564,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6847033877834752604
+--- !u!114 &69627502043767873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -585,17 +573,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6812534097801139665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 0
-  near: 15
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &6847033876328803381
 GameObject:
   m_ObjectHideFlags: 0

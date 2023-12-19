@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 97873375404425924}
   - component: {fileID: 7401994257699186292}
   - component: {fileID: 8642479053044168996}
-  - component: {fileID: 6418326619665550311}
+  - component: {fileID: 597219807159338939}
   m_Layer: 8
   m_Name: BallHoming
   m_TagString: Ball
@@ -55,6 +55,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 1
   AutoObjectParentSync: 0
 --- !u!114 &4287396529493792781
@@ -144,11 +147,11 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 15
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -184,7 +187,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -252,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visualRoot: {fileID: 7071301645497645288}
---- !u!114 &6418326619665550311
+--- !u!114 &597219807159338939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,17 +264,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2256595028606931429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 15
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &4324480234658224545
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3951929078957372981}
   - component: {fileID: 911985084027066875}
-  - component: {fileID: 6569212342043761382}
+  - component: {fileID: 7145463174431127851}
+  - component: {fileID: 119699802819701387}
   m_Layer: 0
   m_Name: CrowdBSound
   m_TagString: Untagged
@@ -49,12 +50,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 10
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -89,7 +90,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -129,7 +130,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6569212342043761382
+--- !u!114 &7145463174431127851
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,17 +139,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693462172773502755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 10
-  far: 250
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 10
+--- !u!114 &119699802819701387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693462172773502755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796f04c5a94947649c2235acef0008ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hrtfIntensity: 1
   volumetricRadius: 10
-  reverbSend: 10
-  enableRfl: 0
+  earlyReflectionsSendDb: 0
+  directivityIntensity: 1
+  directivityPattern: 0
 --- !u!1 &4454993959992009664
 GameObject:
   m_ObjectHideFlags: 0

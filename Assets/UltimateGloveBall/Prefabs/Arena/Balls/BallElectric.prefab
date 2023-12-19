@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4941239684413190895}
   - component: {fileID: 4914249655065944730}
   - component: {fileID: 2837286476477479418}
-  - component: {fileID: 3306127221718094643}
+  - component: {fileID: 2297385128345779804}
   m_Layer: 10
   m_Name: BallElectric
   m_TagString: Ball
@@ -87,6 +87,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 1
   AutoObjectParentSync: 0
 --- !u!114 &9130657288012015654
@@ -177,11 +180,11 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 15
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -217,7 +220,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -284,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visualRoot: {fileID: 4559344627353728419}
---- !u!114 &3306127221718094643
+--- !u!114 &2297385128345779804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,17 +296,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6528092145951613390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 15
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1001 &5437950475903366521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -439,11 +438,11 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -479,7 +478,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -519,7 +518,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3261218882657114132
+--- !u!114 &5173101239351262041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,17 +527,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 481542487079213349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 5
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!23 &884390230621450593 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5130311496322417688, guid: 5ebf0cd6952f64598a7799ed92f6dd1b, type: 3}

@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9001343997107716117}
   - component: {fileID: 9001343997107716119}
-  - component: {fileID: 9001343997107716118}
+  - component: {fileID: 8347239135098784033}
   m_Layer: 0
   m_Name: AudioSource_02
   m_TagString: Untagged
@@ -85,12 +85,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -165,7 +165,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9001343997107716118
+--- !u!114 &8347239135098784033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,17 +174,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001343997107716116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 20
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &9001343997406698053
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9001343997406698054}
   - component: {fileID: 9001343997406698048}
-  - component: {fileID: 9001343997406698055}
+  - component: {fileID: 2359534015716260182}
   m_Layer: 0
   m_Name: AudioSource_03
   m_TagString: Untagged
@@ -234,12 +230,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -314,7 +310,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9001343997406698055
+--- !u!114 &2359534015716260182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,17 +319,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001343997406698053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 20
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &9001343998393325731
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9001343998393325742}
   - component: {fileID: 9001343998393325740}
-  - component: {fileID: 9001343998393325741}
+  - component: {fileID: 7102694661777096548}
   m_Layer: 0
   m_Name: AudioSource_05
   m_TagString: Untagged
@@ -383,12 +375,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -463,7 +455,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9001343998393325741
+--- !u!114 &7102694661777096548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,17 +464,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001343998393325731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 20
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &9001343998576350178
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,7 +538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9001343998729960834}
   - component: {fileID: 9001343998729960844}
-  - component: {fileID: 9001343998729960835}
+  - component: {fileID: 6651344328960477599}
   m_Layer: 0
   m_Name: AudioSource_01
   m_TagString: Untagged
@@ -589,12 +577,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -669,7 +657,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9001343998729960835
+--- !u!114 &6651344328960477599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -678,17 +666,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001343998729960833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 20
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &9001343998766747959
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9001343998766747952}
   - component: {fileID: 9001343998766747954}
-  - component: {fileID: 9001343998766747953}
+  - component: {fileID: 6009924704306419105}
   m_Layer: 0
   m_Name: AudioSource_04
   m_TagString: Untagged
@@ -738,12 +722,12 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 20
+  MaxDistance: 250
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -818,7 +802,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9001343998766747953
+--- !u!114 &6009924704306419105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -827,17 +811,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9001343998766747959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 20
-  far: 250
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1001 &1693153819708431054
 PrefabInstance:
   m_ObjectHideFlags: 0

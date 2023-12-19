@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1333224701427259039}
   - component: {fileID: 1333224701427259036}
   - component: {fileID: 1333224701427259037}
-  - component: {fileID: -7709192707357113288}
+  - component: {fileID: -3293605550524735689}
+  - component: {fileID: -8403154044505898470}
   m_Layer: 0
   m_Name: VoipSpeaker
   m_TagString: Untagged
@@ -54,7 +55,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1
+  MinDistance: 20
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -99,7 +100,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -159,7 +160,7 @@ MonoBehaviour:
     MinDelaySoft: 200
     MaxDelaySoft: 400
     MaxDelayHard: 1000
---- !u!114 &-7709192707357113288
+--- !u!114 &-3293605550524735689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,14 +169,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333224701427259034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 24
-  useInvSqr: 1
-  near: 20
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 20
+  enableAcoustics: 1
+  reverbSendDb: 0
+--- !u!114 &-8403154044505898470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333224701427259034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796f04c5a94947649c2235acef0008ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hrtfIntensity: 1
+  volumetricRadius: 0.5
+  earlyReflectionsSendDb: 0
+  directivityIntensity: 1
+  directivityPattern: 1

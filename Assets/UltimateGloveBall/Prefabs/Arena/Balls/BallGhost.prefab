@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4085451421409341556}
   - component: {fileID: 4941239684413190895}
   - component: {fileID: 805841012354787769}
-  - component: {fileID: 385926228888101359}
+  - component: {fileID: 5625804242429111446}
   m_Layer: 8
   m_Name: BallGhost
   m_TagString: Ball
@@ -89,6 +89,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 1
   AutoObjectParentSync: 0
 --- !u!114 &9130657288012015654
@@ -198,11 +201,11 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 15
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -238,7 +241,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -291,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_visualRoot: {fileID: 5275461553440178618}
---- !u!114 &385926228888101359
+--- !u!114 &5625804242429111446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,17 +303,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6528092145951613390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 15
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1001 &2174071834832652490
 PrefabInstance:
   m_ObjectHideFlags: 0

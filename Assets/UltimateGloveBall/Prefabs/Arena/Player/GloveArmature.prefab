@@ -82,6 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &6798674826376377465
@@ -153,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759398108495494368}
   - component: {fileID: 6080875343164314815}
-  - component: {fileID: 5885980054706204326}
+  - component: {fileID: 4656201279483251477}
   m_Layer: 3
   m_Name: ShieldAnchor
   m_TagString: Untagged
@@ -233,7 +236,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -273,7 +276,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5885980054706204326
+--- !u!114 &4656201279483251477
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,17 +285,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6754730459617358344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 1
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1 &7815130570850220503
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175344499161683195}
   - component: {fileID: 7275925769006086394}
-  - component: {fileID: 5976229532947872594}
+  - component: {fileID: 1378972065001204406}
   m_Layer: 3
   m_Name: springRoot
   m_TagString: Untagged
@@ -420,7 +419,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -460,7 +459,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5976229532947872594
+--- !u!114 &1378972065001204406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -469,17 +468,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8833362865100981980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 1
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!1001 &1392517626019316766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1225,7 +1220,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1265,7 +1260,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &383705168826523882
+--- !u!114 &2356712549953344663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1274,17 +1269,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4224244360920435822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Script: {fileID: 11500000, guid: a07f270ac36c49789466c75ceb88424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gain: 0
-  useInvSqr: 1
-  near: 1
-  far: 500
-  volumetricRadius: 0
-  reverbSend: 0
-  enableRfl: 0
+  gainBoostDb: 0
+  enableAcoustics: 1
+  reverbSendDb: 0
 --- !u!114 &7144469917637477786 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5407020727958951477, guid: 14c7e412aacf7594c84fc5329811c0fa, type: 3}
