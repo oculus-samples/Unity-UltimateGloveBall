@@ -19,7 +19,7 @@ The project also includes the [Meta Utilities](./Packages/com.meta.utilities/REA
 
 ## How to run the project in Unity
 1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon
-2. Make sure you're using  *Unity 2021.3.26f1* or newer. 
+2. Make sure you're using  *Unity 2021.3.43f1* or newer. 
 3. Load the [Assets/UltimateGloveBall/Scenes/Startup](./Assets/UltimateGloveBall/Scenes/Startup.unity) scene. 
 4. There are two ways of testing in the editor:
     <details>
@@ -43,7 +43,7 @@ The project also includes the [Meta Utilities](./Packages/com.meta.utilities/REA
 ## Dependencies
 
 This project makes use of the following plugins and software:
-- [Unity](https://unity.com/download) 2021.3.26f1 or newer
+- [Unity](https://unity.com/download) 2021.3.43f1 or newer
 - [Dependencies Hunter](https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm)
 - [Meta Avatars SDK](https://developer.oculus.com/downloads/package/meta-avatars-sdk/)
 - [Meta XR Utilities](https://npm.developer.oculus.com/-/web/detail/com.meta.xr.sdk.utilities)

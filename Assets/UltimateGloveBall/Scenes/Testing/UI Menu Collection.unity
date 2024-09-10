@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 418443844}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,18 +251,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1630859455037583544, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
       propertyPath: m_Name
       value: UI_Button_08
@@ -521,18 +508,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1630859455037583544, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
       propertyPath: m_Name
       value: UI_Button
@@ -1238,18 +1213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237156695995596108, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1630859455037583544, guid: 5a45ebcc18c8147eaa5946ec91fc560d, type: 3}
       propertyPath: m_Name
       value: UI_Button_10
