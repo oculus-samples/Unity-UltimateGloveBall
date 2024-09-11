@@ -37,7 +37,9 @@ namespace UltimateGloveBall.MainMenu
             m_watchButton.gameObject.SetActive(canJoin);
 
             m_destinationText.text = user.PresenceStatus == UserPresenceStatus.Online
-                ? UGBApplication.Instance.PlayerPresenceHandler.GetDestinationDisplayName(user.PresenceDestinationApiName)
+                ? string.IsNullOrWhiteSpace(user.PresenceDestinationApiName) ? user.Presence :
+                    UGBApplication.Instance.PlayerPresenceHandler.GetDestinationDisplayName(
+                        user.PresenceDestinationApiName)
                 : "Offline";
         }
 

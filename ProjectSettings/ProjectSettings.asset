@@ -139,6 +139,7 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 2bd833c45ba445545a85f7d047f8e95e, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -167,7 +168,7 @@ PlayerSettings:
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 75
   AndroidMinSdkVersion: 32
-  AndroidTargetSdkVersion: 32
+  AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
@@ -798,10 +799,22 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES
-    Standalone: CROSS_PLATFORM_INPUT;OVR_PLATFORM_ASYNC_MESSAGES
-    Windows Store Apps: MOBILE_INPUT
-    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES
+    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED
+    EmbeddedLinux: PHOTON_VOICE_DEFINED
+    GameCoreScarlett: PHOTON_VOICE_DEFINED
+    GameCoreXboxOne: PHOTON_VOICE_DEFINED
+    LinuxHeadlessSimulation: PHOTON_VOICE_DEFINED
+    Lumin: PHOTON_VOICE_DEFINED
+    Nintendo Switch: PHOTON_VOICE_DEFINED
+    PS4: PHOTON_VOICE_DEFINED
+    PS5: PHOTON_VOICE_DEFINED
+    Stadia: PHOTON_VOICE_DEFINED
+    Standalone: CROSS_PLATFORM_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED
+    WebGL: PHOTON_VOICE_DEFINED
+    Windows Store Apps: MOBILE_INPUT;PHOTON_VOICE_DEFINED
+    XboxOne: PHOTON_VOICE_DEFINED
+    iPhone: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED
+    tvOS: PHOTON_VOICE_DEFINED
   additionalCompilerArguments:
     Android:
     - -warnaserror:0108

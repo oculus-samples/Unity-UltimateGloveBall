@@ -16,6 +16,7 @@
     <meta-data android:name="com.oculus.ossplash.type" android:value="mono" />
     <meta-data android:name="com.oculus.ossplash.background" android:value="black" />
     <meta-data android:name="com.oculus.supportedDevices" android:value="quest2|questpro|eureka" />
+    <meta-data android:name="com.oculus.telemetry.project_guid" android:value="1479fe7a-e704-46d9-b82c-d593a1698cd3" />
   </application>
   <uses-feature android:name="android.hardware.vr.headtracking" android:version="1" android:required="true" />
   <uses-permission android:name="android.permission.MICROPHONE" />

@@ -118,6 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!54 &6270779261560685583
@@ -200,8 +203,12 @@ MonoBehaviour:
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 0
+  SlerpPosition: 0
 --- !u!114 &1192705958441187987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +741,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!137 &8953184607864605567 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 823048833304903758, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
