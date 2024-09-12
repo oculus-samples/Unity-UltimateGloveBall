@@ -22,8 +22,8 @@ To minimize the difference between the original shader files and our custom one 
 
 [AvatarDisolveEffect.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/Horizon/AvatarDisolveEffect.cginc): This effect is triggered when the player spawn or despawn. It creates an illusion of the mesh dissolving by using alpha cutting as well as coloring.
 
-The main functions from the 2 effects are called in [Avatar-Horizon.shader](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/Horizon/Avatar-Horizon.shader) and are triggered through keywords. The shader file was also modified to contain the needed properties for these effects to work.
+The main functions from the 2 effects are called in [app_functions.hlsl](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/app_specific/app_functions.hlsl) and are triggered through keywords. The shader file was also modified to contain the needed properties for these effects to work.
 
 We kept the changes minimal in the copied files so that it would be easy to update the shader files with the latest shader in the newer versions of the Meta Avatar SDK when comes time to update.
 
-An additional change was required in the [AvatarUnityLighting.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/Horizon/UnityLighting/AvatarUnityLighting.cginc) file. We added a `clip` function in the `AVATAR_SHADER_FRAG_LIGHTING` definition so that our new effects would work, as they require alpha clipping.
+More information can be found in the associated [Custom Avatars README](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/README.md).
