@@ -311,7 +311,8 @@ namespace UltimateGloveBall.Arena.Player
         {
             var show = false;
             m_chevronOnABall = false;
-            if (IsMovementEnabled() && m_actionPressed && CurrentState == State.Anchored && CurrentBall == null)
+            var movementIsEnabled = IsMovementEnabled != null && IsMovementEnabled();
+            if (movementIsEnabled && m_actionPressed && CurrentState == State.Anchored && CurrentBall == null)
             {
                 var foundFloor = false;
                 var floorPosition = Vector3.zero;
