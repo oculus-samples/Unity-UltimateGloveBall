@@ -87,7 +87,7 @@ Custom Packages:
 
 # Where are the Meta Avatar SDK and Photon packages?
 
-In order to keep the project organized, the [Meta Avatars SDK](https://developer.oculus.com/downloads/package/meta-avatars-sdk/) and [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518) packages are stored in the [Packages](./Packages) folder. To update them, import their updated Asset Store packages, then copy them into their respective `Packages` folders.
+In order to keep the project organized, the [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518) package is stored in the [Packages](./Packages) folder. To update them, import their updated Asset Store packages, then copy them into their respective `Packages` folders.
 
 The *Photon Voice 2* package is released under the *[License Agreement for Exit Games Photon](./Packages/Photon/Photon/license.txt)*.
 

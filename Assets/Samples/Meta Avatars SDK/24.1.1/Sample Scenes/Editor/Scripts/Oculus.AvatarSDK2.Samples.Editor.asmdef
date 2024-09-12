@@ -1,0 +1,19 @@
+{
+    "name": "Oculus.AvatarSDK2.Samples.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Oculus.AvatarSDK2",
+        "Oculus.AvatarSDK2.Samples"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

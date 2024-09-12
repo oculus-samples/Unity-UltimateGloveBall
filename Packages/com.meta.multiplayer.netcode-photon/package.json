@@ -8,7 +8,7 @@
     "com.community.netcode.transport.photon-realtime": "2.0.0",
     "com.photon.voice2": "2.28.2",
     "com.meta.utilities": "0.0.1",
-    "com.meta.avatars2": "17.2.0"
+    "com.meta.xr.sdk.avatars": ""
   },
   "description": "Core functionalities for networked multiplayer VR applications using Netcode for GameObjects and Photon.\nIncludes support for Avatar, connection/deconnection flow, blocking users, group presence and voip."
 }

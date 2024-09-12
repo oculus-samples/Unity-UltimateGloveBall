@@ -2,6 +2,8 @@
   "dependencies": {
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.meta.xr.sdk.audio": "68.0.0",
+    "com.meta.xr.sdk.avatars": "24.1.1",
+    "com.meta.xr.sdk.avatars.sample.assets": "24.1.1",
     "com.meta.xr.sdk.core": "68.0.2",
     "com.meta.xr.sdk.interaction": "63.0.0",
     "com.meta.xr.sdk.interaction.ovr": "68.0.1",
