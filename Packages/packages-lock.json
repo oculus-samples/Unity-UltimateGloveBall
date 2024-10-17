@@ -43,7 +43,7 @@
       }
     },
     "com.meta.xr.sdk.audio": {
-      "version": "68.0.0",
+      "version": "69.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -72,14 +72,14 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.core": {
-      "version": "68.0.2",
+      "version": "69.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction": {
-      "version": "68.0.1",
+      "version": "69.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -89,17 +89,17 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction.ovr": {
-      "version": "68.0.1",
+      "version": "69.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "68.0.2",
-        "com.meta.xr.sdk.interaction": "68.0.1"
+        "com.meta.xr.sdk.core": "69.0.0",
+        "com.meta.xr.sdk.interaction": "69.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.platform": {
-      "version": "68.0.0",
+      "version": "69.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -179,7 +179,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mobile.android-logcat": {
-      "version": "1.4.2",
+      "version": "1.4.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -285,7 +285,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.8",
+      "version": "3.0.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -349,7 +349,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.4.0",
+      "version": "4.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -361,7 +361,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "3.4.0",
+      "version": "3.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {

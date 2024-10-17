@@ -17,7 +17,7 @@ namespace UltimateGloveBall.Editor
 
         static UltimateGloveBallTelemetry() => Collect();
 
-        [MenuItem("Oculus/Telemetry Settings")]
+        [MenuItem("Meta/Sample Telemetry Settings")]
         private static void TelemetrySettings()
         {
             Collect(true);
