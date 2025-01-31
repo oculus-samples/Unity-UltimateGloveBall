@@ -336,20 +336,6 @@ namespace UltimateGloveBall.Arena.Gameplay
             }
         }
 
-        private void OnGUI()
-        {
-            if (IsServer)
-            {
-                if (m_currentGamePhase.Value is GamePhase.PreGame or GamePhase.PostGame)
-                {
-                    if (GUILayout.Button("StartGame"))
-                    {
-                        StartGame();
-                    }
-                }
-            }
-        }
-
         private void NotifyPhaseListener(GamePhase newphase)
         {
             foreach (var listener in m_phaseListeners)

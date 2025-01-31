@@ -89,15 +89,9 @@ namespace UltimateGloveBall.Arena.Player
         private void OnDisable()
         {
             m_gloveNetworking.OnTryGrabBall -= OnTryGrabBall;
-            if (m_targetIndicator != null)
-            {
-                m_targetIndicator.SetActive(false);
-            }
+            m_targetIndicator?.SetActive(false);
 
-            if (m_chevronVisual != null)
-            {
-                m_chevronVisual.SetActive(false);
-            }
+            m_chevronVisual?.SetActive(false);
 
             // On Disable we reanchor the hand
             CurrentState = State.Anchored;
@@ -235,10 +229,7 @@ namespace UltimateGloveBall.Arena.Player
             {
                 m_findTarget = false;
                 m_selectedTargetId = null;
-                if (m_targetIndicator != null)
-                {
-                    m_targetIndicator.SetActive(false);
-                }
+                m_targetIndicator?.SetActive(false);
 
                 return;
             }
@@ -300,10 +291,7 @@ namespace UltimateGloveBall.Arena.Player
             }
             else
             {
-                if (m_targetIndicator != null)
-                {
-                    m_targetIndicator.SetActive(false);
-                }
+                m_targetIndicator?.SetActive(false);
             }
         }
 

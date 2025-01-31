@@ -84,26 +84,17 @@ namespace UltimateGloveBall.Arena.Player
 
         private void OnOwnerKnockedOut()
         {
-            if (m_cat != null)
-            {
-                m_cat.UnfollowOwner();
-            }
+            m_cat?.UnfollowOwner();
         }
 
         private void OnOwnerRespawn()
         {
-            if (m_cat != null)
-            {
-                m_cat.FollowOwner();
-            }
+            m_cat?.FollowOwner();
         }
 
         private void OnInvulnerableStateChanged(bool invulnerable)
         {
-            if (m_cat != null)
-            {
-                m_cat.ChangeInvulnerabilityState(invulnerable);
-            }
+            m_cat?.ChangeInvulnerabilityState(invulnerable);
         }
     }
 }

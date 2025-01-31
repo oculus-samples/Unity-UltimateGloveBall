@@ -60,10 +60,7 @@ namespace UltimateGloveBall.Arena.Player.Respawning
         {
             if (IsOwner)
             {
-                if (m_hud != null)
-                {
-                    m_hud.DisplayText(false);
-                }
+                m_hud?.DisplayText(false);
             }
         }
 

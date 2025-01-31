@@ -29,12 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870205409715631027}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4870205409715631024
 MonoBehaviour:
@@ -64,16 +65,16 @@ MonoBehaviour:
   zipPostfixDefault: Rift
   zipPostfixAndroid: Quest
   zipPostfixQuest2: Quest
-  zipPostfixFastLoad: Fastload
-  zipPostfixHighQuality: Rift_High
-  zipPostfixHighQualityQuest2: Quest_High
+  zipPostfixLightQuality: Rift_Light
+  zipPostfixLightQualityQuest2: Quest_Light
+  zipPostfixUltralightQuality: Ultralight
   zipFileExtension: .glb
   streamingAssetPostfixDefault: rift
   streamingAssetPostfixAndroid: quest1
   streamingAssetPostfixQuest2: quest2
-  streamingAssetPostfixFastLoad: fastload
-  streamingAssetPostfixHighQuality: rift
-  streamingAssetPostfixHighQualityQuest2: quest2
+  streamingAssetPostfixLightQuality: rift
+  streamingAssetPostfixLightQualityQuest2: quest2
+  streamingAssetPostfixUltralightQuality: ultralight
   assetVersionDefault: 3
   assetVersionAndroid: 3
   assetVersionQuest2: 3
@@ -82,13 +83,12 @@ MonoBehaviour:
   _defaultModelColor: {r: 0.11764706, g: 0.6156863, b: 1, a: 1}
   ShaderManager: {fileID: 0}
   _useCriticalJointJobs: 0
-  UseFastLoadAvatar: 0
-  AllowExperimentalSystemsOverride: 0
+  FastLoadAvatarEnabled: 0
+  UseTimeSlicedBuildSkeletonAndPrimitive: 0
   _ovrLogLevel: 3
-  UseExperimentalSystems: 0
   disableMeshOptimization: 0
   automaticallyRequestPermissions: 1
-  _skinnersSupported: 4
+  _skinningType: 8
   _skinQualityPerLOD: 
   _filterMode: 2
   _anisoLevel: 1
@@ -133,8 +133,7 @@ MonoBehaviour:
   firstPersonAvatarLod: {fileID: 0}
   firstPersonAvatarLodLevel: 0
   firstPersonUpdateImportance: 10000
-  avatarLodDebugCanvas: {fileID: 1316326085530136, guid: 6c859d5f04a0b2d478aeb2732044266c,
-    type: 3}
+  avatarLodDebugCanvas: {fileID: 1316326085530136, guid: 6c859d5f04a0b2d478aeb2732044266c, type: 3}
   debug:
     sceneViewCamera: 1
     displayLODLabels: 0
@@ -154,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd1062ecb075db4a83f03b03ba8100d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultSkinningType: 0
   QualityPerLOD: 0400000004000000040000000400000004000000
   SourceMorphFormat: 1
   CombinedMorphFormat: 1
@@ -165,12 +163,9 @@ MonoBehaviour:
   SkinningPositionOutputNormalizationBias: -1
   SupportApplicationSpaceWarp: 0
   MotionSmoothing: 0
-  _CombineMorphTargetsShader: {fileID: 4800000, guid: bef2973cf0137a04fbdd59ed0bab09bc,
-    type: 3}
-  _SkinToTextureShader: {fileID: 4800000, guid: ee1f1406edf162945868fafc408691aa,
-    type: 3}
-  _morphAndSkinningComputeShader: {fileID: 7200000, guid: 6593496738c8e8045badc49f0ef2917a,
-    type: 3}
+  _CombineMorphTargetsShader: {fileID: 4800000, guid: bef2973cf0137a04fbdd59ed0bab09bc, type: 3}
+  _SkinToTextureShader: {fileID: 4800000, guid: ee1f1406edf162945868fafc408691aa, type: 3}
+  _morphAndSkinningComputeShader: {fileID: 7200000, guid: 6593496738c8e8045badc49f0ef2917a, type: 3}
 --- !u!114 &2817231646188770880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bodyTrackingMode: 1
   _useAsyncBodySolver: 0
+  _enableHipLock: 0
   _ovrCameraRig: {fileID: 0}
   _debugDrawTrackingLocations: 0
 --- !u!114 &-6971383499345782492

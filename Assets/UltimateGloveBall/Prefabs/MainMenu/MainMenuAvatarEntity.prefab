@@ -28,6 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830134145829001418}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,7 +36,6 @@ Transform:
   m_Children:
   - {fileID: 6942520302109648294}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &6069269096435626870
 MonoBehaviour:
@@ -56,6 +56,8 @@ MonoBehaviour:
       manifestationFlags: 2
       viewFlags: 3
       subMeshInclusionFlags: 2047
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 1
   _activeManifestation: 2
   _activeSubMeshes: 2047
@@ -65,6 +67,7 @@ MonoBehaviour:
   _eyePoseBehavior: {fileID: 0}
   _lipSync: {fileID: 0}
   _criticalJointTypes: 
+  _useCriticalJointJobs: 0
   _debugDrawing:
     drawTrackingPose: 0
     drawBoneNames: 0
@@ -73,12 +76,8 @@ MonoBehaviour:
     drawSkinTransformsInGame: 0
     drawCriticalJoints: 0
     skeletonColor: {r: 1, g: 0, b: 0, a: 1}
-  LoadingStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  EntityLoadingStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
+    drawGazePos: 0
+    gazePosColor: {r: 1, g: 0, b: 1, a: 1}
   OnCreatedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -100,7 +99,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -134,6 +132,7 @@ MonoBehaviour:
   updateImportance: 0
   dynamicStreamLod: 0
   lastUpdateAgeSeconds: 0
+  lastUpdateAgeTicks: 0
   previousUpdateAgeWindowSeconds: 0
 --- !u!54 &8397722996190053070
 Rigidbody:
@@ -142,10 +141,21 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830134145829001418}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -180,6 +190,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7830134145829094634}
     m_Modifications:
     - target: {fileID: 2430523750807860354, guid: c019572605bc29e42b3ed5a058599618, type: 3}
@@ -243,6 +254,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c019572605bc29e42b3ed5a058599618, type: 3}
 --- !u!4 &6942520302109648294 stripped
 Transform:

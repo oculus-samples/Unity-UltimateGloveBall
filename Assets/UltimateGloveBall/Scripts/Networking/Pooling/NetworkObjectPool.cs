@@ -138,8 +138,8 @@ namespace UltimateGloveBall.Networking.Pooling
 
             var go = networkObject.gameObject;
 
-            go.SetActive(true);
             go.transform.SetPositionAndRotation(position, rotation);
+            go.SetActive(true);
 
             return networkObject;
         }

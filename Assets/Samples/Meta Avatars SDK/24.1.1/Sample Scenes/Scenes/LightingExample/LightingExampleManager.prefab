@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7552288302925248467}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7552288302925248466
 MonoBehaviour:
@@ -56,18 +57,14 @@ MonoBehaviour:
   - Name: Cornell Box
     SceneName: CornellBox
     AmbientColor: {r: 0.6862745, g: 0.6862745, b: 0.6862745, a: 0}
-  _sdkManagerPrefabs:
-  - {fileID: 3157928069488761442, guid: 425e6ea49dcc520488b469a76c46798a, type: 3}
-  - {fileID: 5848076533691757918, guid: d0377a811c2a95841ba015ae0b2c8d45, type: 3}
-  - {fileID: 3157928069488761442, guid: 7708fbb154bd0b84aa961d0a8de4a0b7, type: 3}
-  - {fileID: 3157928069488761442, guid: 4ffb3223bd7352e40bac003a93ba47bd, type: 3}
-  - {fileID: 3157928069488761442, guid: 6df47a28fe7c7c444a658aebcc35ad94, type: 3}
+  _sdkManagers: []
   _avatarsShowcasePrefab: {fileID: 0}
   _canvas: {fileID: 0}
   _lightingNameGroup: {fileID: 0}
   _lightingButton: {fileID: 0}
   _shaderNameGroup: {fileID: 0}
   _shaderButton: {fileID: 0}
+  _infoText: {fileID: 0}
   _enableLODOverride: 1
   _keyboardDebugLODLevels: 0
   _displayLODLabels: 1

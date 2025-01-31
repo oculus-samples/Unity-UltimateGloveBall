@@ -31,10 +31,7 @@ namespace UltimateGloveBall.Arena.Player
         public void SetVisibility(bool show)
         {
             m_visible = show;
-            if (m_canvas != null)
-            {
-                m_canvas.gameObject.SetActive(show && m_isEnabled);
-            }
+            m_canvas?.gameObject.SetActive(show && m_isEnabled);
         }
 
         public void SetUsername(string username)
@@ -57,26 +54,17 @@ namespace UltimateGloveBall.Arena.Player
 
         public void ShowUsername(bool show)
         {
-            if (m_usernameText != null)
-            {
-                m_usernameText.gameObject.SetActive(show);
-            }
+            m_usernameText?.gameObject.SetActive(show);
         }
 
         public void ShowMasterIcon(bool show)
         {
-            if (m_masterIcon != null)
-            {
-                m_masterIcon.gameObject.SetActive(show);
-            }
+            m_masterIcon?.gameObject.SetActive(show);
         }
 
         public void ShowUserIcon(bool show)
         {
-            if (m_userIcon != null)
-            {
-                m_userIcon.gameObject.SetActive(show);
-            }
+            m_userIcon?.gameObject.SetActive(show);
         }
     }
 }

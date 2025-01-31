@@ -23,9 +23,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739091082662}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301223740982021669}
   - {fileID: 3301223739461304295}
@@ -60,7 +62,6 @@ Transform:
   - {fileID: 3301223741157238655}
   - {fileID: 3301223740423375271}
   m_Father: {fileID: 3301223739652064672}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3301223739103139786
 GameObject:
@@ -86,12 +87,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739103139786}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739103139789
 MonoBehaviour:
@@ -112,12 +114,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -155,7 +157,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -194,12 +195,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739109654525}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739109654527
 MonoBehaviour:
@@ -220,12 +222,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -263,7 +265,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -302,12 +303,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739140224078}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739140224064
 MonoBehaviour:
@@ -328,12 +330,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -371,7 +373,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -410,12 +411,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739163946584}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739163946586
 MonoBehaviour:
@@ -436,12 +438,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -479,7 +481,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -518,12 +519,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739187522865}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739187522867
 MonoBehaviour:
@@ -544,12 +546,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -587,7 +589,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -626,12 +627,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739193476396}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739193476398
 MonoBehaviour:
@@ -652,12 +654,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -695,7 +697,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -734,12 +735,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739210127334}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739210127256
 MonoBehaviour:
@@ -760,12 +762,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -803,7 +805,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -842,12 +843,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739225396728}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739225396730
 MonoBehaviour:
@@ -868,12 +870,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -911,7 +913,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -949,9 +950,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739226003825}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301223741025680793}
   - {fileID: 3301223739480997453}
@@ -986,7 +989,6 @@ Transform:
   - {fileID: 3301223740818616053}
   - {fileID: 3301223740875540115}
   m_Father: {fileID: 3301223739652064672}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3301223739252604610
 GameObject:
@@ -1012,12 +1014,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739252604610}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739252604612
 MonoBehaviour:
@@ -1038,12 +1041,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1081,7 +1084,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1120,12 +1122,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739255613282}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739255613284
 MonoBehaviour:
@@ -1146,12 +1149,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1189,7 +1192,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1228,12 +1230,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739295044771}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739295044773
 MonoBehaviour:
@@ -1254,12 +1257,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1297,7 +1300,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1336,12 +1338,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739340172298}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739340172301
 MonoBehaviour:
@@ -1362,12 +1365,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1405,7 +1408,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1444,12 +1446,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739344393183}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739344393169
 MonoBehaviour:
@@ -1470,12 +1473,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1513,7 +1516,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1552,12 +1554,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739407960204}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739407960206
 MonoBehaviour:
@@ -1578,12 +1581,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1621,7 +1624,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1660,12 +1662,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739420749416}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739420749418
 MonoBehaviour:
@@ -1686,12 +1689,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1729,7 +1732,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1768,12 +1770,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739421290150}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739421289817
 MonoBehaviour:
@@ -1794,12 +1797,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1837,7 +1840,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1876,12 +1878,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739434732217}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739434732219
 MonoBehaviour:
@@ -1902,12 +1905,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -1945,7 +1948,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -1984,12 +1986,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739443943683}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739443943682
 MonoBehaviour:
@@ -2010,12 +2013,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2053,7 +2056,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2092,12 +2094,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739445546706}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739445546708
 MonoBehaviour:
@@ -2118,12 +2121,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2161,7 +2164,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2200,12 +2202,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739461304292}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739461304294
 MonoBehaviour:
@@ -2226,12 +2229,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2269,7 +2272,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2308,12 +2310,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739469694871}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739469694857
 MonoBehaviour:
@@ -2334,12 +2337,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2377,7 +2380,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2416,12 +2418,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739474615497}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739474615496
 MonoBehaviour:
@@ -2442,12 +2445,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2485,7 +2488,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2524,12 +2526,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739480997451}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739480997450
 MonoBehaviour:
@@ -2550,12 +2553,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2593,7 +2596,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2632,12 +2634,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739491396324}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739491396327
 MonoBehaviour:
@@ -2658,12 +2661,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2701,7 +2704,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2740,12 +2742,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739507019216}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739507019219
 MonoBehaviour:
@@ -2766,12 +2769,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2809,7 +2812,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2848,12 +2850,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739546297459}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739546297458
 MonoBehaviour:
@@ -2874,12 +2877,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -2917,7 +2920,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -2956,12 +2958,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739574611861}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739574611863
 MonoBehaviour:
@@ -2982,12 +2985,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3025,7 +3028,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3064,12 +3066,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739575945942}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739575945929
 MonoBehaviour:
@@ -3090,12 +3093,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3133,7 +3136,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3171,15 +3173,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739652064673}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301223739226003824}
   - {fileID: 3301223740878197413}
   - {fileID: 3301223739091082329}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3301223739679809682
 GameObject:
@@ -3205,12 +3208,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739679809682}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739679809684
 MonoBehaviour:
@@ -3231,12 +3235,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3274,7 +3278,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3313,12 +3316,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739717013472}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739717013475
 MonoBehaviour:
@@ -3339,12 +3343,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3382,7 +3386,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3421,12 +3424,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739719847427}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739719847429
 MonoBehaviour:
@@ -3447,12 +3451,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3490,7 +3494,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3529,12 +3532,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739722225084}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739722225086
 MonoBehaviour:
@@ -3555,12 +3559,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3598,7 +3602,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3637,12 +3640,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739738995382}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739738995368
 MonoBehaviour:
@@ -3663,12 +3667,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3706,7 +3710,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3745,12 +3748,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739763853536}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739763853538
 MonoBehaviour:
@@ -3771,12 +3775,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3814,7 +3818,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3853,12 +3856,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739796059028}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739796059030
 MonoBehaviour:
@@ -3879,12 +3883,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -3922,7 +3926,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -3961,12 +3964,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739830888306}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739830888308
 MonoBehaviour:
@@ -3987,12 +3991,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4030,7 +4034,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4069,12 +4072,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739830910751}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739830910750
 MonoBehaviour:
@@ -4095,12 +4099,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4138,7 +4142,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4177,12 +4180,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739843959041}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739843959043
 MonoBehaviour:
@@ -4203,12 +4207,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4246,7 +4250,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4285,12 +4288,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739861799094}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739861799080
 MonoBehaviour:
@@ -4311,12 +4315,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4354,7 +4358,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4393,12 +4396,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739868484613}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739868484615
 MonoBehaviour:
@@ -4419,12 +4423,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4462,7 +4466,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4501,12 +4504,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739868713647}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739868713646
 MonoBehaviour:
@@ -4527,12 +4531,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4570,7 +4574,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4609,12 +4612,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223739872759750}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223739872759800
 MonoBehaviour:
@@ -4635,12 +4639,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4678,7 +4682,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4717,12 +4720,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740028038442}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740028038444
 MonoBehaviour:
@@ -4743,12 +4747,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4786,7 +4790,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4825,12 +4828,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740085417790}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740085417776
 MonoBehaviour:
@@ -4851,12 +4855,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -4894,7 +4898,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -4933,12 +4936,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740090305515}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740090305514
 MonoBehaviour:
@@ -4959,12 +4963,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5002,7 +5006,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5041,12 +5044,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740113288249}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740113288251
 MonoBehaviour:
@@ -5067,12 +5071,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5110,7 +5114,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5149,12 +5152,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740157293122}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740157293124
 MonoBehaviour:
@@ -5175,12 +5179,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5218,7 +5222,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5257,12 +5260,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740157449005}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740157449007
 MonoBehaviour:
@@ -5283,12 +5287,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5326,7 +5330,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5365,12 +5368,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740181193427}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740181193429
 MonoBehaviour:
@@ -5391,12 +5395,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5434,7 +5438,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5473,12 +5476,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740183214558}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740183214545
 MonoBehaviour:
@@ -5499,12 +5503,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5542,7 +5546,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5581,12 +5584,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740200905239}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740200905225
 MonoBehaviour:
@@ -5607,12 +5611,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5650,7 +5654,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5689,12 +5692,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740209774392}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740209774394
 MonoBehaviour:
@@ -5715,12 +5719,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5758,7 +5762,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5797,12 +5800,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740219549710}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740219549696
 MonoBehaviour:
@@ -5823,12 +5827,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5866,7 +5870,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -5905,12 +5908,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740244889498}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740244889500
 MonoBehaviour:
@@ -5931,12 +5935,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -5974,7 +5978,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6013,12 +6016,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740253274147}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740253274149
 MonoBehaviour:
@@ -6039,12 +6043,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6082,7 +6086,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6121,12 +6124,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740253621276}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740253621278
 MonoBehaviour:
@@ -6147,12 +6151,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6190,7 +6194,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6229,12 +6232,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740361658426}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740361658428
 MonoBehaviour:
@@ -6255,12 +6259,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6298,7 +6302,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6337,12 +6340,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740370943982}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740370943968
 MonoBehaviour:
@@ -6363,12 +6367,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6406,7 +6410,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6445,12 +6448,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740380869571}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740380869573
 MonoBehaviour:
@@ -6471,12 +6475,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6514,7 +6518,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6553,12 +6556,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740403924266}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740403924269
 MonoBehaviour:
@@ -6579,12 +6583,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6622,7 +6626,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6661,12 +6664,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740420881982}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740420881969
 MonoBehaviour:
@@ -6687,12 +6691,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6730,7 +6734,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6769,12 +6772,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740423375268}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740423375270
 MonoBehaviour:
@@ -6795,12 +6799,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6838,7 +6842,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6877,12 +6880,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740458979052}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740458979054
 MonoBehaviour:
@@ -6903,12 +6907,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -6946,7 +6950,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -6985,12 +6988,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740459770872}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740459770875
 MonoBehaviour:
@@ -7011,12 +7015,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7054,7 +7058,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7093,12 +7096,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740464237624}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740464237626
 MonoBehaviour:
@@ -7119,12 +7123,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7162,7 +7166,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7201,12 +7204,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740467003104}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740467003106
 MonoBehaviour:
@@ -7227,12 +7231,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7270,7 +7274,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7309,12 +7312,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740478279281}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740478279280
 MonoBehaviour:
@@ -7335,12 +7339,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7378,7 +7382,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7417,12 +7420,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740512809493}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740512809495
 MonoBehaviour:
@@ -7443,12 +7447,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7486,7 +7490,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7525,12 +7528,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740580551148}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740580551151
 MonoBehaviour:
@@ -7551,12 +7555,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7594,7 +7598,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7633,12 +7636,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740620747940}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740620747942
 MonoBehaviour:
@@ -7659,12 +7663,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7702,7 +7706,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7741,12 +7744,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740626895346}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740626895349
 MonoBehaviour:
@@ -7767,12 +7771,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7810,7 +7814,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7849,12 +7852,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740628921372}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740628921375
 MonoBehaviour:
@@ -7875,12 +7879,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -7918,7 +7922,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -7957,12 +7960,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740638058354}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740638058357
 MonoBehaviour:
@@ -7983,12 +7987,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8026,7 +8030,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8065,12 +8068,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740699101088}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740699101090
 MonoBehaviour:
@@ -8091,12 +8095,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8134,7 +8138,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8173,12 +8176,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740728996901}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740728996903
 MonoBehaviour:
@@ -8199,12 +8203,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8242,7 +8246,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8281,12 +8284,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740755069268}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740755069270
 MonoBehaviour:
@@ -8307,12 +8311,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8350,7 +8354,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8389,12 +8392,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740768451564}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740768451567
 MonoBehaviour:
@@ -8415,12 +8419,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8458,7 +8462,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8497,12 +8500,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740781099971}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740781099970
 MonoBehaviour:
@@ -8523,12 +8527,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8566,7 +8570,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8605,12 +8608,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740785951605}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740785951607
 MonoBehaviour:
@@ -8631,12 +8635,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8674,7 +8678,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8713,12 +8716,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740788346781}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740788346780
 MonoBehaviour:
@@ -8739,12 +8743,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8782,7 +8786,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8821,12 +8824,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740818616051}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740818616050
 MonoBehaviour:
@@ -8847,12 +8851,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8890,7 +8894,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -8929,12 +8932,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740875540113}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740875540112
 MonoBehaviour:
@@ -8955,12 +8959,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -8998,7 +9002,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9036,9 +9039,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740878197410}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3301223741114890523}
   - {fileID: 3301223740253621279}
@@ -9073,7 +9078,6 @@ Transform:
   - {fileID: 3301223739434732216}
   - {fileID: 3301223739679809685}
   m_Father: {fileID: 3301223739652064672}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3301223740907737008
 GameObject:
@@ -9099,12 +9103,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740907737008}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740907737010
 MonoBehaviour:
@@ -9125,12 +9130,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9168,7 +9173,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9207,12 +9211,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740912106469}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740912106471
 MonoBehaviour:
@@ -9233,12 +9238,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9276,7 +9281,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9315,12 +9319,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740961439361}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740961439360
 MonoBehaviour:
@@ -9341,12 +9346,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9384,7 +9389,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9423,12 +9427,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223740982021666}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223740982021668
 MonoBehaviour:
@@ -9449,12 +9454,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9492,7 +9497,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9531,12 +9535,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741017293507}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741017293509
 MonoBehaviour:
@@ -9557,12 +9562,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9600,7 +9605,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9639,12 +9643,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741025680871}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741025680870
 MonoBehaviour:
@@ -9665,12 +9670,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9708,7 +9713,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9747,12 +9751,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741028320297}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741028320296
 MonoBehaviour:
@@ -9773,12 +9778,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9816,7 +9821,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9855,12 +9859,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741045199085}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741045199087
 MonoBehaviour:
@@ -9881,12 +9886,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -9924,7 +9929,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -9963,12 +9967,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741055468395}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739226003824}
-  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741055468394
 MonoBehaviour:
@@ -9989,12 +9994,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10032,7 +10037,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -10071,12 +10075,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741111108955}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741111108957
 MonoBehaviour:
@@ -10097,12 +10102,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10140,7 +10145,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -10179,12 +10183,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741114890520}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741114890522
 MonoBehaviour:
@@ -10205,12 +10210,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10248,7 +10253,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -10287,12 +10291,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741144435411}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223740878197413}
-  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741144435413
 MonoBehaviour:
@@ -10313,12 +10318,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: 0
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10356,7 +10361,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -10395,12 +10399,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741150752460}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741150752462
 MonoBehaviour:
@@ -10421,12 +10426,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10464,7 +10469,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1
@@ -10503,12 +10507,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3301223741157238652}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3301223739091082329}
-  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3301223741157238654
 MonoBehaviour:
@@ -10529,12 +10534,12 @@ MonoBehaviour:
       manifestationFlags: 3
       viewFlags: 3
       subMeshInclusionFlags: -1
-      highQualityFlags: -1
+      quality: 0
+      reserved: 0000000000000000000000000000000000000000000000000000000000000000
   _activeView: 2
   _activeManifestation: 1
   _activeSubMeshes: 2047
   _activeSubMeshesIncludeUntyped: 1
-  _activeHighQuality: 0
   _bodyTracking: {fileID: 0}
   _facePoseBehavior: {fileID: 0}
   _eyePoseBehavior: {fileID: 0}
@@ -10572,7 +10577,6 @@ MonoBehaviour:
   OnLoadFailedEvent:
     m_PersistentCalls:
       m_Calls: []
-  SkinningType: 0
   MotionSmoothingSettings: 0
   _hidden: 0
   useRenderLods: 1

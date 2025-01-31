@@ -91,8 +91,7 @@ namespace UltimateGloveBall.Arena.Player
             m_userIconSku.OnValueChanged += OnUserIconChanged;
             m_hasACat.OnValueChanged += OnUserCatOwnershipChanged;
 
-            if (m_playerNameVisual != null)
-                m_playerNameVisual.SetEnableState(m_enableLocalPlayerName);
+            m_playerNameVisual?.SetEnableState(m_enableLocalPlayerName);
         }
 
         private void OnDisable()
@@ -108,8 +107,7 @@ namespace UltimateGloveBall.Arena.Player
         {
             base.OnNetworkSpawn();
 
-            if (m_playerNameVisual != null)
-                m_playerNameVisual.SetEnableState(m_enableLocalPlayerName || LocalPlayerState == null);
+            m_playerNameVisual?.SetEnableState(m_enableLocalPlayerName || LocalPlayerState == null);
 
             if (LocalPlayerState)
             {
@@ -157,10 +155,7 @@ namespace UltimateGloveBall.Arena.Player
 
         private void OnUsernameChanged(FixedString128Bytes oldName, FixedString128Bytes newName)
         {
-            if (m_playerNameVisual != null)
-            {
-                m_playerNameVisual.SetUsername(newName.ConvertToString());
-            }
+            m_playerNameVisual?.SetUsername(newName.ConvertToString());
         }
 
         private void OnUserIconChanged(FixedString128Bytes oldIcon, FixedString128Bytes newIcon)
@@ -190,10 +185,7 @@ namespace UltimateGloveBall.Arena.Player
 
         private void OnMasterClientChanged(bool oldVal, bool newVal)
         {
-            if (m_playerNameVisual != null)
-            {
-                m_playerNameVisual.ShowMasterIcon(newVal);
-            }
+            m_playerNameVisual?.ShowMasterIcon(newVal);
         }
 
         private void OnUserMuteStateChanged(ulong userId, bool isMuted)

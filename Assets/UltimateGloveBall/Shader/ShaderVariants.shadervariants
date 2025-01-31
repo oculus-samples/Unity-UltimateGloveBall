@@ -245,6 +245,22 @@ ShaderVariantCollection:
         passType: 13
       - keywords: _ADDITIONAL_LIGHTS _EMISSION _REFLECTION_PROBE_BOX_PROJECTION _SURFACE_TYPE_TRANSPARENT
         passType: 13
+  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+    second:
+      variants:
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _COLOROVERLAY_ON _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+      - keywords: _COLOROVERLAY_ON _SURFACE_TYPE_TRANSPARENT
+        passType: 0
+  - first: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+    second:
+      variants:
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON _SURFACE_TYPE_TRANSPARENT
+        passType: 0
   - first: {fileID: -6465566751694194690, guid: da40cca8f8a47304ca5f50f24a0ff0f7, type: 3}
     second:
       variants:
@@ -255,15 +271,25 @@ ShaderVariantCollection:
         passType: 13
       - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
         passType: 13
-  - first: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
+  - first: {fileID: -6465566751694194690, guid: 3ce553676282b8d4ebdf779915b1ed13, type: 3}
     second:
       variants:
-      - keywords: STEREO_INSTANCING_ON
-        passType: 0
-      - keywords: STEREO_INSTANCING_ON _COLOROVERLAY_ON _SURFACE_TYPE_TRANSPARENT
-        passType: 0
-      - keywords: _COLOROVERLAY_ON _SURFACE_TYPE_TRANSPARENT
-        passType: 0
+      - keywords: 
+        passType: 8
+      - keywords: INSTANCING_ON
+        passType: 8
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS _REFLECTION_PROBE_BOX_PROJECTION
+          _SHADOWS_SOFT
+        passType: 13
+      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
+          _MAIN_LIGHT_SHADOWS
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
+          _MAIN_LIGHT_SHADOWS _REFLECTION_PROBE_BOX_PROJECTION _SHADOWS_SOFT
+        passType: 13
+      - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
+        passType: 13
   - first: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
     second:
       variants:
@@ -282,20 +308,6 @@ ShaderVariantCollection:
         passType: 13
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _ALPHATEST_ON _MAIN_LIGHT_SHADOWS
           _NORMALMAP _SPECGLOSSMAP
-        passType: 13
-  - first: {fileID: 4800000, guid: 52f661668f7a7c24b8d23d27b49d7aaa, type: 3}
-    second:
-      variants:
-      - keywords: DEBUG_TINT ENABLE_CUSTOM_EFFECT LIGHTPROBE_SH STEREO_INSTANCING_ON
-          _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
-        passType: 13
-      - keywords: DEBUG_TINT ENABLE_GHOST_EFFECT LIGHTPROBE_SH STEREO_INSTANCING_ON
-          _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
-        passType: 13
-      - keywords: DEBUG_TINT LIGHTPROBE_SH STEREO_INSTANCING_ON _LIGHTING_SYSTEM_UNITY
-          _SHADER_TYPE_SUBMESH
-        passType: 13
-      - keywords: LIGHTPROBE_SH STEREO_INSTANCING_ON _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
         passType: 13
   - first: {fileID: -6465566751694194690, guid: 2ac58aaac1194ee4d838770cec949498, type: 3}
     second:
@@ -329,13 +341,6 @@ ShaderVariantCollection:
       - keywords: _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS
           _REFLECTION_PROBE_BOX_PROJECTION
         passType: 13
-  - first: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
-    second:
-      variants:
-      - keywords: STEREO_INSTANCING_ON
-        passType: 0
-      - keywords: STEREO_INSTANCING_ON _SURFACE_TYPE_TRANSPARENT
-        passType: 0
   - first: {fileID: -6465566751694194690, guid: ec532e46af4043d43944061596d84b4e, type: 3}
     second:
       variants:
@@ -377,25 +382,6 @@ ShaderVariantCollection:
         passType: 13
       - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
         passType: 13
-  - first: {fileID: -6465566751694194690, guid: 3ce553676282b8d4ebdf779915b1ed13, type: 3}
-    second:
-      variants:
-      - keywords: 
-        passType: 8
-      - keywords: INSTANCING_ON
-        passType: 8
-      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
-          _ADDITIONAL_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS _REFLECTION_PROBE_BOX_PROJECTION
-          _SHADOWS_SOFT
-        passType: 13
-      - keywords: INSTANCING_ON SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS
-          _MAIN_LIGHT_SHADOWS
-        passType: 13
-      - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _ADDITIONAL_LIGHT_SHADOWS
-          _MAIN_LIGHT_SHADOWS _REFLECTION_PROBE_BOX_PROJECTION _SHADOWS_SOFT
-        passType: 13
-      - keywords: SHADOWS_SHADOWMASK STEREO_INSTANCING_ON _ADDITIONAL_LIGHTS _MAIN_LIGHT_SHADOWS
-        passType: 13
   - first: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
     second:
       variants:
@@ -418,3 +404,17 @@ ShaderVariantCollection:
   - first: {fileID: 4800000, guid: 7314aca6209213b4facc1c4be4411cb8, type: 3}
     second:
       variants: []
+  - first: {fileID: 4800000, guid: 52f661668f7a7c24b8d23d27b49d7aaa, type: 3}
+    second:
+      variants:
+      - keywords: DEBUG_TINT ENABLE_CUSTOM_EFFECT LIGHTPROBE_SH STEREO_INSTANCING_ON
+          _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
+        passType: 13
+      - keywords: DEBUG_TINT ENABLE_GHOST_EFFECT LIGHTPROBE_SH STEREO_INSTANCING_ON
+          _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
+        passType: 13
+      - keywords: DEBUG_TINT LIGHTPROBE_SH STEREO_INSTANCING_ON _LIGHTING_SYSTEM_UNITY
+          _SHADER_TYPE_SUBMESH
+        passType: 13
+      - keywords: LIGHTPROBE_SH STEREO_INSTANCING_ON _LIGHTING_SYSTEM_UNITY _SHADER_TYPE_SUBMESH
+        passType: 13

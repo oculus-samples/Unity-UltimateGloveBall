@@ -17,6 +17,12 @@ namespace UltimateGloveBall.Editor
 
         static UltimateGloveBallTelemetry() => Collect();
 
+        [MenuItem("Meta/Reserialize assets")]
+        private static void ReserializeAssets()
+        {
+            AssetDatabase.ForceReserializeAssets();
+        }
+
         [MenuItem("Meta/Sample Telemetry Settings")]
         private static void TelemetrySettings()
         {

@@ -43,15 +43,22 @@ namespace Meta.Utilities.Editor
         private static async void RegenerateManagerNetworkPrefabHashIds(NetworkManager manager)
         {
             var config = new SerializedObject(manager);
-            var prefabs = config.FindProperty("NetworkConfig.NetworkPrefabs");
-            foreach (var prop in prefabs.GetEnumerator().AsEnumerable<SerializedProperty>())
+            var networkPrefabs = config.FindProperty("NetworkConfig.Prefabs");
+            foreach (var netPrefab in networkPrefabs.GetEnumerator().AsEnumerable<NetworkPrefabs>())
             {
-                var prefabProp = prop.FindPropertyRelative("Prefab");
-                var prefabObj = prefabProp.objectReferenceValue;
-                if (prefabObj != null)
+                if (netPrefab == null || netPrefab.Prefabs == null)
                 {
-                    var prefabPath = AssetDatabase.GetAssetPath(prefabObj);
-                    await RegeneratePrefabHashIds(prefabPath);
+                    continue;
+                }
+                foreach (var prop in netPrefab.Prefabs.GetEnumerator().AsEnumerable<SerializedProperty>())
+                {
+                    var prefabProp = prop.FindPropertyRelative("Prefab");
+                    var prefabObj = prefabProp.objectReferenceValue;
+                    if (prefabObj != null)
+                    {
+                        var prefabPath = AssetDatabase.GetAssetPath(prefabObj);
+                        await RegeneratePrefabHashIds(prefabPath);
+                    }
                 }
             }
         }
@@ -148,7 +155,7 @@ namespace Meta.Utilities.Editor
                         oldHash = (uint)long.Parse(mod?.value ?? "0");
                     }
 
-                    obj.GetMethod<Action>("GenerateGlobalObjectIdHash").Invoke();
+                    obj.GetMethod<Action>("OnValidate").Invoke();
                     // EditorUtility.SetDirty(obj);
 
                     var hash = (uint)obj.GetField("GlobalObjectIdHash");

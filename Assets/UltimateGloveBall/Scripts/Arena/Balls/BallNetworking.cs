@@ -127,7 +127,7 @@ namespace UltimateGloveBall.Arena.Balls
         private void FixedUpdate()
         {
             // Lock the rigidbody in place when velocity becomes low
-            if (IsOwner && m_rigidbody.velocity.magnitude < 0.1f)
+            if (IsOwner && !m_rigidbody.isKinematic && m_rigidbody.velocity.magnitude < 0.1f)
             {
                 m_rigidbody.velocity = Vector3.zero;
                 m_rigidbody.angularVelocity = Vector3.zero;
@@ -254,10 +254,7 @@ namespace UltimateGloveBall.Arena.Balls
             EnablePhysics(false);
             UpdateVisuals(false);
 
-            if (m_ballBehaviour != null)
-            {
-                m_ballBehaviour.ResetBall();
-            }
+            m_ballBehaviour?.ResetBall();
         }
 
         public void SetSpawnState(bool onSpawner)
