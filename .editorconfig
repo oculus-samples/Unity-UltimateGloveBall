@@ -564,3 +564,7 @@ generated_code = true
 # File is based on com.unity.inputsystem/InputSystem/Actions/Composites/OneModifierComposite.cs
 [**/InverseModifierComposite.cs]
 generated_code = true
+
+# File in Samples are not subject to formating
+[Assets/Samples/**]
+generated_code = true

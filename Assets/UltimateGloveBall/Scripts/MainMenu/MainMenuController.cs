@@ -6,6 +6,7 @@ using System;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Player;
 using UltimateGloveBall.Arena.Services;
+using UltimateGloveBall.Utils;
 using UnityEngine;
 
 namespace UltimateGloveBall.MainMenu
@@ -46,6 +47,8 @@ namespace UltimateGloveBall.MainMenu
         [SerializeField] private Transform m_startPosition;
         [SerializeField] private Transform m_avatarTransform;
 
+        [SerializeField] private AudioFadeInOut m_menuMusicFader;
+
         private BaseMenuController m_currentMenu;
         private float m_baseMenuMusicVolume;
 
@@ -72,6 +75,7 @@ namespace UltimateGloveBall.MainMenu
             Debug.Log("QUICK MATCH");
             DisableButtons();
             UGBApplication.Instance.NavigationController.NavigateToMatch(false);
+            m_menuMusicFader.FadeOut();
         }
 
         public void OnHostMatchClicked()
@@ -79,6 +83,7 @@ namespace UltimateGloveBall.MainMenu
             Debug.Log("HOST MATCH");
             DisableButtons();
             UGBApplication.Instance.NavigationController.NavigateToMatch(true);
+            m_menuMusicFader.FadeOut();
         }
 
         public void OnWatchMatchClicked()
@@ -86,6 +91,7 @@ namespace UltimateGloveBall.MainMenu
             Debug.Log("WATCH MATCH");
             DisableButtons();
             UGBApplication.Instance.NavigationController.WatchRandomMatch();
+            m_menuMusicFader.FadeOut();
         }
 
         public void OnFriendsClicked()
@@ -175,6 +181,7 @@ namespace UltimateGloveBall.MainMenu
         public void OnReturnToMenu(ArenaApprovalController.ConnectionStatus connectionStatus)
         {
             EnableButtons();
+            m_menuMusicFader.FadeIn();
             if (connectionStatus != ArenaApprovalController.ConnectionStatus.Success)
             {
                 var errorMsg = connectionStatus switch

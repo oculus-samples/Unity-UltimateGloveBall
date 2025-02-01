@@ -328,6 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434800219}
   - component: {fileID: 434800218}
+  - component: {fileID: 434800220}
   m_Layer: 0
   m_Name: MenuMusic
   m_TagString: Untagged
@@ -446,6 +447,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434800220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434800217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4bd56213a2456d9841da5458534a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioSource: {fileID: 434800218}
+  m_maxVolume: 1
+  m_secondsFade: 1
+  m_fadeInOnStart: 1
 --- !u!1001 &480528935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2131,6 +2148,10 @@ PrefabInstance:
       propertyPath: m_startPosition
       value: 
       objectReference: {fileID: 739077026}
+    - target: {fileID: 745122931725648912, guid: bb2371f731448044581c24d9cc00c5e9, type: 3}
+      propertyPath: m_menuMusicFader
+      value: 
+      objectReference: {fileID: 434800220}
     - target: {fileID: 745122931725648912, guid: bb2371f731448044581c24d9cc00c5e9, type: 3}
       propertyPath: m_avatarTransform
       value: 

@@ -77,13 +77,13 @@ MonoBehaviour:
     AcousticEchoCancellation: 0
     AutomaticGainControl: 0
     NoiseSuppression: 0
-  recordOnlyWhenEnabled: 0
+  recordOnlyWhenEnabled: 1
   skipDeviceChangeChecks: 0
   stopRecordingWhenPaused: 0
   useOnAudioFilterRead: 0
   trySamplingRateMatch: 0
   useMicrophoneTypeFallback: 0
-  recordOnlyWhenJoined: 1
+  recordOnlyWhenJoined: 0
 --- !u!114 &9051395871736579574
 MonoBehaviour:
   m_ObjectHideFlags: 0
