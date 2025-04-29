@@ -100,8 +100,8 @@ namespace Meta.Multiplayer.Avatar
             {
                 _creationInfo.features |= Oculus.Avatar2.CAPI.ovrAvatar2EntityFeatures.Animation;
 
-                var body = CameraRigRef.Instance.AvatarInputManager;
-                SetBodyTracking(body);
+                var inputManager = CameraRigRef.Instance.AvatarInputManager;
+                SetInputManager(inputManager);
 
                 m_lipSync.gameObject.SetActive(true);
                 SetLipSync(m_lipSync);
@@ -115,7 +115,7 @@ namespace Meta.Multiplayer.Avatar
             {
                 _creationInfo.features &= ~ovrAvatar2EntityFeatures.Animation;
 
-                SetBodyTracking(null);
+                SetInputManager(null);
                 SetFacePoseProvider(null);
                 SetEyePoseProvider(null);
                 SetLipSync(null);

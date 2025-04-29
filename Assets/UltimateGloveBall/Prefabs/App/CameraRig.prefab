@@ -1248,9 +1248,13 @@ MonoBehaviour:
   useRecommendedMSAALevel: 1
   _monoscopic: 0
   _sharpenType: 0
-  enableDynamicResolution: 0
+  _enableDynamicResolution: 0
   minDynamicResolutionScale: 1
   maxDynamicResolutionScale: 1
+  quest2MinDynamicResolutionScale: 1
+  quest2MaxDynamicResolutionScale: 1
+  quest3MinDynamicResolutionScale: 1
+  quest3MaxDynamicResolutionScale: 1
   minRenderScale: 0.7
   maxRenderScale: 1
   _headPoseRelativeOffsetRotation: {x: 0, y: 0, z: 0}
@@ -1309,6 +1313,7 @@ MonoBehaviour:
   SimultaneousHandsAndControllersEnabled: 0
   _readOnlyWideMotionModeHandPosesEnabled: 0
   wideMotionModeHandPosesEnabled: 0
+  dynamicResolutionVersion: 1
 --- !u!114 &611977746102910799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f088aecee8e2af3449fc8a2b109f8dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bodyTrackingMode: 1
+  _bodyTrackingMode: 0
   _useAsyncBodySolver: 0
   _enableHipLock: 0
   m_ovrCameraRig: {fileID: 3798514984876897876}

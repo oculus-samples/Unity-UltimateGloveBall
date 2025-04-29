@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7552288302925248467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7552288302925248465}
+  - component: {fileID: 7552288302925248466}
+  m_Layer: 0
+  m_Name: LightingExampleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7552288302925248465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552288302925248467}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &7552288302925248466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552288302925248467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a0fc15e36bb2d44bf1f16465fa0683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lightingConfigs:
+  - Name: FB Connect (bright)
+    SceneName: FBConnect
+    AmbientColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0}
+  - Name: Footprint Court (neutral)
+    SceneName: FootprintCourt
+    AmbientColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+  - Name: Venues Lobby (dark)
+    SceneName: VenuesLobby
+    AmbientColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 0}
+  - Name: Cornell Box
+    SceneName: CornellBox
+    AmbientColor: {r: 0.6862745, g: 0.6862745, b: 0.6862745, a: 0}
+  _sdkManagerPrefabs:
+  - {fileID: 3157928069488761442, guid: 425e6ea49dcc520488b469a76c46798a, type: 3}
+  - {fileID: 5848076533691757918, guid: d0377a811c2a95841ba015ae0b2c8d45, type: 3}
+  - {fileID: 3157928069488761442, guid: 7708fbb154bd0b84aa961d0a8de4a0b7, type: 3}
+  - {fileID: 3157928069488761442, guid: 4ffb3223bd7352e40bac003a93ba47bd, type: 3}
+  - {fileID: 3157928069488761442, guid: 6df47a28fe7c7c444a658aebcc35ad94, type: 3}
+  _avatarsShowcasePrefab: {fileID: 0}
+  _canvas: {fileID: 0}
+  _lightingNameGroup: {fileID: 0}
+  _lightingButton: {fileID: 0}
+  _shaderNameGroup: {fileID: 0}
+  _shaderButton: {fileID: 0}
+  _enableLODOverride: 1
+  _keyboardDebugLODLevels: 0
+  _displayLODLabels: 0
+  _currentSceneName: 

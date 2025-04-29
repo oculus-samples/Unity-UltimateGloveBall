@@ -1,0 +1,1133 @@
+fileFormatVersion: 2
+guid: cfd929db97cb3844284b6747d93a3b75
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: RTRig_Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Hip
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Hip
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Knee
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Knee
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Ankle
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Ankle
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_SpineStart
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Shoulder
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Shoulder
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Elbow
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Elbow
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Wrist
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Wrist
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_GroundBallPivot
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_GroundBallPivot
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_Eye
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_Eye
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_Muzzle
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_ThumbMeta
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_ThumbProximal
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_ThumbDistal
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_IndexProximal
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_IndexIntermediate
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_IndexDistal
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_MiddleProximal
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_MiddleIntermediate
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_MiddleDistal
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_RingProximal
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_RingIntermediate
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_RingDistal
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_PinkyProximal
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_PinkyIntermediate
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_L_PinkyDistal
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_ThumbMeta
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_ThumbProximal
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_ThumbDistal
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_IndexProximal
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_IndexIntermediate
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_IndexDistal
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_MiddleProximal
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_MiddleIntermediate
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_MiddleDistal
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_RingProximal
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_RingIntermediate
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_RingDistal
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_PinkyProximal
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_PinkyIntermediate
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RTRig_R_PinkyDistal
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: HumanoidAvatarRig-RTR003(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Root
+      parentName: HumanoidAvatarRig-RTR003(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Pelvis
+      parentName: RTRig_Root
+      position: {x: -0, y: 0.93354696, z: 0.009511283}
+      rotation: {x: 0.7071068, y: -0.7071068, z: -4.3297806e-17, w: 4.3297806e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_SpineStart
+      parentName: RTRig_Pelvis
+      position: {x: -0.0067066518, y: -1.1714103e-17, z: -1.110223e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Chest
+      parentName: RTRig_SpineStart
+      position: {x: -0.22373278, y: -5.7228846e-18, z: -2.2204459e-17}
+      rotation: {x: -6.123234e-17, y: 6.123234e-17, z: 2.36297e-40, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Clavicle
+      parentName: RTRig_Chest
+      position: {x: -0.25108343, y: 0.0282178, z: -0.030274203}
+      rotation: {x: 0.59525746, y: -0.40273678, z: -0.54982436, w: 0.42563453}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Shoulder
+      parentName: RTRig_L_Clavicle
+      position: {x: -0.16482565, y: 0.00013853576, z: -0.000005678794}
+      rotation: {x: -0.6989749, y: -0.16683774, z: 0.112885214, w: 0.6861897}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Elbow
+      parentName: RTRig_L_Shoulder
+      position: {x: -0.22441158, y: -0.0000039788406, z: -0.0000000058782623}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Wrist
+      parentName: RTRig_L_Elbow
+      position: {x: -0.28522, y: -4.6606685e-10, z: 2.2397435e-11}
+      rotation: {x: 0.7071068, y: 1.3033784e-11, z: -1.3205573e-11, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_ThumbCarpal
+      parentName: RTRig_L_Wrist
+      position: {x: -0.02004001, y: -0.011232539, z: -0.010894444}
+      rotation: {x: 0.36380443, y: 0.03048008, z: 0.43325683, w: 0.8240181}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_ThumbMeta
+      parentName: RTRig_L_ThumbCarpal
+      position: {x: -0.024852626, y: -1.9895197e-15, z: 9.947598e-16}
+      rotation: {x: 0.012531306, y: -0.00965208, z: -0.033361852, w: 0.9993182}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_ThumbProximal
+      parentName: RTRig_L_ThumbMeta
+      position: {x: -0.0325132, y: -5.684342e-16, z: 0}
+      rotation: {x: 0.0035099697, y: 0.0367982, z: -0.009051543, w: 0.99927557}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_ThumbDistal
+      parentName: RTRig_L_ThumbProximal
+      position: {x: -0.03379266, y: 8.5265126e-16, z: 7.105427e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HandGrip
+      parentName: RTRig_L_Wrist
+      position: {x: -0.04843435, y: 0.004449914, z: -0.03102349}
+      rotation: {x: -0.00002474038, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_IndexMeta
+      parentName: RTRig_L_Wrist
+      position: {x: -0.036789484, y: -0.020120319, z: -0.009822565}
+      rotation: {x: 0.0028344088, y: -0.004873843, z: 0.057929732, w: 0.9983047}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_IndexProximal
+      parentName: RTRig_L_IndexMeta
+      position: {x: -0.0591329, y: 3.5527136e-17, z: 5.684342e-16}
+      rotation: {x: -0.0033325388, y: -0.026719674, z: -0.027551832, w: 0.9992577}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_IndexIntermediate
+      parentName: RTRig_L_IndexProximal
+      position: {x: -0.037927296, y: -3.9968027e-17, z: -5.684342e-16}
+      rotation: {x: -2.1994736e-17, y: -0.0029572004, z: -0.0072620274, w: 0.9999693}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_IndexDistal
+      parentName: RTRig_L_IndexIntermediate
+      position: {x: -0.024303617, y: 1.8207657e-16, z: -2.842171e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_MiddleMeta
+      parentName: RTRig_L_Wrist
+      position: {x: -0.035370953, y: -0.0038289004, z: -0.006143621}
+      rotation: {x: -0.0005215703, y: -0.008694803, z: 0.031983916, w: 0.99945045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_MiddleProximal
+      parentName: RTRig_L_MiddleMeta
+      position: {x: -0.06058622, y: 6.217249e-17, z: 8.5265126e-16}
+      rotation: {x: 0.000094372, y: -0.03667238, z: -0.009363259, w: 0.99928355}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_MiddleIntermediate
+      parentName: RTRig_L_MiddleProximal
+      position: {x: -0.04292699, y: 1.11022296e-17, z: -8.5265126e-16}
+      rotation: {x: -0.00000852624, y: 0.0018740862, z: -0.004424242, w: 0.9999885}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_MiddleDistal
+      parentName: RTRig_L_MiddleIntermediate
+      position: {x: -0.027549561, y: 2.1399549e-16, z: 2.842171e-16}
+      rotation: {x: 1.3188439e-12, y: -0.000008064124, z: 0.0000001635446, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_RingMeta
+      parentName: RTRig_L_Wrist
+      position: {x: -0.03551895, y: 0.013648788, z: -0.0047339955}
+      rotation: {x: -0.003190159, y: -0.015047099, z: 0.012506398, w: 0.99980354}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_RingProximal
+      parentName: RTRig_L_RingMeta
+      position: {x: -0.053977415, y: 1.3322676e-16, z: -5.684342e-16}
+      rotation: {x: 0.0006565301, y: -0.041869223, z: -0.008763953, w: 0.9990845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_RingIntermediate
+      parentName: RTRig_L_RingProximal
+      position: {x: -0.038996093, y: 4.440892e-18, z: -8.5265126e-16}
+      rotation: {x: -0.000018006906, y: -0.0060061333, z: -0.001979919, w: 0.99998003}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_RingDistal
+      parentName: RTRig_L_RingIntermediate
+      position: {x: -0.026573421, y: 6.217249e-17, z: -8.5265126e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_PinkyMeta
+      parentName: RTRig_L_Wrist
+      position: {x: -0.035246976, y: 0.02168665, z: -0.008125064}
+      rotation: {x: -0.00015577667, y: -0.061393768, z: -0.021424014, w: 0.9978837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_PinkyProximal
+      parentName: RTRig_L_PinkyMeta
+      position: {x: -0.045650557, y: 7.105427e-17, z: -5.684342e-16}
+      rotation: {x: -0.007086392, y: 0.0027228096, z: 0.038276836, w: 0.9992384}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_PinkyIntermediate
+      parentName: RTRig_L_PinkyProximal
+      position: {x: -0.030599346, y: 2.6645352e-17, z: 1.1368684e-15}
+      rotation: {x: -0.00007359577, y: 0.00085862685, z: -0.006558465, w: 0.9999781}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_PinkyDistal
+      parentName: RTRig_L_PinkyIntermediate
+      position: {x: -0.020311385, y: -8.437695e-17, z: 5.684342e-16}
+      rotation: {x: -0.0000032206901, y: 0.0062643345, z: -0.0005141211, w: 0.9999803}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Clavicle
+      parentName: RTRig_Chest
+      position: {x: -0.25108355, y: -0.0282178, z: -0.030274216}
+      rotation: {x: 0.5952573, y: 0.40273708, z: -0.5498246, w: -0.42563432}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Shoulder
+      parentName: RTRig_R_Clavicle
+      position: {x: -0.16482574, y: -0.00013848756, z: -0.000005149746}
+      rotation: {x: 0.69897497, y: -0.16683714, z: -0.11288565, w: 0.6861896}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Elbow
+      parentName: RTRig_R_Shoulder
+      position: {x: -0.22441, y: 0.0000033574656, z: 0.000000036631285}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Wrist
+      parentName: RTRig_R_Elbow
+      position: {x: -0.28522, y: 1.7601139e-10, z: 2.5256526e-11}
+      rotation: {x: -0.7071068, y: -3.4694474e-18, z: 1.0901315e-18, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_ThumbCarpal
+      parentName: RTRig_R_Wrist
+      position: {x: -0.020040002, y: 0.011232539, z: -0.010899444}
+      rotation: {x: -0.36099607, y: 0.03603659, z: -0.43492928, w: 0.824148}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_ThumbMeta
+      parentName: RTRig_R_ThumbCarpal
+      position: {x: -0.024849398, y: 0.00003764784, z: -0.0003170688}
+      rotation: {x: -0.012306653, y: -0.028269917, z: 0.030232806, w: 0.9990673}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_ThumbProximal
+      parentName: RTRig_R_ThumbMeta
+      position: {x: -0.032502864, y: -0.00015880303, z: 0.00079469074}
+      rotation: {x: -0.0037593665, y: 0.06543581, z: 0.010730686, w: 0.99779207}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_ThumbDistal
+      parentName: RTRig_R_ThumbProximal
+      position: {x: -0.033774, y: -0.000049177466, z: -0.0011120152}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_IndexMeta
+      parentName: RTRig_R_Wrist
+      position: {x: -0.036790002, y: 0.020120287, z: -0.009819005}
+      rotation: {x: -0.00014609097, y: -0.004963511, z: -0.05791857, w: 0.998309}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_IndexProximal
+      parentName: RTRig_R_IndexMeta
+      position: {x: -0.05913235, y: 0.00000004112235, z: -0.0000013229379}
+      rotation: {x: 0.0006822712, y: -0.026648616, z: 0.027628915, w: 0.99926275}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_IndexIntermediate
+      parentName: RTRig_R_IndexProximal
+      position: {x: -0.037927546, y: 1.1324275e-16, z: 1.7053025e-15}
+      rotation: {x: -0.00011223351, y: -0.0030766376, z: 0.0072632106, w: 0.9999689}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_IndexDistal
+      parentName: RTRig_R_IndexIntermediate
+      position: {x: -0.024303354, y: -1.8651746e-16, z: 0}
+      rotation: {x: -0.026478598, y: 0.0019160224, z: -0.0037820488, w: 0.9996404}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_MiddleMeta
+      parentName: RTRig_R_Wrist
+      position: {x: -0.035371, y: 0.0038289037, z: -0.0061398107}
+      rotation: {x: -0.0011574919, y: -0.008529058, z: -0.031981807, w: 0.9994514}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_MiddleProximal
+      parentName: RTRig_R_MiddleMeta
+      position: {x: -0.06058584, y: -0.000000006160149, z: -0.0000072537914}
+      rotation: {x: 0.0015334212, y: -0.03674858, z: 0.009304237, w: 0.99928004}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_MiddleIntermediate
+      parentName: RTRig_R_MiddleProximal
+      position: {x: -0.0429272, y: -2.997602e-17, z: -1.1368684e-15}
+      rotation: {x: 0.00006358161, y: 0.0018492227, z: 0.004424631, w: 0.9999885}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_MiddleDistal
+      parentName: RTRig_R_MiddleIntermediate
+      position: {x: -0.027549168, y: -4.046763e-16, z: 1.1368684e-15}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_RingMeta
+      parentName: RTRig_R_Wrist
+      position: {x: -0.035519, y: -0.013648866, z: -0.0047306754}
+      rotation: {x: -0.00012543792, y: -0.014908638, z: -0.012518644, w: 0.99981046}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_RingProximal
+      parentName: RTRig_R_RingMeta
+      position: {x: -0.053977713, y: 0.00000005546003, z: -0.0000065097347}
+      rotation: {x: 0.0026639246, y: -0.041839134, z: 0.008625779, w: 0.9990836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_RingIntermediate
+      parentName: RTRig_R_RingProximal
+      position: {x: -0.038995393, y: -4.440892e-18, z: -1.7053025e-15}
+      rotation: {x: -0.00016017881, y: -0.0060829995, z: 0.0019778379, w: 0.99997956}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_RingDistal
+      parentName: RTRig_R_RingIntermediate
+      position: {x: -0.02657324, y: -2.2204459e-17, z: 1.4210854e-15}
+      rotation: {x: 0.049254034, y: 0.0058945874, z: 0.0008653689, w: 0.99876857}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_PinkyMeta
+      parentName: RTRig_R_Wrist
+      position: {x: -0.035247, y: -0.021686697, z: -0.008121073}
+      rotation: {x: 0.12252277, y: -0.08019474, z: 0.0687347, w: 0.9868295}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_PinkyProximal
+      parentName: RTRig_R_PinkyMeta
+      position: {x: -0.04546089, y: 0.003864759, z: 0.0015435294}
+      rotation: {x: -0.11835707, y: 0.019708574, z: -0.07833051, w: 0.98968047}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_PinkyIntermediate
+      parentName: RTRig_R_PinkyProximal
+      position: {x: -0.03059945, y: -1.4210854e-16, z: 1.1368684e-15}
+      rotation: {x: 0.000023147859, y: 0.0008691233, z: 0.00656017, w: 0.9999781}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_PinkyDistal
+      parentName: RTRig_R_PinkyIntermediate
+      position: {x: -0.020311542, y: 6.217249e-17, z: -2.842171e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HandGrip
+      parentName: RTRig_R_Wrist
+      position: {x: -0.048434664, y: -0.0044499487, z: -0.031024138}
+      rotation: {x: 0.000024739782, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Neck
+      parentName: RTRig_Chest
+      position: {x: -0.29945624, y: -7.315763e-17, z: -7.682553e-11}
+      rotation: {x: 0, y: 6.123234e-17, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Head
+      parentName: RTRig_Neck
+      position: {x: -0.10317911, y: 1.1703714e-16, z: 7.6825504e-11}
+      rotation: {x: -6.123234e-17, y: 6.123234e-17, z: 2.36297e-40, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Eye
+      parentName: RTRig_Head
+      position: {x: -0.052258838, y: 0.03445494, z: -0.06890382}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Eye
+      parentName: RTRig_Head
+      position: {x: -0.052259997, y: -0.03445, z: -0.0689}
+      rotation: {x: -0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Muzzle
+      parentName: RTRig_Head
+      position: {x: -0.027338795, y: 0, z: -0.10392329}
+      rotation: {x: 0, y: -0.67102855, z: -0, w: 0.7414315}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_DentureTp
+      parentName: RTRig_Muzzle
+      position: {x: 0.007973019, y: 0.00000035298768, z: -0.038036738}
+      rotation: {x: 0, y: -0.043619387, z: -0, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_DentureBt
+      parentName: RTRig_Muzzle
+      position: {x: 0.012782246, y: 0.00000035392023, z: -0.053949323}
+      rotation: {x: 0, y: -0.043619387, z: -0, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_TongueBase
+      parentName: RTRig_DentureBt
+      position: {x: 0.05069815, y: -0.0000000014224514, z: 0.0017411229}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_TongueTip
+      parentName: RTRig_TongueBase
+      position: {x: -0.031396892, y: 8.03392e-10, z: -0.00000029596595}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Beard
+      parentName: RTRig_Muzzle
+      position: {x: 0.03497483, y: -0.00000008212516, z: -0.07133686}
+      rotation: {x: -4.310936e-18, y: -0.7414315, z: 4.310936e-18, w: 0.67102855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBack_00
+      parentName: RTRig_Head
+      position: {x: -0.15531747, y: -0.00000011762207, z: 0.073983654}
+      rotation: {x: -0.21643962, y: 0.000000007445843, z: 0.976296, w: -0.00000003686478}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBack_01
+      parentName: RTRig_HairBack_00
+      position: {x: -0.085220024, y: 1.3860741e-15, z: 0.000000007621806}
+      rotation: {x: 0.0000000028041491, y: -0.13052619, z: 0.000000021299627, w: 0.9914449}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBack_02
+      parentName: RTRig_HairBack_01
+      position: {x: -0.08522, y: -4.0869225e-15, z: -9.978541e-10}
+      rotation: {x: 0, y: -0.043619387, z: -0, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBack_03
+      parentName: RTRig_HairBack_02
+      position: {x: -0.08522007, y: 3.9620263e-15, z: -0.000000002689301}
+      rotation: {x: 0, y: -0.043619387, z: -0, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBack_04
+      parentName: RTRig_HairBack_03
+      position: {x: -0.08522003, y: -3.2717156e-15, z: -2.7355895e-15}
+      rotation: {x: 0, y: 3.9646463e-12, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBack_00
+      parentName: RTRig_Head
+      position: {x: -0.18222663, y: 0.02691148, z: 0.0022194188}
+      rotation: {x: -0.39936545, y: 0.37169173, z: 0.8209464, w: -0.16852185}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBack_01
+      parentName: RTRig_L_HairBack_00
+      position: {x: -0.098674715, y: -0.0000000037596926, z: 0.000000030862623}
+      rotation: {x: 6.348537e-12, y: -0.25881907, z: 1.7010642e-12, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBack_02
+      parentName: RTRig_L_HairBack_01
+      position: {x: -0.09867433, y: 0.0000000020358784, z: 0.00000001537999}
+      rotation: {x: 9.817707e-10, y: -0.087155744, z: -0.00000001122169, w: 0.9961947}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBack_03
+      parentName: RTRig_L_HairBack_02
+      position: {x: -0.09867651, y: -0.0000000016251348, z: 0.000000008423701}
+      rotation: {x: 7.510292e-12, y: -0.043619387, z: -8.533558e-11, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBack_04
+      parentName: RTRig_L_HairBack_03
+      position: {x: -0.098673485, y: 0.0000000034680498, z: -0.000000006793691}
+      rotation: {x: 0, y: 1.244393e-16, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBack_00
+      parentName: RTRig_Head
+      position: {x: -0.18222822, y: -0.026911499, z: 0.0022194225}
+      rotation: {x: 0.82094634, y: -0.16852182, z: 0.39936548, w: -0.37169173}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBack_01
+      parentName: RTRig_R_HairBack_00
+      position: {x: 0.09867827, y: 0.00000015829056, z: 0.0000044998087}
+      rotation: {x: 0.00000003669616, y: -0.25881907, z: -0.000000009832706, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBack_02
+      parentName: RTRig_R_HairBack_01
+      position: {x: 0.09867064, y: -0.0000002540666, z: -0.0000012519187}
+      rotation: {x: 0.00000007196118, y: -0.087155744, z: -0.0000000062957874, w: 0.9961947}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBack_03
+      parentName: RTRig_R_HairBack_02
+      position: {x: 0.098675, y: 0.000000009790588, z: -0.00000041732085}
+      rotation: {x: 0.00000013020788, y: -0.043619387, z: -0.000000005684999, w: 0.99904823}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBack_04
+      parentName: RTRig_R_HairBack_03
+      position: {x: 0.098678395, y: 0.00000017911462, z: 0.0000004676488}
+      rotation: {x: 1.1379202e-12, y: 8.1662284e-14, z: 2.630128e-11, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairBangs
+      parentName: RTRig_Head
+      position: {x: -0.1469082, y: -0.00000009969853, z: -0.088502035}
+      rotation: {x: -0.0000000392199, y: 0.976296, z: 0.000000018069095, w: -0.21643962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairBangs
+      parentName: RTRig_Head
+      position: {x: -0.1469082, y: 0.035882015, z: -0.08000856}
+      rotation: {x: -0.0000000392199, y: 0.976296, z: 0.000000018069095, w: -0.21643962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairFront_00
+      parentName: RTRig_Head
+      position: {x: -0.16877098, y: 0.026911484, z: -0.060574252}
+      rotation: {x: -0.27059808, y: 0.65328145, z: 0.6532815, w: -0.27059808}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairFront_01
+      parentName: RTRig_L_HairFront_00
+      position: {x: -0.089705735, y: 0.0000000014535005, z: -0.000000026015194}
+      rotation: {x: 0, y: -0.25881907, z: -0, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairFront_02
+      parentName: RTRig_L_HairFront_01
+      position: {x: -0.08970313, y: -0.0000000011613284, z: -0.0000000104291065}
+      rotation: {x: 0, y: -0.13052998, z: -0, w: 0.9914444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairFront_03
+      parentName: RTRig_L_HairFront_02
+      position: {x: -0.08970535, y: 7.35253e-11, z: -0.000000002201145}
+      rotation: {x: 0, y: -0.04361629, z: -0, w: 0.99904835}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairFront_04
+      parentName: RTRig_L_HairFront_03
+      position: {x: -0.08970568, y: 4.882019e-10, z: -0.000000004817801}
+      rotation: {x: 0, y: -2.3087857e-14, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairFront_00
+      parentName: RTRig_Head
+      position: {x: -0.16877082, y: -0.026911799, z: -0.06057426}
+      rotation: {x: -0.65328145, y: 0.27059802, z: -0.27059802, w: 0.65328157}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairFront_01
+      parentName: RTRig_R_HairFront_00
+      position: {x: 0.089705616, y: 0.0000000014534915, z: -0.00000009007839}
+      rotation: {x: 0.000000047651767, y: -0.25881907, z: 0.000000045834387, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairFront_02
+      parentName: RTRig_R_HairFront_01
+      position: {x: 0.08970313, y: -0.0000000022981945, z: 0.0000000139119525}
+      rotation: {x: 0.00000010235501, y: -0.13052998, z: 0.000000040561083, w: 0.9914444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairFront_03
+      parentName: RTRig_R_HairFront_02
+      position: {x: 0.08970535, y: -0.0000000010950145, z: 0.000000006333535}
+      rotation: {x: 0.00000020654848, y: -0.04361629, z: 0.000000027073723, w: 0.99904835}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairFront_04
+      parentName: RTRig_R_HairFront_03
+      position: {x: 0.08970568, y: -6.7313916e-10, z: 0.000000008877552}
+      rotation: {x: 0, y: 3.971232e-14, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_Hair
+      parentName: RTRig_Head
+      position: {x: -0.08355325, y: -0.00000010216537, z: -0.006751114}
+      rotation: {x: -0.7071067, y: -0.000000106135474, z: 0.00000010613548, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Hair
+      parentName: RTRig_Hair
+      position: {x: -2.842171e-16, y: -2.220446e-18, z: 6.7762634e-23}
+      rotation: {x: 0.00000013064762, y: -0.0000004105324, z: 5.363508e-14, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Hair
+      parentName: RTRig_Hair
+      position: {x: -0.000004982522, y: 0.000000002380799, z: 0}
+      rotation: {x: -0.00000014476556, y: -0.00000005225905, z: 1, w: -4.892684e-14}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairPonytail_00
+      parentName: RTRig_Head
+      position: {x: -0.11046486, y: -0.00000011229573, z: 0.10089524}
+      rotation: {x: -0.57357645, y: -0.000000020965595, z: 0.81915206, w: 0.000000027883187}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairPonytail_01
+      parentName: RTRig_HairPonytail_00
+      position: {x: -0.07176424, y: -3.5639205e-10, z: -0.000000015017719}
+      rotation: {x: 2.2335994e-10, y: -0.3007058, z: 7.501967e-11, w: 0.95371693}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairPonytail_02
+      parentName: RTRig_HairPonytail_01
+      position: {x: -0.07176427, y: -8.535721e-10, z: -0.000000016369434}
+      rotation: {x: 0.0000000020791047, y: -0.25881907, z: 5.6266863e-10, w: 0.9659259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_HairPonytail_03
+      parentName: RTRig_HairPonytail_02
+      position: {x: -0.07176417, y: 3.334344e-15, z: 0.000000013134973}
+      rotation: {x: 1.9345733e-10, y: -0.087155744, z: 1.1380601e-11, w: 0.9961947}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_HairSideburns
+      parentName: RTRig_Head
+      position: {x: -0.03917229, y: 0.074561164, z: -0.020864392}
+      rotation: {x: -0.000000029443477, y: 0.70710677, z: 0.7071068, w: -0.00000002944348}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairBangs
+      parentName: RTRig_Head
+      position: {x: -0.14690822, y: -0.035882, z: -0.080008514}
+      rotation: {x: -0.000000018069096, y: 0.21643956, z: -0.0000000392199, w: 0.976296}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_HairSideburns
+      parentName: RTRig_Head
+      position: {x: -0.039168224, y: -0.0745612, z: -0.020864418}
+      rotation: {x: -0.7071068, y: -0.000000007283007, z: -0.00000006616996, w: 0.70710677}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SPACE_Head
+      parentName: RTRig_Head
+      position: {x: -0.04155251, y: -2.689668e-16, z: -0.024848823}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.209, y: 0.156, z: 0.18720366}
+    - name: rt_head_geometry
+      parentName: SPACE_Head
+      position: {x: -0.02416271, y: 1.5473977e-15, z: 0.017994111}
+      rotation: {x: 0.7071068, y: -0.7071068, z: -4.3297806e-17, w: 4.3297806e-17}
+      scale: {x: 6.4102564, y: 4.784689, z: 5.341776}
+    - name: SPACE_Torso
+      parentName: RTRig_Chest
+      position: {x: -0.09602, y: 1.5777218e-32, z: 0.00097}
+      rotation: {x: 0, y: 0.009773688, z: -0, w: 0.99995226}
+      scale: {x: 0.4245, y: 0.303, z: 0.239}
+    - name: rt_torso_geometry
+      parentName: SPACE_Torso
+      position: {x: 2.9672527, y: 4.367331e-17, z: 0.13877948}
+      rotation: {x: 0.7070003, y: -0.7070003, z: 0.012271263, w: -0.012271263}
+      scale: {x: 3.30033, y: 2.356682, z: 4.1823792}
+    - name: RTRig_SpineEndTangent
+      parentName: RTRig_Chest
+      position: {x: 0.01, y: 3.9443044e-33, z: 1.110223e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_SpineStartTangent
+      parentName: RTRig_SpineStart
+      position: {x: -0.01, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Hip
+      parentName: RTRig_Pelvis
+      position: {x: 0.025498886, y: 0.079869255, z: 0.014794271}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -5.779274e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Knee
+      parentName: RTRig_L_Hip
+      position: {x: -0.44028208, y: 0.000000039212036, z: -2.5962835e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_Ankle
+      parentName: RTRig_L_Knee
+      position: {x: -0.39981997, y: -2.8703895e-10, z: 4.6619154e-13}
+      rotation: {x: -0.0000004804454, y: 0.7071068, z: 0.0000004804454, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_L_GroundBallPivot
+      parentName: RTRig_L_Ankle
+      position: {x: -0.14341292, y: 4.125257e-10, z: -0.06794452}
+      rotation: {x: 0, y: -0, z: -1.5881868e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Hip
+      parentName: RTRig_Pelvis
+      position: {x: 0.02549898, y: -0.0798693, z: 0.014794271}
+      rotation: {x: 6.123234e-17, y: 1, z: -2.8327693e-16, w: -8.896652e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Knee
+      parentName: RTRig_R_Hip
+      position: {x: -0.44028, y: -0.0000000010650635, z: -2.5962832e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_Ankle
+      parentName: RTRig_R_Knee
+      position: {x: -0.39981997, y: 2.6631244e-10, z: -1.579628e-11}
+      rotation: {x: 0.00000047824926, y: 0.7071068, z: -0.00000047824926, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RTRig_R_GroundBallPivot
+      parentName: RTRig_R_Ankle
+      position: {x: -0.14341299, y: -9.414693e-10, z: -0.0679445}
+      rotation: {x: -0, y: -6.6126704e-17, z: -2.1175824e-22, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SPACE_Hips
+      parentName: RTRig_Pelvis
+      position: {x: -0.01986, y: -5.6699375e-33, z: -0.00548}
+      rotation: {x: 0, y: -0.03665243, z: -0, w: 0.9993281}
+      scale: {x: 0.208, y: 0.315, z: 0.231}
+    - name: rt_pelvis_geometry
+      parentName: SPACE_Hips
+      position: {x: 4.5766516, y: 2.2686227e-17, z: -0.23762509}
+      rotation: {x: 0.7067213, y: -0.7067213, z: -0.023345578, w: 0.023345578}
+      scale: {x: 3.1746032, y: 4.8052506, z: 4.331204}
+    - name: RTRig_DeltaRootMotion
+      parentName: RTRig_Root
+      position: {x: 1.7436989e-17, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

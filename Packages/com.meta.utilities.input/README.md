@@ -2,11 +2,17 @@
 
 This package contains utilities relating to Unity's Input System.
 
-You can install this package by adding the following git url to [Package Manager](https://docs.unity3d.com/Manual/upm-ui-giturl.html): `https://github.com/oculus-samples/Unity-UltimateGloveBall.git?path=/Packages/com.meta.utilities.input`
+You can integrate this package into your own project by using the Package Manager to [add the following Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html):
+
+```txt
+https://github.com/oculus-samples/Unity-Discover.git?path=Packages/com.meta.utilities.input
+```
 
 ## XR Toolkit for Meta Avatars
 
 In order to use XR Toolkit with the Meta Avatars SDK, you can use the [XRInputManager](./XRInputManager.cs) in this package. Simply attach it to your camera rig prefab, and assign it to your Avatar Entity using the [`SetBodyTracking` API](https://developer.oculus.com/documentation/unity/meta-avatars-ovravatarentity/#tracking-input).
+
+All Avatars functionality in the package is gated behind the `HAS_META_AVATARS` preprocessor flag. To use this functionality, add `HAS_META_AVATARS` to your project's [Scripting Define Symbols](https://docs.unity3d.com/Manual/CustomScriptingSymbols.html).
 
 ## XR Device FPS Simulator
 
@@ -36,3 +42,11 @@ By default, the simulator will capture the mouse when you click the game view. I
 |-|-|
 |[XRTrackedPoseDriver](./XRTrackedPoseDriver.cs)|A simple extension to `TrackedPoseDriver` that calls a `UnityEvent` when updated.|
 |[InverseModifierComposite](./InverseModifierComposite.cs)|A variant of the `OneModifierComposite` action, which only activates while the modifier is not activated.|
+|[XRAnimatedHand](./XRAnimatedHand.cs)|Drive a hand animator using inputs from XR Toolkit.|
+|[XRInputProvider](./XRInputProvider.cs)|Singleton for referencing the `XRInputManager`.|
+|[FromXRHandDataSource](./Interaction/FromXRHandDataSource.cs)|Interaction SDK Hand Data Source driven by XR Toolkit.|
+|[FromXRHmdDataSource](./Interaction/FromXRHmdDataSource.cs)|Interaction SDK HMD Data Source driven by XR Toolkit.|
+|[HandednessFilter](./Interaction/HandednessFilter.cs)|Interaction SDK Interactor Filter that checks for a specific hand.|
+|[HandRefHelper](./Interaction/HandRefHelper.cs)|Singleton for easily referencing the Hands and Hand Anchors in the rig.|
+|[OnHandUpdated](./Interaction/OnHandUpdated.cs)|Component that calls a `UnityEvent` whenever the referenced Interaction SDK `Hand` is updated.|
+|[XRHandRefChooser](./Interaction/XRHandRefChooser.cs)|Helper class for switching the rig between controllers and hand tracking.|

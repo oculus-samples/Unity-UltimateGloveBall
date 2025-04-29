@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c8009495509c4e842fb4c11777892, type: 3}
+  m_Name: CustomHandPoseInfo
+  m_EditorClassIdentifier: 
+  sceneName: CustomHandPoseExample
+  sceneDescription: This example scene showcases custom hand posing. A prefab for
+    each hand skeleton is provided as well as a component to forward poses to the
+    SDK.

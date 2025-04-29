@@ -1,5 +1,7 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
+#if HAS_META_AVATARS
+
 using Oculus.Avatar2;
 using UnityEngine;
 
@@ -41,3 +43,5 @@ namespace Meta.Utilities.Input
         }
     }
 }
+
+#endif

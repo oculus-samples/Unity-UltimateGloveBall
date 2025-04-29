@@ -140,14 +140,12 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 1.1.0
+  bundleVersion: 2.0.0
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400000, guid: 2bd833c45ba445545a85f7d047f8e95e, type: 2}
-  - {fileID: 11400000, guid: 795ffafb602dfed43930c9717cafb655, type: 2}
-  - {fileID: 9063536110420965024, guid: eb1fb9be53949b94982164119889ba87, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -176,7 +174,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 76
+  AndroidBundleVersionCode: 78
   AndroidMinSdkVersion: 32
   AndroidTargetSdkVersion: 32
   AndroidPreferredInstallLocation: 0
@@ -271,8 +269,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: QuestDodgeball.keystore'
-  AndroidKeyaliasName: questdodgeball
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
@@ -280,7 +278,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 1
+  androidUseCustomKeystore: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -531,6 +529,8 @@ PlayerSettings:
     m_GraphicsJobMode: 0
   - m_BuildTarget: XboxOnePlayer
     m_GraphicsJobMode: 0
+  - m_BuildTarget: AndroidPlayer
+    m_GraphicsJobMode: 1
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 15000000
@@ -829,7 +829,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED
+    Android: CROSS_PLATFORM_INPUT;MOBILE_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED;ISDK_OPENXR_HAND
     EmbeddedLinux: PHOTON_VOICE_DEFINED
     GameCoreScarlett: PHOTON_VOICE_DEFINED
     GameCoreXboxOne: PHOTON_VOICE_DEFINED
@@ -840,7 +840,7 @@ PlayerSettings:
     PS5: PHOTON_VOICE_DEFINED
     QNX: PHOTON_VOICE_DEFINED
     Stadia: PHOTON_VOICE_DEFINED
-    Standalone: CROSS_PLATFORM_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED
+    Standalone: CROSS_PLATFORM_INPUT;OVR_PLATFORM_ASYNC_MESSAGES;PHOTON_VOICE_DEFINED;ISDK_OPENXR_HAND
     VisionOS: PHOTON_VOICE_DEFINED
     WebGL: PHOTON_VOICE_DEFINED
     Windows Store Apps: MOBILE_INPUT;PHOTON_VOICE_DEFINED

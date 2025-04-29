@@ -1,9 +1,12 @@
 // Copyright (c) Meta Platforms, Inc. and affiliates.
 
+#if HAS_META_AVATARS
+
 using Oculus.Avatar2;
-using UnityEditor;
 using UnityEngine;
+
 #if UNITY_EDITOR
+using UnityEditor;
 #endif
 
 namespace Meta.Utilities.Input
@@ -31,20 +34,19 @@ namespace Meta.Utilities.Input
 #if UNITY_2019_3_OR_NEWER
             SceneView.duringSceneGui += OnSceneGUI;
 #else
-        SceneView.onSceneGUIDelegate += OnSceneGUI;
+            SceneView.onSceneGUIDelegate += OnSceneGUI;
 #endif
 #endif
 
             m_controlActions.EnableActions();
         }
 
-        private void Start()
+        protected override void OnTrackingInitialized()
         {
-            if (BodyTracking != null)
-            {
-                BodyTracking.InputTrackingDelegate = new XRInputTrackingDelegate(m_ovrCameraRig, true);
-                BodyTracking.InputControlDelegate = new XRInputControlDelegate(m_controlActions);
-            }
+            var inputTrackingDelegate = new XRInputTrackingDelegate(m_ovrCameraRig, true);
+            var inputControlDelegate = new XRInputControlDelegate(m_controlActions);
+            _inputTrackingProvider = new OvrAvatarInputTrackingDelegatedProvider(inputTrackingDelegate);
+            _inputControlProvider = new OvrAvatarInputControlDelegatedProvider(inputControlDelegate);
         }
 
         protected override void OnDestroyCalled()
@@ -53,7 +55,7 @@ namespace Meta.Utilities.Input
 #if UNITY_2019_3_OR_NEWER
             SceneView.duringSceneGui -= OnSceneGUI;
 #else
-        SceneView.onSceneGUIDelegate -= OnSceneGUI;
+            SceneView.onSceneGUIDelegate -= OnSceneGUI;
 #endif
 #endif
 
@@ -81,36 +83,43 @@ namespace Meta.Utilities.Input
 
         private void DrawTrackingLocations()
         {
-            var inputTrackingState = BodyTracking.InputTrackingState;
+            if (InputTrackingProvider == null)
+            {
+                return;
+            }
+
+            var inputTrackingState = InputTrackingProvider.State;
 
             var radius = 0.2f;
             Quaternion orientation;
-
-            float OuterRadius() => radius + 0.25f;
-
-            Vector3 Forward() => orientation * Vector3.forward;
 
             Handles.color = Color.blue;
             _ = Handles.RadiusHandle(Quaternion.identity, inputTrackingState.headset.position, radius);
 
             orientation = inputTrackingState.headset.orientation;
-            Handles.DrawLine(inputTrackingState.headset.position + Forward() * radius,
-                inputTrackingState.headset.position + Forward() * OuterRadius());
+            Handles.DrawLine((Vector3)inputTrackingState.headset.position + Forward() * radius,
+                (Vector3)inputTrackingState.headset.position + Forward() * OuterRadius());
 
             radius = 0.1f;
             Handles.color = Color.yellow;
             _ = Handles.RadiusHandle(Quaternion.identity, inputTrackingState.leftController.position, radius);
 
             orientation = inputTrackingState.leftController.orientation;
-            Handles.DrawLine(inputTrackingState.leftController.position + Forward() * radius,
-                inputTrackingState.leftController.position + Forward() * OuterRadius());
+            Handles.DrawLine((Vector3)inputTrackingState.leftController.position + Forward() * radius,
+                (Vector3)inputTrackingState.leftController.position + Forward() * OuterRadius());
 
             Handles.color = Color.yellow;
             _ = Handles.RadiusHandle(Quaternion.identity, inputTrackingState.rightController.position, radius);
 
             orientation = inputTrackingState.rightController.orientation;
-            Handles.DrawLine(inputTrackingState.rightController.position + Forward() * radius,
-                inputTrackingState.rightController.position + Forward() * OuterRadius());
+            Handles.DrawLine((Vector3)inputTrackingState.rightController.position + Forward() * radius,
+                (Vector3)inputTrackingState.rightController.position + Forward() * OuterRadius());
+            return;
+
+            // Helper functions in scope
+            Vector3 Forward() => orientation * Vector3.forward;
+
+            float OuterRadius() => radius + 0.25f;
         }
 
         #endregion
@@ -118,3 +127,5 @@ namespace Meta.Utilities.Input
 #endif // UNITY_EDITOR
     }
 }
+
+#endif

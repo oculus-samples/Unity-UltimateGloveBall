@@ -1746,9 +1746,11 @@ GameObject:
   - component: {fileID: 7347214010407757093}
   - component: {fileID: 2639589616134429533}
   - component: {fileID: 4905773132181324928}
-  - component: {fileID: 7522475491851819156}
-  - component: {fileID: 831674340842041351}
+  - component: {fileID: 6168189444744127226}
+  - component: {fileID: 7966694689997910612}
   - component: {fileID: 7724953340620923437}
+  - component: {fileID: 5151816810408226996}
+  - component: {fileID: 3654588686182820549}
   m_Layer: 3
   m_Name: PlayerAvatarEntity
   m_TagString: Untagged
@@ -1816,17 +1818,19 @@ MonoBehaviour:
       lodFlags: 31
       manifestationFlags: 2
       viewFlags: 3
-      subMeshInclusionFlags: 2047
+      subMeshInclusionFlags: -1
       quality: 0
+      loadRigZipFromGlb: 1
       reserved: 0000000000000000000000000000000000000000000000000000000000000000
+  _validateCache: 1
   _activeView: 2
   _activeManifestation: 2
-  _activeSubMeshes: 2047
+  _activeSubMeshes: -1
   _activeSubMeshesIncludeUntyped: 1
-  _bodyTracking: {fileID: 0}
-  _facePoseBehavior: {fileID: 831674340842041351}
-  _eyePoseBehavior: {fileID: 7522475491851819156}
-  _lipSync: {fileID: 0}
+  _inputManager: {fileID: 0}
+  _facePoseBehavior: {fileID: 7966694689997910612}
+  _eyePoseBehavior: {fileID: 6168189444744127226}
+  _lipSync: {fileID: 5765091252785137564}
   _criticalJointTypes: 1200000016000000
   _useCriticalJointJobs: 0
   _debugDrawing:
@@ -1879,8 +1883,8 @@ MonoBehaviour:
     OnLoaded:
       m_PersistentCalls:
         m_Calls: []
-  m_facePoseProvider: {fileID: 831674340842041351}
-  m_eyePoseProvider: {fileID: 7522475491851819156}
+  m_facePoseProvider: {fileID: 7966694689997910612}
+  m_eyePoseProvider: {fileID: 6168189444744127226}
   m_rightHandPose: {fileID: 7347214010407757093}
   m_leftHandPose: {fileID: 3974380557604543501}
   m_respawnVfx: {fileID: 2905971973445319630}
@@ -1955,6 +1959,10 @@ MonoBehaviour:
   lodImportance: 0
   updateImportance: 0
   dynamicStreamLod: 0
+  stickyLOD: 0
+  stickyLODTimeDelay: 1.6
+  skipDelayedLodSwitchingCountdown: 1
+  isOutOfSight: 0
   lastUpdateAgeSeconds: 0
   lastUpdateAgeTicks: 0
   previousUpdateAgeWindowSeconds: 0
@@ -2108,7 +2116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbd58825f7e4d919946409e28d65f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7522475491851819156
+--- !u!114 &6168189444744127226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2117,10 +2125,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6697775241635953393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d9ca4252a965544a4613f39f18d361, type: 3}
+  m_Script: {fileID: 11500000, guid: 488cfafa131933046a924063017e8372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &831674340842041351
+--- !u!114 &7966694689997910612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2129,7 +2137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6697775241635953393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852db897867e8a0418e5c20c10cb0cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e0330898740b1e4ca2071e639e5ecbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7724953340620923437
@@ -2148,6 +2156,47 @@ MonoBehaviour:
   m_spawnCatDistance: 2
   m_respawnController: {fileID: 6606995026302884376}
   m_playerControllerNetwork: {fileID: 2639589616134429533}
+--- !u!114 &5151816810408226996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775241635953393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81521d61d0efc3a4b87b3783aee9f4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _customRigPrefab: {fileID: 5385166689473671844, guid: cbc02a91841771b4ab9f12678612c4b1, type: 3}
+  _customAnimationOnly: 0
+  _enableStaticAnimationOptimization: 0
+  _inputBlended: 1
+  _leftArmBlendFactor: 1
+  _rightArmBlendFactor: 1
+  _customAnimationBlendFactor: 0
+  _enableTrackedUpperBodyRotation: 1
+  _enableDebugRigVisual: 0
+  _enableIndependentUpperBodyHorizontalRotation: 1
+  _maxUpperBodyAngleDeviation: 45
+  _lowerBodyRotationDegreesPerSecond: 90
+  _enableRemoteScaling: 0
+  _remoteScaleFactor: 1
+  _mixedRealityAnimationOptions:
+    anchoringState: 0
+--- !u!114 &3654588686182820549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775241635953393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4df1c151ed14baab8aa285b7c2c7594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_avatarAnimationBehavior: {fileID: 5151816810408226996}
 --- !u!1 &7474497600499483782
 GameObject:
   m_ObjectHideFlags: 0

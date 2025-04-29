@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c8009495509c4e842fb4c11777892, type: 3}
+  m_Name: SkinningTypesExampleinfo
+  m_EditorClassIdentifier: 
+  sceneName: SkinningTypesExample
+  sceneDescription: "This scene enables multiple skinning types and shows them all
+    side-by-side via the OvrAvatarSkinningOverride monobehavior.\r\n\r\nIn general,
+    you\u2019ll want to use the default skinning type provided in OvrAvatarSdkManager,
+    OVR_COMPUTE, but we\u2019ve included avatars rendered with our legacy skinning
+    type, OVR_GPU and the failsafe UNITY skinning type in this scene.\r\n\r\nThis
+    scene is for illustrative purposes only . The UNITY skinning type has poor performance
+    and is not recommended in production. We also do not recommend using multiple
+    different skinning types in the same scene (as shown in this example) because
+    of high performance overhead."

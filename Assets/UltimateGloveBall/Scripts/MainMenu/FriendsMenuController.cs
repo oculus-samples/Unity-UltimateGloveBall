@@ -2,10 +2,12 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using System.Collections;
 using System.Collections.Generic;
 using Oculus.Platform;
 using UltimateGloveBall.App;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UltimateGloveBall.MainMenu
 {
@@ -15,6 +17,8 @@ namespace UltimateGloveBall.MainMenu
     /// </summary>
     public class FriendsMenuController : BaseMenuController
     {
+        private const float LOADING_ROTATION_SPEED = -100f;
+
         [SerializeField] private JoinFriendListElement m_friendListElementPrefab;
         [SerializeField] private Transform m_contentTransform;
 
@@ -24,9 +28,14 @@ namespace UltimateGloveBall.MainMenu
 
         [SerializeField] private GameObject m_noFriendsMessage;
 
+        [SerializeField] private Image m_loadingImage;
+
+        private bool m_isLoadingFriendsList = false;
+
         public void OnEnable()
         {
             HideAllFriends();
+            StartLoadingFriendsList();
             _ = Users.GetLoggedInUserFriends().OnComplete(OnFriendListReceived);
         }
 
@@ -42,8 +51,28 @@ namespace UltimateGloveBall.MainMenu
             UGBApplication.Instance.NavigationController.WatchMatch(destinationAPI, sessionId);
         }
 
+        private void StartLoadingFriendsList()
+        {
+            m_isLoadingFriendsList = true;
+            m_loadingImage.enabled = true;
+
+            _ = StartCoroutine(RotateLoadingImage());
+        }
+
+        private IEnumerator RotateLoadingImage()
+        {
+            while (m_isLoadingFriendsList)
+            {
+                m_loadingImage.transform.Rotate(0, 0, LOADING_ROTATION_SPEED * Time.deltaTime);
+                yield return null;
+            }
+        }
+
         private void OnFriendListReceived(Message<Oculus.Platform.Models.UserList> users)
         {
+            m_isLoadingFriendsList = false;
+            m_loadingImage.enabled = false;
+
             var i = 0;
             foreach (var user in users.Data)
             {

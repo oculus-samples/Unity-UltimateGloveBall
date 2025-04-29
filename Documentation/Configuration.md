@@ -2,7 +2,7 @@
 In order for this project to be functional in editor and on device there is some initial setup that needs to be done.
 
 ## Application Configuration
-In order to run the project and use the platform services we need to create an application on the [Meta Quest Developer Center](https://developer.oculus.com/). 
+In order to run the project and use the platform services we need to create an application on the [Meta Quest Developer Center](https://developers.meta.com/horizon/).
 
 To run on device you will need a Quest application, and to run in editor you will need a Rift application. The following sections will describe the configuration required for the application to run.
 
@@ -148,3 +148,9 @@ In the case of our project we wanted players to be able to play in different reg
 ![Photon Whitelist](./Media/photon_whitelist.png "Photon Whitelist")
 
 The Photon Realtime transport should now work. You can check the dashboard in your Photon account to verify there is network traffic.
+
+## Upload to release channel
+To use the platform features, you will first need to upload an initial build to a release channel.
+For instructions you can go to the [developer center](https://developers.meta.com/horizon/resources/publish-release-channels-upload/). Then to be able to test with other users you will need to add them to the channel, more information in the [Add Users to Release Channel](https://developers.meta.com/horizon/resources/publish-release-channels-add-users/) topic.
+
+Once the initial build is uploaded you will be able to use any development build with the same application Id, no need to upload every build to test local changes.

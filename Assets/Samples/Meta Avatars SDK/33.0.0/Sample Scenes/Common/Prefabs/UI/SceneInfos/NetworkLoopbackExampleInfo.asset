@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c8009495509c4e842fb4c11777892, type: 3}
+  m_Name: NetworkLoopbackExampleInfo
+  m_EditorClassIdentifier: 
+  sceneName: NetworkLoopbackExample
+  sceneDescription: 'This example scene provides a mock code example of how to integrate
+    avatars into a networking packet queue. It contains the first-person user avatar
+    and a third-person avatar that mimics user movements. This scene also shows how
+    to launch the avatar editor.
+
+    
+
+    The provided code shows how calling
+    the <b>OvrAvatarEntity</b> method <b>RecordStreamData()</b> captures 1st-person
+    avatar movement as binary data ideal for sending over a network. When retrieved
+    from the packet queue, it is passed to the <b>ApplyStreamData()</b> method to
+    allow the 3rd-person avatar to mimic the user.'

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906c8009495509c4e842fb4c11777892, type: 3}
+  m_Name: LegsNetworkLoopbackInfo
+  m_EditorClassIdentifier: 
+  sceneName: LegsNetworkLoopback
+  sceneDescription: Building on the example of Network Loopback Scene, this scene
+    shows how to leverage the built-in animation controller to provide animation
+    to fully-embodied avatars in a networking context, as well as how to incorporate
+    your own custom animations.

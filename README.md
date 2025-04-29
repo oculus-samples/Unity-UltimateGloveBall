@@ -12,7 +12,7 @@ See the [CONTRIBUTING](./CONTRIBUTING.md) file for how to help out.
 
 This project was built using the Unity engine with [Photon Realtime](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) as the transport layer and [Unity Netcode for GameObjects](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects).
 
-You can test the game out on [AppLab - Ultimate Glove Ball](https://www.oculus.com/experiences/quest/5704438046269164/).
+You can test the game out on [Meta Horizon Store - Ultimate Glove Ball](https://www.meta.com/en-gb/experiences/ultimate-glove-ball/5704438046269164/).
 
 ## Project Description
 This project is an application for the Meta Quest devices that demonstrate a fast pace sport game that can be played with friends or strangers. It shows how to integrate connection between users joining random games or specific rooms, invite friends and group launch a party in the same arena, or join as a spectator to a game already in progress. We also integrated Meta Avatars for players to represent their VR persona and voice chat for easy communication.
