@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Crowd
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Crowd
     /// On initialization we randomize the start time and speed of the animation.
     /// The item used can also be changed.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class CrowdNPC : MonoBehaviour
     {
         private static readonly int s_bodyColorID = Shader.PropertyToID("_Body_Color");

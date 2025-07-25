@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// The ghost ball will change to a bland ball after the effect timer runs out. It also set the player holding the
     /// ball to be in an invulnerable state. When thrown the player loses the invunerability.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GhostBall : BallBehaviour
     {
         [SerializeField, AutoSet] private BallNetworking m_ballNet;

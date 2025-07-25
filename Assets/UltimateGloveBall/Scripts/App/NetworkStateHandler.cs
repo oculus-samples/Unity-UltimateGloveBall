@@ -5,6 +5,7 @@
 using System;
 using System.Collections;
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.App
     /// Setup the state of the application based on the connection state of the network layer.
     /// Handles Host connection, Client Connection and Lobby Connection. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class NetworkStateHandler
     {
         private MonoBehaviour m_coroutineRunner;

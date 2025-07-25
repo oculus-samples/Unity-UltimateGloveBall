@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Player
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Player
     /// <summary>
     /// Controls the animation of the spring based on the players press state. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GloveSpringController : MonoBehaviour
     {
         private const float COMPRESSION_RATE = 300f;

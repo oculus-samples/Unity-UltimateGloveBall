@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Spectator
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Arena.Spectator
     /// <summary>
     /// Base class for all spectator items so we can set the team color on the item.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class SpectatorItem : MonoBehaviour
     {
         private static readonly int s_attachmentColorID = Shader.PropertyToID("_Attachment_Color");

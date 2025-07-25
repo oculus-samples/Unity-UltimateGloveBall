@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Syncs glove armature state on the network.
     /// Ghost effect, shield indicator, spring state, shield state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GloveArmatureNetworking : NetworkBehaviour
     {
         private static readonly int s_ghostProperty = Shader.PropertyToID("ENABLE_GHOST_EFFECT");

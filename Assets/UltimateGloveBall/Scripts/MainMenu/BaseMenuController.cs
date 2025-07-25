@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.MainMenu
     /// <summary>
     /// This is the base for the menu controller that controls the different views in the MainMenu.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class BaseMenuController : MonoBehaviour
     {
         [SerializeField] private List<Button> m_menuButtons;

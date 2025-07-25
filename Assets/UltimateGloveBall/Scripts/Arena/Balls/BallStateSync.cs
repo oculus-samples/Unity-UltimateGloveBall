@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Player;
 using Unity.Netcode;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// handles the ball to keep the visual in sync between the ball and the glove for all players.
     /// We can set the update rate and smoothing factors.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(BallNetworking))]
     [RequireComponent(typeof(Rigidbody))]
     public class BallStateSync : NetworkBehaviour

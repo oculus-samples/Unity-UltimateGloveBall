@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Design;
 using UltimateGloveBall.Networking.Pooling;
@@ -18,6 +19,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// <summary>
     /// Handles the spawning and despawning of the balls using the network object pool for them.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class BallSpawner : NetworkBehaviour
     {
         #region Fields

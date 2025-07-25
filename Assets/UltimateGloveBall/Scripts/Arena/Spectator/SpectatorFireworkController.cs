@@ -4,6 +4,7 @@
 
 using System.Collections;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Spectator
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Spectator
     /// <summary>
     /// Singleton to control the fireworks triggered by the spectators.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class SpectatorFireworkController : Singleton<SpectatorFireworkController>
     {
         private const float FIREWORK_MAX_TRAVEL_TIME = 1.0f;

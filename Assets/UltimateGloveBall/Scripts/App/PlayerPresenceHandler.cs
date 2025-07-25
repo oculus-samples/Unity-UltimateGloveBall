@@ -5,6 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using Oculus.Platform;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.App
     /// Loads and keeps track of the Destinations through the RichPresence API and extract the deeplink message.
     /// Generate and exposes the current group presence state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerPresenceHandler
     {
         private bool m_destinationReceived;

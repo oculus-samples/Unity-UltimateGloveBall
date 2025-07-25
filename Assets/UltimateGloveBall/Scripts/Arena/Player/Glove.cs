@@ -4,6 +4,7 @@
 
 using System;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using Oculus.Interaction;
 using UltimateGloveBall.Arena.Balls;
@@ -18,6 +19,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Handles the local logic of the gloves. Glove movement, actions trigger, target tracking for homing ball,
     /// targeting indicator to floor and balls, holding balls, 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class Glove : MonoBehaviour
     {
         public enum GloveSide

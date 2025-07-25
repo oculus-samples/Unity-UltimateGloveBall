@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Utils
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Utils
     /// Add this to a gameobject that we want to face the main camera and flip based on the position on the
     /// world Z axis.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class FacePlayerOnZUI : MonoBehaviour
     {
         private Transform m_mainCamTransform;

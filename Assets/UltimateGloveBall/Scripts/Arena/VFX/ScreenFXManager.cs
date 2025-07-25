@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.VFX
     /// the vignettes.
     /// It also keeps the vignettes in sync with the main camera position.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ScreenFXManager : Singleton<ScreenFXManager>
     {
         [SerializeField] private GameObject m_deathVignette;

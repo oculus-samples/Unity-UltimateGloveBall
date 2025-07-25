@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// The electric ball needs to handle it's vfx when the state of the ball changes.
     /// This will turn off the vfx when the ball dies and reenable it on reset.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(BallNetworking))]
     public class ElectricBall : BallBehaviour
     {

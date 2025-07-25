@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Player.Respawning;
 using UltimateGloveBall.Arena.Services;
@@ -19,6 +20,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Controls the player state. Handles the state of the shield, the invulnerability, team state and reference the
     /// respawn controller.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerControllerNetwork : NetworkBehaviour
     {
         private const float SHIELD_USAGE_RATE = 20f;

@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using UltimateGloveBall.Arena.Gameplay;
 
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Player
     /// This keeps a reference to the game objects that forms a player entity. It also initializes once all components
     /// are assigned.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerGameObjects
     {
         public PlayerControllerNetwork PlayerController;

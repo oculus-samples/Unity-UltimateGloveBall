@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Design
     /// Configurable scriptable object to define the ball types that can be randomly spawn and their weight for the
     /// randomization function.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [CreateAssetMenu(fileName = "BallSpawnData", menuName = "Ball Spawn Data")]
     public class BallSpawningData : ScriptableObject
     {

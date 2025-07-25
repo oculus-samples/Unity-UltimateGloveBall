@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 #endif
 using System.Text;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.App
@@ -16,6 +17,7 @@ namespace UltimateGloveBall.App
     /// Keeps track of the local player state that can be access from anywhere.
     /// These are game specific player states.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class LocalPlayerState : Singleton<LocalPlayerState>
     {
         [SerializeField] private string m_applicationID;

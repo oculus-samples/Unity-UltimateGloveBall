@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Balls;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Player
     /// This Cat AI component integrate logic for the cat to follow it's owner on a navigation mesh.
     /// The cat will also react to being hit by a ball.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(NavMeshAgent))]
     public class CatAI : MonoBehaviour
     {

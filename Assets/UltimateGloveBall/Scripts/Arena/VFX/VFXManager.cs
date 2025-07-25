@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.VFX
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.VFX
     /// Manages the game vfx.
     /// Keeps a circular list of the hit vfx and play them sequentially.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class VFXManager : Singleton<VFXManager>
     {
         [SerializeField] private List<ParticleSystem> m_hitVfxs;

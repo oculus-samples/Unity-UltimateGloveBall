@@ -4,6 +4,7 @@
 
 using Meta.Multiplayer.Core;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Services;
 using UltimateGloveBall.Utils;
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.Arena.Player
     /// It is possible to set boundaries so that the player can't move beyond those borders.
     /// The movements are based on the players head position rather than the center of the CameraRig.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerMovement : Singleton<PlayerMovement>
     {
         [SerializeField] private OVRCameraRig m_cameraRig;

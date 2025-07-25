@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Player
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Controls the shield indicator state on the glove armature. Updating the visual to show the level of energy
     /// remaining for the shield and the charging state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ShieldIndicator : MonoBehaviour
     {
         private static readonly int s_emissionParam = Shader.PropertyToID("_EmissionColor");

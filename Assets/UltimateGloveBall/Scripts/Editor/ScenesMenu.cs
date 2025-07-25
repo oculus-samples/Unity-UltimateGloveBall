@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Editor
     /// <summary>
     /// Adds a quick way to load the different scenes by adding a button for each scene on the toolbar.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public static class ScenesMenu
     {
 

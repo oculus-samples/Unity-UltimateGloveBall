@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using Oculus.Platform;
 using Oculus.Platform.Models;
 using TMPro;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.MainMenu
     /// <summary>
     /// Element that shows the friends user information and state, and handles button clicks.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class JoinFriendListElement : MonoBehaviour
     {
         [SerializeField] private TMP_Text m_usernameText;

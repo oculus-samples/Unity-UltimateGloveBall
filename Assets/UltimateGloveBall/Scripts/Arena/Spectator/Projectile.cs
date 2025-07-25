@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Spectator
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Arena.Spectator
     /// <summary>
     /// Projectile logic used to move a gameobject based on the launched information.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class Projectile : MonoBehaviour
     {
         private Vector3 m_startPos;

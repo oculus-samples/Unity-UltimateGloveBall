@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Player;
 using UltimateGloveBall.Arena.Spectator;
@@ -18,6 +19,7 @@ namespace UltimateGloveBall.Arena.Services
     /// the right position. When a player requests to be spawned in the game, this controller will assess what player
     /// or spectator prefab to generate, their position, team and team color.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ArenaPlayerSpawningManager : SpawningManagerBase
     {
         [SerializeField] private NetworkObject m_playerPrefab;

@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Multiplayer.Avatar;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.Arena.Player
     /// When the skeleton is loaded we reference it to the players entities and enable the respawn vfx.
     /// We apply the fixed hand pose so the avatar hands are always in a fist during game play.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerAvatarEntity : AvatarEntity
     {
         [SerializeField] private OvrAvatarCustomHandPose m_rightHandPose;

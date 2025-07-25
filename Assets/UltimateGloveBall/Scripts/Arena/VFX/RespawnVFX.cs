@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Multiplayer.Avatar;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.VFX
     /// As soon as the gameobject is enable the animation starts and when the animation is done it will deactivate the
     /// gameobject.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class RespawnVFX : MonoBehaviour
     {
         private static readonly int s_dissolveAmountParam = Shader.PropertyToID("_DisAmount");

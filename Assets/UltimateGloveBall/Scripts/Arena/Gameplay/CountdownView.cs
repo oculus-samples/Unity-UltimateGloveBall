@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// Handles the countdown view at the beginning of the game, including visual and audio when the number changes.
     /// It also has a callback when the countdown is complete.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class CountdownView : MonoBehaviour
     {
         [SerializeField] private TMP_Text m_text;

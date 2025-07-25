@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Oculus.Interaction;
 using Oculus.Interaction.Input;
 using UltimateGloveBall.App;
@@ -20,6 +21,7 @@ namespace UltimateGloveBall.Arena.Services
     /// This is necessary since the different entities are different networked object that can be loaded in any order
     /// and we need to setup the player only once all their entities are spawned and loaded.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class LocalPlayerEntities : Singleton<LocalPlayerEntities>
     {
         public PlayerControllerNetwork LocalPlayerController;

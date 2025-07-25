@@ -5,6 +5,7 @@
 using System;
 using System.Collections;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Services;
 using UltimateGloveBall.Arena.VFX;
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.Arena.Player.Respawning
     /// Handles the state of a player when they get knocked out. Set the state of the player on knock out and handles
     /// respawn timing and player visual state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(NetworkedTeam))]
     public class RespawnController : NetworkBehaviour
     {

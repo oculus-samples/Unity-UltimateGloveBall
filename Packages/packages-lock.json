@@ -50,7 +50,7 @@
       }
     },
     "com.meta.xr.sdk.audio": {
-      "version": "72.0.0",
+      "version": "76.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -78,14 +78,14 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.core": {
-      "version": "72.0.0",
+      "version": "76.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction": {
-      "version": "72.0.0",
+      "version": "76.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -95,17 +95,17 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction.ovr": {
-      "version": "72.0.0",
+      "version": "76.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "72.0.0",
-        "com.meta.xr.sdk.interaction": "72.0.0"
+        "com.meta.xr.sdk.core": "76.0.0",
+        "com.meta.xr.sdk.interaction": "76.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.platform": {
-      "version": "72.0.0",
+      "version": "76.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {

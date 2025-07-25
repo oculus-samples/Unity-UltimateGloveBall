@@ -4,6 +4,7 @@
 
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Services
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Services
     /// Manages the current Arena session, it keeps track of the player data for each client that connects.
     /// By keeping the information of each player the ArenaSpawningManager can keep track of players that reconnects.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ArenaSessionManager : Singleton<ArenaSessionManager>
     {
         private readonly Dictionary<string, ArenaPlayerData> m_playerDataDict;

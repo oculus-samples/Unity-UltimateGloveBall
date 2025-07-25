@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.App
     /// It gets and set each volume property to the the settings to save the state between application launches.
     /// Dynamically generated SFX audio source can be assigned to the SFX Mixer group.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class AudioController : Singleton<AudioController>
     {
         private const string MUSIC_VOL = "MusicVol";

@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Spectator;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
     /// <summary>
     /// Game settings menu view for the in game menu.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class InGameSettingsMenu : BasePlayerMenuView
     {
         [SerializeField] private Slider m_musicVolumeSlider;

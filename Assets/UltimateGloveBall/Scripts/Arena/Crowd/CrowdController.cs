@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.Arena.Crowd
     /// Controls the crowd npc in the bleachers. Initializing the crowd member and setting their team colors.
     /// It also handles the crowd audio based on the game score and the game phase. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class CrowdController : NetworkBehaviour, IGamePhaseListener
     {
         private static readonly int s_attachmentColorID = Shader.PropertyToID("_Attachment_Color");

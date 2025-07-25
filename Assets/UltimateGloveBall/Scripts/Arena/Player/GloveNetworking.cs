@@ -4,6 +4,7 @@
 
 using System;
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Balls;
 using UltimateGloveBall.Arena.Services;
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Glove network state sync.
     /// Ghost effect, zip sounds, animation state, side, flying and ball grabbed.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(Glove))]
     public class GloveNetworking : NetworkBehaviour
     {

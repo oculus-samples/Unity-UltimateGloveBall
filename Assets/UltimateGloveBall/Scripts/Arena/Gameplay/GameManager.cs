@@ -5,6 +5,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Balls;
 using UltimateGloveBall.Arena.Environment;
@@ -23,6 +24,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// Post-Game). It handles keeping track of what teams players are on during the pregame phase, seting up
     /// the scene according to the pahse and randomly selecting a color profile for the game.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GameManager : NetworkBehaviour
     {
         private const double GAME_START_COUNTDOWN_TIME_SEC = 4;

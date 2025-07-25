@@ -4,6 +4,7 @@
 
 using ExitGames.Client.Photon;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Netcode.Transports.PhotonRealtime;
 using Photon.Realtime;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.App
     /// Implements functions used on Photon connection. Setting the right room options based on the application state.
     /// Exposes room properties for player slots open and spectator slots open.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PhotonConnectionHandler : MonoBehaviour
     {
         public const string SPECTATOR_SLOT_OPEN = "spec";

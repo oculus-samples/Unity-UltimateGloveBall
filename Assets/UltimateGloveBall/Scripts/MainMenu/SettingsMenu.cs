@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.App;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace UltimateGloveBall.MainMenu
     /// Set GameSettings through sliders and toggle buttons.
     /// Shows the current version of the application. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class SettingsMenu : BaseMenuController
     {
         [SerializeField] private Slider m_musicVolumeSlider;

@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.App;
 using Unity.Netcode;
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
     /// <summary>
     /// Menu that shows some debug info to the user.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class DebugInfoMenu : BasePlayerMenuView
     {
         [SerializeField] private TMP_Text m_serverTimeText;

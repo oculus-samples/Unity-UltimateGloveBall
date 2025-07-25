@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.MainMenu
     /// This is a custom implementation so that we can keep reference of the pointers on the button as well as
     /// change the internal state of the image and text of the button when hovered.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class MainMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private static readonly Color s_highlightTextColor = new(174f / 255f, 0f, 1f);

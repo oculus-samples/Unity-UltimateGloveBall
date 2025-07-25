@@ -3,12 +3,14 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 
 namespace UltimateGloveBall.App
 {
     /// <summary>
     /// Maps Photon regions to user readable names.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public static class NetworkRegionMapping
     {
         private static readonly Dictionary<string, string> s_regionMap = new()

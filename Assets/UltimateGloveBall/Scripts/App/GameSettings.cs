@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.App
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.App
     /// Wrapper over PlayerPrefs for the different settings we have in the game. The settings instance can be access
     /// to get or set the game settings.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GameSettings
     {
         #region singleton

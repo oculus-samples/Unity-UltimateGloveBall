@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using Unity.Collections;
 using Unity.Netcode;
@@ -19,6 +20,7 @@ namespace UltimateGloveBall.Arena.Services
     /// maximum spectators is reached. This is an additional check as Photon only has a check for total number of
     /// users in a room. if a player is rejected we send a message to the NetworkLayer of the reason for rejection.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ArenaApprovalController : MonoBehaviour
     {
         [Serializable]

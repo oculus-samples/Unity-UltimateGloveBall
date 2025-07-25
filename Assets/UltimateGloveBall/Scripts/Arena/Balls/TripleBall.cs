@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// The triple ball will spawn 3 balls shortly after being thrown. The split is done only on the server and
     /// propagated to the clients.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(BallNetworking))]
     public class TripleBall : BallBehaviour
     {

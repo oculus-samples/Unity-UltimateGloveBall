@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// Sync team color for colored renderers to all clients. This component will color all renderers listed with the
     /// associated TeamColor.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class TeamColoringNetComponent : NetworkBehaviour
     {
         private static readonly int s_colorProperty = Shader.PropertyToID("_BaseColor");

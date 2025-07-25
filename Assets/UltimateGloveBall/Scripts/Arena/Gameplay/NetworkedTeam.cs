@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Player;
 using Unity.Netcode;
 
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// Component that keeps the team information of a network object in sync between clients.
     /// When the team changes we also update the movement limits of the local player.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class NetworkedTeam : NetworkBehaviour
     {
         public enum Team

@@ -4,6 +4,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using Oculus.Platform;
 using UltimateGloveBall.App;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.MainMenu
     /// Controls the friends menu view. Loads the users firends using the Platform API and setup the friends list.
     /// Handles actions to join or watch a friend and navigate to their arena.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class FriendsMenuController : BaseMenuController
     {
         private const float LOADING_ROTATION_SPEED = -100f;

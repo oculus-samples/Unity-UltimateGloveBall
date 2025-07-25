@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Gameplay;
 
 namespace UltimateGloveBall.Arena.Services
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Services
     /// This is a container of data for players connecting to the arena. It's a state of connection of a player that can
     /// be used when a player tries to reconnect to the same arena.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public struct ArenaPlayerData
     {
         public ulong ClientId;

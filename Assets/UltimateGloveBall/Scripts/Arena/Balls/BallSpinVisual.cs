@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.Design;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,8 +11,9 @@ namespace UltimateGloveBall.Arena.Balls
 {
     /// <summary>
     /// Handles the ball spinning behaviour. We can change the state of the ball and this behaviour will handle
-    /// the spining visual of the gameobject.
+    /// the spinning visual of the gameobject.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class BallSpinVisual : MonoBehaviour
     {
         public enum SpinState

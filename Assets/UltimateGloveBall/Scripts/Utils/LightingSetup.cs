@@ -5,6 +5,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Utils
@@ -16,6 +17,7 @@ namespace UltimateGloveBall.Utils
     /// Setup for Lighting: will setup the scene ready for the light baking
     /// Revert after lighting: will revert the changes set by "Setup for Lighting"
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class LightingSetup : MonoBehaviour
     {
         [SerializeField] private GameObject[] m_objectsToEnable;

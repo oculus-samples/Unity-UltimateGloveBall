@@ -2,11 +2,14 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
+
 namespace UltimateGloveBall.Arena.Services
 {
     /// <summary>
     /// Enum of the different team colors we use. Used by the TeamColorProfiles singleton.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public enum TeamColor
     {
         // Each profile key should be in order A-B and it should be an even number

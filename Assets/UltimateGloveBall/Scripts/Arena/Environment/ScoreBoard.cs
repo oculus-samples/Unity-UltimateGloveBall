@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Services;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.Arena.Environment
     /// rendering of the scoreboard when it changes to the render texture. This listens to the game phase changes from
     /// the game manager to handle the different phase messages.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ScoreBoard : MonoBehaviour, IGamePhaseListener
     {
         [SerializeField] private GameManager m_gameManager;

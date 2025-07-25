@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Meta.XR.Samples;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -18,6 +19,7 @@ namespace UltimateGloveBall.Networking.Pooling
     /// This script is based on the Unity's Network Object pooling tutorial
     /// https://docs-multiplayer.unity3d.com/netcode/current/advanced-topics/object-pooling/index.html
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class NetworkObjectPool : NetworkBehaviour
     {
         [Serializable]

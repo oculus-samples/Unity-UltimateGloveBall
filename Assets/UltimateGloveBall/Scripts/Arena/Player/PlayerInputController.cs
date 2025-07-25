@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Player.Menu;
 using UltimateGloveBall.Arena.Services;
@@ -18,6 +19,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Handles player inputs.
     /// Based on the state of the player it will process to the proper inputs and call the appropriate methods.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerInputController : Singleton<PlayerInputController>
     {
         [SerializeField, AutoSet] private PlayerInput m_input;

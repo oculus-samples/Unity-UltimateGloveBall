@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Environment;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Player;
@@ -24,6 +25,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// physics. Updating score and knocking out players.
     /// It has event that works with the BallStateSync class to keep the ball position synchronized between players.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class BallNetworking : NetworkBehaviour
     {
         public event Action BallWasThrownLocally;

@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// <summary>
     /// Manages which music to play based on the current game phase.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(AudioSource))]
     public class GameMusicManager : MonoBehaviour, IGamePhaseListener
     {

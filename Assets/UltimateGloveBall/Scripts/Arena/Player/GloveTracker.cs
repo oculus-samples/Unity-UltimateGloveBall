@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Player
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Anchors the glove to the transform of this component.
     /// Executed after AvatarNetworking so that we follow the wrist properly
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [DefaultExecutionOrder(10100)]
     public class GloveTracker : MonoBehaviour
     {

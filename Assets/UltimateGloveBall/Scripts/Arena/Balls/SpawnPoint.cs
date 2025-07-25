@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Balls
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// The spawn points keeps track of the ball it has keeps a state if a ball is currently on the spawn point
     /// or was taken.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(BoxCollider))]
     public class SpawnPoint : MonoBehaviour
     {

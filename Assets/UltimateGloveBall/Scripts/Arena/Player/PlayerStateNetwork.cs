@@ -4,6 +4,7 @@
 
 using Meta.Multiplayer.Core;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using Unity.Collections;
 using Unity.Netcode;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Keeps track of the players state and sync's it over the network to other client.
     /// It also handles updating the player name visual and the voip mute/unmute state. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerStateNetwork : NetworkBehaviour
     {
         [SerializeField] private PlayerNameVisual m_playerNameVisual;

@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Spectator
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Spectator
     /// <summary>
     /// This spectator item has custom logic to launch a firework in the arena.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class FireworkLauncherItem : SpectatorItem
     {
         private const float FIREWORK_RECHARGE = 5.0f;

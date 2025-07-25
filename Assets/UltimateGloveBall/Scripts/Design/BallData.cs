@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Design
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Design
     /// <summary>
     /// Configurable scriptable object that exposes the Ball data. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [CreateAssetMenu(fileName = "BallData", menuName = "Balls/Data")]
     public class BallData : ScriptableObject
     {

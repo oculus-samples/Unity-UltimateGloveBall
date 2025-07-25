@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.VFX
     /// editable boxes in editor to define where the fireworks can be spawned.
     /// It plays fireworks randomly from the array of firewaorks provided as well as play the firework audio sound.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class FireworkController : MonoBehaviour
     {
         [SerializeField] private ParticleSystem[] m_fireworks;

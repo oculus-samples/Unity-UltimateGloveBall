@@ -3,12 +3,14 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UltimateGloveBall.MainMenu
 {
+    [MetaCodeSample("UltimateGloveBall")]
     public class ScrollViewController : MonoBehaviour
     {
         private enum Pointers

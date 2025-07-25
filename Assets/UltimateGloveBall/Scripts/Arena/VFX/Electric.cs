@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.VFX
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Arena.VFX
     /// <summary>
     /// Component added to the electric vfx gameobject using a line renderer.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(LineRenderer))]
     public class Electric : MonoBehaviour
     {

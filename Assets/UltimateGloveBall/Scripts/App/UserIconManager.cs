@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.App
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.App
     /// with the list of icons sku mapped to the icon sprite. This makes it easy to map the sku to the sprite
     /// through the game.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class UserIconManager : Singleton<UserIconManager>
     {
         [Serializable]

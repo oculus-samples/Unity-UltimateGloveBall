@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.App;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.MainMenu
     /// This menu controller presents the Store were we can buy items. It handles showing the icons to be purchased and
     /// selected. It also handles the purchase flow.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class StoreMenuController : BaseMenuController
     {
         [SerializeField] private StoreIconButton m_storeIconButtonPrefab;

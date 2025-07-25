@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Player.Respawning;
 using UltimateGloveBall.Utils;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Player
     /// <summary>
     /// Keeps the hud gameobject in front of the players camera with lazy tracking.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerHud : Singleton<PlayerHud>
     {
         #region Properties

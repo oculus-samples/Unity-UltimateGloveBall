@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 
 namespace UltimateGloveBall.App
 {
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.App
     /// Manages muting users voice. It keeps track of the users mute state.
     /// Register callbacks to receive notifications when the mute state changes for a user.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class UserMutingManager
     {
         private static UserMutingManager s_instance;

@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Crowd;
 using UltimateGloveBall.Arena.Player;
 using UltimateGloveBall.Arena.Services;
@@ -16,6 +17,7 @@ namespace UltimateGloveBall.Arena.Spectator
     /// their spectator representation shows, which is propagated through the network. It also handles the firework
     /// launching.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class SpectatorNetwork : NetworkBehaviour
     {
         private const float ITEM_CHANGE_PROPAGATION_DELAY = 1f;

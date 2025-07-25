@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Balls;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Player;
@@ -16,6 +17,7 @@ namespace UltimateGloveBall.Arena.Environment
     /// <summary>
     /// Networked obstacles in the game. They keep the inflation state in sync. Handles sounds on collision and color.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class Obstacle : NetworkBehaviour
     {
         private const float INFLATION_RATE = 70f;

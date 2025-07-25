@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.MainMenu
     /// This button shows the icons that can be purchased or selected. It handles the internal state of the button
     /// and expose key data to be used in the <see cref="StoreMenuController"/>.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class StoreIconButton : MonoBehaviour
     {
         [SerializeField] private TMP_Text m_priceText;

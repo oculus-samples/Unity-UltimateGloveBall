@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using Oculus.Platform;
 using Oculus.Platform.Models;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.App
     /// This makes it easy to fetch all products and purchases as well as make a purchase.
     /// Referenced from: https://developer.oculus.com/documentation/unity/ps-iap/
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class IAPManager
     {
         #region Singleton

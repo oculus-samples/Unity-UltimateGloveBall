@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using Unity.Netcode;
 
 namespace UltimateGloveBall.Arena.Gameplay
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// Game score is networked to be kept in sync between all the clients.
     /// Register to the OnScoreUpdated to get an update when the score changes.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class NetworkedScore : NetworkBehaviour
     {
         private NetworkVariable<int> m_teamAScore = new();

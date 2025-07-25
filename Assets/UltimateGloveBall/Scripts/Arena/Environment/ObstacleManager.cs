@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Environment
     /// <summary>
     /// This manager will keep a list of the obstacles to easily be able to color them the appropriate team color.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class ObstacleManager : MonoBehaviour
     {
         [SerializeField] private List<Obstacle> m_teamAObstacles;

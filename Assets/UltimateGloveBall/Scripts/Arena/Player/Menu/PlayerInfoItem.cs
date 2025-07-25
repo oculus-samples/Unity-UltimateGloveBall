@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using TMPro;
 using UltimateGloveBall.App;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
     /// Players information item listed in the Players list on the in game menu.
     /// Shows the player information as well as mute/unmute button and block/unblock button
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerInfoItem : MonoBehaviour
     {
         private const string BLOCK = "block";

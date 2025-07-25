@@ -2,10 +2,12 @@
 
 using System;
 using System.Collections;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Utils
 {
+    [MetaCodeSample("UltimateGloveBall")]
     public class AudioFadeInOut : MonoBehaviour
     {
         [SerializeField]

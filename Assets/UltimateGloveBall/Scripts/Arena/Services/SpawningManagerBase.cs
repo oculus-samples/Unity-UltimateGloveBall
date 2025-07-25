@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Gameplay;
 using Unity.Netcode;
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Services
     /// This is the base class for any spawning logic in a networked scene. When a player request to be spawned it will
     /// call the inherited class SpawnPlayer implementation.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public abstract class SpawningManagerBase : NetworkBehaviour
     {
         public static SpawningManagerBase Instance;

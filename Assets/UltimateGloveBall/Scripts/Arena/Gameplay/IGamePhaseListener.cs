@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 
 namespace UltimateGloveBall.Arena.Gameplay
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// <summary>
     /// Interface for game phase listener that can be registered to the game manager.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public interface IGamePhaseListener
     {
         void OnPhaseChanged(GameManager.GamePhase phase);

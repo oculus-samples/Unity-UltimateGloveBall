@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.Arena.Services
     /// Reserve a random point or a specific one. Release the spawn point when you are done. Or get the transform
     /// of a given spawn point.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class SpawnPointReservingService : MonoBehaviour
     {
         [SerializeField] private Transform[] m_spawnPoints = Array.Empty<Transform>();

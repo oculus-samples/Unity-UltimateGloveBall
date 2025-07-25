@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
     /// It handles hiding itself when the application loses focus, like when the user opens the OS menu, and will
     /// reappear when gaining back focus.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerInGameMenu : MonoBehaviour
     {
         private enum ViewType

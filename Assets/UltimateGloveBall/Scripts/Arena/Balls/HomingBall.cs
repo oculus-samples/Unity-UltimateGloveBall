@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Arena.Balls
     /// When this ball is thrown it doesn't follow physics, but rather homes towards its target.
     /// It has a specific throw function to be used instead of the ball network throw function.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(BallNetworking))]
     public class HomingBall : BallBehaviour
     {

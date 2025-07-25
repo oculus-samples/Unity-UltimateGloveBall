@@ -6,6 +6,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using Meta.Multiplayer.Core;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using Oculus.Platform;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.App
     /// This singleton also exposes controllers and handlers to be used through the application.
     /// Initializes the Oculus Platform, fetch the player state on login and handles join intent.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class UGBApplication : Singleton<UGBApplication>
     {
         public NetworkLayer NetworkLayer;

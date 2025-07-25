@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Meta Platforms, Inc. and affiliates.
 
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using Oculus.Avatar2;
 using Oculus.Avatar2.Experimental;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Player
     /// in it's entirety to avoid complex changes when we update the Avatar SDK and the samples.
     /// We make the execution order to be after so that we can overwrite the movement when the rig is moving around.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [DefaultExecutionOrder(1)]
     public class PlayerAvatarAnimationBehavior : OvrAvatarBaseBehavior
     {

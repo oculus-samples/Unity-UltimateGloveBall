@@ -4,6 +4,7 @@
 
 using System.Collections;
 using Meta.Multiplayer.Core;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Services;
 using UltimateGloveBall.MainMenu;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.App
     /// Expose API to navigate between game state: MainMenu, Play, Spectate. Or specifically load scenes.
     /// Navigating through the different scenes based on the application state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class NavigationController
     {
         private readonly SceneLoader m_sceneLoader = new();

@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Gameplay
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Gameplay
     /// <summary>
     /// Keeps track of specific game state.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class GameState : Singleton<GameState>
     {
         [SerializeField, AutoSet] public NetworkedScore Score;

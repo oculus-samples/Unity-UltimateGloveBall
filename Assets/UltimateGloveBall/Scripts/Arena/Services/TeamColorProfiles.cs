@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Arena.Services
     /// Setup of the different colors for all the profiles. Each profiled is paired for team A and B.
     /// This helps simplify getting a random profile for the teams color and synchronize the colors for all clients. 
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class TeamColorProfiles : Singleton<TeamColorProfiles>
     {
         [Serializable]

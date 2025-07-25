@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEditor;
 
 namespace UltimateGloveBall.Editor
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Editor
     /// <summary>
     /// This class helps us track the usage of this showcase
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [InitializeOnLoad]
     public static class UltimateGloveBallTelemetry
     {

@@ -6,6 +6,7 @@
 using Oculus.Platform;
 #endif
 using System.Collections.Generic;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
     /// List of all player using the PlayerInfoItem and a button to open the roster panel.
     /// https://developer.oculus.com/documentation/unity/ps-roster/
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayersMenu : BasePlayerMenuView
     {
         [FormerlySerializedAs("playerInfoItemRef")][SerializeField] private PlayerInfoItem m_playerInfoItemRef;

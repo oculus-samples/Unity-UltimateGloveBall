@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System.Collections;
+using Meta.XR.Samples;
 using UltimateGloveBall.Arena.Balls;
 using UltimateGloveBall.Arena.Services;
 using Unity.Netcode;
@@ -14,6 +15,7 @@ namespace UltimateGloveBall.Arena.Player
     /// The player shield controller will handle changing the visual state on hit and update the color of the shield
     /// based on the energy level.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class Shield : MonoBehaviour
     {
         private const float HIT_TEXTURE_TIME = 1f;

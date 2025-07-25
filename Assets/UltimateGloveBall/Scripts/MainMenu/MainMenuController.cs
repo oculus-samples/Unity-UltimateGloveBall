@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Player;
 using UltimateGloveBall.Arena.Services;
@@ -15,6 +16,7 @@ namespace UltimateGloveBall.MainMenu
     /// Controls the state of the MainMenu scene. Navigate trhough the different menus and handles the state change.
     /// Implement event functions for the different button clicked.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class MainMenuController : MonoBehaviour
     {
         private enum MenuState

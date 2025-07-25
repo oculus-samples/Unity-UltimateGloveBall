@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace UltimateGloveBall.Arena.Player
     /// Handles the update of the players name plate and state if they are a master client/Host.
     /// The different parts can be visible separately and we can turn on/off the visibility of the whole visual.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class PlayerNameVisual : MonoBehaviour
     {
         [SerializeField] private Transform m_canvas;

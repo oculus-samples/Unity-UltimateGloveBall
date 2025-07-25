@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Utils
@@ -9,6 +10,7 @@ namespace UltimateGloveBall.Utils
     /// <summary>
     /// Add this monobehaviour on a gameobject with a renderer to disable SRP Batching
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     [RequireComponent(typeof(Renderer))]
     public class DoNotSRPBatch : MonoBehaviour
     {

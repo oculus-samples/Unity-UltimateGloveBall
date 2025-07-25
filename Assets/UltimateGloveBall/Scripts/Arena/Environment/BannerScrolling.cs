@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using Meta.Utilities;
+using Meta.XR.Samples;
 using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Environment
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.Arena.Environment
     /// <summary>
     /// Scrolls the banner around the Arena. It animates the movement of the banner and changing the logo periodically.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class BannerScrolling : MonoBehaviour
     {
         private enum Phases

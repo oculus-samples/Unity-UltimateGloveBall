@@ -3,6 +3,7 @@
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
 using System;
+using Meta.XR.Samples;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace UltimateGloveBall.Arena.Player.Respawning
     /// <summary>
     /// Hud that tracks the players camera to show the respawn count down and message.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class RespawnHud : MonoBehaviour
     {
         public event Action RespawnInitiated;

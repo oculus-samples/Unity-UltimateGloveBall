@@ -2,6 +2,7 @@
 // Use of the material below is subject to the terms of the MIT License
 // https://github.com/oculus-samples/Unity-UltimateGloveBall/tree/main/Assets/UltimateGloveBall/LICENSE
 
+using Meta.XR.Samples;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace UltimateGloveBall.MainMenu
     /// <summary>
     /// Keeps reference to the element on the Error Panel and handles setting the message and showing the panel.
     /// </summary>
+    [MetaCodeSample("UltimateGloveBall")]
     public class MenuErrorPanel : MonoBehaviour
     {
         private const string DEFAULT_TITLE = "ERROR";
