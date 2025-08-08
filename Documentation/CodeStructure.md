@@ -2,7 +2,7 @@
 
 This project consists of two main structures. The first is the [Meta Multiplayer for Netcode and Photon](../Packages/com.meta.multiplayer.netcode-photon) package, which provides core reusable code for starting a new multiplayer game project. The second is [UltimateGloveBall](../Assets/UltimateGloveBall), which builds on the Meta Multiplayer base to implement specific game logic.
 
-We also have a package of common utility functions that accelerated our project implementation. These utilities are in [Packages/com.meta.utilities](../Packages/com.meta.utilities).
+We also have a package of common utility functions that accelerated our project implementation. These utilities are in from our utility package repo [meta-quest/Unity-UtilityPackages](https://github.com/meta-quest/Unity-UtilityPackages).
 
 To extend Photon Realtime for Netcode, we copied the package to [Packages/com.community.netcode.transport.photon-realtime](../Packages/com.community.netcode.transport.photon-realtime@b28923aa5d).
 

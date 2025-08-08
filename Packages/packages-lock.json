@@ -26,7 +26,7 @@
       "source": "embedded",
       "dependencies": {
         "com.unity.netcode.gameobjects": "1.1.0",
-        "com.meta.xr.sdk.core": "",
+        "com.meta.xr.sdk.core": "63.0.0",
         "com.community.netcode.transport.photon-realtime": "2.0.0",
         "com.photon.voice2": "2.28.2",
         "com.meta.utilities": "0.0.1",
@@ -41,20 +41,24 @@
       "hash": "3dd9868902b0da1cd7700c9da725aa9fb1ea5da5"
     },
     "com.meta.utilities": {
-      "version": "file:com.meta.utilities",
+      "version": "https://github.com/meta-quest/Unity-UtilityPackages.git?path=com.meta.utilities",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {
+        "com.unity.collections": "1.2.4"
+      },
+      "hash": "3dd9868902b0da1cd7700c9da725aa9fb1ea5da5"
     },
     "com.meta.utilities.input": {
-      "version": "file:com.meta.utilities.input",
+      "version": "https://github.com/meta-quest/Unity-UtilityPackages.git?path=com.meta.utilities.input",
       "depth": 0,
-      "source": "embedded",
+      "source": "git",
       "dependencies": {
         "com.meta.utilities": "1.0.0",
-        "com.meta.xr.sdk.core": "",
+        "com.meta.xr.sdk.core": "63.0.0",
         "com.unity.xr.interaction.toolkit": "2.0.4"
-      }
+      },
+      "hash": "3dd9868902b0da1cd7700c9da725aa9fb1ea5da5"
     },
     "com.meta.xr.sdk.audio": {
       "version": "76.0.0",

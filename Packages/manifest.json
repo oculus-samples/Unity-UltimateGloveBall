@@ -3,6 +3,8 @@
     "com.alexeyperov.unity-dependencies-hunter": "https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm",
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.meta.tutorial.framework": "https://github.com/meta-quest/Unity-UtilityPackages.git?path=com.meta.tutorial.framework#com.meta.tutorial.framework-1.0.2",
+    "com.meta.utilities": "https://github.com/meta-quest/Unity-UtilityPackages.git?path=com.meta.utilities",
+    "com.meta.utilities.input": "https://github.com/meta-quest/Unity-UtilityPackages.git?path=com.meta.utilities.input",
     "com.meta.xr.sdk.audio": "76.0.0",
     "com.meta.xr.sdk.avatars": "33.0.0",
     "com.meta.xr.sdk.avatars.sample.assets": "24.1.1",

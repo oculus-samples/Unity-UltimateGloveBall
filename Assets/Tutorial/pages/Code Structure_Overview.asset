@@ -29,7 +29,7 @@ MonoBehaviour:
 
     We
     also have a package of common utility functions that accelerated our project
-    implementation. These utilities are in <a href="./Packages/com.meta.utilities">Packages/com.meta.utilities</a>.
+    implementation. These utilities are in from our utility package repo <a href="https://github.com/meta-quest/Unity-UtilityPackages">meta-quest/Unity-UtilityPackages</a>.
 
 
     To
