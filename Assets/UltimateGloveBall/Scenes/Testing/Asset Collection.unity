@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.4575472, g: 0.83251864, b: 1, a: 0.22745098}
   m_FogMode: 1
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -373,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &49256434
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -387,6 +384,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -1853,7 +1851,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4819321942411665499, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1692fc148579f4e1f9987e9a3feb0d92, type: 2}
     - target: {fileID: -4819321942411665499, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
@@ -1861,7 +1859,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4819321942411665499, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.data[0]
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
@@ -1869,7 +1867,7 @@ PrefabInstance:
       value: spring_LOD
       objectReference: {fileID: 0}
     - target: {fileID: 1567469550515006975, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e9c5dfb15865bd74db8910aa3cef1f0d, type: 2}
     - target: {fileID: 4742473837712756890, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
@@ -4422,7 +4420,7 @@ PrefabInstance:
       value: obstacle_spawner_LOD_05
       objectReference: {fileID: 0}
     - target: {fileID: 3514610701858645807, guid: b0cc745a639804931aedfa23e3c94893, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8d886b33eaeef471dad216a114691c68, type: 2}
     m_RemovedComponents: []
@@ -4749,12 +4747,12 @@ SpringJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071416748}
+  serializedVersion: 4
   m_ConnectedBody: {fileID: 1646821404}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 2, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 3, y: 2, z: -4}
-  serializedVersion: 2
   m_Spring: 10
   m_Damper: 0.2
   m_MinDistance: 0
@@ -5449,7 +5447,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3382804920957465238, guid: 58b229108ada2fb4f9a66bb9a2d81d05, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8d886b33eaeef471dad216a114691c68, type: 2}
     - target: {fileID: 4121838773804155259, guid: 58b229108ada2fb4f9a66bb9a2d81d05, type: 3}
@@ -5774,7 +5772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &6299530386064341730
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5788,6 +5786,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -6085,7 +6084,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4819321942411665499, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 1692fc148579f4e1f9987e9a3feb0d92, type: 2}
     - target: {fileID: 919132149155446097, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
@@ -6093,7 +6092,7 @@ PrefabInstance:
       value: spring_LOD
       objectReference: {fileID: 0}
     - target: {fileID: 1567469550515006975, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e9c5dfb15865bd74db8910aa3cef1f0d, type: 2}
     - target: {fileID: 4742473837712756890, guid: 657c3b8a4fb734446b4f015c043808e2, type: 3}

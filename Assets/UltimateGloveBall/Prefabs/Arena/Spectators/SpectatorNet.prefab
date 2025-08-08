@@ -215,6 +215,10 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5805498714672159726, guid: 6077a0771cfd2da4ab32204efa1dca02, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805498714672159726, guid: 6077a0771cfd2da4ab32204efa1dca02, type: 3}
       propertyPath: m_enableWordWrapping
       value: 0
       objectReference: {fileID: 0}

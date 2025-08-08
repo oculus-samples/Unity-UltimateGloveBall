@@ -56,6 +56,7 @@ MonoBehaviour:
   m_errorPanel: {fileID: 8578971167602654202}
   m_startPosition: {fileID: 0}
   m_avatarTransform: {fileID: 0}
+  m_menuMusicFader: {fileID: 0}
 --- !u!1001 &8120604397962970709
 PrefabInstance:
   m_ObjectHideFlags: 0

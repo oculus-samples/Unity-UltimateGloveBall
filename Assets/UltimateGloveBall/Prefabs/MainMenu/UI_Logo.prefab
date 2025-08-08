@@ -180,23 +180,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7918335002988649766, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d7e13df94e31840e19b252c4c201d5b8, type: 2}
     - target: {fileID: -5586531668985657438, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d7e13df94e31840e19b252c4c201d5b8, type: 2}
     - target: {fileID: -4969506558817801323, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d7e13df94e31840e19b252c4c201d5b8, type: 2}
     - target: {fileID: -2885667693350321590, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d7e13df94e31840e19b252c4c201d5b8, type: 2}
     - target: {fileID: 882129737928793925, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d7e13df94e31840e19b252c4c201d5b8, type: 2}
     - target: {fileID: 919132149155446097, guid: 632e6a89842bd43bf9d643e48e5b858a, type: 3}
@@ -339,7 +339,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &9180660387272353905
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -353,6 +353,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

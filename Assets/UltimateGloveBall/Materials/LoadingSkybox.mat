@@ -140,3 +140,4 @@ Material:
     - _TopColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
     - _UpVector: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1

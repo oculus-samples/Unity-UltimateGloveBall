@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa1458c2bc55e04b872c61942be2866, type: 3}
   m_Name: OVROverlayCanvasSettings
   m_EditorClassIdentifier: 
-  _transparentImposterShader: {fileID: 0}
-  _opaqueImposterShader: {fileID: 0}
+  _transparentImposterShader: {fileID: 4800000, guid: c64e6f0cc900d3f45ab52710eae7416f, type: 3}
+  _opaqueImposterShader: {fileID: 4800000, guid: d8e39106449b12147968b744f7b25296, type: 3}
   MaxSimultaneousCanvases: 1
   CanvasRenderLayer: 31
   CanvasLayer: -1

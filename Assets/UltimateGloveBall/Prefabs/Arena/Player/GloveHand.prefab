@@ -456,7 +456,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7638097107182919436, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 98abf2ed5c0b87a4785b64ebf63b70ac, type: 2}
     - target: {fileID: -7337562295884953527, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
@@ -476,7 +476,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4730267008440171595, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 98abf2ed5c0b87a4785b64ebf63b70ac, type: 2}
     - target: {fileID: -4248372394815107151, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
@@ -492,7 +492,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2416514077039021731, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 98abf2ed5c0b87a4785b64ebf63b70ac, type: 2}
     - target: {fileID: -2400918999065124671, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
@@ -520,7 +520,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823048833304903758, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 98abf2ed5c0b87a4785b64ebf63b70ac, type: 2}
     - target: {fileID: 919132149155446097, guid: 1c18f919b6461471bb6b4e057ecb06ee, type: 3}
@@ -759,7 +759,7 @@ BoxCollider:
   m_Center: {x: 0, y: -0.05, z: 0.2}
 --- !u!95 &8587264404887931699
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -773,6 +773,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
