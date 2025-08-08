@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Welcome
+  m_EditorClassIdentifier: 
+  m_displayName: Welcome
+  m_hierarchyName: Welcome
+  m_context: {fileID: 11400000, guid: 308938f41f762d345abf80b0bd85b1e6, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1001
+  m_overrideMarkdownText: '
+
+
+    The VR Developer Tools team created Ultimate Glove
+    Ball to showcase how to build an ESport game using the Oculus Social Platform
+    API. It is based on our <a href="https://github.com/oculus-samples/Unity-SharedSpaces">SharedSpaces</a>
+    project, with expanded functionalities for an ESport game context. This project
+    demonstrates how VR games can offer asymmetric experiences featuring both players
+    and spectators.
+
+
+    This codebase serves as a reference and template for multiplayer
+    VR games. You can try the game on the <a href="https://www.meta.com/en-gb/experiences/ultimate-glove-ball/5704438046269164/">Meta
+    Horizon Store - Ultimate Glove Ball</a>.
+
+
+
+    ## Project Description
+
+
+    This
+    application for Meta Quest devices showcases a fast-paced sports game playable
+    with friends or strangers. It integrates user connections for joining random
+    games or specific rooms, inviting friends, launching group parties in the same
+    arena, or joining as a spectator. The project includes Meta Avatars for player
+    representation and voice chat for easy communication.
+
+
+    Built with the Unity
+    engine, the project uses <a href="https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime">Photon
+    Realtime</a> as the transport layer and <a href="https://github.com/Unity-Technologies/com.unity.netcode.gameobjects">Unity
+    Netcode for GameObjects</a>. It also includes <a href="./Packages/com.meta.utilities/README.md">Meta
+    Utilities</a> and <a href="./Packages/com.meta.utilities.input/README.md">Meta
+    Input Utilities</a> packages, offering useful tools and methods.
+
+
+
+    ## Dependencies
+
+
+    This
+    project uses the following plugins and software:
+
+
+    - <a href="https://unity.com/download">Unity</a>
+    2022.3.52f1 or newer
+
+    - <a href="https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm">Dependencies
+    Hunter</a>
+
+    - <a href="https://developers.meta.com/horizon/downloads/package/meta-avatars-sdk/">Meta
+    Avatars SDK</a>
+
+    - <a href="https://npm.developer.oculus.com/-/web/detail/com.meta.xr.sdk.utilities">Meta
+    XR Utilities</a>
+
+    - <a href="https://developers.meta.com/horizon/downloads/package/unity-integration/">Oculus
+    Integration SDK</a>: released under the *<a href="./Assets/Oculus/LICENSE.txt">Oculus
+    SDK License Agreement</a>*.
+
+    - <a href="https://github.com/brogan89/ParrelSync">ParrelSync</a>
+
+    -
+    <a href="https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime">Photon
+    Realtime for Netcode</a>
+
+    - <a href="https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518">Photon
+    Voice 2</a>
+
+    - <a href="https://github.com/Unity-Technologies/com.unity.netcode.gameobjects">Unity
+    Netcode for GameObjects</a>
+
+    - <a href="https://github.com/marijnz/unity-toolbar-extender.git">Unity
+    Toolbar Extender</a>
+
+
+    To test this project in Unity, you need <a href="https://www.meta.com/quest/setup/">The
+    Meta Quest App</a>.
+
+
+
+    # Documentation
+
+
+    More information is available
+    in the <a href="./Documentation">Documentation</a> section.
+
+
+    - <a href="./Documentation/Avatars.md">Avatars</a>
+
+    -
+    <a href="./Documentation/BallPhysicsAndNetworking.md">Ball Physics And Networking</a>
+
+    -
+    <a href="./Documentation/CodeStructure.md">Code Structure</a>
+
+    - <a href="./Documentation/Configuration.md">Configuration</a>
+
+    -
+    <a href="./Documentation/IAP.md">In-App Purchases (IAP)</a>
+
+    - <a href="./Documentation/LightBaking.md">Light
+    Baking</a>
+
+    - <a href="./Documentation/Multiplayer.md">Multiplayer</a>
+
+
+    Custom
+    Packages:
+
+
+    - <a href="./Packages/com.meta.multiplayer.netcode-photon/README.md">Meta
+    Multiplayer for Netcode and Photon</a>
+
+    - <a href="./Packages/com.meta.utilities/README.md">Meta
+    Utilities</a>
+
+    - <a href="./Packages/com.meta.utilities.input/README.md">Meta
+    Input Utilities</a>
+
+
+'
+  m_overrideMarkdownRoot: ./

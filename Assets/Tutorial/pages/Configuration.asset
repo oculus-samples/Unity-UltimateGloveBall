@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Configuration
+  m_EditorClassIdentifier: 
+  m_displayName: Configuration
+  m_hierarchyName: Configuration
+  m_context: {fileID: 11400000, guid: dd8852ea5af635c45a385bd4b763b25e, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1005
+  m_overrideMarkdownText: "# Project Configuration\r\n\r\nTo make this project functional
+    in the editor and on a device, some initial setup is required.\r\n\r\n## Application
+    Configuration\r\n\r\nTo run the project and use platform services, create an
+    application on the [Meta Quest Developer Center](https://developers.meta.com/horizon/).\r\n\r\nFor
+    device operation, a Quest application is needed, and for editor operation, a
+    PCVR application is required. The following sections describe the necessary configuration.\r\n\r\n###
+    Data Use Checkup\r\n\r\nTo use platform features, request the necessary data
+    in the _Data Use Checkup_ section of the application.\r\n\r\n![data use checkup](./Media/dashboard/datausecheckup.png
+    \"Data use Checkup\")\r\n\r\nConfigure the required Data Usage:\r\n* **User Id**:
+    Avatars, Destinations, Multiplayer, Oculus Username, Friends Invites, User Invite
+    Others\r\n* **In-App Purchases**: IAP\r\n* **User Profile**: Avatars\r\n* **Avatars**:
+    Avatars\r\n* **Deep Linking**: Destinations\r\n* **Friends**: Multiplayer\r\n*
+    **Blocked Users**: Other - we use the Blocking API\r\n* **Invites**: Multiplayer,
+    Friends Invite, User Invite Others\r\n\r\n### Add-ons\r\n\r\nThis application
+    integrates in-app purchases (IAP) to demonstrate durable and consumable purchases.
+    Here are the expected configurations.\r\n\r\nFirst, open the Add-ons from the
+    Platform Services:\r\n\r\n![Platform Services Add-ons](./Media/dashboard/dashboard_addons_platformservices.png
+    \"Platform Services Add-ons\")\r\n\r\nThen, set up the different Add-ons.\r\n\r\n![Add-ons](./Media/dashboard/dashboard_addons.png
+    \"Add-ons\")\r\n\r\nWe created 3 durable SKUs, which can be purchased once, for
+    the icons. We also created 1 consumable SKU, which can be purchased multiple
+    times, for the pet cat.\r\n\r\n### Destinations\r\n\r\nThis application uses
+    Destination configuration to enable users to invite friends to the same arenas
+    and launch the application together.\r\n\r\nFirst, open the Destinations from
+    the Platform Services:\r\n\r\n![Platform Services Destinations](./Media/dashboard/dashboard_destinations_platformservices.png
+    \"Platform Services Destinations\")\r\n\r\nThen, set up the different destinations.\r\n\r\n![Destinations](./Media/dashboard/dashboard_destinations.png
+    \"Destinations\")\r\n\r\n#### Main Menu\r\n\r\nThe MainMenu destination is unique
+    to the user, where no other player can join. It is set up as follows:\r\n\r\n![Destination
+    Main Menu](./Media/dashboard/dashboard_destination_mainmenu.png \"Destination
+    Main Menu\")\r\n\r\nThe deeplink type is set to DISABLED, preventing users from
+    joining this destination together.\r\n\r\n#### Arenas\r\n\r\nDifferent Arenas
+    exist for each region:\r\n\r\n![Destination NA](./Media/dashboard/dashboard_destination_na.png
+    \"Destination NA\")\r\n\r\nThis example is for the North American region. The
+    deeplink type is ENABLE, and the deeplink data specifies the Photon region. The
+    deeplink message format is specific to our project. The Group Launch capacity
+    is set to a maximum of 6 players per Arena.\r\n\r\nHere is a table for destination
+    settings:\r\n\r\n<div style=\"margin: auto; padding: 10pt;\">\r\n<table>\r\n<tr>\r\n   
+    <th>Destination</th>\r\n    <th>API Name</th>\r\n    <th>Deeplink Message</th>\r\n</tr>\r\n<tr>\r\n   
+    <td><b>Main Menu</b></td>\r\n\t<td>MainMenu</td>\r\n\t<td><i>N/A</i></td>\r\n</tr>\r\n<tr>\r\n\t<td><b>North
+    America</b></td>\r\n\t<td>Arena</td>\r\n\t<td>{\"Region\":\"usw\"}</td>\r\n</tr>\r\n<tr>\r\n   
+    <td><b>South America</b></td>\r\n\t<td>ArenaSA</td>\r\n\t<td>{\"Region\":\"sa\"}</td>\r\n</tr>\r\n<tr>\r\n\t<td><b>Japan</b></td>\r\n\t<td>ArenaJP</td>\r\n\t<td>{\"Region\":\"jp\"}</td>\r\n</tr>\r\n<tr>\r\n   
+    <td><b>Europe</b></td>\r\n\t<td>ArenaEU</td>\r\n\t<td>{\"Region\":\"eu\"}</td>\r\n</tr>\r\n<tr>\r\n\t<td><b>Australia</b></td>\r\n\t<td>ArenaAU</td>\r\n\t<td>{\"Region\":\"au\"}</td>\r\n</tr>\r\n<tr>\r\n   
+    <td><b>Asia</b></td>\r\n\t<td>ArenaAsia</td>\r\n\t<td>{\"Region\":\"asia\"}</td>\r\n</tr>\r\n</table>\r\n</div>\r\n\r\n###
+    Set the Application ID\r\n\r\nSet the application ID in Unity.\r\n\r\nThe identifier
+    (__App ID__) is found in the _API_ section.\r\n\r\n![Application API](./Media/dashboard/dashboard_api.png
+    \"Application API\")\r\n\r\nPlace it in [Assets/Resources/OculusPlatformSettings.asset](../Assets/Resources/OculusPlatformSettings.asset).\r\n\r\n![Oculus
+    Platform Settings Menu](./Media/editor/oculusplatformsettings_menu.png \"Oculus
+    Platform Settings Menu\")\r\n\r\n![Oculus Platform Settings](./Media/editor/oculusplatformsettings.png
+    \"Oculus Platform Settings\")\r\n\r\n## Photon Configuration\r\n\r\nTo get the
+    sample working, configure Photon with your account and applications. The Photon
+    base plan is free.\r\n- Visit [photonengine.com](https://www.photonengine.com)
+    and [create an account](https://doc.photonengine.com/realtime/current/getting-started/obtain-your-app-id).\r\n-
+    From your Photon dashboard, click \"Create A New App.\"\r\n  - Create 2 apps:
+    \"Realtime\" and \"Voice.\"\r\n- Fill out the form, setting the type to \"Photon
+    Realtime,\" then click Create.\r\n- Fill out the form, setting the type to \"Photon
+    Voice,\" then click Create.\r\n\r\nYour new app will now show on your Photon
+    dashboard. Click the App ID to reveal the full string and copy the value for
+    each app.\r\n\r\nOpen your Unity project and paste your Realtime App ID in [Assets/Photon/Resources/PhotonAppSettings.asset](../Assets/Photon/Resources/PhotonAppSettings.asset).\r\n\r\n![Photon
+    App Settings Location](./Media/editor/photonappsettings_location.png \"Photon
+    App Settings Location\")\r\n\r\n![Photon App Settings](./Media/editor/photonappsettings.png
+    \"Photon App Settings\")\r\n\r\nSet the Voice App Id on the VoiceRecorder prefab:\r\n\r\n![Photon
+    Voice Recorder Location](./Media/editor/photonvoicerecorder_location.png \"Photon
+    Voice Recorder Location\")\r\n\r\n![Photon Voice Settings](./Media/editor/photonvoicesetting.png
+    \"Photon Voice Settings\")\r\n\r\n### Additional Setup for Realtime\r\n\r\nTo
+    allow players to play in different regions with reduced latency, we used the
+    different regions Photon provides. To simplify the project, we limited the number
+    of regions used. Whitelist the regions used by the application.\r\n\r\n![Photon
+    Whitelist](./Media/photon_whitelist.png \"Photon Whitelist\")\r\n\r\nThe Photon
+    Realtime transport should now work. Verify network traffic on your Photon account
+    dashboard.\r\n\r\n## Upload to Release Channel\r\n\r\nTo use platform features,
+    upload an initial build to a release channel. For instructions, visit the [developer
+    center](https://developers.meta.com/horizon/resources/publish-release-channels-upload/).
+    To test with other users, add them to the channel; more information is in the
+    [Add Users to Release Channel](https://developers.meta.com/horizon/resources/publish-release-channels-add-users/)
+    topic.\r\n\r\nOnce the initial build is uploaded, you can use any development
+    build with the same application ID; there is no need to upload every build to
+    test local changes.\r\n"
+  m_overrideMarkdownRoot: .\Documentation/

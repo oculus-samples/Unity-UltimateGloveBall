@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Code Structure_Ultimate Glove Ball
+  m_EditorClassIdentifier: 
+  m_displayName: Ultimate Glove Ball
+  m_hierarchyName: Code Structure/Ultimate Glove Ball
+  m_context: {fileID: 11400000, guid: fd5cf8c33a2df4740a98f84b0a7c184c, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1006
+  m_overrideMarkdownText: '# Ultimate Glove Ball
+
+
+    This section covers the specific
+    game implementation. We highlight key components and encourage you to explore
+    the code.
+
+
+
+    ## Application
+
+
+    The application starts with the <a href="./Assets/UltimateGloveBall/Scripts/App/UGBApplication.cs">UGBApplication</a>
+    script, which instantiates the main systems for the application''s lifetime.
+    It handles app navigation, network logic, user group presence setup, and initial
+    user loading.
+
+
+    In <a href="./Assets/UltimateGloveBall/Scripts/App">UltimateGloveBall/Scripts/App</a>,
+    you''ll find the core application elements.
+
+
+
+    ## Main Menu
+
+
+    The <a
+    href="./Assets/UltimateGloveBall/Scripts/MainMenu">MainMenu directory</a> contains
+    controllers and views for the Main Menu scene. It''s designed for easy menu extension
+    and navigation. The <a href="./Assets/UltimateGloveBall/Scripts/MainMenu/MainMenuController.cs">MainMenuController.cs</a>
+    manages scene logic, states, transitions, and core service communication.
+
+
+
+    ##
+    Arena
+
+
+    The <a href="./Assets/UltimateGloveBall/Scripts/Arena">Arena directory</a>
+    contains all gameplay logic for the Arena.
+
+
+
+    ### Services
+
+
+    We have
+    two modes for joining the Arena: player or spectator. To prevent exceeding the
+    maximum number of users for each role, we utilize the <a href="./Assets/UltimateGloveBall/Scripts/Arena/Services/ArenaApprovalController.cs">ArenaApprovalController</a>.
+    The <a href="./Assets/UltimateGloveBall/Scripts/Arena/Services/ArenaPlayerSpawningManager.cs">ArenaPlayerSpawningManager</a>
+    then manages the spawning of players in the correct locations and on the appropriate
+    teams.
+
+
+
+    ### Players
+
+
+    Player construction involves multiple networked
+    objects. The player avatar is the core element, with glove armatures and gloves
+    interacting separately on a network level. These are in <a href="./Assets/UltimateGloveBall/Scripts/Arena/Player">Scripts/Arena/Player</a>.
+
+
+
+    ###
+    Spectators
+
+
+    In spectator mode, we simplify networking by reusing crowd bodies
+    and animations. Users control item display and a firework launcher. To reduce
+    network events, item changes are synchronized after a delay. The spectator code
+    is in <a href="./Assets/UltimateGloveBall/Scripts/Arena/Spectator">Scripts/Arena/Spectator</a>.
+
+
+
+    ###
+    Balls
+
+
+    The main networking element is the <a href="./Assets/UltimateGloveBall/Scripts/Arena/Balls">balls</a>,
+    consisting of the ball network, state synchronizer, and specific behaviors. The
+    ball network manages states like ownership and gameplay logic. The state synchronizer
+    handles position and movement, detailed in the <a href=".\Documentation/BallPhysicsAndNetworking.md">ball
+    physics and networking</a> documentation.
+
+
+'
+  m_overrideMarkdownRoot: .\Documentation/

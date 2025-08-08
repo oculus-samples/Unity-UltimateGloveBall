@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Code Structure_Photon Realtime Transport for Netcode
+  m_EditorClassIdentifier: 
+  m_displayName: Photon Realtime Transport for Netcode
+  m_hierarchyName: Code Structure/Photon Realtime Transport for Netcode
+  m_context: {fileID: 11400000, guid: fd5cf8c33a2df4740a98f84b0a7c184c, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1007
+  m_overrideMarkdownText: '# Photon Realtime Transport for Netcode
+
+
+    We modified
+    this package for more flexibility in navigating Photon rooms. We added lobby
+    connection support and different connection intents. We also integrated room
+    properties for specific room types, allowing easy reuse across projects by assigning
+    callbacks and data handlers.
+
+'
+  m_overrideMarkdownRoot: .\Documentation/

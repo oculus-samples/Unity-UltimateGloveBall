@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee262462c8042e840a3146c602914c9a, type: 3}
+  m_Name: ArenaSceneWalkthrough
+  m_EditorClassIdentifier: 
+  m_title: Arena Scene Walkthrough
+  m_priority: 1012
+  m_tutorialConfig: {fileID: 11400000, guid: c85de2cd80469df47a6a5d2bee4b6665, type: 2}
+  m_showBanner: 0
+  m_references:
+  - Header: Arena Scene
+    Description: The Arena scene manages all game logic for Ultimate Gloveball. You
+      enter this scene after choosing Quick Match, Host Match, or Watch Match.
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: GameManager
+    Description: Handles the gameplay logic. Game states, ball spawning, and post
+      game handling are managed here.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_name: GameManager
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: PlayerAvatarEntity
+    Description: 'Holds the logic for all the player''s interactions throughout the
+      whole experience. This prefab also manages networking, lip sync, and animation.
+
+
+      In
+      the ''RespawnController'' component''s context menu, there is a ''Knockout
+      Player'' option for testing purposes.'
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 6697775241635953393, guid: ae8adc48da668a243b09e965993d2c6d, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: PlayerSpawnPoints
+    Description: Holds all the spawn points for Team A and Team B as well as their
+      spectators. Spectators are users that would be placed among the crowd for the
+      selected team.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_name: SDDPlayerSpawnPoint
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: PlayerInGameMenu
+    Description: PlayerInGameMenu handles the ingame menu navigation where you can
+      find game settings, game info, players info as well as controls to restart,
+      quit and spawn a cat.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_name: PlayerInGameMenu
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: ColorProfiles
+    Description: ColorProfiles assigns colors to the two teams and influences the
+      stadium, crowd, scoreboard, and glove colors.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_name: ColorProfiles
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: LightingSetup
+    Description: 'LightingSetup sets up the scene for baking into lightmaps, light
+      probes, and reflection probes to ensure good performance.
+
+
+      In the attached
+      script, clicking the context menu (3 dots) reveals two custom options: ''Setup
+      for Lighting'' and ''Revert after Lighting''. For more information, see the
+      ''Light Baking'' section.'
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: df2172ca90500c5428fbce29dd2fba67, type: 3}
+      m_name: LightingSetup-ApplyBefore GeneratingLight
+      m_path: 
+      m_guid: 
+      m_instanceID: 0

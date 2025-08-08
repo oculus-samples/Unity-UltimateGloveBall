@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Code Structure_Overview
+  m_EditorClassIdentifier: 
+  m_displayName: Overview
+  m_hierarchyName: Code Structure/Overview
+  m_context: {fileID: 11400000, guid: fd5cf8c33a2df4740a98f84b0a7c184c, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1004
+  m_overrideMarkdownText: '# Overview
+
+
+    This project consists of two main structures.
+    The first is the <a href="./Packages/com.meta.multiplayer.netcode-photon">Meta
+    Multiplayer for Netcode and Photon</a> package, which provides core reusable
+    code for starting a new multiplayer game project. The second is <a href="./Assets/UltimateGloveBall">UltimateGloveBall</a>,
+    which builds on the Meta Multiplayer base to implement specific game logic.
+
+
+    We
+    also have a package of common utility functions that accelerated our project
+    implementation. These utilities are in <a href="./Packages/com.meta.utilities">Packages/com.meta.utilities</a>.
+
+
+    To
+    extend Photon Realtime for Netcode, we copied the package to <a href="./Packages/com.community.netcode.transport.photon-realtime@b28923aa5d">Packages/com.community.netcode.transport.photon-realtime</a>.
+
+
+'
+  m_overrideMarkdownRoot: .\Documentation/

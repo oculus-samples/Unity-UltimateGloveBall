@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6406cf99f3eda9543b76052362849a20, type: 3}
+  m_Name: 2 Avatars
+  m_EditorClassIdentifier: 
+  m_title: Avatars
+  m_priority: 1002
+  m_tutorialConfig: {fileID: 11400000, guid: c85de2cd80469df47a6a5d2bee4b6665, type: 2}
+  m_showBanner: 0
+  m_markdownPath: ./Documentation/Avatars.md
+  m_reduceTitleLevelBy1: 1
+  m_pageConfigs:
+  - SectionTitle: Avatars
+    ShowSectionInContext: 1
+    ShowSectionAsChild: 0
+    HideTitle: 0
+  - SectionTitle: Networking
+    ShowSectionInContext: 1
+    ShowSectionAsChild: 0
+    HideTitle: 0
+  - SectionTitle: Custom Shader
+    ShowSectionInContext: 1
+    ShowSectionAsChild: 0
+    HideTitle: 0

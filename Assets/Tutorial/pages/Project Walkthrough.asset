@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645f4231a451006409b7afbabdd9f82d, type: 3}
+  m_Name: Project Walkthrough
+  m_EditorClassIdentifier: 
+  m_displayName: Project Walkthrough
+  m_hierarchyName: 
+  m_context: {fileID: 11400000, guid: acd8272d7a9460540b336db9f1db310d, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 0
+  <References>k__BackingField:
+  - Header: UltimateGloveBall
+    Description: This is where all the project specific code and assets are located.
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 8874267d62633284088e9b442c3861fd, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Prefabs
+    Description: Prefabs used in Ultimate Gloveball can be found here.
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 84b1b757d4ad9be4899c41058b770114, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Configs
+    Description: Ball configurations are located in the 'Configs' folder. The 'BallSpawnData'
+      configuration is crucial as it contains various Ball Prefabs and the randomization
+      weights for spawn frequency chance.
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 5cc24a96fe9604549a07ed5e180e86cb, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Scenes
+    Description: "Scenes are located here. You can also quickly access the main scenes
+      from the top bar.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 158ca8ea5e5e27c4787aa2ca5119d6e2, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Testing
+    Description: The 'Scene' folder includes a 'Testing' folder that contains test
+      scenes.
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: f00c29f6ebf0f014eb4fc6d71f9ce187, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0

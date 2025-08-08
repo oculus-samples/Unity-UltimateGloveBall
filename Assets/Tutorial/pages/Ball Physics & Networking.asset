@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Ball Physics & Networking
+  m_EditorClassIdentifier: 
+  m_displayName: Ball Physics & Networking
+  m_hierarchyName: Ball Physics & Networking
+  m_context: {fileID: 11400000, guid: 8f9cc4f23c7afee4aaec27908c7d1345, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1003
+  m_overrideMarkdownText: "# Ball Physics And Networking\r\n\r\n## Implementation
+    Overview\r\n\r\nWe aimed to enable physics prediction on all clients to resolve
+    issues like floating balls and delayed shooting/throwing for non-host clients.
+    We adopted State Synchronization, inspired by Glenn Fiedler's blog: [State Synchronization](https://www.gafferongames.com/post/state_synchronization/).
+    Each client runs Unity Physics locally and synchronizes with server data.\r\n\r\n##
+    Main Scripts Involved\r\n\r\n- **[BallNetworking.cs](../Assets/UltimateGloveBall/Scripts/Arena/Balls/BallNetworking.cs)**\r\n 
+    - Manages throwing, collisions, and ownership.\r\n\r\n- **[BallStateSync.cs](../Assets/UltimateGloveBall/Scripts/Arena/Balls/BallStateSync.cs)**\r\n 
+    - Collaborates with BallNetworking.cs to send data packets with data (if server)
+    and apply them (if client).\r\n  - Includes gradual position, rotation, and linear
+    velocity correction to prevent pops and jerky movements.\r\n  - Uses a jitter
+    buffer to apply packets in order and discard late ones.\r\n\r\n- **[BallSpawner.cs](../Assets/UltimateGloveBall/Scripts/Arena/Balls/BallSpawner.cs)**\r\n 
+    - Manages ball spawning and despawning of dead balls.\r\n\r\n- **[SpawnPoint.cs](../Assets/UltimateGloveBall/Scripts/Arena/Balls/SpawnPoint.cs)**\r\n 
+    - Ensures a ball claims a spawn point, preventing others from spawning there.\r\n\r\n##
+    State Syncing Balls\r\n\r\n### BallPacket\r\n\r\nPackets from the server are
+    applied to clients based on who threw the ball. Each packet includes:\r\n\r\n-
+    **(uint) Sequence**: Server frame number when packet is sent.\r\n- **State Update**:\r\n 
+    - **(bool) IsGrabbed**: Indicates tp client if the ball is assigned to a glove.\r\n 
+    - **(ulong) GrabbersNetworkObjectId**: Identifies to client the glove for assignment.\r\n 
+    - **(Vector3) Position**: Ball's server position.\r\n  - **(Quaternion) Orientation**:
+    Ball's server rotation.\r\n  - **(bool) SyncVelocity**: Indicates to client if
+    velocity data is included in the packet.\r\n  - **(Vector3) LinearVelocity**:
+    Ball's server linear velocity.\r\n  - **(Vector3) AngularVelocity**: Ball's server
+    angular velocity.\r\n\r\n### Why Assign the Ball to the Glove?\r\n\r\nWe initially
+    synchronized the position while someone held the ball. However, the update rate
+    and smoothing of avatars did not match those of the balls. Next, we tried to
+    reparent the game object to the glove, but this caused issues with local position
+    and rotation. To address these challenges, we gave the glove a reference to the
+    ball, allowing it to control the ball's position while holding it.\r\n\r\n###
+    Key Takeaways\r\n\r\nUsing Netcode's \"Auto Parent Sync\" was too slow and lacked
+    server control, causing issues for the player throwing the ball. Attaching the
+    ball to the glove game object and syncing its local position resulted in inaccurate
+    outcomes, likely due to the event timing and the ball's relative position to
+    the glove. Moreover, the parenting and unparenting process incurred unnecessary
+    costs since we already had logic in place for the ball to follow the glove.\r\n\r\n##
+    Applying Packets\r\n\r\nPacket application depends on four factors:\r\n\r\n###
+    Grabbed Ball?\r\n\r\nWhen a ball is grabbed, we:\r\n\r\n- Attach it to the glove.\r\n-
+    Disable physics.\r\n- Reset local transform.\r\n\r\nUpon release, we:\r\n\r\n-
+    Detach from the glove.\r\n- Enable physics.\r\n- Sync position/rotation.\r\n\r\n###
+    Owner of the Ball?\r\n\r\nIf you own the ball, no extra grabbing rules apply.\r\n\r\n###
+    Did I Throw the Ball?\r\n\r\nOthers will snap the ball to new values and apply
+    glove release rules.\r\n\r\n### Is the Ball Still?\r\n\r\nThe server omits velocity
+    data for still balls to save bandwidth. Clients snap position and rotation to
+    zero for still balls.\r\n\r\n# Grabbing Balls\r\n\r\nBall grabbing is server-authoritative,
+    causing a slight lag between glove collision and ball capture. This choice reduces
+    player frustration from server decisions. We welcome suggestions for gameplay
+    mechanics to improve this experience. See our [CONTRIBUTING](../CONTRIBUTING.md)
+    information.\r\n\r\n# Collisions\r\n\r\nBalls have different states and types,
+    posing collision detection challenges. Spawned balls can't be hit by in-play
+    balls, so we created a separate physics layer. The electric ball can pass through
+    obstacles and shields, disabling them. We created a specific physics layer for
+    it and used triggers to detect contact without applying physics.\r\n\r\n# Noticing
+    Desynchronization\r\n\r\nThrown balls are short-lived, minimizing desynchronization.
+    Visual disparities may occur, but large colliders and game speed reduce perceived
+    issues.\r\n"
+  m_overrideMarkdownRoot: .\Documentation/

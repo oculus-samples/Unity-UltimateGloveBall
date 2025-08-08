@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4510294d23d964fe59443526f1ca7c4b, type: 3}
+  m_Name: Code Structure_Meta Multiplayer for Netcode and Photon
+  m_EditorClassIdentifier: 
+  m_displayName: Meta Multiplayer for Netcode and Photon
+  m_hierarchyName: Code Structure/Meta Multiplayer for Netcode and Photon
+  m_context: {fileID: 11400000, guid: fd5cf8c33a2df4740a98f84b0a7c184c, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 1005
+  m_overrideMarkdownText: '# Meta Multiplayer for Netcode and Photon
+
+
+    This package
+    contains reusable logic for any networked multiplayer project. It includes essential
+    elements and key features from our Platform Social API.
+
+
+    - <a href="./Packages/com.meta.multiplayer.netcode-photon/Core/BlockUserManager.cs">BlockUserManager.cs</a>
+    implements the blocking flow API.
+
+    - <a href="./Packages/com.meta.multiplayer.netcode-photon/Core/GroupPresenceState.cs">GroupPresenceState.cs</a>
+    uses the group presence API, enabling players to play together easily.
+
+    -
+    <a href="./Packages/com.meta.multiplayer.netcode-photon/Core/NetworkLayer.cs">NetworkLayer.cs</a>
+    manages client/host connection flow, disconnection handling, and host migration.
+
+
+    The
+    networked Avatar implementation is crucial for integrating personality into a
+    project. It demonstrates how avatars can be easily integrated (<a href="./Packages/com.meta.multiplayer.netcode-photon/Avatar">Avatars</a>).
+
+
+'
+  m_overrideMarkdownRoot: .\Documentation/

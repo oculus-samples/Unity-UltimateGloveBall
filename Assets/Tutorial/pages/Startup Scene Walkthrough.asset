@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645f4231a451006409b7afbabdd9f82d, type: 3}
+  m_Name: Startup Scene Walkthrough
+  m_EditorClassIdentifier: 
+  m_displayName: Startup Scene Walkthrough
+  m_hierarchyName: 
+  m_context: {fileID: 11400000, guid: 03fc543b0b0f60a44b9b9f1be522db43, type: 2}
+  m_markdownFile: {fileID: 0}
+  m_priority: 0
+  <References>k__BackingField:
+  - Header: Startup Scene
+    Description: "This is the initial scene. It sets up the camera, network, local
+      player, and application. Once these are configured, the MainMenu scene loads.\r"
+    Reference:
+      m_referenceType: 0
+      m_obj: {fileID: 102900000, guid: 40899a168d9ca6241831ca6f5b5f1210, type: 3}
+      m_classType: 
+      m_scene: {fileID: 0}
+      m_name: 
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: Application
+    Description: "This is the entry point for the whole Ultimate Glove Ball application.
+      It initializes the application's core at startup and loads the application
+      state controller and handlers. Additionally, it exposes these controllers and
+      handlers for use throughout the application. \n\nIt also fetches the player
+      state upon login and manages join intent."
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 40899a168d9ca6241831ca6f5b5f1210, type: 3}
+      m_name: Application
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
+  - Header: NetworkLayer
+    Description: This manages network connections using both the Unity Netcode API
+      and Photon connections. It also handles user connection, reconnection, and
+      disconnection. Additionally, it registers for callbacks to manage various events
+      during the connection process.
+    Reference:
+      m_referenceType: 5
+      m_obj: {fileID: 0}
+      m_classType: 
+      m_scene: {fileID: 102900000, guid: 40899a168d9ca6241831ca6f5b5f1210, type: 3}
+      m_name: NetworkLayer
+      m_path: 
+      m_guid: 
+      m_instanceID: 0
