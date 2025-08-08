@@ -224,8 +224,10 @@ namespace UltimateGloveBall.Arena.Player.Respawning
             m_playerNameVisual.SetVisibility(false);
             avatar.Hide();
             yield return null;
-            material.SetKeyword("ENABLE_CUSTOM_EFFECT", false);
-            avatar.ApplyMaterial();
+            // don't disable the custom effect until we respawn
+            // the avatar Hide as a delay in newer avatar sdk.
+            // material.SetKeyword("ENABLE_CUSTOM_EFFECT", false);
+            // avatar.ApplyMaterial();
         }
 
         private IEnumerator ShowPlayerDelayed()

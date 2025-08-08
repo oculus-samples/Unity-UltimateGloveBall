@@ -177,6 +177,13 @@ namespace Meta.Multiplayer.Core
             yield return WaitForLocalPlayerObject();
             if (CurrentClientState != ClientState.StartingClient)
                 yield break;
+            
+            if (NetworkManager.Singleton.SpawnManager == null)
+            {
+                CurrentClientState = ClientState.Disconnected;
+                Debug.LogWarning("SpawnManager was destroyed. Didn't connect.");
+                yield break;
+            }
 
             CurrentClientState = ClientState.Connected;
 
@@ -187,7 +194,7 @@ namespace Meta.Multiplayer.Core
 
         private static WaitUntil WaitForLocalPlayerObject()
         {
-            return new WaitUntil(() => NetworkManager.Singleton.LocalClient != null && NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject() != null);
+            return new WaitUntil(() => NetworkManager.Singleton.LocalClient != null && (NetworkManager.Singleton.SpawnManager == null || NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject() != null));
         }
 
         private IEnumerator RestoreHost()
