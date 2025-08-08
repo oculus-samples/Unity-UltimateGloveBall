@@ -1,96 +1,101 @@
 ![Ultimate Glove Ball Banner](./Documentation/Media/banner.png "Ultimate Glove Ball")
 
 # Ultimate Glove Ball
-Ultimate Glove Ball was built by the VR Developer Tools team to demonstrate how you can quickly build an ESport game that gets people together in VR using the Oculus Social Platform API.
-Based off our [SharedSpaces](https://github.com/oculus-samples/Unity-SharedSpaces) project we expand functionalities in an ESport game context. We also demonstrate how VR games can have asymmetric experiences. In this project we have players and spectators.
 
-This codebase is available both as a reference and as a template for multiplayer VR games.
+The VR Developer Tools team created Ultimate Glove Ball to showcase how to build an ESport game using the Oculus Social Platform API. It is based on our [SharedSpaces](https://github.com/oculus-samples/Unity-SharedSpaces) project, with expanded functionalities for an ESport game context. This project demonstrates how VR games can offer asymmetric experiences featuring both players and spectators.
 
-The majority of Ultimate GloveBall is licensed under [MIT LICENSE](./LICENSE), however files from [Text Mesh Pro](http://www.unity3d.com/legal/licenses/Unity_Companion_License), [Photon Voice](./Packages/Photon/Photon/license.txt), and [Photon SDK](./Packages/com.community.netcode.transport.photon-realtime@b28923aa5d/Runtime/Photon/LICENSE.md), are licensed under their respective licensing terms.
-
-See the [CONTRIBUTING](./CONTRIBUTING.md) file for how to help out.
-
-This project was built using the Unity engine with [Photon Realtime](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) as the transport layer and [Unity Netcode for GameObjects](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects).
-
-You can test the game out on [Meta Horizon Store - Ultimate Glove Ball](https://www.meta.com/en-gb/experiences/ultimate-glove-ball/5704438046269164/).
+This codebase serves as a reference and template for multiplayer VR games. You can try the game on the [Meta Horizon Store - Ultimate Glove Ball](https://www.meta.com/en-gb/experiences/ultimate-glove-ball/5704438046269164/).
 
 ## Project Description
-This project is an application for the Meta Quest devices that demonstrate a fast pace sport game that can be played with friends or strangers. It shows how to integrate connection between users joining random games or specific rooms, invite friends and group launch a party in the same arena, or join as a spectator to a game already in progress. We also integrated Meta Avatars for players to represent their VR persona and voice chat for easy communication.
 
-The project also includes the [Meta Utilities](./Packages/com.meta.utilities/README.md) and [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md) packages, which contain many useful tools and methods.
+This application for Meta Quest devices showcases a fast-paced sports game playable with friends or strangers. It integrates user connections for joining random games or specific rooms, inviting friends, launching group parties in the same arena, or joining as a spectator. The project includes Meta Avatars for player representation and voice chat for easy communication.
 
-## How to run the project in Unity
-1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon
-2. Make sure you're using  *Unity 2022.3.52f1* or newer. 
-3. Load the [Assets/UltimateGloveBall/Scenes/Startup](./Assets/UltimateGloveBall/Scenes/Startup.unity) scene. 
-4. There are two ways of testing in the editor:
+Built with the Unity engine, the project uses [Photon Realtime](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) as the transport layer and [Unity Netcode for GameObjects](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects). It also includes [Meta Utilities](./Packages/com.meta.utilities/README.md) and [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md) packages, offering useful tools and methods.
+
+## How to Run the Project in Unity
+
+1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon.
+2. Use Unity 2022.3.52f1 or newer.
+3. Load the [Assets/UltimateGloveBall/Scenes/Startup](./Assets/UltimateGloveBall/Scenes/Startup.unity) scene.
+4. Test in the editor using two methods:
+
     <details>
       <summary><b>Quest Link</b></summary>
-      
-      + Enable Quest Link:
-        + Put on your headset and navigate to "Quick Settings"; select "Quest Link" (or "Quest Air Link" if using Air Link).
-        + Select your desktop from the list and then select, "Launch". This will launch the Quest Link app, allowing you to control your desktop from your headset.
-      + With the headset on, select "Desktop" from the control panel in front of you. You should be able to see your desktop in VR!
-      + Navigate to Unity and press "Play" - the application should launch on your headset automatically.
-    </details>
-    <details>
-      <summary><b>XR FPS Simulator</b></summary>
-      
-      + In Unity, press "Play" and enjoy the simulated XR controls!
-      + Review the [XR FPS Simulator documentation](./Packages/com.meta.utilities.input/README.md#xr-device-fps-simulator) for more information.
-        + Note: The mouse is [captured by the simulator](./Packages/com.meta.utilities.input/README.md#mouse-capture) when in play mode. In order to otherwise use the mouse in-game (such as to interact with menus), hold Left Alt.
+
+      + Enable Quest Link: Put on your headset, go to "Quick Settings," and select "Quest Link" (or "Quest Air Link" if using Air Link).
+      + Choose your desktop from the list and select "Launch" to control your desktop from your headset.
+      + With the headset on, select "Desktop" from the control panel. You should see your desktop in VR.
+      + Navigate to Unity and press "Play" to launch the application on your headset.
     </details>
 
+    <details>
+      <summary><b>XR FPS Simulator</b></summary>
+
+      + In Unity, press "Play" to enjoy the simulated XR controls.
+      + Review the [XR FPS Simulator documentation](./Packages/com.meta.utilities.input/README.md#xr-device-fps-simulator) for more information. The mouse is [captured by the simulator](./Packages/com.meta.utilities.input/README.md#mouse-capture) in play mode. To use the mouse in-game, hold Left Alt.
+    </details>
 
 ## Dependencies
 
-This project makes use of the following plugins and software:
+This project uses the following plugins and software:
+
 - [Unity](https://unity.com/download) 2022.3.52f1 or newer
 - [Dependencies Hunter](https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm)
-- [Meta Avatars SDK](https://developer.oculus.com/downloads/package/meta-avatars-sdk/)
+- [Meta Avatars SDK](https://developers.meta.com/horizon/downloads/package/meta-avatars-sdk/)
 - [Meta XR Utilities](https://npm.developer.oculus.com/-/web/detail/com.meta.xr.sdk.utilities)
-- [Oculus Integration SDK](https://developer.oculus.com/downloads/package/unity-integration): released under the *[Oculus SDK License Agreement](./Assets/Oculus/LICENSE.txt)*.
+- [Oculus Integration SDK](https://developers.meta.com/horizon/downloads/package/unity-integration/): released under the *[Oculus SDK License Agreement](./Assets/Oculus/LICENSE.txt)*.
 - [ParrelSync](https://github.com/brogan89/ParrelSync)
 - [Photon Realtime for Netcode](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime)
 - [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518)
 - [Unity Netcode for GameObjects](https://github.com/Unity-Technologies/com.unity.netcode.gameobjects)
 - [Unity Toolbar Extender](https://github.com/marijnz/unity-toolbar-extender.git)
 
+To test this project in Unity, you need [The Meta Quest App](https://www.meta.com/quest/setup/).
 
-The following is required to test this project within Unity:
-- [The Oculus App](https://www.oculus.com/setup/)
+# Getting the Code
 
-# Getting the code
-First, ensure you have Git LFS installed by running this command:
+First, ensure Git LFS is installed by running:
+
 ```sh
 git lfs install
 ```
 
-Then, clone this repo using the "Code" button above, or this command:
+Then, clone this repository using the "Code" button above or this command:
+
 ```sh
 git clone https://github.com/oculus-samples/Unity-UltimateGloveBall.git
 ```
 
 # Documentation
-More information can be found in the [Documentation](./Documentation) section of this project.
+
+More information is available in the [Documentation](./Documentation) section.
+
 - [Avatars](./Documentation/Avatars.md)
 - [Ball Physics And Networking](./Documentation/BallPhysicsAndNetworking.md)
 - [Code Structure](./Documentation/CodeStructure.md)
 - [Configuration](./Documentation/Configuration.md)
-- [In-app Purchases(IAP)](./Documentation/IAP.md)
+- [In-App Purchases (IAP)](./Documentation/IAP.md)
 - [Light Baking](./Documentation/LightBaking.md)
 - [Multiplayer](./Documentation/Multiplayer.md)
 
 Custom Packages:
+
 - [Meta Multiplayer for Netcode and Photon](./Packages/com.meta.multiplayer.netcode-photon/README.md)
 - [Meta Utilities](./Packages/com.meta.utilities/README.md)
 - [Meta Input Utilities](./Packages/com.meta.utilities.input/README.md)
 
+# Where are the Meta Avatar SDK and Photon Packages?
 
-# Where are the Meta Avatar SDK and Photon packages?
-
-In order to keep the project organized, the [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518) package is stored in the [Packages](./Packages) folder. To update them, import their updated Asset Store packages, then copy them into their respective `Packages` folders.
+The [Photon Voice 2](https://assetstore.unity.com/packages/tools/audio/photon-voice-2-130518) package is stored in the [Packages](./Packages) folder. To update them, import their updated Asset Store packages and copy them into their respective `Packages` folders.
 
 The *Photon Voice 2* package is released under the *[License Agreement for Exit Games Photon](./Packages/Photon/Photon/license.txt)*.
 
-Also, the [Photon Realtime for Netcode](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) package is copied in the [Packages](./Packages) folder as `com.community.netcode.transport.photon-realtime@b28923aa5d` since we modified it to fit our needs.
+The [Photon Realtime for Netcode](https://github.com/Unity-Technologies/multiplayer-community-contributions/tree/main/Transports/com.community.netcode.transport.photon-realtime) package is copied in the [Packages](./Packages) folder as `com.community.netcode.transport.photon-realtime@b28923aa5d` since it was modified to fit our needs.
+
+# License
+
+Most of Ultimate GloveBall is licensed under [MIT LICENSE](./LICENSE). Files from [Text Mesh Pro](https://unity.com/legal/licenses/unity-companion-license), [Photon Voice](./Packages/Photon/Photon/license.txt), and [Photon SDK](./Packages/com.community.netcode.transport.photon-realtime@b28923aa5d/Runtime/Photon/LICENSE.md) are licensed under their respective terms.
+
+# Contribution
+
+See the [CONTRIBUTING](./CONTRIBUTING.md) file for how to contribute.

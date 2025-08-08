@@ -1,29 +1,27 @@
 # Avatars
-To have a greater sense of self and engage more of a social feeling we integrated the Meta Avatars in this project.
-Being able to reuse the platform Avatar creates a continuity on the platform where users can recognize each other between different applications.
 
-You will find the Meta Avatar SDK in the packages directory([Packages/Avatar2](../Packages/Avatar2)). It was downloaded on the developer website https://developer.oculus.com/downloads/package/meta-avatars-sdk.
+We integrated Meta Avatars into this project to ensure continuity. By reusing the platform Avatar, users can recognize each other across different applications, enhancing user identity and social interaction.
 
-For the integration we followed the information highlighted on the developer website https://developer.oculus.com/documentation/unity/meta-avatars-overview/. The [AvatarEntity.cs](../Packages/com.meta.multiplayer.netcode-photon/Avatar/AvatarEntity.cs) implementation is where you will see how we setup the Avatar for body, lipsync, face and eye tracking. This setup is also associated with the [PlayerAvatarEntity Prefab](../Assets/UltimateGloveBall/Prefabs/Arena/Player/PlayerAvatarEntity.prefab) which contains all the behaviours and settings on how we use the Avatar in game.
-To keep the avatar in sync with the user position, we track the Camera Rig root.
+The Meta Avatar SDK, downloaded from the [developer website](https://developers.meta.com/horizon/downloads/package/meta-avatars-sdk/), was combined with the Meta Multiplayer for Netcode and Photon package located in the Packages directory ([Packages/com.meta.multiplayer.netcode-photon](../Packages/com.meta.multiplayer.netcode-photon)).
 
-More information on Face and Eye tracking can be found [here](https://developer.oculus.com/documentation/unity/meta-avatars-face-eye-pose/).
+For the integration, we followed the guidelines on the [developer website](https://developers.meta.com/horizon/documentation/unity/meta-avatars-overview/). The [AvatarEntity.cs](../Packages/com.meta.multiplayer.netcode-photon/Avatar/AvatarEntity.cs) file shows how we set up the Avatar for body, lip sync, face, and eye tracking. This setup is used in the [PlayerAvatarEntity Prefab](../Assets/UltimateGloveBall/Prefabs/Arena/Player/PlayerAvatarEntity.prefab), which contains all the behaviors and settings for in-game Avatar use. We track the Camera Rig root to keep the avatar synchronized with the user's position.
+
+More information on face and eye tracking is available [here](https://developers.meta.com/horizon/documentation/unity/meta-avatars-face-eye-pose/).
 
 ## Networking
-Since we are building a multiplayer game, it is necessary that we implement a networking solution for the Avatar.
-This is done in [AvatarNetworking.cs](../Packages/com.meta.multiplayer.netcode-photon/Avatar/AvatarNetworking.cs). In this implementation we use the `RecordStreamData` function on the avatar entity to get the data to stream over the network. We then send it via rpc, which is then received by each other clients.
-On the receiving end, we apply the data using the `ApplyStreamData` function which will properly apply the state of the Avatar. Additionally, we implemented a frequency to send different level of details (LOD) so that we can reduce the bandwidth while still keeping a good fidelity of the Avatar motion.
+
+Implementing a networking solution for the Avatar is essential for our multiplayer game. This is handled in [AvatarNetworking.cs](../Packages/com.meta.multiplayer.netcode-photon/Avatar/AvatarNetworking.cs). We use the `RecordStreamData` function on the avatar entity to get the data to stream over the network. This data is sent via RPC and received by other clients. On the receiving end, we apply the data using the `ApplyStreamData` function, which applies the state of the Avatar. We also implemented a frequency to send different levels of detail (LOD) to reduce bandwidth while maintaining Avatar motion fidelity.
 
 ## Custom Shader
-While we wanted to keep the same visuals as the provided shader in the Avatar SDK, we needed to add some effects to models. To do so, we copied over the shader files to our project([here](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar)) in order to apply some modifications.
-To minimize the difference between the original shader files and our custom one we implemented the new functionalities in `.cginc` files that we then reference.
 
-[AvatarGhostEffect.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/Horizon/AvatarGhostEffect.cginc): This effect is triggered when the player takes the ghost ball, it creates an illusion of transparency by cutting small holes on the mesh as well as adding fresnel effect and colors.
+To add effects to models while retaining the same visuals as the provided shader in the Avatar SDK's shader, we copied the shader files to our project ([here](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar)) for modifications. We implemented new functionalities in `.cginc` files to minimize differences from the original shader files.
 
-[AvatarDisolveEffect.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/Horizon/AvatarDisolveEffect.cginc): This effect is triggered when the player spawn or despawn. It creates an illusion of the mesh dissolving by using alpha cutting as well as coloring.
+- [AvatarGhostEffect.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/AvatarGhostEffect.cginc): This effect triggers when the player takes the ghost ball, creating transparency by cutting small holes in the mesh and adding a fresnel effect and colors.
 
-The main functions from the 2 effects are called in [app_functions.hlsl](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/app_specific/app_functions.hlsl) and are triggered through keywords. The shader file was also modified to contain the needed properties for these effects to work.
+- [AvatarDisolveEffect.cginc](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/AvatarDisolveEffect.cginc): This effect triggers when the player spawns or despawns, creating a dissolving illusion using alpha cutting and coloring.
 
-We kept the changes minimal in the copied files so that it would be easy to update the shader files with the latest shader in the newer versions of the Meta Avatar SDK when comes time to update.
+The main functions from these effects are called in [app_functions.hlsl](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/app_specific/app_functions.hlsl) and are triggered through keywords. The shader file was also modified to include the necessary properties for these effects to work.
 
-More information can be found in the associated [Custom Avatars README](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/README.md).
+We made minimal changes to the copied files. This approach ensures easy updates to the shader files with the latest shaders in newer versions of the Meta Avatar SDK.
+
+More information is available in the associated [Custom Avatars README](../Assets/UltimateGloveBall/VFX/Shaders/CustomAvatar/README.md).
