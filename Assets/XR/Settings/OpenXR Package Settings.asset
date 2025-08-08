@@ -184,6 +184,7 @@ MonoBehaviour:
   - {fileID: -6566757075401487872}
   - {fileID: 3686135718281058220}
   - {fileID: 5542687057099546612}
+  - {fileID: 370605648377595918}
   - {fileID: -2418094191725336631}
   - {fileID: 4916100949134470484}
   - {fileID: -5053808424375280676}
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &-5917715780707405099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +495,28 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-2408601278894759018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a75d1f5ff90154ea2a8e58222a1f59, type: 3}
+  m_Name: FoveatedRenderingFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Foveated Rendering
+  version: 1
+  featureIdInternal: com.unity.openxr.feature.foveatedrendering
+  openxrExtensionStrings: XR_UNITY_foveation XR_FB_foveation XR_FB_foveation_configuration
+    XR_FB_swapchain_update_state XR_FB_foveation_vulkan XR_META_foveation_eye_tracked
+    XR_META_vulkan_swapchain_create_info
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &-1200605840186626746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +553,28 @@ MonoBehaviour:
   Values:
   - {fileID: 8850422106805350928}
   - {fileID: -6018759569952269808}
+--- !u!114 &370605648377595918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a75d1f5ff90154ea2a8e58222a1f59, type: 3}
+  m_Name: FoveatedRenderingFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Foveated Rendering
+  version: 1
+  featureIdInternal: com.unity.openxr.feature.foveatedrendering
+  openxrExtensionStrings: XR_UNITY_foveation XR_FB_foveation XR_FB_foveation_configuration
+    XR_FB_swapchain_update_state XR_FB_foveation_vulkan XR_META_foveation_eye_tracked
+    XR_META_vulkan_swapchain_create_info
+  company: Unity
+  priority: 0
+  required: 0
 --- !u!114 &741997683411084693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,6 +1048,7 @@ MonoBehaviour:
   - {fileID: 6204893617004403649}
   - {fileID: 8773205995720168218}
   - {fileID: 6868346618053076910}
+  - {fileID: -2408601278894759018}
   - {fileID: 3684278423630104032}
   - {fileID: -3244578551783976351}
   - {fileID: -7007012711426660524}
@@ -1029,6 +1076,7 @@ MonoBehaviour:
   m_spacewarpMotionVectorTextureFormat: 0
   m_optimizeBufferDiscards: 0
   m_symmetricProjection: 0
+  m_foveatedRenderingApi: 0
 --- !u!114 &9216562828559294139
 MonoBehaviour:
   m_ObjectHideFlags: 0

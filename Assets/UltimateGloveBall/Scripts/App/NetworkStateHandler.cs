@@ -114,7 +114,7 @@ namespace UltimateGloveBall.App
                 }
                 else if (NetworkManager.Singleton.IsClient)
                 {
-                    m_session = Object.FindObjectOfType<NetworkSession>();
+                    m_session = Object.FindFirstObjectByType<NetworkSession>();
 
                     var playerPos = m_networkLayer.CurrentClientState == NetworkLayer.ClientState.RestoringClient
                         ? m_localPlayerState.transform.position

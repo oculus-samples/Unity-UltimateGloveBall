@@ -15,7 +15,7 @@ Built with the Unity engine, the project uses [Photon Realtime](https://github.c
 ## How to Run the Project in Unity
 
 1. [Configure the project](./Documentation/Configuration.md) with Meta Quest and Photon.
-2. Use Unity 2022.3.52f1 or newer.
+2. Use Unity 6000.0.50f1 or newer.
 3. Load the [Assets/UltimateGloveBall/Scenes/Startup](./Assets/UltimateGloveBall/Scenes/Startup.unity) scene.
 4. Test in the editor using two methods:
 
@@ -39,7 +39,7 @@ Built with the Unity engine, the project uses [Photon Realtime](https://github.c
 
 This project uses the following plugins and software:
 
-- [Unity](https://unity.com/download) 2022.3.52f1 or newer
+- [Unity](https://unity.com/download) 6000.0.50f1 or newer
 - [Dependencies Hunter](https://github.com/AlexeyPerov/Unity-Dependencies-Hunter.git#upm)
 - [Meta Avatars SDK](https://developers.meta.com/horizon/downloads/package/meta-avatars-sdk/)
 - [Meta XR Utilities](https://npm.developer.oculus.com/-/web/detail/com.meta.xr.sdk.utilities)

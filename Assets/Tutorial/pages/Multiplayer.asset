@@ -19,93 +19,74 @@ MonoBehaviour:
   m_priority: 1008
   m_overrideMarkdownText: '# Multiplayer
 
-    
 
     This showcase aims to demonstrate
     how to quickly integrate key multiplayer features from the platform, enabling
     easy interaction with others and friends.
 
-    
 
     ## Player to Arena Options
 
-    
 
     You
     can join or create a game in several ways. From the Main Menu, there are four
     options: Quick Match, Host Match, Watch Match, and Friends.
 
-    
 
-    <div><img
-    src="./Media/mainmenu.jpg" width="500"></div>
+    <div><img src="./Media/mainmenu.jpg"
+    width="500"></div>
 
-    
 
     ### Quick Match
 
-    
 
-    The
-    Quick Match button attempts to join a random room as a client using the Photon
-    API. If no room is available, it creates a new room as a host. Anyone can join
-    while space is available. Once full, a new room is created for additional players.
+    The Quick Match button attempts
+    to join a random room as a client using the Photon API. If no room is available,
+    it creates a new room as a host. Anyone can join while space is available. Once
+    full, a new room is created for additional players.
 
-    
+
+    ### Host Match
+
+
+    This
+    option creates a private Arena where only your friends can join as spectators
+    or players. They can join via the friends menu or through an invitation.
+
 
     ###
-    Host Match
+    Watch Match
 
-    
 
-    This option creates a private Arena where only your friends
-    can join as spectators or players. They can join via the friends menu or through
-    an invitation.
+    Join a random arena created by Quick Match to spectate. You
+    can cheer for your preferred team from the stands.
 
-    
-
-    ### Watch Match
-
-    
-
-    Join a random arena
-    created by Quick Match to spectate. You can cheer for your preferred team from
-    the stands.
-
-    
 
     ### Friends
 
-    
 
-    The friends menu lists all
-    your friends available to join for play or spectating.
+    The
+    friends menu lists all your friends available to join for play or spectating.
 
-    
 
     <div><img
     src="./Media/mainmenu_friends.png" width="500"></div>
 
-    
 
-    Clicking Watch
-    or Join initiates the process to join the room as a client. The [FriendsMenuController](../Assets/UltimateGloveBall/Scripts/MainMenu/FriendsMenuController.cs)
+    Clicking Watch or
+    Join initiates the process to join the room as a client. The [FriendsMenuController](../Assets/UltimateGloveBall/Scripts/MainMenu/FriendsMenuController.cs)
     manages the navigation flow.
 
-    
 
     ## Navigation Flow
 
-    
 
-    The
-    [NavigationController](../Assets/UltimateGloveBall/Scripts/App/NavigationController.cs)
+    The [NavigationController](../Assets/UltimateGloveBall/Scripts/App/NavigationController.cs)
     manages the navigation flow. It uses various APIs to navigate the application,
     starting the connection flow through the [NetworkLayer](../Packages/com.meta.multiplayer.netcode-photon/Core/NetworkLayer.cs)
     and setting the new GroupPresence via the [PlayerPresenceHandler](../Assets/UltimateGloveBall/Scripts/App/PlayerPresenceHandler.cs).
     This setup allows other users to see where the player is and if they can join.
 
-    
 
     Once
     connected, the [NetworkStateHandler](../Assets/UltimateGloveBall/Scripts/App/NetworkStateHandler.cs)
@@ -114,11 +95,9 @@ MonoBehaviour:
     navigates to the correct scene, synchronizing it between users using the Netcode
     scene manager.
 
-    
 
     ## Group Launch and Invitation
 
-    
 
     The [UGBApplication](../Assets/UltimateGloveBall/Scripts/App/UGBApplication.cs)
     handles group launches to an Arena or user invitations to an existing arena.
@@ -127,36 +106,30 @@ MonoBehaviour:
     room name, while the Destination API indicates the region to join. The navigation
     controller then directs users to the correct arena and sets group presence.
 
-    
 
     ##
     VoIP
 
-    
 
     The [VoipController](../Packages/com.meta.multiplayer.netcode-photon/Core/VoipController.cs)
     sets up the VoIP speaker and recorder for players. It records the local player''s
     voice and transmits it over the network, where other clients play the sound.
     It also checks for audio recording permissions.
 
-    
 
     The [VoipHandler](../Packages/com.meta.multiplayer.netcode-photon/Core/VoipHandler.cs)
     tracks the recorder or speaker of an entity, simplifying muting and unmuting
     or starting and stopping recording.
 
-    
 
     ## Blocking Flow and Muting
 
-    
 
     Players
     may encounter annoying users or blocked users in Quick Match. The [BlockUserManager](../Packages/com.meta.multiplayer.netcode-photon/Core/BlockUserManager.cs)
     integrates the platform API for blocking. It fetches the list of blocked users
     and manages block and unblock flows, tracking blocked users'' states.
 
-    
 
     The
     [UserMutingManager](../Assets/UltimateGloveBall/Scripts/App/UserMutingManager.cs)
@@ -165,87 +138,70 @@ MonoBehaviour:
     updates, it mutes the player if blocked. The blocking flow is also managed in
     the player menu, [PlayerInfoItem](../Assets/UltimateGloveBall/Scripts/Arena/Player/Menu/PlayerInfoItem.cs).
 
-    
 
     <div><img
     src="./Media/ingamemenu_players.jpg" width="500"></div>
 
-    
 
-    ## Invite
-    Flow
+    ## Invite Flow
 
-    
 
-    During the game or pre-game phase, a button invites players
-    to join the Arena. This triggers the invite flow from [GameManager](../Assets/UltimateGloveBall/Scripts/Arena/Gameplay/GameManager.cs).
+    During
+    the game or pre-game phase, a button invites players to join the Arena. This
+    triggers the invite flow from [GameManager](../Assets/UltimateGloveBall/Scripts/Arena/Gameplay/GameManager.cs).
 
-    
 
     <div><img
     src="./Media/ingameinvite.jpg" width="500"></div>
 
-    
 
-    Invites are sent
-    through the platform and handled as described in the [Group Launch and Invitation](#group-launch-and-invitation)
+    Invites are sent through
+    the platform and handled as described in the [Group Launch and Invitation](#group-launch-and-invitation)
     section.
 
-    
 
     ## Roster
 
-    
 
-    In-game, players can meet others,
-    including friends of friends. The Roster panel allows players to quickly become
-    friends. The in-game menu''s players section manages the Roster panel. See [PlayersMenu](../Assets/UltimateGloveBall/Scripts/Arena/Player/Menu/PlayersMenu.cs)
+    In-game, players can meet others, including friends
+    of friends. The Roster panel allows players to quickly become friends. The in-game
+    menu''s players section manages the Roster panel. See [PlayersMenu](../Assets/UltimateGloveBall/Scripts/Arena/Player/Menu/PlayersMenu.cs)
     for details.
 
-    
 
     ## Arena Approval
 
-    
 
-    To ensure players join
-    an arena with space, we use two methods. First, Photon room properties indicate
-    if a room is available for players and spectators. If full, the flag is set accordingly.
-    This prevents players from joining full arenas. The implementation is in [PhotonConnectionHandler](../Assets/UltimateGloveBall/Scripts/App/PhotonConnectionHandler.cs)
+    To ensure players join an arena with
+    space, we use two methods. First, Photon room properties indicate if a room is
+    available for players and spectators. If full, the flag is set accordingly. This
+    prevents players from joining full arenas. The implementation is in [PhotonConnectionHandler](../Assets/UltimateGloveBall/Scripts/App/PhotonConnectionHandler.cs)
     and [ArenaApprovalController](../Assets/UltimateGloveBall/Scripts/Arena/Services/ArenaApprovalController.cs).
 
-    
 
     The
     [ArenaApprovalController](../Assets/UltimateGloveBall/Scripts/Arena/Services/ArenaApprovalController.cs)
     also implements Netcode approval checks, running on the host to track user types.
     If too many users try to connect, it disconnects them and provides a reason.
 
-    
 
     ##
     Group Presence
 
-    
 
-    Group presence is set when users change scenes or
-    networked rooms, allowing others to join easily. The main implementation is in
-    [GroupPresenceState](../Packages/com.meta.multiplayer.netcode-photon/Core/GroupPresenceState.cs),
+    Group presence is set when users change scenes or networked
+    rooms, allowing others to join easily. The main implementation is in [GroupPresenceState](../Packages/com.meta.multiplayer.netcode-photon/Core/GroupPresenceState.cs),
     which manages the group presence API and maintains local state.
 
-    
 
-    ##
-    Photon with Netcode for GameObject
+    ## Photon
+    with Netcode for GameObject
 
-    
 
-    This project uses Photon and
-    Netcode for GameObject. We enhanced an existing Photon wrapper to integrate it
-    as a transport layer for Netcode, adding key Photon features. The package is
-    [here](../Packages/com.community.netcode.transport.photon-realtime@b28923aa5d).
+    This project uses Photon and Netcode for GameObject.
+    We enhanced an existing Photon wrapper to integrate it as a transport layer for
+    Netcode, adding key Photon features. The package is [here](../Packages/com.community.netcode.transport.photon-realtime@b28923aa5d).
 
-    
 
     Key
     differences include:

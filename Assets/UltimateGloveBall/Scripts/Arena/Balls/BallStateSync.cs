@@ -197,7 +197,7 @@ namespace UltimateGloveBall.Arena.Balls
             var ballTransform = transform;
             var grabber = m_ball.CurrentGrabber;
 
-            var velocity = m_rigidbody.velocity;
+            var velocity = m_rigidbody.linearVelocity;
             var update = new BallStateUpdate()
             {
                 IsGrabbed = grabber != null,
@@ -260,7 +260,7 @@ namespace UltimateGloveBall.Arena.Balls
                         m_ball.EnablePhysics(true);
                         m_rigidbody.position = update.Position;
                         m_rigidbody.rotation = update.Orientation;
-                        m_rigidbody.velocity = update.LinearVelocity;
+                        m_rigidbody.linearVelocity = update.LinearVelocity;
                         m_rigidbody.angularVelocity = update.AngularVelocity;
                         m_velocitySynced = true;
                     }
@@ -285,7 +285,7 @@ namespace UltimateGloveBall.Arena.Balls
                             m_ball.EnablePhysics(true);
                             m_rigidbody.position = update.Position;
                             m_rigidbody.rotation = update.Orientation;
-                            m_rigidbody.velocity = update.LinearVelocity;
+                            m_rigidbody.linearVelocity = update.LinearVelocity;
                             m_rigidbody.angularVelocity = update.AngularVelocity;
                             m_velocitySynced = true;
                             DetectedBallShotFromServer?.Invoke();
@@ -326,16 +326,16 @@ namespace UltimateGloveBall.Arena.Balls
                     // Introduced this check to battle the sharp change in velocity that results from crashing
                     // into a wall. If ball hits something and changes direction we don't apply velocity until
                     // they are aligned again.
-                    if (Vector3.Dot(m_rigidbody.velocity, update.LinearVelocity) > 0f)
+                    if (Vector3.Dot(m_rigidbody.linearVelocity, update.LinearVelocity) > 0f)
                     {
-                        var currentVelocity = m_rigidbody.velocity;
+                        var currentVelocity = m_rigidbody.linearVelocity;
                         var targetVelocity = update.LinearVelocity;
 
                         var velocityError = targetVelocity - currentVelocity;
 
                         velocityError *= m_smoothingFactorVelocity;
 
-                        m_rigidbody.velocity = Vector3.Lerp(currentVelocity, targetVelocity - velocityError, Time.fixedDeltaTime);
+                        m_rigidbody.linearVelocity = Vector3.Lerp(currentVelocity, targetVelocity - velocityError, Time.fixedDeltaTime);
                     }
 
                     #endregion
@@ -348,8 +348,11 @@ namespace UltimateGloveBall.Arena.Balls
                 }
                 else
                 {
-                    m_rigidbody.velocity = Vector3.zero;
-                    m_rigidbody.angularVelocity = Vector3.zero;
+                    if (!m_rigidbody.isKinematic)
+                    {
+                        m_rigidbody.linearVelocity = Vector3.zero;
+                        m_rigidbody.angularVelocity = Vector3.zero;
+                    }
                 }
             }
         }

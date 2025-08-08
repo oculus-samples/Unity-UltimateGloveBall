@@ -31,7 +31,7 @@ namespace UltimateGloveBall.Arena.Player.Menu
 
         private void OnEnable()
         {
-            var allCurrentPlayerStates = FindObjectsOfType<PlayerStateNetwork>();
+            var allCurrentPlayerStates = FindObjectsByType<PlayerStateNetwork>(FindObjectsSortMode.None);
             var itemIndex = 0;
             for (var i = 0; i < allCurrentPlayerStates.Length; ++i)
             {

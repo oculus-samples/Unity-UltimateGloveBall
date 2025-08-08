@@ -91,8 +91,8 @@ namespace UltimateGloveBall.Arena.Balls
             var t = transform;
 
             var heading = targetPosition - t.position;
-            var velocity = Vector3.RotateTowards(m_rigidbody.velocity, heading, m_homingSpeed * Time.fixedDeltaTime, 0);
-            m_rigidbody.velocity = velocity;
+            var velocity = Vector3.RotateTowards(m_rigidbody.linearVelocity, heading, m_homingSpeed * Time.fixedDeltaTime, 0);
+            m_rigidbody.linearVelocity = velocity;
         }
 
         public override void ResetBall()

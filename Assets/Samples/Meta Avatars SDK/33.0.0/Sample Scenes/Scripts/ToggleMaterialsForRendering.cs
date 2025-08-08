@@ -11,8 +11,8 @@ public class ToggleMaterialsForRendering : MonoBehaviour
     private void Start()
     {
         // Get the current rendering pipeline
-        bool isBuiltInPipeline = GraphicsSettings.renderPipelineAsset == null;
-        bool isUrpPipeline = GraphicsSettings.renderPipelineAsset != null && GraphicsSettings.renderPipelineAsset.GetType().Name == "UniversalRenderPipelineAsset";
+        bool isBuiltInPipeline = GraphicsSettings.defaultRenderPipeline == null;
+        bool isUrpPipeline = GraphicsSettings.defaultRenderPipeline != null && GraphicsSettings.defaultRenderPipeline.GetType().Name == "UniversalRenderPipelineAsset";
 
         if (isBuiltInPipeline && builtInMaterial != null)
         {

@@ -78,7 +78,7 @@ namespace UltimateGloveBall.Arena.Spectator
                 OVRScreenFade.instance.FadeIn();
                 PlayerInputController.Instance.SetSpectatorMode(this);
 
-                var cameraRig = FindObjectOfType<OVRCameraRig>();
+                var cameraRig = FindFirstObjectByType<OVRCameraRig>();
                 m_items = new SpectatorItem[m_itemPrefabs.Length];
                 m_itemIndex = Random.Range(0, m_itemPrefabs.Length);
                 m_itemIndexNet.Value = m_itemIndex;

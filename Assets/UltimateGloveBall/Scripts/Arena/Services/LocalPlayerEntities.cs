@@ -11,6 +11,7 @@ using UltimateGloveBall.App;
 using UltimateGloveBall.Arena.Gameplay;
 using UltimateGloveBall.Arena.Player;
 using Unity.Netcode;
+using UnityEngine;
 
 namespace UltimateGloveBall.Arena.Services
 {
@@ -99,7 +100,7 @@ namespace UltimateGloveBall.Arena.Services
 
 
             // We find the interactor to set on the gloves so we know if we hover on UI
-            var interactors = FindObjectsOfType<RayInteractor>();
+            var interactors = FindObjectsByType<RayInteractor>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             foreach (var interactor in interactors)
             {
                 if (interactor.GetComponent<ControllerRef>().Handedness == Handedness.Left)

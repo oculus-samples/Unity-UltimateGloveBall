@@ -68,7 +68,7 @@ namespace UltimateGloveBall.App
                     OVRScreenFade.instance.FadeIn();
                 }
                 yield return GenerateNewGroupPresence("MainMenu");
-                var menuController = Object.FindObjectOfType<MainMenuController>();
+                var menuController = Object.FindFirstObjectByType<MainMenuController>();
                 if (menuController)
                 {
                     menuController.OnReturnToMenu(connectionStatus);

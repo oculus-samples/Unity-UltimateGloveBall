@@ -129,9 +129,9 @@ namespace UltimateGloveBall.Arena.Balls
         private void FixedUpdate()
         {
             // Lock the rigidbody in place when velocity becomes low
-            if (IsOwner && !m_rigidbody.isKinematic && m_rigidbody.velocity.magnitude < 0.1f)
+            if (IsOwner && !m_rigidbody.isKinematic && m_rigidbody.linearVelocity.magnitude < 0.1f)
             {
-                m_rigidbody.velocity = Vector3.zero;
+                m_rigidbody.linearVelocity = Vector3.zero;
                 m_rigidbody.angularVelocity = Vector3.zero;
             }
 
@@ -335,7 +335,7 @@ namespace UltimateGloveBall.Arena.Balls
             ballTransform.position = origin;
             transform.forward = Vector3.down;
             EnablePhysics(true);
-            m_rigidbody.velocity = Vector3.zero;
+            m_rigidbody.linearVelocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
 
             BallShotFromServer?.Invoke();
@@ -382,7 +382,7 @@ namespace UltimateGloveBall.Arena.Balls
             EnablePhysics(true);
             m_rigidbody.angularVelocity = Vector3.zero;
             var ballForce = Mathf.Lerp(m_ballData.MinThrowSpeed, m_ballData.MaxThrowSpeed, chargeUpPct);
-            m_rigidbody.velocity = direction.normalized * ballForce;
+            m_rigidbody.linearVelocity = direction.normalized * ballForce;
             OnBallShot?.Invoke(chargeUpPct);
             if (IsServer)
             {
