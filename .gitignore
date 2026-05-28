@@ -78,9 +78,13 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-.vscode/
+.vscode/*
 Assets/Oculus/VR/Editor/Tools/ovr-platform-util.exe
 Assets/Oculus/VR/Editor/Tools/ovr-platform-util.exe.meta
 Assets/Oculus/VR/Editor/Tools.meta
 
 keystore-passwords.txt
+
+# Meta Quest agentic tooling: keep VS Code/Cursor workspace recommendations
+!.vscode/extensions.json
+!.vscode/mcp.json
